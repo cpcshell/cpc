@@ -1,0 +1,11 @@
+.vscode
+
+# Object file
+*.o
+*.a
+*.obj
+*.EXE
+
+# Log
+*.LOG
+*.log

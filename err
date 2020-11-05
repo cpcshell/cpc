@@ -1,0 +1,482 @@
+/usr/bin/ld: /usr/lib/freebasic/linux-x86_64/libfb.a(hinit.o): attention: réadressage sur « ospeed » dans la section en lecture seule « .text »
+/usr/bin/ld : /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/../../../../lib/Scrt1.o : dans la fonction « _start » :
+(.text+0x24) : référence indéfinie vers « main »
+/usr/bin/ld : Sources/CPinti/core/ManagedAlloc.cpp.o : dans la fonction « ManagedAlloc::ManagedAlloc_(unsigned long, char const*) » :
+ManagedAlloc.cpp:(.text+0x1c) : référence indéfinie vers « m_allocation(unsigned long) »
+/usr/bin/ld : Sources/CPinti/core/ManagedAlloc.cpp.o : dans la fonction « ManagedAlloc::ManagedAlloc_clean() » :
+ManagedAlloc.cpp:(.text+0xe9) : référence indéfinie vers « f_allocation(void*) »
+/usr/bin/ld : Sources/CPinti/core/ManagedAlloc.cpp.o : dans la fonction « ManagedAlloc::ManagedFree(void*) » :
+ManagedAlloc.cpp:(.text+0x191) : référence indéfinie vers « f_allocation(void*) »
+/usr/bin/ld : Sources/CPinti/core/ManagedAlloc.cpp.o : dans la fonction « ManagedAlloc::ManagedMalloc(unsigned long) » :
+ManagedAlloc.cpp:(.text+0x245) : référence indéfinie vers « m_allocation(unsigned long) »
+/usr/bin/ld : Sources/CPinti/core/ManagedAlloc.cpp.o : dans la fonction « ManagedAlloc::ManagedCalloc(unsigned long, unsigned long) » :
+ManagedAlloc.cpp:(.text+0x312) : référence indéfinie vers « c_allocation(unsigned long, unsigned long) »
+/usr/bin/ld : Sources/CPinti/core/ManagedAlloc.cpp.o : dans la fonction « ManagedAlloc::ManagedRealloc(void*, unsigned long) » :
+ManagedAlloc.cpp:(.text+0x3e1) : référence indéfinie vers « r_allocation(void*, unsigned long) »
+/usr/bin/ld : Sources/CPinti/core/core.cpp.o : dans la fonction « cpinti::gestionnaire_tache::begin_SectionCritique() » :
+core.cpp:(.text+0x1ff) : référence indéfinie vers « disable() »
+/usr/bin/ld : Sources/CPinti/core/core.cpp.o : dans la fonction « cpinti::gestionnaire_tache::end_SectionCritique() » :
+core.cpp:(.text+0x249) : référence indéfinie vers « enable() »
+/usr/bin/ld : Sources/CPinti/core/core.cpp.o : dans la fonction « cpinti::gestionnaire_tache::fermer_core() » :
+core.cpp:(.text+0xe16) : référence indéfinie vers « cpc_clean »
+/usr/bin/ld : core.cpp:(.text+0xe1b) : référence indéfinie vers « enable() »
+/usr/bin/ld : Sources/CPinti/io/zip.cpp.o : dans la fonction « cpinti::gestionnaire_fichier::Fichier_decompress(char const*, char const*) » :
+zip.cpp:(.text+0x43) : référence indéfinie vers « zlibVersion »
+/usr/bin/ld : zip.cpp:(.text+0x1b1) : référence indéfinie vers « zlibVersion »
+/usr/bin/ld : zip.cpp:(.text+0x317) : référence indéfinie vers « zlibCompileFlags »
+/usr/bin/ld : Sources/CPinti/network/client.cpp.o : dans la fonction « cpinti::net_client::Demarrer_client(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned int, unsigned int, int) » :
+client.cpp:(.text+0x3b0) : référence indéfinie vers « stb_leakcheck_malloc(unsigned long, char const*, int) »
+/usr/bin/ld : client.cpp:(.text+0x423f) : référence indéfinie vers « stb_leakcheck_calloc(unsigned long, unsigned long, char const*, int) »
+/usr/bin/ld : client.cpp:(.text+0x45ca) : référence indéfinie vers « stb_leakcheck_calloc(unsigned long, unsigned long, char const*, int) »
+/usr/bin/ld : Sources/Cpcdos/Core/bitm_dec.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::BIT_CONVERTER(void*&) » :
+bitm_dec.bas.c:(.text+0xcf) : référence indéfinie vers « fb_GfxImageInfo »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x39e) : référence indéfinie vers « fb_GfxImageCreate »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x40c) : référence indéfinie vers « fb_GfxImageInfo »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x6af) : référence indéfinie vers « fb_GfxImageConvertRow »
+/usr/bin/ld : Sources/Cpcdos/Core/bitm_dec.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::CHARGER_PNG(FBSTRING, long, long, long&, long&) » :
+bitm_dec.bas.c:(.text+0x16f9) : référence indéfinie vers « png_sig_cmp »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x1abb) : référence indéfinie vers « png_create_read_struct »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x1e81) : référence indéfinie vers « png_create_info_struct »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x224e) : référence indéfinie vers « png_init_io »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x2262) : référence indéfinie vers « png_set_sig_bytes »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x227b) : référence indéfinie vers « png_read_info »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x2294) : référence indéfinie vers « png_get_image_width »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x22c3) : référence indéfinie vers « png_get_image_height »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x22f2) : référence indéfinie vers « png_get_bit_depth »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x231f) : référence indéfinie vers « png_get_channels »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x2365) : référence indéfinie vers « png_get_color_type »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x3f2d) : référence indéfinie vers « fb_GfxImageCreate »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x3f6a) : référence indéfinie vers « png_read_update_info »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x3f83) : référence indéfinie vers « png_get_rowbytes »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x44de) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x44ff) : référence indéfinie vers « png_read_row »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x4543) : référence indéfinie vers « fb_GfxImageConvertRow »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x49ca) : référence indéfinie vers « fb_GfxImageConvertRow »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x4cb2) : référence indéfinie vers « fb_GfxPset »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x4dfd) : référence indéfinie vers « png_read_end »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x4e1b) : référence indéfinie vers « png_destroy_read_struct »
+/usr/bin/ld : Sources/Cpcdos/Core/bitm_dec.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::CHARGERJPG(FBSTRING, long&, long&, long&) » :
+bitm_dec.bas.c:(.text+0x10412) : référence indéfinie vers « fb_GfxImageCreate »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x104e3) : référence indéfinie vers « fb_GfxPset »
+/usr/bin/ld : bitm_dec.bas.c:(.text+0x1055b) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/bitm_dec.bas.o : dans la fonction « LIBPNG_ERROR_CALLBACK » :
+bitm_dec.bas.c:(.text+0x1a211) : référence indéfinie vers « fb_GfxScreen »
+/usr/bin/ld : Sources/Cpcdos/Core/console.bas.o : dans la fonction « _CONSOLE_CPCDOS_OSX__::MAIN_Console(_STRUCT_THREAD_CPCDOS_OSX__) » :
+console.bas.c:(.text+0xa92) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : console.bas.c:(.text+0xbd2) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : console.bas.c:(.text+0xbff) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : console.bas.c:(.text+0xc5e) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : console.bas.c:(.text+0x144a) : référence indéfinie vers « cpinti::cpinti_GEST_BUFF_c(unsigned long, long, char*) »
+/usr/bin/ld : console.bas.c:(.text+0x17aa) : référence indéfinie vers « cpinti::cpinti_GEST_BUFF_c(unsigned long, long, char*) »
+/usr/bin/ld : console.bas.c:(.text+0x32b4) : référence indéfinie vers « _SCI_CPCDOS_OSX__::SET_OSID(long) »
+/usr/bin/ld : Sources/Cpcdos/Core/console.bas.o : dans la fonction « _CONSOLE_CPCDOS_OSX__::HAUT_CONSOLE() » :
+console.bas.c:(.text+0x595a) : référence indéfinie vers « fb_GfxLock »
+/usr/bin/ld : console.bas.c:(.text+0x5d17) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nombre_threads() »
+/usr/bin/ld : console.bas.c:(.text+0x5d31) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nombre_processus() »
+/usr/bin/ld : console.bas.c:(.text+0x6d15) : référence indéfinie vers « fb_GfxUnlock »
+/usr/bin/ld : Sources/Cpcdos/Core/console.bas.o : dans la fonction « _CONSOLE_CPCDOS_OSX__::GET_Touche(_STRUCT_THREAD_CPCDOS_OSX__) » :
+console.bas.c:(.text+0x700a) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : console.bas.c:(.text+0x7041) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::CREER_PROCESSUS(_STRUCT_PROCESSUS_CPCDOS_OSX__&) » :
+cpcdos.bas.c:(.text+0x31af) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_creer_processus(unsigned long, unsigned long, unsigned long, unsigned long, char const*) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::FERMER_PROCESSUS(unsigned long) » :
+cpcdos.bas.c:(.text+0x3210) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_arreter_processus(unsigned long, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::CREER_THREAD(_STRUCT_THREAD_CPCDOS_OSX__&) » :
+cpcdos.bas.c:(.text+0x69c3) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_creer_thread(unsigned long, unsigned long, unsigned long, unsigned long, char const*, long, void* (*)(void*), void*, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::FERMER_THREAD(unsigned long, unsigned long, bool) » :
+cpcdos.bas.c:(.text+0x6a47) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_arreter_thread(unsigned long, unsigned long, unsigned long, bool) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::FIN_THREAD(unsigned long, unsigned long) » :
+cpcdos.bas.c:(.text+0x6a8d) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_fin_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::GET_NOMBRETHREADS() » :
+cpcdos.bas.c:(.text+0x6abb) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nombre_threads() »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::GET_NOM_THREAD(unsigned long) » :
+cpcdos.bas.c:(.text+0x6b2f) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nom_thread(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::GET_NOM_PROCESSUS(unsigned long) » :
+cpcdos.bas.c:(.text+0x6bcd) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nom_processus(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::FICHIER_DECOMPRESS(FBSTRING, FBSTRING) » :
+cpcdos.bas.c:(.text+0x70c2) : référence indéfinie vers « zip_open »
+/usr/bin/ld : cpcdos.bas.c:(.text+0x736b) : référence indéfinie vers « zip_get_num_entries »
+/usr/bin/ld : cpcdos.bas.c:(.text+0x7930) : référence indéfinie vers « zip_close »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::FICHIER_COMPRESS(FBSTRING, FBSTRING) » :
+cpcdos.bas.c:(.text+0x7e80) : référence indéfinie vers « cpinti::gestionnaire_fichier::cpinti_compress_file(char const*, char const*) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::LIRE_FICHIER_COMPLET(FBSTRING) » :
+cpcdos.bas.c:(.text+0x82ef) : référence indéfinie vers « cpinti::gestionnaire_fichier::cpinti_Lire_Fichier_complet(char const*, char const*, char*, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::COPIER_FICHIER(FBSTRING, FBSTRING, long, FBSTRING, FBSTRING, FBSTRING) » :
+cpcdos.bas.c:(.text+0xa16a) : référence indéfinie vers « cpinti::gestionnaire_fichier::cpinti_Copier_Fichier(char const*, char const*, long, char const*, char const*, char const*) »
+/usr/bin/ld : Sources/Cpcdos/Core/cpcdos.bas.o : dans la fonction « __NOYAU_CPCDOS_OSX__::DECOMPRESS_FICHIER(ZIP*, long, FBSTRING&) » :
+cpcdos.bas.c:(.text+0x1a0ee) : référence indéfinie vers « zip_get_name »
+/usr/bin/ld : cpcdos.bas.c:(.text+0x1a4ff) : référence indéfinie vers « zip_stat_index »
+/usr/bin/ld : cpcdos.bas.c:(.text+0x1c598) : référence indéfinie vers « zip_fopen_index »
+/usr/bin/ld : cpcdos.bas.c:(.text+0x1c5c8) : référence indéfinie vers « zip_fread »
+/usr/bin/ld : cpcdos.bas.c:(.text+0x1cc31) : référence indéfinie vers « zip_fclose »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « Mon_Thread1 » :
+loader.bas.c:(.text+0x4e) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x77) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « Mon_Thread2 » :
+loader.bas.c:(.text+0x3cd) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x3f6) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « Mon_Thread3 » :
+loader.bas.c:(.text+0x74c) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x775) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « TEST_MT » :
+loader.bas.c:(.text+0xbcb) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0xd5f) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0xf69) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x12b1) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x160b) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o:loader.bas.c:(.text+0x1615) : encore plus de références indéfinies suivent vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « __CPCDOS_INIT_1 » :
+loader.bas.c:(.text+0x26e9) : référence indéfinie vers « MAJ_CPUINFO »
+/usr/bin/ld : loader.bas.c:(.text+0x26f8) : référence indéfinie vers « MAJ_APM_INFO »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « __CPCDOS_INIT_2 » :
+loader.bas.c:(.text+0x3e08) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x414b) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x4275) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x43e3) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x47a8) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o:loader.bas.c:(.text+0x4d6d) : encore plus de références indéfinies suivent vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « __CPCDOS_INIT_2 » :
+loader.bas.c:(.text+0x834c) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nombre_processus() »
+/usr/bin/ld : loader.bas.c:(.text+0x8367) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x8932) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x8b9a) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loader.bas.c:(.text+0x8e02) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « Thread_Updater » :
+loader.bas.c:(.text+0x8e93) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o:loader.bas.c:(.text+0x91cf) : encore plus de références indéfinies suivent vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « Thread_SYSTEM » :
+loader.bas.c:(.text+0x91f8) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/loader.bas.o : dans la fonction « cpc_SCREEN » :
+loader.bas.c:(.text+0x9972) : référence indéfinie vers « fb_GfxScreenPtr »
+/usr/bin/ld : loader.bas.c:(.text+0x999c) : référence indéfinie vers « fb_GfxScreen »
+/usr/bin/ld : loader.bas.c:(.text+0x99bc) : référence indéfinie vers « fb_GfxScreen »
+/usr/bin/ld : Sources/Cpcdos/Core/loadscr.bas.o : dans la fonction « Animation » :
+loadscr.bas.c:(.text+0x2825) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : loadscr.bas.c:(.text+0x289c) : référence indéfinie vers « fb_GfxLock »
+/usr/bin/ld : loadscr.bas.c:(.text+0x2d35) : référence indéfinie vers « fb_GfxUnlock »
+/usr/bin/ld : loadscr.bas.c:(.text+0x2d44) : référence indéfinie vers « fb_GfxFlip »
+/usr/bin/ld : loadscr.bas.c:(.text+0x2d74) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : loadscr.bas.c:(.text+0x2da5) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : loadscr.bas.c:(.text+0x30c8) : référence indéfinie vers « fb_GfxLock »
+/usr/bin/ld : loadscr.bas.c:(.text+0x316c) : référence indéfinie vers « fb_GfxUnlock »
+/usr/bin/ld : loadscr.bas.c:(.text+0x317b) : référence indéfinie vers « fb_GfxFlip »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::CREER_BITMAP_DEPUIS_PTR(FBSTRING&, void*, long, long, long) » :
+memory.bas.c:(.text+0xc2b) : référence indéfinie vers « fb_GfxImageInfo »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::CREER_BITMAP(long, FBSTRING&, long, long, long, long, long, long, long) » :
+memory.bas.c:(.text+0x2a5d) : référence indéfinie vers « fb_GfxImageCreate »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::MODIFIER_BITMAP_DEPUIS_PTR_CP(long, void*) » :
+memory.bas.c:(.text+0xa48c) : référence indéfinie vers « fb_hPutAlpha »
+/usr/bin/ld : memory.bas.c:(.text+0xa4b7) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::MODIFIER_BITMAP_CP(long, long, long, long) » :
+memory.bas.c:(.text+0xb58b) : référence indéfinie vers « fb_hPutAlpha »
+/usr/bin/ld : memory.bas.c:(.text+0xb5b5) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::MODIFIER_BITMAP_TEXTE(long, FBSTRING&, long, long, long, long, long) » :
+memory.bas.c:(.text+0xc2df) : référence indéfinie vers « fb_GfxDrawString »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::MODIFIER_BITMAP_TEXTE(void*, FBSTRING&, long, long, long, long, long) » :
+memory.bas.c:(.text+0xcc6f) : référence indéfinie vers « fb_GfxDrawString »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::SUPPRIMER_BITMAP(long) » :
+memory.bas.c:(.text+0x12e28) : référence indéfinie vers « fb_GfxImageDestroy »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::ECRIRE_ECRAN_ML(long, FBSTRING&, FBARRAY<FBSTRING>&, long, long, long, long, long, long, long, long, long) » :
+memory.bas.c:(.text+0x143a4) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : memory.bas.c:(.text+0x143f6) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::ECRIRE_ECRAN_ML(FBSTRING&, FBARRAY<FBSTRING>&, long, long, long, long, long, long, long, long, long) » :
+memory.bas.c:(.text+0x1517d) : référence indéfinie vers « fb_GfxView »
+/usr/bin/ld : memory.bas.c:(.text+0x15250) : référence indéfinie vers « fb_GfxDrawString »
+/usr/bin/ld : memory.bas.c:(.text+0x15349) : référence indéfinie vers « fb_GfxView »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::ECRIRE_ECRAN(FBSTRING, long, long, long, long, long) » :
+memory.bas.c:(.text+0x16019) : référence indéfinie vers « fb_GfxDrawString »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long) » :
+memory.bas.c:(.text+0x16236) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : memory.bas.c:(.text+0x16267) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long) » :
+memory.bas.c:(.text+0x16302) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : memory.bas.c:(.text+0x1632e) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, long, long, long, long) » :
+memory.bas.c:(.text+0x1638b) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : memory.bas.c:(.text+0x163d1) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, long, long, long) » :
+memory.bas.c:(.text+0x1648e) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : memory.bas.c:(.text+0x164a6) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, bool) » :
+memory.bas.c:(.text+0x16505) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : memory.bas.c:(.text+0x1653d) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, bool) » :
+memory.bas.c:(.text+0x16609) : référence indéfinie vers « fb_hPutBlend »
+/usr/bin/ld : memory.bas.c:(.text+0x16635) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : memory.bas.c:(.text+0x16683) : référence indéfinie vers « fb_hPutTrans »
+/usr/bin/ld : memory.bas.c:(.text+0x166af) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : memory.bas.c:(.text+0x166f9) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : memory.bas.c:(.text+0x16725) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, long, long, long, long, bool) » :
+memory.bas.c:(.text+0x16788) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : memory.bas.c:(.text+0x167d4) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, long, long, long, bool) » :
+memory.bas.c:(.text+0x168e1) : référence indéfinie vers « fb_hPutBlend »
+/usr/bin/ld : memory.bas.c:(.text+0x168f9) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : memory.bas.c:(.text+0x16961) : référence indéfinie vers « fb_hPutTrans »
+/usr/bin/ld : memory.bas.c:(.text+0x16979) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : memory.bas.c:(.text+0x169dd) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : memory.bas.c:(.text+0x169f5) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, bool, long) » :
+memory.bas.c:(.text+0x16a54) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : memory.bas.c:(.text+0x16a90) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, bool, long) » :
+memory.bas.c:(.text+0x16b5f) : référence indéfinie vers « fb_hPutBlend »
+/usr/bin/ld : memory.bas.c:(.text+0x16b8b) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : memory.bas.c:(.text+0x16bd5) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : memory.bas.c:(.text+0x16c01) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, long, long, long, long, bool, long) » :
+memory.bas.c:(.text+0x16c64) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : memory.bas.c:(.text+0x16caf) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, long, long, long, bool, long) » :
+memory.bas.c:(.text+0x16da0) : référence indéfinie vers « fb_hPutBlend »
+/usr/bin/ld : memory.bas.c:(.text+0x16db8) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : memory.bas.c:(.text+0x16e1c) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : memory.bas.c:(.text+0x16e34) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/memory.bas.o : dans la fonction « _MEMOIRE_BITMAP::DESSINER_ECRAN(long, long, long, long, long, long, long, long, bool, bool) » :
+memory.bas.c:(.text+0x16fb9) : référence indéfinie vers « fb_hPutBlend »
+/usr/bin/ld : memory.bas.c:(.text+0x16fd0) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : memory.bas.c:(.text+0x17057) : référence indéfinie vers « fb_hPutTrans »
+/usr/bin/ld : memory.bas.c:(.text+0x1706e) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : memory.bas.c:(.text+0x170f4) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : memory.bas.c:(.text+0x1710b) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Core/system.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::~_SYSTEME_CPCDOS_OSX__() » :
+system.bas.c:(.text+0x699) : référence indéfinie vers « _INTERFACE_APM_::SIGNAL_SYSTEME(unsigned char) »
+/usr/bin/ld : Sources/Cpcdos/Core/system.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::SET_CPINTI_DEBUG(long) » :
+system.bas.c:(.text+0xe04) : référence indéfinie vers « cpinti_dbg::debug_mode(long) »
+/usr/bin/ld : Sources/Cpcdos/Core/system.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::LISTE_RESOLUTION(long) » :
+system.bas.c:(.text+0x2500) : référence indéfinie vers « fb_GfxScreenList »
+/usr/bin/ld : system.bas.c:(.text+0x29dc) : référence indéfinie vers « fb_GfxScreenList »
+/usr/bin/ld : Sources/Cpcdos/Core/system.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::SET_RESOLUTION(long) » :
+system.bas.c:(.text+0x3363) : référence indéfinie vers « fb_GfxScreen »
+/usr/bin/ld : Sources/Cpcdos/Core/system.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::SET_RESOLUTION(long, long, long) » :
+system.bas.c:(.text+0x4330) : référence indéfinie vers « fb_GfxScreenRes »
+/usr/bin/ld : system.bas.c:(.text+0x438a) : référence indéfinie vers « fb_GfxScreenInfo »
+/usr/bin/ld : Sources/Cpcdos/Core/system.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::UPDATE_INFORMATIONECRAN() » :
+system.bas.c:(.text+0x4b56) : référence indéfinie vers « fb_GfxScreenInfo »
+/usr/bin/ld : Sources/Cpcdos/Core/system.bas.o : dans la fonction « _SYSTEME_CPCDOS_OSX__::GET_ECRANPTR() » :
+system.bas.c:(.text+0x4c7b) : référence indéfinie vers « fb_GfxScreenPtr »
+/usr/bin/ld : Sources/Cpcdos/Core/wrapper.bas.o : dans la fonction « cpc_Blitter » :
+wrapper.bas.c:(.text+0x582) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_PICTUREBOX(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : wrapper.bas.c:(.text+0x8fe) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/wrapper.bas.o : dans la fonction « cpc_Creer_Contexte » :
+wrapper.bas.c:(.text+0xe76) : référence indéfinie vers « fb_GfxImageCreate »
+/usr/bin/ld : Sources/Cpcdos/Core/wrapper.bas.o : dans la fonction « cpc_Obtenir_Zone_Contexte » :
+wrapper.bas.c:(.text+0x1d35) : référence indéfinie vers « fb_GfxImageInfo »
+/usr/bin/ld : Sources/Cpcdos/Core/wrapper.bas.o : dans la fonction « cpc_cpinti_sleep_us » :
+wrapper.bas.c:(.text+0x3211) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/wrapper.bas.o : dans la fonction « cpc_cpinti_sleep_ms » :
+wrapper.bas.c:(.text+0x322c) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/wrapper.bas.o : dans la fonction « cpc_cpinti_sleep_sec » :
+wrapper.bas.c:(.text+0x324e) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/wrapper.bas.o : dans la fonction « cpc_doevents » :
+wrapper.bas.c:(.text+0x336e) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Core/wrapper.bas.o : dans la fonction « Exec_WRAPPER » :
+wrapper.bas.c:(.text+0x33e2) : référence indéfinie vers « Wrapper_Cpcdos::cpinti_WRAPPER(long, double, char const*, long, void*, void*, void*) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CCP_Thrd.bas.o : dans la fonction « Shell_THREAD » :
+CCP_Thrd.bas.c:(.text+0x18d) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : CCP_Thrd.bas.c:(.text+0x30c) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CCP_Thrd.bas.o : dans la fonction « Wrapper_THREAD » :
+CCP_Thrd.bas.c:(.text+0x54b) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : CCP_Thrd.bas.c:(.text+0x616) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o : dans la fonction « _SHELL_CPCDOS_OSX__::CPCDOSCP_SHELL(FBSTRING, double, long, long, FBSTRING) » :
+CpcdosCP.bas.c:(.text+0x318f2) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x466d2) : référence indéfinie vers « _SCI_CPCDOS_OSX__::GET_NOMBREOSENCOURS() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x466f6) : référence indéfinie vers « _SCI_CPCDOS_OSX__::SET_NOMBREOSENCOURS(long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x46700) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x4676a) : référence indéfinie vers « _SCI_CPCDOS_OSX__::SET_OSID(long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x4a764) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x4d288) : référence indéfinie vers « _SCI_CPCDOS_OSX__::GET_NOMBREOSENCOURS() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x4d347) : référence indéfinie vers « _SCI_CPCDOS_OSX__::GET_NOMBREOSENCOURS() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x4d688) : référence indéfinie vers « _SCI_CPCDOS_OSX__::GET_NOMBREOSENCOURS() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x4e49f) : référence indéfinie vers « _SCI_CPCDOS_OSX__::INITIALISER_GUI(long, FBSTRING&, double) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x749ff) : référence indéfinie vers « _SCI_CPCDOS_OSX__::FENETRE_FOCUS(long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x74a54) : référence indéfinie vers « _SCI_CPCDOS_OSX__::FENETRE_FOCUS(long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x759eb) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x75a10) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x75a39) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x75c4a) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x76a8e) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x7790a) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_BOUTON(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x78780) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_PICTUREBOX(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x796b9) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_TEXTBLOCK(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x7a52f) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_TEXTBOX(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x7b3a5) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_PROGRESSBAR(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x7c329) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_CHECKBOX(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0xc0683) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0xc0822) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0xc09c6) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0xc0b65) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0xecdc6) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o:CpcdosCP.bas.c:(.text+0xed0ba) : encore plus de références indéfinies suivent vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o : dans la fonction « _SHELL_CPCDOS_OSX__::CPCDOSCP_SHELL(FBSTRING, double, long, long, FBSTRING) » :
+CpcdosCP.bas.c:(.text+0x10581c) : référence indéfinie vers « _SCI_CPCDOS_OSX__::SET_OSID(long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x11fade) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_INIT_OBJ(long, CPCDOS_GUI_INIT__&, unsigned long, bool, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x11fba0) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_INIT_OBJ(long, CPCDOS_GUI_INIT__&, unsigned long, bool, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x1208d6) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_INIT_OBJ(long, CPCDOS_GUI_INIT__&, unsigned long, bool, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x120998) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_INIT_OBJ(long, CPCDOS_GUI_INIT__&, unsigned long, bool, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x1214a7) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_INIT_OBJ(long, CPCDOS_GUI_INIT__&, unsigned long, bool, long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o:CpcdosCP.bas.c:(.text+0x121569) : encore plus de références indéfinies suivent vers « _SCI_CPCDOS_OSX__::CPC__GUI_INIT_OBJ(long, CPCDOS_GUI_INIT__&, unsigned long, bool, long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o : dans la fonction « _SHELL_CPCDOS_OSX__::CPCDOSCP_SHELL(FBSTRING, double, long, long, FBSTRING) » :
+CpcdosCP.bas.c:(.text+0x144fb4) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_SUPPRIMER_OBJ(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x145084) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_SUPPRIMER_OBJ(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x145131) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_SUPPRIMER_OBJ(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x1451f8) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_SUPPRIMER_OBJ(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x1452a5) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_SUPPRIMER_OBJ(long, long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o:CpcdosCP.bas.c:(.text+0x145376) : encore plus de références indéfinies suivent vers « _SCI_CPCDOS_OSX__::CPC__GUI_SUPPRIMER_OBJ(long, long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o : dans la fonction « _SHELL_CPCDOS_OSX__::CPCDOSCP_SHELL(FBSTRING, double, long, long, FBSTRING) » :
+CpcdosCP.bas.c:(.text+0x145b09) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x148043) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CPC__GUI_SUPPRIMER_OBJ(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x14822a) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x1667c0) : référence indéfinie vers « _SCI_CPCDOS_OSX__::GET_OSID() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x166a58) : référence indéfinie vers « _SCI_CPCDOS_OSX__::GET_OSID() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x166ca2) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nombre_processus() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x166cbc) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nombre_threads() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x166ee9) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x167088) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x167daa) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x16b4da) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x16bac1) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o:CpcdosCP.bas.c:(.text+0x16cbd6) : encore plus de références indéfinies suivent vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/CpcdosCP.bas.o : dans la fonction « _SHELL_CPCDOS_OSX__::CPCDOSCP_SHELL(FBSTRING, double, long, long, FBSTRING) » :
+CpcdosCP.bas.c:(.text+0x175c32) : référence indéfinie vers « cpinti::gestionnaire_tache::_exit() »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x175fc9) : référence indéfinie vers « _INTERFACE_APM_::SIGNAL_SYSTEME(unsigned char) »
+/usr/bin/ld : CpcdosCP.bas.c:(.text+0x1762a6) : référence indéfinie vers « cpinti::gestionnaire_tache::_exit() »
+/usr/bin/ld : Sources/Cpcdos/CpcdosCP/Services.bas.o : dans la fonction « _SHELL_CPCDOS_OSX__::RECHERCHE_FONCTION_VAR(FBSTRING, double) » :
+Services.bas.c:(.text+0x351a) : référence indéfinie vers « _INTERFACE_APM_::GET_SIGNATURE() »
+/usr/bin/ld : Services.bas.c:(.text+0x3598) : référence indéfinie vers « _INTERFACE_APM_::GET_VERSION() »
+/usr/bin/ld : Services.bas.c:(.text+0x3729) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_get_nombre_threads() »
+/usr/bin/ld : Sources/Cpcdos/Debug/Debug.bas.o : dans la fonction « DEBUG » :
+Debug.bas.c:(.text+0x3036) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::_SCI_CPCDOS_OSX__() » :
+SCI.bas.c:(.text+0x24d) : référence indéfinie vers « __UTF8_CPCDOS_OSX__::__UTF8_CPCDOS_OSX__() »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::~_SCI_CPCDOS_OSX__() » :
+SCI.bas.c:(.text+0x5c2) : référence indéfinie vers « __UTF8_CPCDOS_OSX__::~__UTF8_CPCDOS_OSX__() »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::CHARGER_FOND(FBSTRING&, long) » :
+SCI.bas.c:(.text+0x2d41) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : SCI.bas.c:(.text+0x2d46) : référence indéfinie vers « fb_GfxLock »
+/usr/bin/ld : SCI.bas.c:(.text+0x3aaa) : référence indéfinie vers « fb_hPutAlpha »
+/usr/bin/ld : SCI.bas.c:(.text+0x3ad4) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : SCI.bas.c:(.text+0x435d) : référence indéfinie vers « fb_hPutAlpha »
+/usr/bin/ld : SCI.bas.c:(.text+0x4389) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : SCI.bas.c:(.text+0x4973) : référence indéfinie vers « fb_GfxPageSet »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « THREAD_Screen_Video » :
+SCI.bas.c:(.text+0x4a86) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : SCI.bas.c:(.text+0x4b5b) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::BLITTER_VIDEO(long, long, long) » :
+SCI.bas.c:(.text+0x4c85) : référence indéfinie vers « fb_GfxFlip »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « THREAD__SCI » :
+SCI.bas.c:(.text+0x4e9c) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : SCI.bas.c:(.text+0x4f17) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : SCI.bas.c:(.text+0x618a) : référence indéfinie vers « _SCI_CPCDOS_OSX__::IUG_UPDATER(long, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0x62c9) : référence indéfinie vers « _SCI_CPCDOS_OSX__::IUG_UPDATER(long, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0x7015) : référence indéfinie vers « _SCI_CPCDOS_OSX__::IUG_UPDATER(long, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xc77a) : référence indéfinie vers « _SCI_CPCDOS_OSX__::INTERACTION_SOURIS_FENETRE(long, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xc7c9) : référence indéfinie vers « fb_GfxLock »
+/usr/bin/ld : SCI.bas.c:(.text+0xc80c) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xc84c) : référence indéfinie vers « _SCI_CPCDOS_OSX__::DEPLACERFENETRE_TO_POS(long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xc85b) : référence indéfinie vers « fb_GfxUnlock »
+/usr/bin/ld : SCI.bas.c:(.text+0xc89f) : référence indéfinie vers « fb_GfxLock »
+/usr/bin/ld : SCI.bas.c:(.text+0xc8ae) : référence indéfinie vers « fb_GfxFlip »
+/usr/bin/ld : SCI.bas.c:(.text+0xc8d5) : référence indéfinie vers « _SCI_CPCDOS_OSX__::ACTUALISERGUI(long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xc900) : référence indéfinie vers « fb_GfxUnlock »
+/usr/bin/ld : SCI.bas.c:(.text+0xc9ad) : référence indéfinie vers « _SCI_CPCDOS_OSX__::INTERACTION_SOURIS_FENETRE(long, long, long) »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « THREAD_RefreshGUI_Elements » :
+SCI.bas.c:(.text+0xca76) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xcbe5) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_TEXTBLOCK(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xccea) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_PROGRESSBAR(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xcdef) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_BOUTON(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xcf40) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_CHECKBOX(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xd045) : référence indéfinie vers « _SCI_CPCDOS_OSX__::CREER_TEXTBOX(CPCDOS_GUI_INIT__&, long, long) »
+/usr/bin/ld : SCI.bas.c:(.text+0xd088) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « THREAD_IUG_PICTUREBOX » :
+SCI.bas.c:(.text+0xd152) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::IMG_RECUPERER_TAILLE_XY(void*&) » :
+SCI.bas.c:(.text+0xd3c2) : référence indéfinie vers « fb_GfxImageInfo »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::IMG_RECUPERER_TAILLE_X(void*&) » :
+SCI.bas.c:(.text+0xd51e) : référence indéfinie vers « fb_GfxImageInfo »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::IMG_RECUPERER_TAILLE_Y(void*&) » :
+SCI.bas.c:(.text+0xd5b8) : référence indéfinie vers « fb_GfxImageInfo »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::IMG_CHANGER_TAILLE_RAPIDE(void*&, void*&, long, long, long, long) » :
+SCI.bas.c:(.text+0xd90a) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : SCI.bas.c:(.text+0xd92a) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : SCI.bas.c:(.text+0xdb3d) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : SCI.bas.c:(.text+0xdb5c) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : SCI.bas.c:(.text+0xdda3) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : SCI.bas.c:(.text+0xddbf) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : SCI.bas.c:(.text+0xdfac) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : SCI.bas.c:(.text+0xdfc9) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/GUI/SCI.bas.o : dans la fonction « _SCI_CPCDOS_OSX__::IMG_CHANGER_TAILLE(void*&, void*&, long, long, bool) » :
+SCI.bas.c:(.text+0xe33f) : référence indéfinie vers « fb_GfxImageCreate »
+/usr/bin/ld : SCI.bas.c:(.text+0xe765) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : SCI.bas.c:(.text+0xe781) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : SCI.bas.c:(.text+0xea0c) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : SCI.bas.c:(.text+0xea28) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : SCI.bas.c:(.text+0xecab) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : SCI.bas.c:(.text+0xecc7) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : SCI.bas.c:(.text+0xeee8) : référence indéfinie vers « fb_hPutPSet »
+/usr/bin/ld : SCI.bas.c:(.text+0xef04) : référence indéfinie vers « fb_GfxPut »
+/usr/bin/ld : Sources/Cpcdos/Network/RES_Thrd.bas.o : dans la fonction « Client_THREAD » :
+RES_Thrd.bas.c:(.text+0x16f) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0x24a) : référence indéfinie vers « cpinti::net::cpinti_client(char const*, unsigned long, unsigned long, long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0x285) : référence indéfinie vers « cpinti::net::cpinti_client(char const*, unsigned long, unsigned long, long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0xcdc) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Network/RES_Thrd.bas.o : dans la fonction « Serveur_THREAD » :
+RES_Thrd.bas.c:(.text+0xe69) : référence indéfinie vers « cpinti::gestionnaire_tache::cpinti_etat_thread(unsigned long, unsigned long, unsigned long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0xf00) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0x11ab) : référence indéfinie vers « cpinti::net::cpinti_serveur(unsigned long, long, unsigned long, long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0x11e6) : référence indéfinie vers « cpinti::net::cpinti_serveur(unsigned long, long, unsigned long, long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0x1221) : référence indéfinie vers « cpinti::net::cpinti_serveur(unsigned long, long, unsigned long, long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0x125c) : référence indéfinie vers « cpinti::net::cpinti_serveur(unsigned long, long, unsigned long, long) »
+/usr/bin/ld : RES_Thrd.bas.c:(.text+0x1297) : référence indéfinie vers « cpinti::net::cpinti_serveur(unsigned long, long, unsigned long, long) »
+/usr/bin/ld : Sources/Cpcdos/Network/RES_Thrd.bas.o:RES_Thrd.bas.c:(.text+0x12d2) : encore plus de références indéfinies suivent vers « cpinti::net::cpinti_serveur(unsigned long, long, unsigned long, long) »
+/usr/bin/ld : Sources/Cpcdos/Network/RES_Thrd.bas.o : dans la fonction « Serveur_THREAD » :
+RES_Thrd.bas.c:(.text+0x1e19) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Network/Reseau.bas.o : dans la fonction « _RESEAU_CPCDOS_OSX__::PING(FBSTRING&, double) » :
+Reseau.bas.c:(.text+0x10e) : référence indéfinie vers « cpinti::net::cpinti_ping_icmp(char const*, char const*, long) »
+/usr/bin/ld : Sources/Cpcdos/Network/Reseau.bas.o : dans la fonction « _RESEAU_CPCDOS_OSX__::CLIENT_TCP(FBSTRING&, unsigned long, unsigned long, FBSTRING&) » :
+Reseau.bas.c:(.text+0x2fdf) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Network/Reseau.bas.o : dans la fonction « _RESEAU_CPCDOS_OSX__::RECEVOIR_CLIENT(unsigned long, unsigned long, FBSTRING&, bool, double) » :
+Reseau.bas.c:(.text+0x49c8) : référence indéfinie vers « cpinti::cpinti_GEST_BUFF_c(unsigned long, long, char*) »
+/usr/bin/ld : Reseau.bas.c:(.text+0x4dce) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Reseau.bas.c:(.text+0x4df1) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Network/Reseau.bas.o : dans la fonction « _RESEAU_CPCDOS_OSX__::ENVOYER_CLIENT(FBSTRING&, unsigned long, unsigned long, FBSTRING&) » :
+Reseau.bas.c:(.text+0x556d) : référence indéfinie vers « cpinti::cpinti_GEST_BUFF_c(unsigned long, long, char*) »
+/usr/bin/ld : Sources/Cpcdos/Network/Reseau.bas.o : dans la fonction « _RESEAU_CPCDOS_OSX__::SERVEUR_TCP(unsigned long, long, unsigned long, long, FBSTRING&) » :
+Reseau.bas.c:(.text+0x6285) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Reseau.bas.c:(.text+0x70e3) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Reseau.bas.c:(.text+0x70f0) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Network/Reseau.bas.o : dans la fonction « _RESEAU_CPCDOS_OSX__::RECEVOIR_SERVEUR(unsigned long, unsigned long, FBSTRING&, bool, double) » :
+Reseau.bas.c:(.text+0x9017) : référence indéfinie vers « cpinti::cpinti_GEST_BUFF_c(unsigned long, long, char*) »
+/usr/bin/ld : Reseau.bas.c:(.text+0x941d) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Reseau.bas.c:(.text+0x9446) : référence indéfinie vers « cpinti::cpinti_doevents(unsigned long) »
+/usr/bin/ld : Sources/Cpcdos/Network/Reseau.bas.o : dans la fonction « _RESEAU_CPCDOS_OSX__::ENVOYER_SERVEUR(FBSTRING&, unsigned long, unsigned long, FBSTRING&) » :
+Reseau.bas.c:(.text+0x9ebe) : référence indéfinie vers « cpinti::cpinti_GEST_BUFF_c(unsigned long, long, char*) »
+/usr/bin/ld : /usr/lib/freebasic/linux-x86_64/libfb.a(io_inkey.o) : dans la fonction « get_input » :
+(.text+0x16c) : référence indéfinie vers « tgetstr »
+/usr/bin/ld : /usr/lib/freebasic/linux-x86_64/libfb.a(hdynload.o) : dans la fonction « fb_hDynLoad » :
+(.text+0x1a) : référence indéfinie vers « dlopen »
+/usr/bin/ld : (.text+0x2f) : référence indéfinie vers « dlsym »
+/usr/bin/ld : (.text+0x5b) : référence indéfinie vers « dlsym »
+/usr/bin/ld : (.text+0x70) : référence indéfinie vers « dlclose »
+/usr/bin/ld : (.text+0x85) : référence indéfinie vers « dlclose »
+/usr/bin/ld : (.text+0x93) : référence indéfinie vers « dlopen »
+/usr/bin/ld : /usr/lib/freebasic/linux-x86_64/libfb.a(hdynload.o) : dans la fonction « fb_hDynLoadAlso » :
+(.text+0xe2) : référence indéfinie vers « dlsym »
+/usr/bin/ld : /usr/lib/freebasic/linux-x86_64/libfb.a(hdynload.o) : dans la fonction « fb_hDynUnload » :
+(.text+0x11e) : référence indéfinie vers « dlclose »
+/usr/bin/ld : /usr/lib/freebasic/linux-x86_64/libfb.a(hinit.o) : dans la fonction « fb_hTermOut » :
+(.text+0x1f9) : référence indéfinie vers « tgoto »
+/usr/bin/ld : (.text+0x213) : référence indéfinie vers « tputs »
+/usr/bin/ld : /usr/lib/freebasic/linux-x86_64/libfb.a(hinit.o) : dans la fonction « hInit » :
+(.text+0xab2) : référence indéfinie vers « tgetent »
+/usr/bin/ld : (.text+0xabd) : référence indéfinie vers « UP »
+/usr/bin/ld : (.text+0xad1) : référence indéfinie vers « BC »
+/usr/bin/ld : (.text+0xadb) : référence indéfinie vers « tgetstr »
+/usr/bin/ld : (.text+0xaf0) : référence indéfinie vers « PC »
+/usr/bin/ld : (.text+0xb43) : référence indéfinie vers « ospeed »
+/usr/bin/ld : (.text+0xb49) : référence indéfinie vers « tgetflag »
+/usr/bin/ld : (.text+0xb80) : référence indéfinie vers « tgetstr »
+/usr/bin/ld: attention: création de DT_TEXTREL dans un PIE
+collect2: erreur: ld a retourné le statut de sortie 1
+make: *** [makefile:31 : cpcldr] Erreur 1
