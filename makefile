@@ -20,14 +20,17 @@ BASFLAGS:=-i Sources/Cpcdos/Include
 
 LD:=ld
 LDFLAGS:= \
-	/usr/lib/freebasic/linux-x86_64/libfb.a \
 	/usr/lib/freebasic/linux-x86_64/libfbgfx.a \
-	-lX11\
+	/usr/lib/freebasic/linux-x86_64/libfb.a \
+	-lX11 \
+	-lXrandr \
+	-lXext \
+	-lXpm \
+	-lncurses \
 	-ldl \
+	-lz \
 	-lpthread \
-	-lstdc++ \
-	-lm \
-	-lc
+	-lstdc++
 
 all: $(TARGET)
 
