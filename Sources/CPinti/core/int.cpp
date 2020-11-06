@@ -170,8 +170,8 @@ namespace cpinti
 			}
 
 			cpc_COLOR(0, 12);
-			printf(" * Current Thread ID : %d\n", cpinti::gestionnaire_tache::get_ThreadEnCours());
-			printf(" * Total Thread(s)   : %d\n", cpinti::gestionnaire_tache::get_NombreThreads());
+			printf(" * Current Thread ID : %lu\n", cpinti::gestionnaire_tache::get_ThreadEnCours());
+			printf(" * Total Thread(s)   : %lu\n", cpinti::gestionnaire_tache::get_NombreThreads());
 			if (Etat_section_critique)
 				printf(" * Critical section  : ENABLED\n");
 			else

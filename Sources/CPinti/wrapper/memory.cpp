@@ -254,7 +254,7 @@ void initialiser_memoire()
     }
 
     if (MEM_DEBUG)
-        fprintf(stdout, "%u configured page(s)  [OK]\n", Page_MAX);
+        fprintf(stdout, "%lu configured page(s)  [OK]\n", Page_MAX);
 
     // Aucune page cree, nous allons en creer une
     if (Page_cree == 0)
@@ -265,7 +265,7 @@ void initialiser_memoire()
         uinteger NumPage = creer_page(Page_Size, 0, 0);
 
         if (MEM_DEBUG)
-            fprintf(stdout, "Factice page number %u as been created !\n\n", NumPage);
+            fprintf(stdout, "Factice page number %lu as been created !\n\n", NumPage);
     }
 
     // Verrouiller la page '0' pour qu'il ne soit pas utilisable
@@ -328,13 +328,13 @@ uinteger creer_page(size_t taille, uinteger PID, size_t preference)
     // Creer une nouvelle page memoire et renvoie son numero
 
     if (MEM_DEBUG)
-        fprintf(stdout, "creer_page(size:%zu, pid:%u, preference:%zu) ... \n\n", taille, PID, preference);
+        fprintf(stdout, "creer_page(size:%zu, pid:%lu, preference:%zu) ... \n\n", taille, PID, preference);
 
     if (Page_cree >= Page_MAX)
     {
         CODE_ERREUR = _ERR_PAGGING_FULL_;
         if (MEM_DEBUG)
-            fprintf(stdout, "\n[ERROR %i] creer_page() : Sorry, you can't create more that %u pages!\n", CODE_ERREUR, Page_MAX);
+            fprintf(stdout, "\n[ERROR %i] creer_page() : Sorry, you can't create more that %lu pages!\n", CODE_ERREUR, Page_MAX);
 
         abort();
     }
@@ -356,16 +356,16 @@ uinteger creer_page(size_t taille, uinteger PID, size_t preference)
             page[b].libre = false;
 
             if (MEM_DEBUG)
-                fprintf(stdout, " --> Index attribution : %u\n", page[b].num_page);
+                fprintf(stdout, " --> Index attribution : %lu\n", page[b].num_page);
             if (MEM_DEBUG)
-                fprintf(stdout, " --> PID attribution   : %u\n", page[b].PID);
+                fprintf(stdout, " --> PID attribution   : %lu\n", page[b].PID);
 
             // Si exceptionnellement une allocation a besoin d'un espace de stockage plus grande
             if (preference > taille - (IndexZero + magic_flag_size))
             {
                 taille = preference + IndexZero + magic_flag_size + 1;
                 if (MEM_DEBUG)
-                    fprintf(stdout, " !! Allocation have need more memory (Probably due to fictive ZERO area + %u bytes or magic end flag of %u). Redefinition page size to %zu bytes\n", IndexZero, magic_flag_size, taille);
+                    fprintf(stdout, " !! Allocation have need more memory (Probably due to fictive ZERO area + %lu bytes or magic end flag of %lu). Redefinition page size to %zu bytes\n", IndexZero, magic_flag_size, taille);
             }
 
             /** Info memoire **/
@@ -419,7 +419,7 @@ uinteger creer_page(size_t taille, uinteger PID, size_t preference)
             {
                 CODE_ERREUR = _ERR_PAGGING_TABLE_FULL_;
                 if (MEM_DEBUG)
-                    fprintf(stdout, "\n[ERROR %i] creer_page() : Sorry, Maximum memory table is '%u'\n", CODE_ERREUR, Alloc_nb_MAX);
+                    fprintf(stdout, "\n[ERROR %i] creer_page() : Sorry, Maximum memory table is '%lu'\n", CODE_ERREUR, Alloc_nb_MAX);
 
                 abort();
             }
@@ -465,7 +465,7 @@ uinteger creer_page(size_t taille, uinteger PID, size_t preference)
 
             if (MEM_DEBUG)
             {
-                fprintf(stdout, " --> First fictive ZERO alloc element table (%u bytes) created in page \n", IndexZero);
+                fprintf(stdout, " --> First fictive ZERO alloc element table (%lu bytes) created in page \n", IndexZero);
                 fprintf(stdout, "      begin [0x%p]\n", page[b].mem_table[0].offset_debut);
                 fprintf(stdout, "      end   [0x%p]\n", page[b].mem_table[0].offset_fin);
             }
@@ -493,7 +493,7 @@ uinteger check_allocation_possibility(size_t size_mem)
         initialiser_memoire();
 
     if (MEM_DEBUG)
-        fprintf(stdout, "check_allocation_possibility() - Asking for allocate %zu bytes (+magic flag of %u bytes)\n", size_mem, magic_flag_size);
+        fprintf(stdout, "check_allocation_possibility() - Asking for allocate %zu bytes (+magic flag of %lu bytes)\n", size_mem, magic_flag_size);
 
     // Parcourir les pages du PID pour savoir la quelle serait la mieux adaptee en premier lieu
     for (uinteger b = 0; b < Page_cree; b++)
@@ -508,7 +508,7 @@ uinteger check_allocation_possibility(size_t size_mem)
         {
 
             if (MEM_DEBUG)
-                fprintf(stdout, "check_allocation_possibility() - Using page %u --> begin offset at [0x%p]\n", b, page[b].offset_debut);
+                fprintf(stdout, "check_allocation_possibility() - Using page %lu --> begin offset at [0x%p]\n", b, page[b].offset_debut);
             // Alors on la prend suzette!
             NumPAGE = b;
 
@@ -527,7 +527,7 @@ uinteger check_allocation_possibility(size_t size_mem)
         NumPAGE = creer_page(Page_Size, 0, size_mem);
         if (NumPAGE > 0)
             if (MEM_DEBUG)
-                fprintf(stdout, "check_allocation_possibility() - New page %u created ! We can continue allocation operation\n", NumPAGE);
+                fprintf(stdout, "check_allocation_possibility() - New page %lu created ! We can continue allocation operation\n", NumPAGE);
     }
 
     // Retourner le numero de page
@@ -540,13 +540,13 @@ void *check_free_fragmentation(uinteger NumPAGE, size_t size_mem)
     //  ceci permet de recycler et combler la fragmentation libre de la memoire RAM d'une PAGE
 
     if (MEM_DEBUG)
-        fprintf(stdout, "check_free_fragmentation() - Checking free fragmentation in %u...\n", NumPAGE);
+        fprintf(stdout, "check_free_fragmentation() - Checking free fragmentation in %lu...\n", NumPAGE);
     for (uinteger i = 0; i < page[NumPAGE].alloc_idx; i++)
     {
         if ((page[NumPAGE].mem_table[i].taille >= size_mem) && (page[NumPAGE].mem_table[i].libre == true))
         {
             if (MEM_DEBUG)
-                fprintf(stdout, "check_free_fragmentation() - FOUND ! Fragmentation can be used at %u\n", i);
+                fprintf(stdout, "check_free_fragmentation() - FOUND ! Fragmentation can be used at %lu\n", i);
 
             /** Renseigner les infos identification **/
             page[NumPAGE].mem_table[i].num_page_parent = NumPAGE;
@@ -593,7 +593,7 @@ void *allocation_in_page(uinteger NumPAGE, size_t size_mem, bool magicflag)
         if (MEM_DEBUG)
             fprintf(stdout, "--------------------- BEGIN MAGIC FLAG ALLOCATION --------------------- \n");
         if (MEM_DEBUG)
-            fprintf(stdout, "allocation_in_page() - Creating new magic flag allocation (%zu bytes) zone for %u alloc index number in PAGE %u\n", size_mem, page[NumPAGE].alloc_idx, NumPAGE);
+            fprintf(stdout, "allocation_in_page() - Creating new magic flag allocation (%zu bytes) zone for %lu alloc index number in PAGE %lu\n", size_mem, page[NumPAGE].alloc_idx, NumPAGE);
         size_mem = magic_flag_size;
     }
     else
@@ -601,7 +601,7 @@ void *allocation_in_page(uinteger NumPAGE, size_t size_mem, bool magicflag)
         if (MEM_DEBUG)
             fprintf(stdout, "--------------------- BEGIN ALLOCATION --------------------- \n");
         if (MEM_DEBUG)
-            fprintf(stdout, "allocation_in_page() - Creating new allocation (%zu bytes) zone for %u alloc index number in PAGE %u\n", size_mem, page[NumPAGE].alloc_idx, NumPAGE);
+            fprintf(stdout, "allocation_in_page() - Creating new allocation (%zu bytes) zone for %lu alloc index number in PAGE %lu\n", size_mem, page[NumPAGE].alloc_idx, NumPAGE);
     }
 
     // Aucune correspondance trouvee, on va creer une nouvelle zone de memoire!
@@ -660,7 +660,7 @@ void *allocation_in_page(uinteger NumPAGE, size_t size_mem, bool magicflag)
     if (magicflag == true)
     {
         if (MEM_DEBUG)
-            fprintf(stdout, "allocation_in_page() - Writing magic flag bytes index %u --> Memory offset from [0x%p] to [0x%p] ...", page[NumPAGE].alloc_idx, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_debut, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_fin);
+            fprintf(stdout, "allocation_in_page() - Writing magic flag bytes index %lu --> Memory offset from [0x%p] to [0x%p] ...", page[NumPAGE].alloc_idx, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_debut, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_fin);
         strcpy((char *)page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_debut, (char *)magic_flag);
         if (MEM_DEBUG)
             fprintf(stdout, "[OK]\n");
@@ -684,7 +684,7 @@ void *allocation_in_page(uinteger NumPAGE, size_t size_mem, bool magicflag)
     {
 
         if (MEM_DEBUG)
-            fprintf(stdout, "allocation_in_page() - For %u --> Memory offset from [0x%p] to [0x%p]\n", page[NumPAGE].alloc_idx, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_debut, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_fin);
+            fprintf(stdout, "allocation_in_page() - For %lu --> Memory offset from [0x%p] to [0x%p]\n", page[NumPAGE].alloc_idx, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_debut, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_fin);
 
         if (magicflag == false)
         {
@@ -725,7 +725,7 @@ void *allocation_in_page(uinteger NumPAGE, size_t size_mem, bool magicflag)
                         nombre_malloc++;
 
                     if (MEM_DEBUG)
-                        fprintf(stdout, "allocation_in_page() - Magic_Flag_addr[%u] subscribed!\n", bf);
+                        fprintf(stdout, "allocation_in_page() - Magic_Flag_addr[%lu] subscribed!\n", bf);
                     break;
                 }
             }
@@ -778,7 +778,7 @@ uinteger get_page__where_is_pointer(void *Pointeur)
                 ((unsigned long)page[NumPAGE].offset_fin > (unsigned long)Pointeur))
             {
                 if (MEM_DEBUG)
-                    fprintf(stdout, "get_page__where_is_pointer() - page[%u].alloc_idx:%u - [0x%p]\n", NumPAGE, page[NumPAGE].alloc_idx, Pointeur);
+                    fprintf(stdout, "get_page__where_is_pointer() - page[%lu].alloc_idx:%lu - [0x%p]\n", NumPAGE, page[NumPAGE].alloc_idx, Pointeur);
                 if (MEM_DEBUG)
                     fprintf(stdout, " TROUVE ! \n");
                 // On a trouve ou se situe le pointeur
@@ -802,7 +802,7 @@ uinteger get_allocation_table__where_is_pointer(uinteger NumPAGE, void *Pointeur
         if (page[NumPAGE].mem_table[index_table].offset_debut == Pointeur)
         {
             if (MEM_DEBUG)
-                fprintf(stdout, "get_allocation() - page[%u].mem_table[%u].offset_debut [0x%p] == [0x%p]\n", NumPAGE, index_table, page[NumPAGE].mem_table[index_table].offset_debut, Pointeur);
+                fprintf(stdout, "get_allocation() - page[%lu].mem_table[%lu].offset_debut [0x%p] == [0x%p]\n", NumPAGE, index_table, page[NumPAGE].mem_table[index_table].offset_debut, Pointeur);
             if (MEM_DEBUG)
                 fprintf(stdout, " YEAH TROUVE ! \n");
             // emplacement de la structure via pointeur trouve dans la page!
@@ -820,20 +820,20 @@ bool freeing_page(uinteger NumPAGE)
     bool results = false;
 
     if (MEM_DEBUG)
-        fprintf(stdout, "freeing_page() : Try to freeing PAGE [0x%p] at index %u\n", page[NumPAGE].offset_debut, NumPAGE);
+        fprintf(stdout, "freeing_page() : Try to freeing PAGE [0x%p] at index %lu\n", page[NumPAGE].offset_debut, NumPAGE);
 
     // Parcourir tous les tables de memoires
     for (uinteger index_table = page[NumPAGE].alloc_idx; index_table >= 1; index_table--)
     {
         if (MEM_DEBUG)
-            fprintf(stdout, "freeing_page() : Try to freeing ALLOCATION [0x%p] at index %u\n", page[NumPAGE].mem_table[index_table].offset_debut, index_table);
+            fprintf(stdout, "freeing_page() : Try to freeing ALLOCATION [0x%p] at index %lu\n", page[NumPAGE].mem_table[index_table].offset_debut, index_table);
         results = freeing_allocation(NumPAGE, index_table);
         if (MEM_DEBUG)
         {
             if (results == true)
             {
                 if (MEM_DEBUG)
-                    fprintf(stdout, "freeing_page() : %zu bytes of memory free [0x%p] at index %u\n", page[NumPAGE].mem_table[index_table].taille, page[NumPAGE].mem_table[index_table].offset_debut, index_table);
+                    fprintf(stdout, "freeing_page() : %zu bytes of memory free [0x%p] at index %lu\n", page[NumPAGE].mem_table[index_table].taille, page[NumPAGE].mem_table[index_table].offset_debut, index_table);
             }
             else
             {
@@ -871,13 +871,13 @@ bool freeing_page(uinteger NumPAGE)
     {
 
         if (MEM_DEBUG)
-            fprintf(stdout, "freeing_page() : [OK] %zu freed memory. PAGE [0x%p] at index %u\n", page[NumPAGE].taille, page[NumPAGE].offset_debut, NumPAGE);
+            fprintf(stdout, "freeing_page() : [OK] %zu freed memory. PAGE [0x%p] at index %lu\n", page[NumPAGE].taille, page[NumPAGE].offset_debut, NumPAGE);
         return true;
     }
     else
     {
         if (MEM_DEBUG)
-            fprintf(stdout, "freeing_page() : [ERROR] Unable to freeing memory. PAGE [0x%p] at index %u\n", page[NumPAGE].offset_debut, NumPAGE);
+            fprintf(stdout, "freeing_page() : [ERROR] Unable to freeing memory. PAGE [0x%p] at index %lu\n", page[NumPAGE].offset_debut, NumPAGE);
         return false;
     }
 }
@@ -891,7 +891,7 @@ bool freeing_allocation(uinteger NumPAGE, uinteger index_table)
     // if(MEM_DEBUG) fprintf(stdout, "P2\n");
 
     if (MEM_DEBUG)
-        fprintf(stdout, "freeing_allocation() : page[%u].mem_table[%u].offset_debut : 0x%p\n", NumPAGE, index_table, page[NumPAGE].mem_table[index_table].offset_debut);
+        fprintf(stdout, "freeing_allocation() : page[%lu].mem_table[%lu].offset_debut : 0x%p\n", NumPAGE, index_table, page[NumPAGE].mem_table[index_table].offset_debut);
     if (m_memset(page[NumPAGE].mem_table[index_table].offset_debut, 0, page[NumPAGE].mem_table[index_table].taille) != NULL)
     {
 
@@ -913,7 +913,7 @@ bool freeing_allocation(uinteger NumPAGE, uinteger index_table)
             EFFACEMENT = true;
 
             if (MEM_DEBUG)
-                fprintf(stdout, "index_mf:%u  Page[%u] Table[%u]\n", index_mf, Magic_Flag_Page[index_mf], Magic_Flag_Table[index_mf]);
+                fprintf(stdout, "index_mf:%lu  Page[%lu] Table[%lu]\n", index_mf, Magic_Flag_Page[index_mf], Magic_Flag_Table[index_mf]);
 
             // Aviter la redondance
             page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].index_magicflag = 0;
@@ -1105,7 +1105,7 @@ void f_allocation(void *pointer)
         NumALLOC = get_allocation_table__where_is_pointer(NumPAGE, pointer);
 
         if (MEM_DEBUG)
-            fprintf(stdout, "f_allocation() in NumALLOC %u\n", NumALLOC);
+            fprintf(stdout, "f_allocation() in NumALLOC %lu\n", NumALLOC);
 
         // Index du pointeur trouve dans la page
         if (NumALLOC > 0)
@@ -1308,7 +1308,7 @@ void print_backtrace()
         if (boucle == 5)
             adresse_stack = __builtin_return_address(5);
 
-        fprintf(stderr, " %i : [0x%08x] ", boucle, adresse_stack);
+        fprintf(stderr, " %lu : [0x%08lx] ", boucle, (uintptr_t)adresse_stack);
 
         if ((void *)adresse_stack == (void *)print_backtrace)
             fprintf(stderr, "print_backtrace() --> This runtime for display this.");
@@ -1343,10 +1343,10 @@ void print_backtrace()
     }
 
     fprintf(stderr, "Previous allocation stack trace :\n");
-    fprintf(stderr, " 0 : [0x%08x]\n", Magic_Flag_stack_0[0]);
-    fprintf(stderr, " 1 : [0x%08x]\n", Magic_Flag_stack_1[1]);
-    fprintf(stderr, " 2 : [0x%08x]\n", Magic_Flag_stack_2[2]);
-    fprintf(stderr, " 3 : [0x%08x]\n", Magic_Flag_stack_3[3]);
+    fprintf(stderr, " 0 : [0x%08lx]\n", (uintptr_t)Magic_Flag_stack_0[0]);
+    fprintf(stderr, " 1 : [0x%08lx]\n", (uintptr_t)Magic_Flag_stack_1[1]);
+    fprintf(stderr, " 2 : [0x%08lx]\n", (uintptr_t)Magic_Flag_stack_2[2]);
+    fprintf(stderr, " 3 : [0x%08lx]\n", (uintptr_t)Magic_Flag_stack_3[3]);
 }
 
 uinteger check_memory_overflow(const char *fichier, const char *fonction, int ligne)
@@ -1361,7 +1361,7 @@ uinteger check_memory_overflow(const char *fichier, const char *fonction, int li
 
                 if (strcmp((char *)Magic_Flag_addr[b], (char *)magic_flag) != 0)
                 {
-                    fprintf(stderr, "[DETECT] check_memory_overflow() : Magic_Flag_addr[%u] = '%s' magic_flag = '%s'\n", b, (char *)Magic_Flag_addr[b], magic_flag);
+                    fprintf(stderr, "[DETECT] check_memory_overflow() : Magic_Flag_addr[%lu] = '%s' magic_flag = '%s'\n", b, (char *)Magic_Flag_addr[b], magic_flag);
 
                     _overflow_file = fichier;
                     _overflow_function = fonction;
@@ -1376,7 +1376,7 @@ uinteger check_memory_overflow(const char *fichier, const char *fonction, int li
 
                     if (MEM_DEBUG)
                     {
-                        fprintf(stderr, "\n[ERROR %i] check_memory_overflow() : Memory overflow detected at [0x%p]\n --> Previous allocation from [0x%p] to [0x%p]\n --> Page:%u Table:%u  -  Function:'%s()' [%s:%i]\n\n",
+                        fprintf(stderr, "\n[ERROR %i] check_memory_overflow() : Memory overflow detected at [0x%p]\n --> Previous allocation from [0x%p] to [0x%p]\n --> Page:%lu Table:%lu  -  Function:'%s()' [%s:%i]\n\n",
                                 CODE_ERREUR,
                                 Magic_Flag_addr[b],
                                 (void *)page[Magic_Flag_Page[b]].mem_table[Magic_Flag_Table[b]].offset_debut,
@@ -1384,8 +1384,7 @@ uinteger check_memory_overflow(const char *fichier, const char *fonction, int li
                                 Magic_Flag_Page[b],
                                 Magic_Flag_Table[b],
                                 fonction, fichier, ligne);
-
-                        dump_memory("Memory dump - Memory overflow area", (const void *)page[Magic_Flag_Page[b]].mem_table[Magic_Flag_Table[b]].offset_fin - 64, 128);
+                        dump_memory("Memory dump - Memory overflow area", (const void *)((uintptr_t)page[Magic_Flag_Page[b]].mem_table[Magic_Flag_Table[b]].offset_fin - 64), 128);
 
                         print_backtrace();
                     }
@@ -1404,9 +1403,9 @@ void break_gdb() {}
 
 void dump_page(uinteger NumPAGE)
 {
-    printf(" **** Dumping page %u ****\n", NumPAGE);
+    printf(" **** Dumping page %lu ****\n", NumPAGE);
     dump_memory("dump_page()", get_begin_offset_page_addr(NumPAGE), (const int)get_page_size(NumPAGE));
-    printf(" **** END of dumping page %u ****\n", NumPAGE);
+    printf(" **** END of dumping page %lu ****\n", NumPAGE);
 }
 
 void dump_memory(const char *descritpion, const void *adresse, const int taille)
