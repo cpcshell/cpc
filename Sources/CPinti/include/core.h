@@ -3,11 +3,13 @@
 #include <stdint.h>
 #include <sys/time.h>
 
-extern "C" void cpc_CX_APM_MODE(unsigned int mode);
+#include "cpinti/types.h"
+
+extern "C" void cpc_CX_APM_MODE(uinteger mode);
 // extern "C" int Est_Interruption();
 extern "C" void *Thread_Updater(void *);
 extern "C" void Interruption_Timer(int signal);
-extern "C" void ptr_Update_TID(unsigned int Adresse, unsigned int TID);
+extern "C" void ptr_Update_TID(uinteger Adresse, uinteger TID);
 
 #define ENTRER_SectionCritique cpinti::gestionnaire_tache::begin_SectionCritique
 #define SORTIR_SectionCritique cpinti::gestionnaire_tache::end_SectionCritique
@@ -52,41 +54,41 @@ namespace cpinti
 		/**** Variables ****/
 
 		static bool EVALUATION_CPU = false;
-		static unsigned int NombreCycles = 0;
-		static unsigned int NombreCyles_MAX = 0;
-		static unsigned int InLiveCompteur = 0;
+		static uinteger NombreCycles = 0;
+		static uinteger NombreCyles_MAX = 0;
+		static uinteger InLiveCompteur = 0;
 		static time_t Temps_Depart = (time_t)NULL;
 		static time_t Temps_Actuel = (time_t)NULL;
 		static double Temps_total = 0;
-		static unsigned int saut_comptage = 0;
+		static uinteger saut_comptage = 0;
 		static int Compteur_Cycle_cpu = 0;
 
-		static unsigned int Nombre_Processus = 0;
+		static uinteger Nombre_Processus = 0;
 
 		static struct itimerval instance_Timer[MAX_TIMERS] = {};
 		static bool SECTION_CRITIQUE = false;
 		static int compteur = 0;
-		static unsigned int Nombre_Tache = 0;
-		static unsigned int Nombre_Threads = 0;
-		static unsigned int Nombre_Timer = 0;
-		static unsigned int Thread_en_cours = 0;
+		static uinteger Nombre_Tache = 0;
+		static uinteger Nombre_Threads = 0;
+		static uinteger Nombre_Timer = 0;
+		static uinteger Thread_en_cours = 0;
 
 		/**** Structure du thread ****/
 		struct liste_threads
 		{
-			int Priorite;			  /** Priorite 0-128 **/
-			int Priorite_count;		  /** Compteur priorite **/
-			unsigned int Etat_Thread; /** ARRETE, PAUSE, EXECUTION **/
+			int Priorite;		  /** Priorite 0-128 **/
+			int Priorite_count;	  /** Compteur priorite **/
+			uinteger Etat_Thread; /** ARRETE, PAUSE, EXECUTION **/
 			bool DM_arret;
-			unsigned int Zombie_Count; /** Nombre boucle avant mort **/
-			unsigned int KID;		   /** ID kernel **/
-			unsigned int OID;		   /** ID OS **/
-			unsigned int UID;		   /** ID USER **/
-			unsigned int PID;		   /** ID Process **/
-			unsigned int TID;		   /** ID Thread (Lui meme) **/
-			unsigned int PTID;		   /** Pthread ID Thread (Lui meme) **/
-			char Nom_Thread[32];	   /** Nom Thread **/
-			unsigned int *_eip;
+			uinteger Zombie_Count; /** Nombre boucle avant mort **/
+			uinteger KID;		   /** ID kernel **/
+			uinteger OID;		   /** ID OS **/
+			uinteger UID;		   /** ID USER **/
+			uinteger PID;		   /** ID Process **/
+			uinteger TID;		   /** ID Thread (Lui meme) **/
+			uinteger PTID;		   /** Pthread ID Thread (Lui meme) **/
+			char Nom_Thread[32];   /** Nom Thread **/
+			uinteger *_eip;
 			char *Stack_Thread;
 			jmp_buf Buffer_Thread; /** eax, ebx, ecx, edx, eip... **/
 			pthread_t thread;
@@ -95,15 +97,15 @@ namespace cpinti
 		/**** Structure du processus ****/
 		struct list_processus
 		{
-			int Priorite;				 /** **/
-			unsigned int Etat_Processus; /** ARRETE, PAUSE, EXECUTION **/
+			int Priorite;			 /** **/
+			uinteger Etat_Processus; /** ARRETE, PAUSE, EXECUTION **/
 
-			unsigned int KID;		 /** ID kernel **/
-			unsigned int OID;		 /** ID OS **/
-			unsigned int UID;		 /** ID USER **/
-			unsigned int PID;		 /** ID Process (Lui meme) **/
-			unsigned int PID_Parent; /** ID Process (qui l'a cree) **/
-			unsigned int TID_Parent; /** ID Thread  (Qui l'a cree **/
+			uinteger KID;		 /** ID kernel **/
+			uinteger OID;		 /** ID OS **/
+			uinteger UID;		 /** ID USER **/
+			uinteger PID;		 /** ID Process (Lui meme) **/
+			uinteger PID_Parent; /** ID Process (qui l'a cree) **/
+			uinteger TID_Parent; /** ID Thread  (Qui l'a cree **/
 
 			char Nom_Processus[32]; /** Nom Processus **/
 
@@ -122,38 +124,38 @@ namespace cpinti
 		/**** Methodes ****/
 		bool initialiser_Multitache();
 		void IamInLive();
-		unsigned int get_cycle_cpu();
-		unsigned int get_cycle_MAX_cpu();
+		uinteger get_cycle_cpu();
+		uinteger get_cycle_MAX_cpu();
 		void eval_cycle_cpu();
 
 		/** Processus **/
-		unsigned int ajouter_Processus(const char *NomProcessus);
-		bool supprimer_Processus(unsigned int pid, bool force);
-		unsigned int get_EtatProcessus(unsigned int TID);
-		void set_EtatProcessus(unsigned int TID, unsigned int Etat);
-		unsigned int get_NombreProcessus();
+		uinteger ajouter_Processus(const char *NomProcessus);
+		bool supprimer_Processus(uinteger pid, bool force);
+		uinteger get_EtatProcessus(uinteger TID);
+		void set_EtatProcessus(uinteger TID, uinteger Etat);
+		uinteger get_NombreProcessus();
 
 		/** Threads **/
-		unsigned int ajouter_Thread(void *(*Fonction)(void *arg), const char *NomThread, unsigned int pid, int Priorite, uintptr_t Arguments);
-		bool free_Thread_zombie(unsigned int tid);
-		unsigned int check_Thread_zombie(bool liberer, bool debug);
-		bool supprimer_Thread(unsigned int tid, bool force);
+		uinteger ajouter_Thread(void *(*Fonction)(void *arg), const char *NomThread, uinteger pid, int Priorite, uintptr_t Arguments);
+		bool free_Thread_zombie(uinteger tid);
+		uinteger check_Thread_zombie(bool liberer, bool debug);
+		bool supprimer_Thread(uinteger tid, bool force);
 
 		void Interruption_Timer(int sig);
 		void switch_context();
 
-		unsigned int SCHEDULER(unsigned int ancien);
-		bool SAUVEGARDER_CONTEXTE(unsigned int Thread_ID);
-		void RESTAURER_CONTEXTE(unsigned int Thread_ID);
+		uinteger SCHEDULER(uinteger ancien);
+		bool SAUVEGARDER_CONTEXTE(uinteger Thread_ID);
+		void RESTAURER_CONTEXTE(uinteger Thread_ID);
 
-		unsigned int get_ID_Thread();
+		uinteger get_ID_Thread();
 
-		unsigned int get_EtatThread(unsigned int TID);
-		void set_EtatThread(unsigned int TID, unsigned int Etat);
+		uinteger get_EtatThread(uinteger TID);
+		void set_EtatThread(uinteger TID, uinteger Etat);
 
-		unsigned int get_TacheEnCours();
-		unsigned int get_ThreadEnCours();
-		unsigned int get_NombreThreads();
+		uinteger get_TacheEnCours();
+		uinteger get_ThreadEnCours();
+		uinteger get_NombreThreads();
 		const char *get_NomThread(unsigned TID);
 
 		void begin_SectionCritique();
@@ -166,7 +168,7 @@ namespace cpinti
 
 		/**** TIMER ****/
 
-		unsigned int get_NombreTimer();
+		uinteger get_NombreTimer();
 
 	} // namespace gestionnaire_tache
 

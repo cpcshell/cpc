@@ -60,12 +60,11 @@ namespace cpinti
 
 #include <sys/socket.h>
 
-#include "buffer.h"
-#include "client.h"
-#include "taches.h"
-#include "stack.h"
+#include "cpinti/buffer.h"
+#include "cpinti/client.h"
 
-#include "leakchk.h"
+#include "stack.h"
+#include "taches.h"
 
 extern "C" void cpc_CCP_Exec_Commande(const char *COMMANDE, int ID);
 
@@ -150,7 +149,7 @@ namespace cpinti
 			return octets_recu;
 		}
 
-		int Demarrer_client(std::string AdresseIP, unsigned int NumPort, unsigned int _NumeroID, int _TYPE_CLIENT)
+		int Demarrer_client(std::string AdresseIP, uinteger NumPort, uinteger _NumeroID, int _TYPE_CLIENT)
 		{
 			// Cette fonction permet de creer un client
 			//  _TYPE_CLIENT 	= TCP:1 / UDP:2
@@ -176,8 +175,8 @@ namespace cpinti
 			struct timeval TempsMAX; // Temps de delai
 			fd_set FD_socket;
 			int FD_MAX;
-			unsigned int NB_Message_SENT = 0;
-			unsigned int NB_Message_RECEIVE = 0;
+			uinteger NB_Message_SENT = 0;
+			uinteger NB_Message_RECEIVE = 0;
 			bool Simple_TrameHTTP = false;
 
 			int CompteurDoevents;
@@ -529,11 +528,11 @@ namespace cpinti
 
 						if ((TailleContenu > 0) || ((Fichier_TEMP_STR != "") && (Fichier_TEMP_FERME == false)))
 						{
-							unsigned int TailleFichier = (unsigned int)TailleContenu;
-							unsigned int Position = 0;
-							unsigned int NombreOctets = 0;
-							unsigned int NombreOctetsParSec = 0;
-							unsigned int TempsPasse = 0;
+							uinteger TailleFichier = (uinteger)TailleContenu;
+							uinteger Position = 0;
+							uinteger NombreOctets = 0;
+							uinteger NombreOctetsParSec = 0;
+							uinteger TempsPasse = 0;
 
 							double valeur = 0;
 							double vitesse = 0;
@@ -614,7 +613,7 @@ namespace cpinti
 								Octets += octets_recu;
 
 								if (Octets >= 1)
-									NombreOctets = (unsigned int)Octets;
+									NombreOctets = (uinteger)Octets;
 
 								if (cpinti_dbg::DEBUG_ENABLED == true)
 								{
@@ -689,7 +688,7 @@ namespace cpinti
 									{
 										TempsFin = clock();
 
-										TempsPasse = (unsigned int)((TempsFin - TempsDebut) / CLOCKS_PER_SEC);
+										TempsPasse = (uinteger)((TempsFin - TempsDebut) / CLOCKS_PER_SEC);
 
 										if (TempsPasse > 1)
 										{

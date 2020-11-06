@@ -28,9 +28,6 @@ namespace cpinti
 #define SO_SNDBUF 0x1001   // Envoyer la taille du buffer
 #define SO_RCVBUF 0x1002   // Recevoir la taille du buffer
 #define SO_SNDTIMEO 0x1005 // Envoyer un timeout */
-#define SO_RCVTIMEO 0x1006 // Recevoir un timeout */
-#define SO_ERROR 0x1007	   // Obtenir l'erreur et nettoyer
-#define SO_TYPE 0x1008	   // Obtenir le type de socket
 
 #define ENOMSG 42 // Pas de message
 
@@ -50,9 +47,11 @@ namespace cpinti
 	namespace net_ping
 	{
 		void Fermer_socket(int SocketReseau);
-		const char *Resolution_DNS(const char *NomAdresse, struct hostent *Sock_hostent);
-		const char *Resolution_DNS(const char *NomAdresse);
-		int ping(const char *AdresseIP, const char *Message, int Timeout);
 
+		const char *Resolution_DNS(const char *NomAdresse, struct hostent *Sock_hostent);
+
+		const char *Resolution_DNS(const char *NomAdresse);
+
+		int ping(const char *AdresseIP, const char *Message, int Timeout);
 	} // namespace net_ping
 } // namespace cpinti

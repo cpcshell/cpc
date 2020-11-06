@@ -69,15 +69,6 @@ namespace cpinti
 			return convertir.str();
 		}
 
-		std::string to_string(unsigned int nombre)
-		{
-			// Cette methode permet de convertir du unsigned int --> string
-
-			std::stringstream convertir;
-			convertir << nombre;
-			return convertir.str();
-		}
-
 		std::string to_string(long nombre)
 		{
 			// Cette methode permet de convertir du long --> string
@@ -96,7 +87,7 @@ namespace cpinti
 			return convertir.str();
 		}
 
-		std::string to_string(long unsigned int nombre)
+		std::string to_string(uinteger nombre)
 		{
 			// Cette methode permet de convertir du double --> string
 
@@ -105,7 +96,7 @@ namespace cpinti
 			return convertir.str();
 		}
 
-		std::string to_string(short unsigned int nombre)
+		std::string to_string(unsigned short nombre)
 		{
 			// Cette methode permet de convertir du double --> string
 
@@ -122,10 +113,10 @@ namespace cpinti
 			return Resultat;
 		}
 
-		unsigned int to_uint(std::string nombre)
+		uinteger to_uint(std::string nombre)
 		{
-			// Cette methode permet de convertir du String --> unsigned int
-			unsigned int Resultat;
+			// Cette methode permet de convertir du String --> uinteger
+			uinteger Resultat;
 			std::istringstream(nombre) >> Resultat;
 			return Resultat;
 		}
@@ -147,16 +138,7 @@ namespace cpinti
 			return sstream.str();
 		}
 
-		std::string to_str_hex(unsigned int nombre)
-		{
-			// Cette methode permet de convertir du string --> hexa
-
-			std::stringstream sstream;
-			sstream << std::hex << nombre;
-			return sstream.str();
-		}
-
-		std::string to_str_hex(long unsigned int nombre)
+		std::string to_str_hex(uinteger nombre)
 		{
 			// Cette methode permet de convertir du string --> hexa
 
@@ -168,7 +150,7 @@ namespace cpinti
 		unsigned short Generer_CheckSum(void *TRAME, size_t Taille)
 		{
 			unsigned short *Buffer = (unsigned short *)TRAME;
-			unsigned int SUM = 0;
+			uinteger SUM = 0;
 			unsigned short Resultat;
 
 			for (SUM = 0; Taille > 1; Taille -= 2)
@@ -185,7 +167,7 @@ namespace cpinti
 
 		long Comparer_Temps(struct timeval *Temps_DEPART, struct timeval *Temps_ACTUEL)
 		{
-			long Resultat = (long int)(((Temps_DEPART->tv_sec * 1000000) + (long unsigned int)Temps_DEPART->tv_usec) - ((Temps_ACTUEL->tv_sec * 1000000) + (long unsigned int)Temps_ACTUEL->tv_usec)) / 100000000;
+			long Resultat = (long int)(((Temps_DEPART->tv_sec * 1000000) + (uinteger)Temps_DEPART->tv_usec) - ((Temps_ACTUEL->tv_sec * 1000000) + (uinteger)Temps_ACTUEL->tv_usec)) / 100000000;
 			return Resultat;
 		}
 	} // namespace Func_Cpinti
@@ -197,7 +179,7 @@ namespace cpinti
 		cpinti_doevents(1);
 	}
 
-	void cpinti_doevents(unsigned int Temps)
+	void cpinti_doevents(unsigned long Temps)
 	{
 
 		// PEACE FOR YOUR CPU
@@ -211,7 +193,7 @@ namespace cpinti
 		}
 	}
 
-	void cpinti_Sleep(unsigned int secondes)
+	void cpinti_Sleep(uinteger secondes)
 	{
 
 		// S'il y a 0 secondes on force au switching
@@ -233,7 +215,7 @@ namespace cpinti
 		select(0, NULL, NULL, NULL, &tv);
 	}
 
-	void cpinti_USleep(unsigned int MicroSecondes)
+	void cpinti_USleep(uinteger MicroSecondes)
 	{
 
 		// S'il y a 0 us on force au switching

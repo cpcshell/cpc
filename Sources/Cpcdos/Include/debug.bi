@@ -1,4 +1,4 @@
-' Contient les declarations, structures et variables concernant 
+' Contient les declarations, structures et variables concernant
 ' le debogage / log de Cpcdos
 
 ' Par Sebastien FAVIER
@@ -15,11 +15,11 @@ Type _DEBUG_Cpcdos_OSx__
 	public:
 	SIGN_AFF 				as integer = 0	 ' Affichage obligatoire
 	SIGN_CPCDOS 			as integer = 1111 ' Debug Cpcdos
-	SIGN_PRINTF				as integer = 1110 ' printf 
+	SIGN_PRINTF				as integer = 1110 ' printf
 	SIGN_CPINTICORE			as integer = 1100 ' Debug CPinti Core
 	SIGN_CONS				as integer = 0011 ' Console CpcdosC+
 	SIGN_TELNET				as integer = 1000 ' Telnet
-	
+
 	' Affichage sortie
 	Ecran 					as integer = 1
 	NonEcran				as integer = 0
@@ -34,9 +34,9 @@ Type _DEBUG_Cpcdos_OSx__
 	Couleur_ERREUR			as integer = 12
 	Couleur_OK				as integer = 3
 	Couleur_Action			as integer = 6
-	
+
 	Couleur_FOND_caractere as integer = 0
-	
+
 
 	'Alerte niveau
 	Alerte_Surbrille		as integer = 0
@@ -46,19 +46,19 @@ Type _DEBUG_Cpcdos_OSx__
 	Alerte_Erreur			as integer = 4
 	Alerte_OK				as integer = 5
 	Alerte_Action			as integer = 6
-	
+
 	' Retour a la ligne
 	CRLF					as integer = 0
 	NoCRLF					as integer = 1
 	CR						as integer = 2
-	
+
 	' Affichage de l'heure + date
 	AvecDate				as integer = 1
 	SansDate				as integer = 0
 	LeRetour				as string
-	
+
 	UpdateRTC				as boolean
-	
+
 	Declare Constructor()
 	Declare Destructor()
 End Type
@@ -69,9 +69,7 @@ End Type
 
 ' Fonction d'affichage/ecriture/envoie reseau des logs
 DECLARE SUB DEBUG(Evenement as string, Ecran as integer, _
-			DansLeLOG as integer, Prio as integer, _ 
+			DansLeLOG as integer, Prio as integer, _
 			Retour as integer, NoCRLF as integer, _
 			AfficherDate as integer, P1 as integer, _
 			Fichier as string)
-
-

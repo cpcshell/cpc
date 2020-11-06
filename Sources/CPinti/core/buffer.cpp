@@ -33,8 +33,8 @@
 
 #include <iostream>
 
-#include "buffer.h"
 #include "cpinti.h"
+#include "cpinti/buffer.h"
 #include "stack.h"
 
 #include "debug.h"
@@ -43,13 +43,13 @@
 
 namespace cpinti
 {
-	std::string cpinti_GEST_BUFF(unsigned int _ID, int _CHEMIN, std::string _DONNEES)
+	std::string cpinti_GEST_BUFF(uinteger _ID, int _CHEMIN, std::string _DONNEES)
 	{
 		if (_CHEMIN < 6)
 		{
 			// cpinti_dbg::CPINTI_DEBUG("_ID:" + _ID + ".", "", "", "", Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
 
-			for (long unsigned int index_tab = 0; index_tab < cpinti::Stack_CPintiCore__KERNEL.size(); index_tab++)
+			for (uinteger index_tab = 0; index_tab < cpinti::Stack_CPintiCore__KERNEL.size(); index_tab++)
 				if (cpinti::Stack_CPintiCore__KERNEL.at(index_tab)->tag_1 == _ID)
 				{
 
@@ -176,7 +176,7 @@ namespace cpinti
 
 				bool Suppression_ok = false;
 				// Recuperer l'ID DEPUIS le vector et non depuis Stack__PORT_ATTRIB
-				for (long unsigned int index_tab = 0; index_tab < cpinti::Stack_CPintiCore__KERNEL.size(); index_tab++)
+				for (uinteger index_tab = 0; index_tab < cpinti::Stack_CPintiCore__KERNEL.size(); index_tab++)
 					if (cpinti::Stack_CPintiCore__KERNEL.at(index_tab)->tag_1 == _ID)
 					{
 						// Debug
@@ -193,7 +193,7 @@ namespace cpinti
 						if (cpinti::Stack_CPintiCore__KERNEL.empty() == false)
 						{
 							// Si il reste 1 element alors on clean TOUT
-							if (cpinti::Stack_CPintiCore__KERNEL.size() < (unsigned int)2)
+							if (cpinti::Stack_CPintiCore__KERNEL.size() < (uinteger)2)
 								cpinti::Stack_CPintiCore__KERNEL.clear();
 
 							else
@@ -219,7 +219,7 @@ namespace cpinti
 						if (cpinti::Stack_CPintiCore__SERVEUR.empty() == false)
 						{
 							// Si il reste 1 element alors on clean TOUT
-							if (cpinti::Stack_CPintiCore__SERVEUR.size() < (unsigned int)2)
+							if (cpinti::Stack_CPintiCore__SERVEUR.size() < (uinteger)2)
 								cpinti::Stack_CPintiCore__SERVEUR.clear();
 
 							else
@@ -242,6 +242,7 @@ namespace cpinti
 						Suppression_ok = true;
 						break;
 					}
+
 				if (Suppression_ok == false)
 					cpinti_dbg::CPINTI_DEBUG("Impossible de trouver l'instance",
 											 "Unable to find instance",
@@ -251,7 +252,7 @@ namespace cpinti
 		return _DONNEES;
 	}
 
-	int cpinti_GEST_BUFF_c(unsigned int _ID, int _CHEMIN, const char *_DONNEES)
+	int cpinti_GEST_BUFF_c(uinteger _ID, int _CHEMIN, const char *_DONNEES)
 	{
 		// Cette methode permet d'utiliser la fonction CPINTI__GEST_BUFF() depuis le freebasic
 		// Renvoie 1 si tout est ok et 0 si le serveur est pas dispo
@@ -263,7 +264,7 @@ namespace cpinti
 			return 1;
 	}
 
-	int cpinti_GEST_BUFF_c(unsigned int _ID, int _CHEMIN, char *_DONNEES)
+	int cpinti_GEST_BUFF_c(uinteger _ID, int _CHEMIN, char *_DONNEES)
 	{
 		// Cette methode permet d'utiliser la fonction CPINTI__GEST_BUFF() depuis le freebasic
 		// Renvoie 1 si tout est ok et 0 si le serveur est pas dispo
@@ -274,7 +275,7 @@ namespace cpinti
 		Retour = cpinti_GEST_BUFF(_ID, _CHEMIN, std::string(_DONNEES));
 
 		// Les remplir dans le pointeur du noyau cpcdos
-		for (unsigned int boucle = 0; boucle < (unsigned int)Retour.length(); boucle++)
+		for (uinteger boucle = 0; boucle < (uinteger)Retour.length(); boucle++)
 			_DONNEES[boucle] = Retour.at(boucle);
 
 		// Si le serveur s'est deconnecte ou n'est pas connecte

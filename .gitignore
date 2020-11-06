@@ -3,6 +3,7 @@
 # Object file
 *.o
 *.a
+*.d
 *.obj
 *.EXE
 

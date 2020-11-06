@@ -42,35 +42,35 @@ namespace NP_cpinti_socket
 		struct TABL_Socket
 		{
 			std::string ipv4_STR = "0.0.0.0";
-			unsigned int port = 0;
+			uinteger port = 0;
 			int socket = 0;
 		};
 
 		time_t statistique_temps_depart;
 
 		// Priorites des threads reseaux (par defaut)
-		unsigned int THREAD_PRIORITE_YIELD = 0;
-		unsigned int THREAD_PRIORITE_DESCRIPTEUR = 10;
-		unsigned int THREAD_PRIORITE_SLEEP = 100;
+		uinteger THREAD_PRIORITE_YIELD = 0;
+		uinteger THREAD_PRIORITE_DESCRIPTEUR = 10;
+		uinteger THREAD_PRIORITE_SLEEP = 100;
 
 		// Activite en general
-		unsigned int STATISTIQUES_Activite = 0;
+		uinteger STATISTIQUES_Activite = 0;
 
 		// Temps necessaire pour evaluer la NON activite d'un client
-		unsigned int STATISTIQUES_Client_temps = 2;
-		unsigned int STATISTIQUES_Client_pass = 2;
+		uinteger STATISTIQUES_Client_temps = 2;
+		uinteger STATISTIQUES_Client_pass = 2;
 
 		// Nombre de clients actif durant les x secondes
-		unsigned int STATISTIQUES_Clients = 0;
-		unsigned int STATISTIQUES_Clients_Final = 0;
+		uinteger STATISTIQUES_Clients = 0;
+		uinteger STATISTIQUES_Clients_Final = 0;
 
 		// Nombre de paquets envoyes par secondes
-		unsigned int STATISTIQUES_Envoie = 0;
-		unsigned int STATISTIQUES_Envoie_Final = 0;
+		uinteger STATISTIQUES_Envoie = 0;
+		uinteger STATISTIQUES_Envoie_Final = 0;
 
 		// Nombre de paquets receptionnes par secondes
-		unsigned int STATISTIQUES_Reception = 0;
-		unsigned int STATISTIQUES_Reception_Final = 0;
+		uinteger STATISTIQUES_Reception = 0;
+		uinteger STATISTIQUES_Reception_Final = 0;
 
 		std::vector<cpinti_socket::TABL_Socket> TAB_InfoClient;
 
@@ -83,7 +83,7 @@ namespace NP_cpinti_socket
 
 		int NombreClient_Connectes; // Nombre de clients actuellement connectes
 		int NombreClients_MAX;		// Maximum de clients
-		unsigned int PORT;			// Numero de port
+		uinteger PORT;				// Numero de port
 
 		int Ferm_differe_SOCK[_DEFFERE_FERME]; // Tableau de socket contenant les socket A fermer
 		int Ferm_differe_COMP[_DEFFERE_FERME]; //  et son compteur de cycle
@@ -128,18 +128,18 @@ namespace NP_cpinti_socket
 
 		void THREAD_EVALUATION();
 
-		void set_THREAD_PRIORITE_YIELD(unsigned int valeur);
-		void set_THREAD_PRIORITE_DESCRIPTEUR(unsigned int valeur);
-		void set_THREAD_PRIORITE_SLEEP(unsigned int valeur);
+		void set_THREAD_PRIORITE_YIELD(uinteger valeur);
+		void set_THREAD_PRIORITE_DESCRIPTEUR(uinteger valeur);
+		void set_THREAD_PRIORITE_SLEEP(uinteger valeur);
 
-		unsigned int get_THREAD_PRIORITE_YIELD();
-		unsigned int get_THREAD_PRIORITE_DESCRIPTEUR();
-		unsigned int get_HREAD_PRIORITE_SLEEP();
+		uinteger get_THREAD_PRIORITE_YIELD();
+		uinteger get_THREAD_PRIORITE_DESCRIPTEUR();
+		uinteger get_HREAD_PRIORITE_SLEEP();
 
-		unsigned int get_STATISTIQUES_Activite();  // Activite en general
-		unsigned int get_STATISTIQUES_Clients();   // Nombre de clients actif durant les 2 secondes
-		unsigned int get_STATISTIQUES_Envoie();	   // Nombre de paquets envoyes par secondes
-		unsigned int get_STATISTIQUES_Reception(); // Nombre de paquets receptionnes par secondes
+		uinteger get_STATISTIQUES_Activite();  // Activite en general
+		uinteger get_STATISTIQUES_Clients();   // Nombre de clients actif durant les 2 secondes
+		uinteger get_STATISTIQUES_Envoie();	   // Nombre de paquets envoyes par secondes
+		uinteger get_STATISTIQUES_Reception(); // Nombre de paquets receptionnes par secondes
 
 		std::string get_Erreur(); // Obtenir le message d'erreur
 
@@ -152,7 +152,7 @@ namespace NP_cpinti_socket
 
 		int get_Nombre_client_MAX(); // Obtenir le nombre de client MAX
 		int get_Nombre_client();	 // Obtenir le nombre de client actuel
-		unsigned int get_Port();	 // Obtenir le numero de port
+		uinteger get_Port();		 // Obtenir le numero de port
 
 		std::string get_BUFFER(); // Obtenir le contenu du buffer
 
@@ -161,9 +161,9 @@ namespace NP_cpinti_socket
 
 		int get_NoSocket(); // Obtenir le numero de socket courant
 
-		std::string get_IP_Client();		 // Obtenir l'adresse IP du client courant
-		std::string get_PORT_Client();		 // Obtenir le port du client courant
-		unsigned int get_PORT_Client_uint(); // Obtenir le port du client courant (en uint)
+		std::string get_IP_Client();	 // Obtenir l'adresse IP du client courant
+		std::string get_PORT_Client();	 // Obtenir le port du client courant
+		uinteger get_PORT_Client_uint(); // Obtenir le port du client courant (en uint)
 
 		int Verifier_descripteur(int Descripteur);	   // Savoir s'il le descripteur est bon
 		bool Verifier_correspondance(int Descripteur); // Savoir si le descripteur correspond
@@ -175,7 +175,7 @@ namespace NP_cpinti_socket
 
 		void set_Nombre_client_MAX(int NbClient); // Definir le nombre MAX de clients
 
-		void set_Port(unsigned int NumPort); // Definir le numero de port
+		void set_Port(uinteger NumPort); // Definir le numero de port
 
 		// Premiere demarche, initialiser le socket
 		bool Initialiser_socket(int Type_Socket);
@@ -196,7 +196,7 @@ namespace NP_cpinti_socket
 		bool Ecouter_socket_FD();
 
 		// Envoyer une trame reseau
-		bool Envoyer_TRAME(unsigned int Taille, const void *PAQUET);
+		bool Envoyer_TRAME(uinteger Taille, const void *PAQUET);
 
 		// Envoyer des donnees au socket courant
 		int Envoyer_Donnees(std::string DONNEES_STR);
@@ -270,7 +270,8 @@ namespace NP_cpinti_socket
 		static std::string Erreur_STR; // Message erreur (perror())
 
 	public:
-		static std::string get_Erreur();						 // Obtenir le message d'erreur
+		static std::string get_Erreur(); // Obtenir le message d'erreur
+
 		static bool TestAdresseIPv4(const std::string &Adresse); // Tester la forme IPv4 si respectee ou non
 	};
 } // namespace NP_cpinti_socket

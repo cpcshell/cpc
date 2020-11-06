@@ -29,9 +29,6 @@ namespace cpinti
 #define SO_SNDBUF 0x1001   // Envoyer la taille du buffer
 #define SO_RCVBUF 0x1002   // Recevoir la taille du buffer
 #define SO_SNDTIMEO 0x1005 // Envoyer un timeout */
-#define SO_RCVTIMEO 0x1006 // Recevoir un timeout */
-#define SO_ERROR 0x1007	   // Obtenir l'erreur et nettoyer
-#define SO_TYPE 0x1008	   // Obtenir le type de socket
 
 #define TCP_NODELAY 0x01
 
@@ -59,7 +56,7 @@ namespace cpinti
 	namespace net_server
 	{
 		void Fermer_socket(int SocketReseau);
-		int Demarrer_serveur(unsigned int NumPort, int NombreClients, unsigned int _NumeroID, int _TYPE_SERVEUR);
+		int Demarrer_serveur(uinteger NumPort, int NombreClients, uinteger _NumeroID, int _TYPE_SERVEUR);
 
 	} // namespace net_server
 } // namespace cpinti

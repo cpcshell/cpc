@@ -27,7 +27,6 @@
 		14-02-2017	: Revue des includes + Finitions
 		13-02-2017	: Ajout du controle d'envoie (#CLT# et #TOUT#) pour choisir en envoie general ou cible
 		07-02-2017	: Ajout des fonctionnalites de controle de buffer
-	
 */
 
 #include <ctime> // RAND()
@@ -50,7 +49,7 @@
 #include "cpinti.h"
 #include "func_cpi.h"
 
-#include "buffer.h"
+#include "cpinti/buffer.h"
 #include "debug.h"
 #include "serveur.h"
 #include "stack.h"
@@ -70,7 +69,7 @@ namespace cpinti
 			close(SocketReseau);
 		}
 
-		int Demarrer_serveur(unsigned int NumPort, int NombreClients, unsigned int _NumeroID, int _TYPE_SERVEUR)
+		int Demarrer_serveur(uinteger NumPort, int NombreClients, uinteger _NumeroID, int _TYPE_SERVEUR)
 		{
 			// Cette fonction permet de creer un serveur TCP
 			//  _TYPE_SERVEUR 	= TCP:1 / UDP:2 / CCP:3 / TELNET:4 / ECHO tcp:5 / ECHO udp:6

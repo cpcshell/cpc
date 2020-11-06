@@ -1,6 +1,6 @@
 #include <pthread.h>
 
-#include "dos.h"
+#include "compat/dos.h"
 
 static pthread_mutex_t mutex_stock = PTHREAD_MUTEX_INITIALIZER;
 

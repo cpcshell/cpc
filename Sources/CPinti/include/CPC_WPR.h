@@ -31,6 +31,11 @@
 
 */
 
+#ifndef CPCDOS_CPC_WPR
+#define CPCDOS_CPC_WPR
+
+#include "cpinti.h"
+
 extern "C" int cpc_Creer_Contexte(int TAILLEX, int TAILLEYn);
 extern "C" void *cpc_Obtenir_Zone_Contexte(int ID);
 extern "C" int cpc_Blitter(int ID);
@@ -42,12 +47,12 @@ extern "C" char *cpc_Exec_en_cours(int ARG);
 extern "C" void cpc_cpinti_debug_plus_cpinticore(const char *texte, int Ecran, int Log, int Alerte, int RetourPLGN, int CR_LF, int DisplDate, int Signature, const char *File);
 extern "C" void cpc_cpinti_debug_cpinticore(const char *texte, int alerte);
 extern "C" int cpc_cpinti_Fichier_Existe(const char *chemin);
-extern "C" unsigned int cpc_cpinti_Taille_Fichier(const char *chemin);
+extern "C" uinteger cpc_cpinti_Taille_Fichier(const char *chemin);
 extern "C" int cpc_cpinti_Lire_Fichier_complet(const char *Chemin, const char *Mode, char *retour_str);
 
-extern "C" void cpc_cpinti_sleep_us(unsigned int temp_us);
-extern "C" void cpc_cpinti_sleep_ms(unsigned int temp_ms);
-extern "C" void cpc_cpinti_sleep_sec(unsigned int temp_sec);
+extern "C" void cpc_cpinti_sleep_us(uinteger temp_us);
+extern "C" void cpc_cpinti_sleep_ms(uinteger temp_ms);
+extern "C" void cpc_cpinti_sleep_sec(uinteger temp_sec);
 
 extern "C" double cpc_cpinti_Obtenir_Temps_ms(double Temps_av);
 
@@ -80,19 +85,19 @@ public:
 						int DisplDate, int Parameters,
 						const char *File); // Debug normal
 
-	int File_exist(char *path);				  // Renvoie 1 OK 0 FAUX
-	int File_exist(const char *path);		  // Renvoie 1 OK 0 FAUX
-	unsigned int File_size(char *path);		  // Obtenir la taille d'un fichier
-	unsigned int File_size(const char *path); // Obtenir la taille d'un fichier
+	int File_exist(char *path);			  // Renvoie 1 OK 0 FAUX
+	int File_exist(const char *path);	  // Renvoie 1 OK 0 FAUX
+	uinteger File_size(char *path);		  // Obtenir la taille d'un fichier
+	uinteger File_size(const char *path); // Obtenir la taille d'un fichier
 	int File_read_all(const char *path, const char *mode,
 					  char *data); // Lire TOUT le contenu d'un fichier
 	int File_read_all(char *path, char *mode,
 					  char *data);
 
-	void usleep(unsigned int microseconds); // Pause en micro secondes
-	void sleep(unsigned int milliseconds);	// Pause en milli secondes
-	void ssleep(unsigned int seconds);		// Pause en secondes
-	double get_time_ms(double Temps_av);	// Obtenir le temps actuel en millisecondes
+	void usleep(uinteger microseconds);	 // Pause en micro secondes
+	void sleep(uinteger milliseconds);	 // Pause en milli secondes
+	void ssleep(uinteger seconds);		 // Pause en secondes
+	double get_time_ms(double Temps_av); // Obtenir le temps actuel en millisecondes
 };
 
 //////////////////// For GZE 3D Graphic engine ////////////////////
@@ -166,11 +171,11 @@ int CpcdosOSx_CPintiCore::File_exist(const char *path)
 	return cpc_cpinti_Fichier_Existe(path);
 }
 // ---
-unsigned int CpcdosOSx_CPintiCore::File_size(char *path)
+uinteger CpcdosOSx_CPintiCore::File_size(char *path)
 {
 	return cpc_cpinti_Taille_Fichier(path);
 }
-unsigned int CpcdosOSx_CPintiCore::File_size(const char *path)
+uinteger CpcdosOSx_CPintiCore::File_size(const char *path)
 {
 	return cpc_cpinti_Taille_Fichier(path);
 }
@@ -186,15 +191,15 @@ int CpcdosOSx_CPintiCore::File_read_all(char *path, char *mode, char *data)
 // ---
 
 // Time
-void CpcdosOSx_CPintiCore::usleep(unsigned int microseconds)
+void CpcdosOSx_CPintiCore::usleep(uinteger microseconds)
 {
 	cpc_cpinti_sleep_us(microseconds);
 }
-void CpcdosOSx_CPintiCore::sleep(unsigned int milliseconds)
+void CpcdosOSx_CPintiCore::sleep(uinteger milliseconds)
 {
 	cpc_cpinti_sleep_ms(milliseconds);
 }
-void CpcdosOSx_CPintiCore::ssleep(unsigned int seconds)
+void CpcdosOSx_CPintiCore::ssleep(uinteger seconds)
 {
 	cpc_cpinti_sleep_sec(seconds);
 }
@@ -205,3 +210,4 @@ double CpcdosOSx_CPintiCore::get_time_ms(double Temps_av)
 }
 
 #endif
+#endif /* CPCDOS_CPC_WPR */

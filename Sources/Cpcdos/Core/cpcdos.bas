@@ -714,7 +714,7 @@ End Function
 Function __Noyau_Cpcdos_OSx__.Taille_Fichier(ByVal Source as String) as uinteger
 	' Cette fonction permet de recuperer la taille d'un fichier
 	'	Source	: Source d'acces au fichier
-	' Retourne la taille du fichier en unsigned int
+	' Retourne la taille du fichier en uinteger
 
 	' Obtenir le path courant si le path n'est pas abolue mais relative
 	if NOT instr(Source, ":") > 0 Then Source = CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_ExeEnCours(2) & "\" & Source

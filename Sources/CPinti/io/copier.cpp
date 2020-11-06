@@ -94,11 +94,11 @@ namespace cpinti
 				if (Instance_Fichier_DESTINATION != NULL)
 				{
 
-					unsigned int TailleFichier = Taille_Fichier(Source);
-					unsigned int Position = 0;
-					unsigned int NombreOctets = 0;
-					unsigned int NombreOctetsParSec = 0;
-					unsigned int TempsPasse = 0;
+					uinteger TailleFichier = Taille_Fichier(Source);
+					uinteger Position = 0;
+					uinteger NombreOctets = 0;
+					uinteger NombreOctetsParSec = 0;
+					uinteger TempsPasse = 0;
 
 					double valeur = 0;
 					double vitesse = 0;
@@ -174,7 +174,7 @@ namespace cpinti
 						{
 							TempsFin = clock();
 
-							TempsPasse = (unsigned int)((TempsFin - TempsDebut) / CLOCKS_PER_SEC);
+							TempsPasse = (uinteger)((TempsFin - TempsDebut) / CLOCKS_PER_SEC);
 
 							if (TempsPasse > 1)
 							{

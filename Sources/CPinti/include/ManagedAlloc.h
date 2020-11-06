@@ -1,10 +1,12 @@
 #ifndef CPCDOS_MANAGEDALLOC
 #define CPCDOS_MANAGEDALLOC
 
+#include "cpinti/types.h"
+
 class ManagedAlloc
 {
 private:
-	unsigned int nb_alloc_do = 0;
+	uinteger nb_alloc_do = 0;
 	int managed_alloc_max = 1024;
 	struct alloc_array
 	{
@@ -14,13 +16,13 @@ private:
 
 	const char *name_;
 
-	unsigned int NombreMalloc;
+	uinteger NombreMalloc;
 
-	unsigned int NombreCalloc;
+	uinteger NombreCalloc;
 
-	unsigned int NombreFree;
+	uinteger NombreFree;
 
-	unsigned int NombreRealloc;
+	uinteger NombreRealloc;
 
 public:
 	void ManagedAlloc_(size_t alloc_max, const char *filename);

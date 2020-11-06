@@ -1,5 +1,8 @@
 /* Entete stack.cpp */
 
+#ifndef CPCDOS_STACK
+#define CPCDOS_STACK
+
 #include <cstring>
 #include <iostream>
 #include <memory>
@@ -11,6 +14,9 @@
 #define _STACK_EXTRACT_POUR_SERVEUR 4 /* STACK Serveur --> Serveur */
 #define _STACK_INITIALISER 9		  /* Creer une nouvelle instance d'un stack */
 #define _STACK_SUPPRIMER 10			  /* Supprimer l'instance du stack */
+
+#include "cpinti.h"
+#include "cpinti/types.h"
 
 namespace cpinti
 {
@@ -27,15 +33,15 @@ namespace cpinti
 
 	public:
 		// Servant aux modules
-		unsigned int tag_1;
-		unsigned int tag_2;
-		unsigned int tag_3;
+		uinteger tag_1;
+		uinteger tag_2;
+		uinteger tag_3;
 
 		// Obtenir la derniere erreur
 		std::string get_Erreur();
 
 		// Initialiser une instance
-		bool stack__init(unsigned int Taille);
+		bool stack__init(uinteger Taille);
 
 		/*---------------------------------------------*/
 
@@ -69,13 +75,13 @@ namespace cpinti
 		/*---------------------------------------------*/
 
 		// Obtenir la taille occupee par la stack (nombre d'elements)
-		unsigned int get_Taille_occupe();
+		uinteger get_Taille_occupe();
 
 		// Obtenir la taille libre non utilise dans la stack (Nombre d'elements)
-		unsigned int get_Taille_libre();
+		uinteger get_Taille_libre();
 
 		// Obtenir la taille total du stack (nombre d'elements)
-		unsigned int get_Taille_stack();
+		uinteger get_Taille_stack();
 
 		/*---------------------------------------------*/
 
@@ -86,8 +92,9 @@ namespace cpinti
 		~cpinti_stack_inv();
 	};
 
-	static unsigned int Stack__PORT_ATTRIB[_MAX_Stack_instance];
+	static uinteger Stack__PORT_ATTRIB[_MAX_Stack_instance];
 	static std::vector<std::shared_ptr<cpinti_stack_inv>> Stack_CPintiCore__KERNEL;
 	static std::vector<std::shared_ptr<cpinti_stack_inv>> Stack_CPintiCore__SERVEUR;
 
 } // namespace cpinti
+#endif /* CPCDOS_STACK */

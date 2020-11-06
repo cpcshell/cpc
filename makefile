@@ -13,10 +13,10 @@ OBJ=$(SRCCXX:.cpp=.cpp.o) \
 	$(SRCBAS:.bas=.bas.o)
 
 CXX:=g++
-CXXFLAGS:=-ICompat -ISources/CPinti/include
+CXXFLAGS:=-MD -IIncludes/ -ICompat -ISources/CPinti/include
 
 BAS:=fbc
-BASFLAGS:=-i Sources/Cpcdos/Include
+BASFLAGS:=-i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64
 
 LD:=ld
 LDFLAGS:= \
@@ -29,6 +29,7 @@ LDFLAGS:= \
 	-lncurses \
 	-ldl \
 	-lz \
+	-lpng \
 	-lpthread \
 	-lstdc++
 
@@ -37,6 +38,7 @@ all: $(TARGET)
 clean:
 	rm -f $(TARGET)
 	rm -f $(OBJ)
+	rm -f $(OBJ:.o=.d)
 
 $(TARGET):$(OBJ)
 	$(CXX) -o $@ $^ $(LDFLAGS)
@@ -46,3 +48,5 @@ $(TARGET):$(OBJ)
 
 %.bas.o:%.bas
 	$(BAS) -c -o $@ $< $(BASFLAGS)
+
+-include $(OBJ:.o=.d)

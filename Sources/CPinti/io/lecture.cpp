@@ -51,7 +51,7 @@ namespace cpinti
 		// ================================= LECTURE =================================
 		// ===========================================================================
 
-		bool Lire_Fichier_complet(const char *Source, const char *MODE, char *_DONNEES, unsigned int TailleFichier)
+		bool Lire_Fichier_complet(const char *Source, const char *MODE, char *_DONNEES, uinteger TailleFichier)
 		{
 			// Lire tout le contenu d'un fichier uniquement
 			// Retourne :
@@ -66,7 +66,7 @@ namespace cpinti
 
 			// Definit les attributs temporaires
 			int CompteurDoevents = 0;
-			unsigned int Position = 0;
+			uinteger Position = 0;
 			char data = 0;
 			FILE *Instance_Fichier;
 
