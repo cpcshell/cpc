@@ -25,10 +25,6 @@ namespace cpinti
 #define SEQUENCE_ICMP 0 // Numero de sequence
 #define ID_ICMP 2411	// Idetification de la trame par defaut
 
-#define SO_SNDBUF 0x1001   // Envoyer la taille du buffer
-#define SO_RCVBUF 0x1002   // Recevoir la taille du buffer
-#define SO_SNDTIMEO 0x1005 // Envoyer un timeout */
-
 #define ENOMSG 42 // Pas de message
 
 #define _DEFFERE_FERME 24 // Taille du tableau de sock pour la fermeture differes des sockets
