@@ -16,7 +16,7 @@ CXX:=g++
 CXXFLAGS:=-MD -IIncludes/ -ICompat -ISources/CPinti/include
 
 BAS:=fbc
-BASFLAGS:=-i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64
+BASFLAGS:=-i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64 
 
 LD:=ld
 LDFLAGS:= \
@@ -29,6 +29,7 @@ LDFLAGS:= \
 	-lncurses \
 	-ldl \
 	-lz \
+	-lzip \
 	-lpng \
 	-lpthread \
 	-lstdc++

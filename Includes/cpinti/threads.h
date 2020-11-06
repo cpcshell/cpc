@@ -26,7 +26,7 @@ namespace cpinti::gestionnaire_tache
 	};
 
 	uinteger cpinti_creer_thread(uinteger ID_KERNEL, uinteger ID_OS, uinteger ID_USER, uinteger PID, const char *NomThread,
-								 int Priorite, void *(*Fonction)(void *arg), void *ARG_CP, uinteger ARG_TH);
+								 integer Priorite, void *(*Fonction)(void *arg), void *ARG_CP, uinteger ARG_TH);
 
 	int cpinti_arreter_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID);
 

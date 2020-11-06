@@ -340,9 +340,11 @@ Function _SHELL_Cpcdos_OSx__.Recherche_Fonction_Var(byval Buffer_lecture_VAR as 
 	ElseIf Buffer_lecture_VAR = "CPC.SYS.APM.POWER_MANAGEMENT_DEVICE" Then ' Egage/desengage pour un device specifique
 		Contenu_Variable = str(CPCDOS_INSTANCE.SYSTEME_INSTANCE.InterfaceAPM._BIOS_power_management_dev)
 	ElseIf Buffer_lecture_VAR = "CPC.SYS.APM.SIGNATURE" Then ' Signature bios
-		Contenu_Variable = CPCDOS_INSTANCE.SYSTEME_INSTANCE.InterfaceAPM.get_Signature()
+		Contenu_Variable = "FIXME"
+		'Contenu_Variable = CPCDOS_INSTANCE.SYSTEME_INSTANCE.InterfaceAPM.get_Signature()
 	ElseIf Buffer_lecture_VAR = "CPC.SYS.APM.VERSION" Then ' Version APM
-		Contenu_Variable = CPCDOS_INSTANCE.SYSTEME_INSTANCE.InterfaceAPM.get_Version()
+		Contenu_Variable = "FIXME"
+		'Contenu_Variable = CPCDOS_INSTANCE.SYSTEME_INSTANCE.InterfaceAPM.get_Version()
 
 
 

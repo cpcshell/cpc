@@ -156,7 +156,7 @@ namespace cpinti
 		uinteger get_TacheEnCours();
 		uinteger get_ThreadEnCours();
 		uinteger get_NombreThreads();
-		const char *get_NomThread(unsigned TID);
+		const char *get_NomThread(uinteger TID);
 
 		void begin_SectionCritique();
 		void end_SectionCritique();

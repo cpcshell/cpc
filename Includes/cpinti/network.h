@@ -5,11 +5,11 @@
 
 namespace cpinti::net
 {
-	int cpinti_ping_icmp(const char *IP_machine, const char *Message, int Param);
+	int cpinti_ping_icmp(const char *IP_machine, const char *Message, integer Param);
 
 	int cpinti_serveur(uinteger NumPort, integer NombreClients, uinteger NumeroID, integer TYPE_SERVEUR);
 
-	int cpinti_client(const char *Adresse, uinteger NoPort, uinteger NumeroID, int TYPE_SERVEUR);
+	int cpinti_client(const char *Adresse, uinteger NoPort, uinteger NumeroID, integer TYPE_SERVEUR);
 
 	bool cpinti_del_net_info(uinteger NoPort);
 

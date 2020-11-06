@@ -252,7 +252,7 @@ namespace cpinti
 		return _DONNEES;
 	}
 
-	int cpinti_GEST_BUFF_c(uinteger _ID, int _CHEMIN, const char *_DONNEES)
+	int cpinti_GEST_BUFF_c(uinteger _ID, integer _CHEMIN, const char *_DONNEES)
 	{
 		// Cette methode permet d'utiliser la fonction CPINTI__GEST_BUFF() depuis le freebasic
 		// Renvoie 1 si tout est ok et 0 si le serveur est pas dispo
@@ -264,7 +264,7 @@ namespace cpinti
 			return 1;
 	}
 
-	int cpinti_GEST_BUFF_c(uinteger _ID, int _CHEMIN, char *_DONNEES)
+	int cpinti_GEST_BUFF_c(uinteger _ID, integer _CHEMIN, char *_DONNEES)
 	{
 		// Cette methode permet d'utiliser la fonction CPINTI__GEST_BUFF() depuis le freebasic
 		// Renvoie 1 si tout est ok et 0 si le serveur est pas dispo

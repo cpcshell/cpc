@@ -216,7 +216,7 @@ namespace cpinti
             return Resultat;
         }
 
-        int cpinti_ping_icmp(const char *IP_machine, const char *Message, int timeout)
+        int cpinti_ping_icmp(const char *IP_machine, const char *Message, integer timeout)
         {
             // Cette fonction va permettre de savoir si une machine existe sur le reseau
             // Chemin 	= Chemin d'acces au fichier
@@ -303,7 +303,7 @@ namespace cpinti
 
         } /* SERVEUR RESEAU */
 
-        int cpinti_client(const char *Adresse, uinteger NumPort, uinteger NumeroID, int TYPE_CLIENT)
+        int cpinti_client(const char *Adresse, uinteger NumPort, uinteger NumeroID, integer TYPE_CLIENT)
         {
             // Cette fonction va permettre de demarrer un serveur reseau TCP ou UDP
             // Adresse 			= Adresse IP du host
