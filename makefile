@@ -16,7 +16,7 @@ CXX:=g++
 CXXFLAGS:=-MD -IIncludes/ -ICompat -ISources/CPinti/include
 
 BAS:=fbc
-BASFLAGS:=-i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64 
+BASFLAGS:=-i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64
 
 LD:=ld
 LDFLAGS:= \
@@ -40,6 +40,10 @@ clean:
 	rm -f $(TARGET)
 	rm -f $(OBJ)
 	rm -f $(OBJ:.o=.d)
+
+run: $(TARGET)
+	cp $(TARGET) Sysroot/$(TARGET)
+	chroot Sysroot/ ./cpcldr
 
 $(TARGET):$(OBJ)
 	$(CXX) -o $@ $^ $(LDFLAGS)

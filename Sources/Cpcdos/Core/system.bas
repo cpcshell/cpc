@@ -918,7 +918,11 @@ Function _SYSTEME_Cpcdos_OSx__.check_NomAutorise(byval NomElement as String, Pat
 	
 	' S'il s'agit d'un chemin d'acces
 	if PathComplet = TRUE Then
-		if INSTR(NomElement, "/") > 0 		Then NomElement = CPCDOS_INSTANCE.remplacer_Caractere(NomElement, "/"		, "\")
+		' FIXME(linux): 
+		if INSTR(NomElement, "\") > 0 		Then NomElement = CPCDOS_INSTANCE.remplacer_Caractere(NomElement, "\"		, "/")
+		
+		' FIXME (dos)
+		'if INSTR(NomElement, "/") > 0 		Then NomElement = CPCDOS_INSTANCE.remplacer_Caractere(NomElement, "/"		, "\")
 	Else
 		' Ou simplement d'un fichier
 		if INSTR(NomElement, "/") > 0 		Then NomElement = CPCDOS_INSTANCE.remplacer_Caractere(NomElement, "_"		, "_")
@@ -942,7 +946,11 @@ Function _SYSTEME_Cpcdos_OSx__.check_NomAutorise(byval NomElement as String, Pat
 	
 	' S'il s'agit d'un chemin d'acces
 	if PathComplet = TRUE Then
-		if INSTR(NomElement, "/") > 0 		Then Function = FALSE : exit Function
+		' FIXME(linux): 
+		if INSTR(NomElement, "\") > 0 		Then Function = FALSE : exit Function
+		
+		' FIXME(dos): 
+		' if INSTR(NomElement, "/") > 0 		Then Function = FALSE : exit Function
 	Else
 		' Ou simplement d'un fichier
 		if INSTR(NomElement, "/") > 0 		Then Function = FALSE : exit Function
