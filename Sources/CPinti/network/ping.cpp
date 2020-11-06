@@ -68,50 +68,6 @@ namespace cpinti
 			close(SocketReseau);
 		}
 
-		const char *Resolution_DNS(const char *NomAdresse)
-		{
-			// https://gist.github.com/jirihnidek/bf7a2363e480491da72301b228b35d5d
-			struct addrinfo hints, *res;
-			int errcode;
-			char addrstr[100];
-			void *ptr = NULL;
-			const char *AdresseFinal = (const char *)malloc(16);
-
-			memset(&hints, 0, sizeof(hints));
-			hints.ai_family = PF_UNSPEC;
-			hints.ai_socktype = SOCK_STREAM;
-			hints.ai_flags |= AI_CANONNAME;
-
-			errcode = getaddrinfo(NomAdresse, NULL, &hints, &res);
-			if (errcode != 0)
-			{
-				Erreur_STR = std::string(strerror(errno));
-				printf("\n Erreur_STR : '%s'\n", strerror(errno));
-				return "#ERR";
-			}
-
-			// if(strcmp(NomAdresse, "127.0.0.1")) doevents(1000);
-			inet_ntop(res->ai_family, res->ai_addr->sa_data, addrstr, 100);
-
-			switch (res->ai_family)
-			{
-			case AF_INET:
-				ptr = &((struct sockaddr_in *)res->ai_addr)->sin_addr;
-				break;
-			case AF_INET6:
-				ptr = &((struct sockaddr_in6 *)res->ai_addr)->sin6_addr;
-				break;
-			default:
-				break;
-			}
-
-			inet_ntop(res->ai_family, ptr, addrstr, 100);
-			// printf ("IPv%d address: %s (%s)\n", );
-
-			AdresseFinal = (res->ai_family == PF_INET6 ? 6 : 4, addrstr, res->ai_canonname);
-			return AdresseFinal;
-		}
-
 		const char *Resolution_DNS(const char *NomAdresse, struct hostent *Sock_hostent)
 		{
 
