@@ -111,7 +111,6 @@ namespace cpinti
 		int Taille_Contenu(int socket)
 		{
 			// Permet de recuperer la taille du contenu
-			char c;
 			char buff[1024] = "";
 			char *ptr = buff + 4;
 
@@ -169,9 +168,8 @@ namespace cpinti
 			//  -8	: Impossible de resoudre le nom (DNS)
 			//	-9	: Memoire insuffisante
 
-			int SocketReseau, connfd;
-			int opt = 1;
-			struct sockaddr_in servaddr, cli;
+			int SocketReseau;
+			struct sockaddr_in servaddr;
 			struct timeval TempsMAX; // Temps de delai
 			fd_set FD_socket;
 			int FD_MAX;

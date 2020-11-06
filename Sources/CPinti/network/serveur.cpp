@@ -363,7 +363,6 @@ namespace cpinti
 							size_t posFINPORT = BUFFER.find("TCP#");
 							size_t posFINSOCK = BUFFER.find("=");
 							int NombreEnvoie = 0;
-							int Client_SOCK;
 
 							// Recuperer l'adresse IP
 							std::string Client_IP_STR = BUFFER.substr(5, posPORT - 5);
