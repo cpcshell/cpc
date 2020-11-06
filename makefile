@@ -45,6 +45,8 @@ run: $(TARGET)
 	cp $(TARGET) Sysroot/$(TARGET)
 	chroot Sysroot/ ./cpcldr
 
+re: clean all
+
 $(TARGET):$(OBJ)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
@@ -55,3 +57,5 @@ $(TARGET):$(OBJ)
 	$(BAS) -c -o $@ $< $(BASFLAGS)
 
 -include $(OBJ:.o=.d)
+
+.PHONY: all clean run re
