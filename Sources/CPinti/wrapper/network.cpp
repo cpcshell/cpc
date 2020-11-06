@@ -225,7 +225,6 @@ namespace cpinti
             // 			 0 : Fichier non disponible
             //			 1 : Fichier present
 
-            int Resultats = 0;
             std::string IP_machine_STR = std::string(IP_machine);
             std::string Message_STR = std::string(Message);
 

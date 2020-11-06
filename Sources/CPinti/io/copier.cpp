@@ -106,7 +106,6 @@ namespace cpinti
 					clock_t TempsDebut;
 					clock_t TempsFin;
 
-					char _output_ = '\0';
 					char data = '\0';
 
 					char *_Commande_CpcdosCP = (char *)malloc(sizeof(char) * 128);

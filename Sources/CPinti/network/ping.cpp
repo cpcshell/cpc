@@ -162,7 +162,6 @@ namespace cpinti
 			// Configurer le delai
 			struct timeval Temps_Depart;
 			struct timeval Temps_Actuel;
-			struct timeval Temps_Envoie;
 			struct timezone Temps_Zone;
 
 			struct timeval TempsMAX;
@@ -188,9 +187,6 @@ namespace cpinti
 			int SocketReseau;
 			struct hostent *Sock_hostent = {0};	  // Information IPv4 a propos de l'host
 			struct sockaddr_in Sock_sockaddr;	  // Structure du sock INTERNET
-			struct sockaddr_in Sock_sockaddr_REP; // Structure du sock CLIENT
-
-			const char *Retour_DNS;
 
 			/******************************************************************/
 			/********************** CREATION D'UN SOCKET **********************/

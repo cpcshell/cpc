@@ -33,9 +33,6 @@
 #include "mem_page.h"
 
 const int MAX_ManagedAlloc_BLOCS = 4000000; // 4 Mo de table
-const int MAX_MemoryTables_BLOCS = 4000000; // 4 Mo RAM
-
-static int Nb_alloc_before_alloc = 0;
 
 extern "C" void *cpc_malloc(size_t mem_size);
 extern "C" void *cpc_calloc(size_t mem_size, size_t NbElem);
@@ -229,7 +226,6 @@ void initialiser_memoire()
     if (MEM_DEBUG)
         fprintf(stdout, "[OK]\n");
 
-    unsigned long point_mem_table = 0;
     // Initialiser les donnees de la structure page
     for (uinteger b = 0; b < Page_MAX; b++)
     {
