@@ -53,24 +53,15 @@ namespace cpinti
 		// Remplir la pile d'une donnee specifiee
 		void set_Stack(std::string STR_a_PUSH);
 
-		// IDEM, compatible style-C ANSI Cpcdos
-		void set_Stack_c(const char *STR_a_PUSH);
-
 		/*---------------------------------------------*/
 
 		// Ajouter des donnes dans la stack
 		bool add_Stack(std::string _DONNEES);
 
-		// IDEM, compatible style-C ANSI Cpcdos
-		bool add_Stack_c(const char *_DONNEES);
-
 		/*---------------------------------------------*/
 
 		// Obtenir la donne SOUS la pile (la plus obsolete)
 		std::string get_Stack(int MODE);
-
-		// IDEM, compatible style-C ANSI Cpcdos
-		const char *get_Stack_c(int MODE);
 
 		/*---------------------------------------------*/
 
