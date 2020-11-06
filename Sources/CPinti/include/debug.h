@@ -1,6 +1,11 @@
 /* Entete debug.CPP */
 
+#ifndef CPCDOS_DEBUG 
+#define CPCDOS_DEBUG
+
 #include <iostream>
+#include "cpinti/types.h"
+
 
 #define Alerte_surbrille		0
 #define Alerte_normal			1
@@ -23,7 +28,7 @@
 namespace cpinti_dbg
 {
 
-	void debug_mode(int valeur);
+	void debug_mode(integer valeur);
 	static int DEBUG_ENABLED = 0;
 								
 	extern void CPINTI_DEBUG_C(const char* TexteFrancais, const char* TexteAnglais, 
@@ -37,3 +42,4 @@ namespace cpinti_dbg
 						int AffDate, int RetourLigneHaut);
 
 }
+#endif  /* !CPCDOS_DEBUG */

@@ -26,7 +26,7 @@
 
 namespace cpinti_dbg
 {
-	void debug_mode(int valeur)
+	void debug_mode(integer valeur)
 	{
 		DEBUG_ENABLED = valeur;
 	}

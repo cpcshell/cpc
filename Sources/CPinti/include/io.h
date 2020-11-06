@@ -32,7 +32,7 @@ namespace cpinti
 		bool cpinti_Lire_Fichier_complet(const char *Source, const char *Mode, char *_DONNEES, uinteger TailleFichier);
 		bool cpinti_Ecrire_Fichier_complet(const char *Source, const char *_DONNEES, int Mode);
 		bool cpinti_Supprimer_Fichier(const char *Source, bool Securise, int NombrePasses);
-		bool cpinti_Copier_Fichier(const char *Source, const char *Destination, int Priorite, const char *VAR_Progression, const char *VAR_Octets, const char *VAR_OctetsParSec);
+		bool cpinti_Copier_Fichier(const char *Source, const char *Destination, integer Priorite, const char *VAR_Progression, const char *VAR_Octets, const char *VAR_OctetsParSec);
 
 		// INTERNE
 		int Fichier_decompress(const char *Source, const char *Destination);

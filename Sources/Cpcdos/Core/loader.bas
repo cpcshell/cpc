@@ -359,11 +359,11 @@ public function __CPCDOS_INIT_1 cdecl Alias "__CPCDOS_INIT_1"(a as integer) as i
 		'cpinti.interception.initialise_interception_exception()
 
 		' Mettre a jour les informations de CPU
-		Maj_CPUINFO()
+		' FIXME - Maj_CPUINFO()
 		Sleep 1500 ' Laisser l'utilisateur visualiser
 
 		' Mettre a jours les informations BIOS APM
-		Maj_APM_info()
+		' FIXME - Maj_APM_info()
 		Sleep 1500 ' Laisser l'utilisateur visualiser
 
 		IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then

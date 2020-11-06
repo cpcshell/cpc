@@ -29,7 +29,8 @@ Destructor _SYSTEME_Cpcdos_OSx__()
 	
 	'Lancer un arret du systeme
 	IF CX_APM_MODE > 0 Then
-		InterfaceAPM.signal_systeme(CX_APM_MODE)
+		DEBUG(" * InterfaceAPM.signal_systeme FIXME", 1, 1, 6, 0, 0, 1, 0, "")
+		' InterfaceAPM.signal_systeme(CX_APM_MODE) FIXME
 	End if
 End Destructor
 
