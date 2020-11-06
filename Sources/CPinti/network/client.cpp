@@ -429,7 +429,7 @@ namespace cpinti
 												 "STATS : Variable definition for socket '" + std::string(VAR_SIZE) + "'",
 												 "CLT:" + _NumeroID_STR, "", Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
 
-						sprintf(_Commande_CpcdosCP, "FIX/ %s = %u", VAR_SOCKET, _NumeroID);
+						sprintf(_Commande_CpcdosCP, "FIX/ %s = %lu", VAR_SOCKET, _NumeroID);
 						cpc_CCP_Exec_Commande(_Commande_CpcdosCP, 5);
 
 						BUFFER = "";

@@ -164,11 +164,11 @@ void ManagedAlloc::dump_memory(void)
 	}
 
 	fprintf(stdout, " Results : \n");
-	fprintf(stdout, " %u total memory allocations\n", nb_alloc_do);
-	fprintf(stdout, " * malloc()  x%d\n", NombreMalloc);
-	fprintf(stdout, " * calloc()  x%d\n", NombreCalloc);
-	fprintf(stdout, " * free()    x%d\n", NombreFree);
-	fprintf(stdout, " * realloc() x%d\n", NombreRealloc);
+	fprintf(stdout, " %lu total memory allocations\n", nb_alloc_do);
+	fprintf(stdout, " * malloc()  x%lu\n", NombreMalloc);
+	fprintf(stdout, " * calloc()  x%lu\n", NombreCalloc);
+	fprintf(stdout, " * free()    x%lu\n", NombreFree);
+	fprintf(stdout, " * realloc() x%lu\n", NombreRealloc);
 
 	fprintf(stdout, " End of list\n");
 }
