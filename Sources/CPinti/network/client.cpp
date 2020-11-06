@@ -762,7 +762,7 @@ namespace cpinti
 							NB_Message_RECEIVE++;
 
 						// Version HTTP
-						if ((buffer == NULL) || ((Simple_TrameHTTP == true) && (Fichier_TEMP_STR != "")))
+						if (((Simple_TrameHTTP == true) && (Fichier_TEMP_STR != "")))
 						{
 
 							if (_TYPE_CLIENT == 1) /* TCP */

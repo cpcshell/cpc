@@ -438,8 +438,7 @@ namespace cpinti
 										 "core::gestionnaire_tache", "supprimer_Processus()",
 										 Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
 
-				if (Liste_Processus[pid].Nom_Processus != NULL)
-					memset(Liste_Processus[pid].Nom_Processus, 0, 32);
+				memset(Liste_Processus[pid].Nom_Processus, 0, 32);
 				// free(Liste_Processus[pid].Nom_Processus);
 
 				Liste_Processus[pid].Etat_Processus = _ARRETE;
@@ -653,10 +652,7 @@ namespace cpinti
 										 "core::gestionnaire_tache", "supprimer_Thread()",
 										 Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
 
-				if (Liste_Threads[tid].Nom_Thread != NULL)
-				{
-					memset(Liste_Threads[tid].Nom_Thread, 0, 30);
-				}
+				memset(Liste_Threads[tid].Nom_Thread, 0, 30);
 
 				Liste_Threads[tid].Priorite = 0;
 				Liste_Processus[Liste_Threads[tid].PID].Threads_Enfant[tid] = false;
