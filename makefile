@@ -42,8 +42,9 @@ clean:
 	rm -f $(OBJ:.o=.d)
 
 run: $(TARGET)
-	cp $(TARGET) Sysroot/$(TARGET)
-	chroot Sysroot/ ./cpcldr
+	sudo bash ./jail.sh
+	sudo cp $(TARGET) jail/$(TARGET)
+	sudo chroot jail/ ./cpcldr
 
 re: clean all
 
