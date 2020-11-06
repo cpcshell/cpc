@@ -101,13 +101,6 @@ namespace cpinti
 
 	} /* SET STACK */
 
-	void cpinti_stack_inv::set_Stack_c(const char *STR_a_PUSH)
-	{
-		// IDEM, compatible style-C ANSI Cpcdos
-		set_Stack(std::string(STR_a_PUSH));
-
-	} /* SET STACK C */
-
 	/* ---------------------------------------------------------- */
 
 	bool cpinti_stack_inv::add_Stack(std::string _DONNEES)
@@ -137,13 +130,6 @@ namespace cpinti
 		return false; // Plus de places
 
 	} /* ADD STACK */
-
-	bool cpinti_stack_inv::add_Stack_c(const char *_DONNEES)
-	{
-		// IDEM, compatible style-C ANSI Cpcdos
-		return add_Stack(std::string(_DONNEES));
-
-	} /* ADD STACK C */
 
 	/* ---------------------------------------------------------- */
 
@@ -196,13 +182,6 @@ namespace cpinti
 		return TMP_STR; // Retourner la donnee
 
 	} /* GET STACK */
-
-	// IDEM, compatible style-C ANSI Cpcdos
-	const char *cpinti_stack_inv::get_Stack_c(int MODE)
-	{
-		return (const char *)get_Stack(MODE).c_str();
-
-	} /* GET STACK C */
 
 	/* ---------------------------------------------------------- */
 
