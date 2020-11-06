@@ -12,7 +12,7 @@ SRCBAS=$(shell find $(SRCDIR) -name '*.bas')
 OBJ=$(SRCCXX:.cpp=.cpp.o) \
 	$(SRCBAS:.bas=.bas.o)
 
-CXX:=gcc
+CXX:=g++
 CXXFLAGS:=-ICompat -ISources/CPinti/include
 
 BAS:=fbc
@@ -39,7 +39,7 @@ $(TARGET):$(OBJ)
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 %.cpp.o:%.cpp
-	$(LD) -c -o $@ $< $(CXXFLAGS)
+	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
 %.bas.o:%.bas
 	$(BAS) -c -o $@ $< $(BASFLAGS)
