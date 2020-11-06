@@ -483,12 +483,6 @@ namespace cpinti
 			return Nombre_Threads;
 		}
 
-		uinteger get_NombreTimer()
-		{
-			// Retourner le nombre de timer executes
-			return Nombre_Timer;
-		}
-
 		uinteger get_ThreadEnCours()
 		{
 			// Retourner la thread en cours
@@ -626,17 +620,6 @@ namespace cpinti
 			return compteur_zombie;
 		}
 
-		bool free_Thread_zombie(uinteger tid)
-		{
-			// Cette fonction permet de supprimer un thread zombie
-			//  Un thread zombie conserve encore sa segmentation memoire
-			//  conserve dans le registre ESP, son point execution EIP
-			//  et autres registres. Cette fonction va tout supprimer et
-			//  liberer l'index TID!
-
-			return true;
-		}
-
 		bool supprimer_Thread(uinteger tid, bool force)
 		{
 			// Cette fonction permet de signaler l'arret d'un thread
@@ -652,14 +635,14 @@ namespace cpinti
 										 "core::gestionnaire_tache", "supprimer_Thread()",
 										 Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
 
-				memset(Liste_Threads[tid].Nom_Thread, 0, 30);
-
-				Liste_Threads[tid].Priorite = 0;
 				Liste_Processus[Liste_Threads[tid].PID].Threads_Enfant[tid] = false;
+
+				Liste_Threads[tid].Nom_Thread[0] = '\0';
+				Liste_Threads[tid].Priorite = 0;
 				Liste_Threads[tid].PID = 0;
 				Liste_Threads[tid].TID = 0;
-				Liste_Threads[tid].Etat_Thread = _ARRETE;
 				Liste_Threads[tid]._eip = NULL;
+				Liste_Threads[tid].Etat_Thread = _ARRETE;
 
 				// Quitter le thread
 				pthread_exit(&Liste_Threads[tid].thread);
@@ -785,104 +768,6 @@ namespace cpinti
 			}
 		}
 
-		void switch_context()
-		{
-			// Cette fonction permet de switcher de thread en thread
-
-			return;
-
-			/** S'il y a pas de threads, inutile d'aller plus loin **/
-			if (Thread_en_cours == 0)
-				if (Nombre_Threads < 1)
-					return;
-
-			/** On bloque le scheduler **/
-			begin_SectionCritique();
-
-			/** Sauvegarder le contexte actuel **/
-			if (SAUVEGARDER_CONTEXTE(Thread_en_cours) == true)
-				return;
-
-			/** Chercher le prochain thread a executer **/
-			Thread_en_cours = SCHEDULER(Thread_en_cours);
-
-			/** On reexcute le scheduler normalement **/
-			end_SectionCritique();
-
-			/** Et on restaure le prochain thread **/
-			RESTAURER_CONTEXTE(Thread_en_cours);
-		}
-
-		uinteger SCHEDULER(uinteger ancien)
-		{
-			// SCHEDULER : Cette fonction permet de selectionner
-			//  le prochain thread a executer
-
-			uinteger nouveau = ancien;
-			uinteger compteur_ = 0;
-
-			while (true)
-			{
-				nouveau++;
-				compteur_++;
-
-				// Si on depasse le nombre on repart de zero
-				if (nouveau >= MAX_THREAD)
-					nouveau = 0;
-
-				if (Liste_Threads[nouveau].Etat_Thread != _ARRETE)
-					if (Liste_Threads[nouveau].Etat_Thread != _ZOMBIE)
-						return nouveau;
-
-				if (compteur_ > MAX_THREAD * 2)
-					break;
-			}
-
-			cpinti_dbg::CPINTI_DEBUG("Oups.. Tous les threads sont a l'arret",
-									 "Oops.. All threads are stopped",
-									 "core::gestionnaire_tache", "SCHEDULER()",
-									 Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
-			return 0;
-		}
-
-		bool SAUVEGARDER_CONTEXTE(uinteger Thread_ID)
-		{
-			// Cette fonction permet de sauvegarder les registres d'un thread
-
-			// Si le thread est pas vide
-			if (Liste_Threads[Thread_ID].Etat_Thread != _ARRETE)
-				if (Liste_Threads[Thread_ID].Etat_Thread != _ZOMBIE)
-				{
-					// Reexecuter le scheduler normalement
-					end_SectionCritique();
-
-					// Recuperer les info (registres...) du thread actuel
-					if (setjmp(Liste_Threads[Thread_ID].Buffer_Thread) == 1)
-					{
-						return true;
-					}
-
-					// On bloque le scheduler courant
-					begin_SectionCritique();
-				}
-
-			return false;
-		}
-
-		void RESTAURER_CONTEXTE(uinteger Thread_ID)
-		{
-			// Cette fonction permet de restaurer les registres d'un thread
-
-			longjmp(Liste_Threads[Thread_ID].Buffer_Thread, 1);
-		}
-
-		void loop_MAIN()
-		{
-			// Cette fonction permet creer un point de terminaison du main en executant
-			//  la premiere thread
-			Thread_en_cours = 0;
-			longjmp(Liste_Threads[0].Buffer_Thread, 1);
-		}
 	} // namespace gestionnaire_tache
 } // namespace cpinti
 

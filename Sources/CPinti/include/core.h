@@ -137,16 +137,10 @@ namespace cpinti
 
 		/** Threads **/
 		uinteger ajouter_Thread(void *(*Fonction)(void *arg), const char *NomThread, uinteger pid, int Priorite, uintptr_t Arguments);
-		bool free_Thread_zombie(uinteger tid);
 		uinteger check_Thread_zombie(bool liberer, bool debug);
 		bool supprimer_Thread(uinteger tid, bool force);
 
 		void Interruption_Timer(int sig);
-		void switch_context();
-
-		uinteger SCHEDULER(uinteger ancien);
-		bool SAUVEGARDER_CONTEXTE(uinteger Thread_ID);
-		void RESTAURER_CONTEXTE(uinteger Thread_ID);
 
 		uinteger get_ID_Thread();
 
@@ -162,13 +156,8 @@ namespace cpinti
 		void end_SectionCritique();
 		bool state_SectionCritique();
 
-		void loop_MAIN();
-
 		bool fermer_core();
 
-		/**** TIMER ****/
-
-		uinteger get_NombreTimer();
 
 	} // namespace gestionnaire_tache
 

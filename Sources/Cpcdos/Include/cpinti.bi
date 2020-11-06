@@ -100,7 +100,6 @@ Extern "C++" lib "cpnti"
 			declare function 	cpinti_get_nom_thread	cdecl (TID as uinteger) as CONST ZString ptr
 
 			declare function 	get_ThreadEnCours		cdecl () as uinteger
-			declare function 	free_Thread_zombie		cdecl (tid as uinteger) as boolean
 			declare function	check_Thread_zombie		cdecl (liberer as boolean, debug as boolean) as uinteger
 
 			declare sub			IamInLive				cdecl ()
@@ -110,12 +109,6 @@ Extern "C++" lib "cpnti"
 
 			' === S H E D U L E R ===
 			declare sub			Interruption_Timer		cdecl (signal as integer)
-			declare sub			switch_context			cdecl ()
-			declare sub 		loop_MAIN				cdecl ()
-
-
-			' === T I M E R S ===
-			declare function 	get_NombreTimer			() as uinteger
 
 		end namespace ' gestionnaire taches
 
