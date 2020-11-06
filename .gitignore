@@ -13,3 +13,6 @@
 
 err
 cpcldr
+
+# chroot directory 
+jail/
