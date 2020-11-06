@@ -50,13 +50,6 @@ namespace Wrapper_Cpcdos
 
 namespace cpinti
 {
-
-	static uinteger SATATISTIQUES_NET_port[_MAX_Stack_instance];
-	static uinteger SATATISTIQUES_NET_recu[_MAX_Stack_instance];
-	static uinteger SATATISTIQUES_NET_envoye[_MAX_Stack_instance];
-	static uinteger SATATISTIQUES_NET_activite[_MAX_Stack_instance];
-	static uinteger SATATISTIQUES_NET_clients[_MAX_Stack_instance];
-
 	struct cpinti_core_checker
 	{
 	public:
