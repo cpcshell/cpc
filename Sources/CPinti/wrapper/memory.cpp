@@ -57,10 +57,6 @@ void __stack_chk_fail(void)
     abort();
 }
 
-void cpc_printf(const char *txt)
-{
-}
-
 ManagedAlloc internal_AllocManager;
 
 void affiche();
@@ -569,15 +565,6 @@ void *check_free_fragmentation(uinteger NumPAGE, size_t size_mem)
     return NULL;
 }
 
-void *check_free_page_fragmentation(uinteger NumPAGE, size_t size_mem)
-{
-    // Cette fonction permet de checker s'il y a pas un "espace libre" entre deux pages
-    //  ceci permet de recycler et combler la fragmentation libre de la memoire RAM
-
-    /** A FAIRE **/
-
-    return NULL;
-}
 void *allocation_in_page(uinteger NumPAGE, size_t size_mem)
 {
     return allocation_in_page(NumPAGE, size_mem, false);
@@ -1342,7 +1329,7 @@ void break_gdb() {}
 void dump_page(uinteger NumPAGE)
 {
     printf(" **** Dumping page %lu ****\n", NumPAGE);
-    dump_memory("dump_page()", get_begin_offset_page_addr(NumPAGE), (const int)get_page_size(NumPAGE));
+    dump_memory("dump_page()", get_begin_offset_page_addr(NumPAGE), get_page_size(NumPAGE));
     printf(" **** END of dumping page %lu ****\n", NumPAGE);
 }
 

@@ -98,7 +98,7 @@ namespace cpinti
 			return AdresseLst;
 		}
 
-		int ping(const char *AdresseIP, const char *Message, int Timeout)
+		int ping(const char *AdresseIP, const char *Message)
 		{
 
 			std::string AdresseIP_STR = std::string(AdresseIP);

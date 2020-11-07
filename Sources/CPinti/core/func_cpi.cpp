@@ -185,7 +185,7 @@ namespace cpinti
 		// PEACE FOR YOUR CPU
 		if (Temps < 1)
 		{
-			gestionnaire_tache::Interruption_Timer(0);
+			gestionnaire_tache::Interruption_Timer();
 		}
 		else
 		{
@@ -220,7 +220,7 @@ namespace cpinti
 
 		// S'il y a 0 us on force au switching
 		// if(MicroSecondes < 1)
-		gestionnaire_tache::Interruption_Timer(1);
+		gestionnaire_tache::Interruption_Timer();
 
 		usleep(MicroSecondes); // Hook par Cpcdos
 

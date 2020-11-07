@@ -41,9 +41,6 @@
 // =====================================================================
 namespace Wrapper_Cpcdos
 {
-	int Wrapper_Cpcdos_OSx_CPinti_Core(integer FunctionID, double _CLE_, const char *ARG_1,
-									   integer ARG_2, void *ARG_3, void *ARG_4, void *ARG_5);
-
 	int cpinti_WRAPPER(integer FunctionID, double _CLE_, const char *ARG_1,
 					   integer ARG_2, void *ARG_3, void *ARG_4, void *ARG_5);
 } // namespace Wrapper_Cpcdos

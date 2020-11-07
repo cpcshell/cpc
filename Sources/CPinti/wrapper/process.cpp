@@ -22,6 +22,8 @@
 	
 */
 
+/** FIXME: REWORK PROCESS THREAD ETC **/
+
 #include <string.h>
 
 #include "core.h"
@@ -84,6 +86,7 @@ namespace cpinti::gestionnaire_tache
 
     bool cpinti_arreter_processus(uinteger ID_KERNEL, uinteger PID)
     {
+        (void)ID_KERNEL;
         // Cette fonction permet d'arreter un processus correctement.
         //  A utiliser sur un autre thread
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
@@ -91,7 +94,7 @@ namespace cpinti::gestionnaire_tache
 
         // Si le processus existe
         if (gestionnaire_tache::Liste_Processus[PID].PID > 0)
-            return gestionnaire_tache::supprimer_Processus(PID, false);
+            return gestionnaire_tache::supprimer_Processus(PID);
         else
         {
             std::string PID_STR = std::to_string((uinteger)PID);
@@ -106,6 +109,7 @@ namespace cpinti::gestionnaire_tache
 
     void cpinti_set_etat_processus(uinteger ID_KERNEL, uinteger PID, uinteger ACTION)
     {
+        (void)ID_KERNEL;
         // Cette fonction permet de modifier d'etat d'un processus
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
         //  PID				: Numero de processus
@@ -116,6 +120,7 @@ namespace cpinti::gestionnaire_tache
 
     uinteger cpinti_get_etat_processus(uinteger ID_KERNEL, uinteger PID)
     {
+        (void)ID_KERNEL;
         // Cette fonction permet de connaitre l'etat du processus
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
         //  PID				: Numero de processus
