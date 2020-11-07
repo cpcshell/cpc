@@ -421,7 +421,7 @@ Function THREAD_Screen_Video Alias "THREAD_Screen_Video" (ByVal thread_struct as
 
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
 Sub _SCI_Cpcdos_OSx__.Blitter_Video()
@@ -1081,7 +1081,7 @@ Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_
 
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
 
@@ -1204,7 +1204,7 @@ Function THREAD_RefreshGUI_Elements Alias "THREAD_RefreshGUI_Elements" (ByVal th
 
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
 
@@ -1330,7 +1330,7 @@ Function THREAD_IUG_PICTUREBOX  cdecl alias "THREAD_IUG_PICTUREBOX" (ByVal threa
 
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
 

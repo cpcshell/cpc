@@ -33,13 +33,6 @@ namespace cpinti::gestionnaire_fichier
 {
 	int cpinti_decompress_file(const char *Source, const char *Destination)
 	{
-		// Cette fonction va permettre de decompresser un fichier ZIP
-		// Retourne
-		//			-2 : Erreur dans la lib (voir debug)
-		//			-1 : Destination impossible
-		// 			 0 : Source fichier non present
-		//			 1 : OK
-
 		cpinti_dbg::CPINTI_DEBUG("Decompression du fichier '" + std::string(Source) + "' vers  '" = std::string(Destination) + "' ... ",
 								 "Uncompress file '" + std::string(Source) + "' to '" = std::string(Destination) + "'  ... ",
 								 "cpinti::gestionnaire_fichier", "cpinti_decompress_file()",
@@ -129,21 +122,6 @@ namespace cpinti::gestionnaire_fichier
 
 	bool cpinti_Lire_Fichier_complet(const char *Source, const char *Mode, char *_DONNEES, uinteger TailleFichier)
 	{
-		// Cette fonction va permettre de lire le contenu complet d'un fichier
-		// Source 	= Source d'acces au fichier
-		// Mode		= Mode le lecture
-		// _DONNEES = Contenu du fichier a retourner
-
-		// Retourne -1 : Erreur memoire
-		// 			 0 ou 0> : OK
-
-		// fprintf(stdout, " ****** P1\n\r");
-		// fflush(stdout);
-		// fprintf(stdout, " ****** Source '%s' Mode '%s'\n\r", (char*) Source, (char*) Mode);
-		// fflush(stdout);
-		// fprintf(stdout, " ****** _DONNEES '%s' [0x%x8]\n\r", (char*) _DONNEES), (void*) _DONNEES;
-		// fflush(stdout);
-
 		if (Source == NULL)
 		{
 			cpinti_dbg::CPINTI_DEBUG("Erreur interne! Pointeur 'SOURCE' null !",
@@ -233,12 +211,7 @@ namespace cpinti::gestionnaire_fichier
 								 "", "", Ligne_saute, Alerte_surbrille, Date_sans, Ligne_r_normal);
 
 		Resultat_int = TailleFichier;
-		// }
-		// else
-		// {
-		// cpinti_dbg::CPINTI_DEBUG("Problemes durant l'ecriture du fichier", "Problem during file writing", "", "", Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
-		// Resultat_int = -1;
-		// }
+
 
 		return Resultat_int;
 	} /* LIRE FICHIER COMPLET */

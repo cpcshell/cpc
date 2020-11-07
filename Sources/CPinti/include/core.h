@@ -6,9 +6,11 @@
 #include "cpinti/types.h"
 
 extern "C" void cpc_CX_APM_MODE(uinteger mode);
-// extern "C" int Est_Interruption();
+
 extern "C" void *Thread_Updater(void *);
+
 extern "C" void Interruption_Timer(int signal);
+
 extern "C" void ptr_Update_TID(uinteger Adresse, uinteger TID);
 
 #define ENTRER_SectionCritique cpinti::gestionnaire_tache::begin_SectionCritique
@@ -88,9 +90,6 @@ namespace cpinti
 			uinteger TID;		   /** ID Thread (Lui meme) **/
 			uinteger PTID;		   /** Pthread ID Thread (Lui meme) **/
 			char Nom_Thread[32];   /** Nom Thread **/
-			uinteger *_eip;
-			char *Stack_Thread;
-			jmp_buf Buffer_Thread; /** eax, ebx, ecx, edx, eip... **/
 			pthread_t thread;
 		};
 
@@ -157,7 +156,6 @@ namespace cpinti
 		bool state_SectionCritique();
 
 		bool fermer_core();
-
 
 	} // namespace gestionnaire_tache
 

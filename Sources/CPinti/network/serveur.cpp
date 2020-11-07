@@ -58,7 +58,6 @@ namespace cpinti
 {
 	namespace net_server
 	{
-
 		std::string Erreur_STR;
 
 		void Fermer_socket(int SocketReseau)

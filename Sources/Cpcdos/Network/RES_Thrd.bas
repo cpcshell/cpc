@@ -103,7 +103,7 @@ Function Client_THREAD cdecl Alias "Client_THREAD" (ByVal thread_struct as _STRU
 
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
 Function Serveur_THREAD cdecl Alias "Serveur_THREAD" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer : On local Error Goto Intercept_Error
@@ -241,5 +241,5 @@ Function Serveur_THREAD cdecl Alias "Serveur_THREAD" (ByVal thread_struct as _ST
 
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function

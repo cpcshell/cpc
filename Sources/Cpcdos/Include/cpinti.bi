@@ -63,9 +63,8 @@ Extern "C++" lib "cpnti"
 		declare sub cpinti_USleep						(Temps_US as uinteger)
 
 		' == INTERCEPTION D'ERREURS ==
-		namespace interception
-			declare function 	initialise_interception_exception	() as boolean
-			declare sub 		Erreur_Fatale						(numsignal as integer, ligne as integer, fichier as ZString PTR, fonction as ZString ptr)
+		namespace signals
+			declare sub panic (numsignal as integer, ligne as integer, fichier as ZString PTR, fonction as ZString ptr)
 		End namespace
 
 		' == TASK MANAGER ==

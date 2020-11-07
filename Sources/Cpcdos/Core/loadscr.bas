@@ -398,5 +398,5 @@ Public Function Animation cdecl Alias "Animation" (byval thread_struct as _STRUC
 
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function

@@ -595,7 +595,7 @@ CONST _ABOUT as String = "co-kernel " & (CHR(65+var_) & CHR(110+var_) & CHR(97+v
 							"Un grand remerciement a Mickael BANVILLE pour sa contribution SDK des modules WIN32, 3D OpenGL/GZE Engine, LLVM." & CHR(13) & _
 							"Ainsi qu'a Timothee LUSSIAUD, Esteban CADIC, Leo ENDOR, Leo VACHET et Johann GRAF." & CHR(13) & _
 							"  Copyright�" & CHR(65+var_) & CHR(78+var_) & "inti Software"
-Declare Sub intro()
+
 Declare function	__CPCDOS_INIT_2 cdecl 	Alias "__CPCDOS_INIT_2"		(a as integer) as integer
 Declare Function 	THREAD__GetTouche 		Alias "THREAD__GetTouche"	(ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 Declare Function 	THREAD__MAIN_Console 	Alias "THREAD__MAIN_Console"(ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer

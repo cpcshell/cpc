@@ -53,7 +53,7 @@ public function Mon_Thread1 cdecl Alias "Mon_Thread1"(byref thread_struct as _ST
 	exit function
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 	function = null
 end function
 
@@ -101,7 +101,7 @@ public function Mon_Thread2 cdecl Alias "Mon_Thread2"(byref thread_struct as _ST
 	exit function
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 	function = null
 end function
 
@@ -149,7 +149,7 @@ public function Mon_Thread3 cdecl Alias "Mon_Thread3"(byref thread_struct as _ST
 	exit function
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 	function = null
 end function
 
@@ -270,8 +270,6 @@ END sub
 
 public function __CPCDOS_INIT_1 cdecl Alias "__CPCDOS_INIT_1"(a as integer) as integer
 
-
-
 		On local Error Goto Intercept_Error
 
 		DEBUG("[__CPCDOS_INIT_1] Starting cpcdos osx kernel ...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
@@ -356,15 +354,12 @@ public function __CPCDOS_INIT_1 cdecl Alias "__CPCDOS_INIT_1"(a as integer) as i
 			DEBUG("[__CPCDOS_INIT_1] Exeptions interception", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
 		end if
 
-		'cpinti.interception.initialise_interception_exception()
 
 		' Mettre a jour les informations de CPU
 		' FIXME - Maj_CPUINFO()
-		Sleep 1500 ' Laisser l'utilisateur visualiser
 
 		' Mettre a jours les informations BIOS APM
 		' FIXME - Maj_APM_info()
-		Sleep 1500 ' Laisser l'utilisateur visualiser
 
 		IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 			DEBUG("* Le systeme s'est initialise correctement. ID_KERNEL:" & CPCDOS_INSTANCE.get_id_kernel() & " [0x" & HEX(CPCDOS_INSTANCE.get_id_kernel(), 4) & "] - BUILD:" & _VERSION_BUILD, CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
@@ -372,15 +367,8 @@ public function __CPCDOS_INIT_1 cdecl Alias "__CPCDOS_INIT_1"(a as integer) as i
 			DEBUG("* System has been initialized correctly. ID_KERNEL:" & CPCDOS_INSTANCE.get_id_kernel() & " [0x" & HEX(CPCDOS_INSTANCE.get_id_kernel(), 4) & "] - BUILD:" & _VERSION_BUILD, CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 		end if
 
-		intro()
-
-
-
-
-
 
 		ENTRER_SectionCritique()
-
 
 		IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 			DEBUG("[__CPCDOS_INIT_1] Test du CPU ... ", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.NoCRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
@@ -391,9 +379,6 @@ public function __CPCDOS_INIT_1 cdecl Alias "__CPCDOS_INIT_1"(a as integer) as i
 
 		DEBUG("[OK] ", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.NoCRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
 		DEBUG(" --> " & cpinti.gestionnaire_tache.get_cycle_MAX_cpu() & " cycles", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
-
-
-
 
 		IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 			DEBUG("[__CPCDOS_INIT_1] Noyau en execution.", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
@@ -411,7 +396,7 @@ public function __CPCDOS_INIT_1 cdecl Alias "__CPCDOS_INIT_1"(a as integer) as i
 	exit function
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
 
@@ -719,10 +704,9 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 			CPCDOS_INSTANCE.update_OS_LISTE()
 
 			' Initialiser le module de l'ecran de chargement anime depuis le processus systeme
-			CPCDOS_INSTANCE.Initialiser_BootScreen(TRUE, "OS\" & CPCDOS_INSTANCE._LISTE__OS_BOOTSCREEN & "\boot", CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS)
+			CPCDOS_INSTANCE.Initialiser_BootScreen(TRUE, "os\" & CPCDOS_INSTANCE._LISTE__OS_BOOTSCREEN & "\boot", CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS)
 
 			doevents(100000) ' On attend 1 seconde
-
 
 			CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("EXE/ KRNL\KRNL.CPC", CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_CLE, 5, 0, "")
 
@@ -845,7 +829,7 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 	exit function
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
 
@@ -909,7 +893,7 @@ Public function Thread_Updater cdecl Alias "Thread_Updater"(byval arguments as a
 	exit function
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End function
 
 public function Thread_SYSTEM cdecl Alias "Thread_SYSTEM"(byval thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
@@ -982,36 +966,12 @@ public function Thread_SYSTEM cdecl Alias "Thread_SYSTEM"(byval thread_struct as
 	exit function
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 	function = null
 end function
 
 
-Sub intro()
-	' Cette procedure SUB permet d'afficher le logo cpcdos et reste en pause 1 seconde
-	Print "                                                  "
-	Print "    ======================                        "
-	Print "    =      --   --   --  =    --    -     --      "
-	Print "    =     |    |__| |    =   |  ) (   )   \       "
-	Print "    =      --  |     --  =    --    -    --       "
-	Print "    ===========================================   "
-	Print "         --   --   --    =  --    -     --    =   "
-	Print "        |    |__| |      = |  ) (   )   \     =   "
-	Print "         --  |     --    =  --    -    --     =   "
-	Print "                         ======================   "
-	Print "    CPCDOS OSx                                    "
-	Print "                       Cr�e Pour Concevoir Des OS "
-	Print "                           Created for develop OS "
-	Print " Version :                                        "
-	Print "  - Date        : " 		&   _VERSION_DATEV
-	Print "  - Kernel base : OS" 	& 	_VERSION_MAJEUR & " " & _VERSION_MINEUR
-	print "  - CPinti core : " 		& 	_VERSION_CPINTI
-	Print "  - CpcdosC+    : " 		&   _VERSION_CCP
-	Print "  - Console     : " 		&   _VERSION_CONSOLE
-	Print "  - SCI & GUI   : " 		&   _VERSION_SCI
 
-	sleep 1000
-end sub
 
 sub cpc_CX_APM_MODE cdecl alias "cpc_CX_APM_MODE" (apm_mode as uinteger)
 	CX_APM_MODE = cbyte(apm_mode)

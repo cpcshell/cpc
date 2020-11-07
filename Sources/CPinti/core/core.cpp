@@ -579,9 +579,6 @@ namespace cpinti
 			// NE pas demander d'arret, ca serai un peu con
 			Liste_Threads[Nouveau_TID].DM_arret = false;
 
-			// Point d'entree
-			Liste_Threads[Nouveau_TID]._eip = (uinteger *)&Fonction;
-
 			// Incrire le thread dans le processsus
 			Liste_Processus[pid].Threads_Enfant[Nouveau_TID] = true;
 
@@ -641,7 +638,6 @@ namespace cpinti
 				Liste_Threads[tid].Priorite = 0;
 				Liste_Threads[tid].PID = 0;
 				Liste_Threads[tid].TID = 0;
-				Liste_Threads[tid]._eip = NULL;
 				Liste_Threads[tid].Etat_Thread = _ARRETE;
 
 				// Quitter le thread

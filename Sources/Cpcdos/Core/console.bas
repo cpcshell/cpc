@@ -178,7 +178,9 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 							' Reduire le nombre de visites pour optimiser ;)
 							NB_Affiche_HautConsole = NB_Affiche_HautConsole + 1
 							if NB_Affiche_HautConsole > 16 Then
-								Haut_Console()
+								' FIXME: Haut Console is broken on linux,
+								' because free basic don't have a great support for TTY
+								' Haut_Console()
 								NB_Affiche_HautConsole = 0
 							End if
 						End if
@@ -534,7 +536,7 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
 
@@ -984,5 +986,5 @@ Function _CONSOLE_Cpcdos_OSx__.GET_Touche Alias "GET_Touche" (ByVal thread_struc
 	' *** E R R O R   I N T E R C E P T I O N ***
 	Intercept_Error:
 		this.HOOK_Console = false
-		cpinti.interception.Erreur_Fatale(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
+		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
