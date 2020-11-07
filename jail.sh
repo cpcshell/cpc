@@ -10,4 +10,4 @@ mkdir jail
 sudo ./arch-bootstrap.sh jail
 chroot ./jail /bin/bash -c "pacman -Syu --noconfirm  git freebasic libzip libx11 libxrandr libxext libxpm libpng"
 rm arch-bootstrap.sh
-cp -r Sysroot/* /jail/ 
+cp -r Sysroot/* ./jail/ 
