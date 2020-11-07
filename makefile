@@ -13,7 +13,7 @@ OBJ=$(SRCCXX:.cpp=.cpp.o) \
 	$(SRCBAS:.bas=.bas.o)
 
 CXX?=g++
-CXXFLAGS:=-MD -IIncludes/ -ICompat -ISources/CPinti/include -std=c++17 -Wall -Wextra
+CXXFLAGS:=-MD -IIncludes/ -ICompat -ISources/CPinti/include -std=c++17 -Wall -Wextra -Werror
 BAS:=fbc
 BASFLAGS:=-i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64
 
