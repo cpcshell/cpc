@@ -1,31 +1,3 @@
-/*	
-	======================================
-	==       CPinti ---> PING ICMP      ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant de pinger une machine sur le reseau
-		Utilise le protocole ICMP.
-	
-	Creation
-		19/10/2016
-		
-	Reecriture
-		02/11/2016
-
-	Mise a jour
-		29/01/2018
-		
-		29-01-2018	: CORRECTION du calcul du temps qui etait bas� sur la trame re�ue et non la trame d'envoie
-		07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-		05-01-2017  : Correction du probleme de reception de la trame (return mal place)
-					: Correction des 4 octets en trop dans la trame 
-						memcpy(&PAQUET_ICMP[TAILLE_ICMP_HDR+TAILLE_Temps_Debut+TAILLE_PAQUET_ENVOYE##-4##] --> "-4" supprime!
-
-*/
-
 #include <ctime> // RAND()
 #include <stdio.h>
 #include <unistd.h> // usleep

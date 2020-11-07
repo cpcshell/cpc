@@ -1,14 +1,4 @@
-' Reseau TCP / UDP Client / Serveur
-' Par Sebastien FAVIER
-
-' Creation 		26-01-2017
-' Mise a jour 	10-05-2017
-
-' 09-05-2017	: CORRECTION de la confusion du thread SERVEUR et CLIENT qui affiche "cr�e" alors que non
-' 14-02-2017	: Finalisation du thread Client
-
 #include "cpcdos.bi"
-
 
 Function Client_THREAD cdecl Alias "Client_THREAD" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
 
@@ -73,11 +63,6 @@ Function Client_THREAD cdecl Alias "Client_THREAD" (ByVal thread_struct as _STRU
 			CPCDOS_INSTANCE.RESEAU_INSTANCE.Client_TCP_CPCDOS_PORT(_index_clt) = 0
 			CPCDOS_INSTANCE.RESEAU_INSTANCE.Client_TCP_CPCDOS_TID(_index_clt) = 0
 			CPCDOS_INSTANCE.RESEAU_INSTANCE.Client_TCP_CPCDOS_IP(_index_clt) = ""
-
-			' Supprimer la stack avec son numero de port
-			' Dim null_str as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString_0(1)
-			' cpinti.cpinti_GEST_BUFF_c(_TID, CPCDOS_INSTANCE._STACK_SUPPRIMER, null_str)
-			' CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(null_str)
 
 			IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then
 				IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
@@ -205,11 +190,6 @@ Function Serveur_THREAD cdecl Alias "Serveur_THREAD" (ByVal thread_struct as _ST
 			' Liberer l'index du tableau
 			CPCDOS_INSTANCE.RESEAU_INSTANCE.Serveur_TCP_CPCDOS_PORT(_index_srv) = 0
 			CPCDOS_INSTANCE.RESEAU_INSTANCE.Serveur_TCP_CPCDOS_MODE(_index_srv) = 0
-
-			' Supprimer la stack avec son numero de port
-			' Dim null_str as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString_0(1)
-			' cpinti.cpinti_GEST_BUFF_c(_NumPort, CPCDOS_INSTANCE._STACK_SUPPRIMER, null_str)
-			' CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(null_str)
 
 			IF _ARG_5 > 0 Then
 				' Si le mode admin a ete lance, on ferme le thread

@@ -1,5 +1,6 @@
 #ifndef CPCDOS_MEM_PAGE
 #define CPCDOS_MEM_PAGE
+
 // Entete
 bool MEM_DEBUG = true;       // Afficher le debug
 bool CHECK_OVERFLOW = false; // Detecter les memory overflow

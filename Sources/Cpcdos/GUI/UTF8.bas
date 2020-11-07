@@ -1,11 +1,3 @@
-' Contient des fonctions et variables concernant
-' la gestion UTF 8
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 17/10/2016
-
-
 #include once "cpcdos.bi"
 #include once "utf8.bi"	' Gestion UTF-8
 

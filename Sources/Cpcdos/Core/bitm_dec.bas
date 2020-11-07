@@ -1,17 +1,3 @@
-' Contient des fonctions et variables concernant
-' decodage bitmap (PNG, JPG)
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 08-06-2019
-
-' 10-06-2019	: Correction des decallages des pixels des images 24 et 32 bits
-' 08-06-2019	: Ajout de bit_converter()
-' 16-10-2018	: Refonte beta 2.1
-' 18-05-2017	: Corrections de Zlib, et de Charger_PNG.
-
-' 17-02-2017	: Support PNG
-
 #include once "cpcdos.bi"	' Declaration/Fonctions communs
 
 function _SYSTEME_Cpcdos_OSx__.bit_converter(byref source as any ptr) as any ptr
@@ -107,11 +93,7 @@ function _SYSTEME_Cpcdos_OSx__.charger_PNG(byval Fichier as String, byval Bits  
 
 
 	IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then
-		IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
-			DEBUG("[SYSTEME] Chargement d'une image PNG(v" & PNG_LIBPNG_VER_STRING & ") '" & Fichier & "' ...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR_PNG)
-		Else
-			DEBUG("[SYSTEM] Loading PNG(v" & PNG_LIBPNG_VER_STRING & ") image '" & Fichier & "' ...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR_PNG)
-		End If
+		DEBUG("[SYSTEM] Loading PNG(v" & PNG_LIBPNG_VER_STRING & ") image '" & Fichier & "' ...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR_PNG)
 	End if
 
 
@@ -178,11 +160,7 @@ function _SYSTEME_Cpcdos_OSx__.charger_PNG(byval Fichier as String, byval Bits  
 	select case( typecouleur )
 		case PNG_COLOR_TYPE_RGB
 			IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then
-				IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
-					DEBUG("[SYSTEME] Information du PNG charg� RVB r�solution:" & largeur & "x" & hauteur & "x" & profondeurPixelleuumeuhmeuuuh & " profondeur:" & profondeurbits  & " canal:" & canaux, CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ERREUR, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR_PNG)
-				Else
-					DEBUG("[SYSTEM] PNG info. RGB Size" & largeur & "x" & hauteur & "x" & profondeurPixelleuumeuhmeuuuh & " depth:" & profondeurbits  & " canal:" & canaux, CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ERREUR, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR_PNG)
-				End If
+				DEBUG("[SYSTEM] PNG info. RGB Size" & largeur & "x" & hauteur & "x" & profondeurPixelleuumeuhmeuuuh & " depth:" & profondeurbits  & " canal:" & canaux, CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ERREUR, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR_PNG)
 			End if
 		case PNG_COLOR_TYPE_RGB_ALPHA
 			IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then

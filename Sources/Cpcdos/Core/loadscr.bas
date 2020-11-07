@@ -1,10 +1,3 @@
-
-
-' Loading screen
-
-' Creation	2 Mai 2019
-' Update	2 Mai 2019
-
 #include "cpcdos.bi"
 
 

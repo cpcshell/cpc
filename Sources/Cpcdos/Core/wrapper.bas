@@ -1,9 +1,3 @@
-' Wrapper des fonctions interne de Cpcdos OSx pour du code externe ---> CPinti Core
-' Par Sebastien FAVIER
-
-' Creation 		04-05-2016
-' Mise a jour 	23-07-2019
-
 #include once "cpcdos.bi"
 
 

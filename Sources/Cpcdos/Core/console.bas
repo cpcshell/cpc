@@ -1,18 +1,3 @@
-' Contient les declarations, structures et variables concernant
-' la console Cpcdos/Cpinticore
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 16/10/2018
-
-' 16-10-2018	: Adaptation 2.1 beta 1.1
-' 22-01-2018	: AJOUT de GetTouche() /Reecriture pour adaptation du FIX/ /Q et /ATOUCHE
-' 14-14-2017	: AJOUT du support multi-OS
-' 30-03-2017	: Ajout des statistiques de la carte reseau (Activite %, envoie, recu)
-' 22-02-2017	: Adaptation de la console TELNET (Touche ENTRE) OK
-' 20-02-2017	: Support console TELNET OK
-' 14-02-2017	: Adaptation de la console pour le reseau + historique et completions
-
 #include once "cpcdos.bi"
 
 Constructor _CONSOLE_Cpcdos_OSx__()

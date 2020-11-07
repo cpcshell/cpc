@@ -1,20 +1,3 @@
-/*
-	=============================================
-	==   CPinti ---> Gestionnaire de threads   ==
-	=============================================
-
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant la commutation des threads en se basant sur le PIT
-
-	Creation
-		17/05/2018
-
-	Mise a jour
-		22/01/2019
-*/
-
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>

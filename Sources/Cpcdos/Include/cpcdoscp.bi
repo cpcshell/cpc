@@ -1,10 +1,3 @@
-' Contient les declaration des fonctions et variables concernant
-' le shell/moteur CpcdosC+
-
-' Par Sebastien FAVIER
-' Reecriture le 16/01/2017
-' Mise a jour le 27/01/2020
-
 Type _SHELL_Memoire_CCP__
 	private:
 

@@ -1,14 +1,3 @@
-' Contient les declarations, structures et variables concernant
-' le debogage / log de Cpcdos
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 05/10/2018
-
-' 05-10-2018	: Refonte beta 2.1
-' 16-08-2017	: Ajout du support du COM
-
-
 Declare Function ERRAVT(Erreur as string, P2 as integer) as string
 
 Type _DEBUG_Cpcdos_OSx__

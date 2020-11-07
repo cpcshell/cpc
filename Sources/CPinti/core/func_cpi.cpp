@@ -1,25 +1,3 @@
-/*	
-	======================================
-	==     CPinti ---> Fonctions CPinti ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module regroupant toutes les fonctions hors classes
-		 utiles afin d'accompagner CPinti Core dans ses besoins ;)
-	
-	Creation 
-		19/10/2016
-
-	Mise a jour
-		07/12/2017
-		
-		07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-		14-02-2017	: Ajout des fonctions string --> to uint, long et int
-		06-01-2016	: Ajout des fonction de compatibilites WATTCP (_w32_intel)
-*/
-
 #include <iostream>
 #include <stdio.h>
 #include <sys/select.h>

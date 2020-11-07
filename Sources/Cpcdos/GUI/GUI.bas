@@ -1,22 +1,4 @@
-' Gestionnaire graphique
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 14/12/2017
-
-' 14-14-2017	: AJOUT du support multi-OS.
-' 22-11-2017 	: AJOUT du support d'interaction evenementielle de la barre de progression
-' 26-10-2017	: AJOUT du support d'interaction evenementielle du TexteBox
-' 15-09-2017	: Correction des evenements mouseleave et mousemove
-' 21-08-2017	: Ajout du systeme de suppression des objets + debug
-' 06-07-2017	: Ajout des evenements MouseEnter MouseLeave MouseMove Click KeyPress
-' 21-06-2017	: Adaptation de init_gui pour les modification des proprietes graphiques
-' 23-05-2017	: Ajout du support du CLIC gauche et droit sur les imagesbox
-' 19-05-2017	: Readaptation du PNG et le picturebox
-
-
 #include once "cpcdos.bi"
-
 
 Function _SCI_Cpcdos_OSx__.Initialiser_GUI(Arg1 as integer, RetourVAR_ as String, _CLE_ as double) as integer
 	' Cette fonction va permettre d'initialiser l'interface graphique

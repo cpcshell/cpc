@@ -1,6 +1,5 @@
-// Ce module sert simplement pour initialiser les variables se trouvant dans la HEAP memory
-
-/****** H E A P ******/
+#ifndef INCLUDE_HEAP
+#define INCLUDE_HEAP
 
 std::string NP_cpinti_socket::cpinti_socket_LOCAL::Erreur_STR = "";
 
@@ -12,4 +11,4 @@ uinteger cpinti::SATATISTIQUES_NET_envoye[_MAX_Stack_instance] = {0};
 uinteger cpinti::SATATISTIQUES_NET_activite[_MAX_Stack_instance] = {0};
 uinteger cpinti::SATATISTIQUES_NET_clients[_MAX_Stack_instance] = {0};
 
-/****** H E A P ******/
+#endif /* INCLUDE_HEAP */

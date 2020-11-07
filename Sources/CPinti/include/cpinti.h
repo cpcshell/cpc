@@ -36,9 +36,7 @@
 #define _CHK_ERR__C 5          /* Probleme de ... detecte et corrige */
 #define _CHK_ERR_ 6            /* Probleme de ... detecte et NON corrige */
 
-// =====================================================================
-// Celui-ci pour developper en C/C++ facilement pour les contributeurs
-// =====================================================================
+
 namespace Wrapper_Cpcdos
 {
     int cpinti_WRAPPER(integer FunctionID, double _CLE_, const char *ARG_1,

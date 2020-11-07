@@ -1,22 +1,3 @@
-/*
-	======================================
-	==      CPinti ---> Input/Output    ==
-	==                        Taille    ==
-	======================================
-
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module de calcul taille CPinti Core(tm) pour Cpcdos OSx.
-
-	Creation
-		02/10/2017
-
-	Mise a jour
-		11/MAR/2020
-
-	10/MAR/2020	: reeutilisation des anciennes methodes d'allocation memoire
-*/
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>

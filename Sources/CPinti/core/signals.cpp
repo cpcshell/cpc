@@ -1,20 +1,3 @@
-/*
-	=============================================
-	==  CPinti ---> Interception d'exceptions  ==
-	=============================================
-
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant l'interception d'exceptions.
-
-	Creation
-		19/09/2018
-
-	Mise a jour
-		26/06/2020
-*/
-
 #include <cstdlib>
 #include <signal.h>
 #include <stdio.h>

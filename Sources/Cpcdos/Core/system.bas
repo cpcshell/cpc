@@ -1,22 +1,3 @@
-' Contient des fonctions et variables concernant 
-' le systeme de Cpcdos
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 11-MAR-2020
-
-' 10-MAR-2020	: Correction de AllouerString() - Viol memoire, depassement 1 octet
-' 15-10-2018	: Refonte 2.1 beta 1.1
-' 22-11-2017	: AJOUT des attributs de fichier, d'independances de DOS
-' 21-11-2017	: AJOUT de la fonction lister_Repertoire()
-' 18-05-2017	: Corrections de Zlib, et de Charger_PNG.
-' 08-05-2017	: Ajout des arguments d'identifictions dans le _STRUCT_THREAD_Cpcdos_OSx__
-' 22-03-2017	: Ajout des fonctions get_Cons_X et Y
-' 17-02-2017	: Support PNG
-
-
-
-
 #include once "cpcdos.bi"	' Declaration/Fonctions communs
 
 

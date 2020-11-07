@@ -1,24 +1,3 @@
-/*
-	======================================
-	==     CPinti ---> Wrapper reseau   ==
-	======================================
-
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant l'acces aux fonctionnalites reseau.
-		 Creation de serveur, client TCP/UDP, ping
-		 Satistiques reseaux
-
-	Creation 
-		19/10/2016
-
-	Mise a jour
-		10/07/2019
-	16-10-2018	: Adaption 2.1 beta 1.1
-	07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-	13-02-2017	: Finitions du serveur & client
-*/
 #include <memory>
 #include <string>
 

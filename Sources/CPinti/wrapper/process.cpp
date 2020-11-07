@@ -1,29 +1,3 @@
-/*	
-	======================================
-	==    CPinti ---> wrapper processus ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant l'acces aux fonctionnalites de gestion
-		 des processus
-	
-	Creation 
-		19/10/2016
-
-
-	Mise a jour
-		22/01/2019
-		
-	16-10-2018	: Adaption 2.1 beta 1.1
-	07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-	23-08-2017	: cpinti_get_nom_processus() pour recuperer les noms des Processus
-	
-*/
-
-/** FIXME: REWORK PROCESS THREAD ETC **/
-
 #include <string.h>
 
 #include "core.h"

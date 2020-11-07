@@ -1,29 +1,4 @@
-' Service Creation Initialisation
-' Gestionnaire graphique de Cpcdos
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 15/10/2018
-
-' 15-10-2018	: Adaptation 2.1 beta 1.1
-' 17-01-2018	: AJOUT du numero de handle temporaire pour le fond d'ecran
-' 31-10-2017	: CORRECTION du support d'interaction graphique du textebox
-' 26-10-2017	: AJOUT du support d'actualisation graphique du textebox et l'interaction clavier de base
-' 06-07-2017	: Ajout des interacton indirect evenementielles KeyPress() et KeyPress(valeur)
-' 01-06-2017	: Ajout des modes d'affichage du fond d'ecran
-'					0 : Remplir l'�cran (PAR DEFAUT)
-'					1 : Image ajust� � l'�cran
-'					2 : Vignettes (02-06-2017)
-'					3 : Image brute centr�
-'					4 : Image brute
-
-' 19-05-2017	: Readaptation du PNG et le picturebox
-
-
 #include once "cpcdos.bi"
-
-
-
 
 Constructor _SCI_Cpcdos_OSx__()
 	DEBUG(" * Instanciation du SCI --> Allocation offset:0x" & hex(@this) & " Taille:" & SizeOf(this) & " octets", 1, 1, 2, 0, 0, 1, 0, "")
@@ -383,7 +358,7 @@ Function _SCI_Cpcdos_OSx__.creer_Msgbox(Texte as String, Titre as String, Type_A
 End Function
 
 
-Function THREAD_Screen_Video Alias "THREAD_Screen_Video" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
+Function THREAD_Screen_Video Alias "THREAD_Screen_Video" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 
 	Dim blittage as boolean = false
 	Dim As integer Pos_X, Pos_Y, Scroll_Weel, TypeClic, Clip, Presente
@@ -453,7 +428,7 @@ Sub _SCI_Cpcdos_OSx__.Blitter_Video(byval Pos_X as integer, Pos_Y as integer, So
 	End if
 End Sub
 
-Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
+Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 
 	' ============= PUBLIC VARIABLES =============
 	Dim as integer Ancien_X, Ancien_Y, Ancien_Clic, Ancien_Scroll
@@ -1085,7 +1060,7 @@ Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_
 End Function
 
 
-Function THREAD_RefreshGUI_Elements Alias "THREAD_RefreshGUI_Elements" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
+Function THREAD_RefreshGUI_Elements Alias "THREAD_RefreshGUI_Elements" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 
 	Dim Etat_Thread as uinteger
 	Dim EN_VIE as boolean = true
@@ -1208,7 +1183,7 @@ Function THREAD_RefreshGUI_Elements Alias "THREAD_RefreshGUI_Elements" (ByVal th
 End Function
 
 
-Function THREAD_IUG_PICTUREBOX  cdecl alias "THREAD_IUG_PICTUREBOX" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
+Function THREAD_IUG_PICTUREBOX  cdecl alias "THREAD_IUG_PICTUREBOX" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 
 	' ============= PUBLIC VARIABLES =============
 	DIM CLE as double = CPCDOS_INSTANCE.Generer_cle(thread_struct.KERNEL_ID, thread_struct.OS_ID, thread_struct.USER_ID, thread_struct.PROC_ID, thread_struct.THREAD_ID)

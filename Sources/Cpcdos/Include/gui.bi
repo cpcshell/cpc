@@ -1,10 +1,3 @@
-' Contient les declaration des fonctions et variables concernant
-' le gestionnaire graphique
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 23/06/2020
-
 #include once "utf8.bi"	' Gestion UTF-8
 
 ' ==== Type de GUI a creer ====

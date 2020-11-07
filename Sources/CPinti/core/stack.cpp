@@ -1,39 +1,8 @@
-/*	
-	======================================
-	==     CPinti ---> MEMOIRE STACK    ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant le recevoir, stocker temporairement et envoyer
-			des donnees de tailles variables (limite a la capacite de la RAM)
-		"Stack inverse" par ce qu'il empile les donnees recues, mais les plus
-			obsoletes sont envoye en priorite!
-	
-	Creation
-		10/05/2016
-		
-	Reecriture
-		01/11/2016
-		
-	Mise a jour
-		19/10/2018
-	
-*/
-
 #include "stack.h"
 #include "cpinti.h"
 
 namespace cpinti
 {
-    // Numero des ports (Faut savoir qu'il melange serveur et client, a corriger a l'avenir)
-    // uinteger Stack__PORT_ATTRIB[] = {0};
-
-    // Creation des tableau d'instances du stack inverse qui servira de buffer pour Cpcdos et le serveur
-    // std::vector<std::shared_ptr<cpinti_stack_inv>> Stack_CPintiCore__KERNEL;
-    // std::vector<std::shared_ptr<cpinti_stack_inv>> Stack_CPintiCore__SERVEUR;
-
     cpinti_stack_inv::cpinti_stack_inv()
     {
         /* Constructeur */

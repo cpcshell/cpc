@@ -1,13 +1,3 @@
-' Contient les declarations, structures et variables concernant
-' la console Cpcdos/Cpinticore
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 22/01/2018
-
-
-' 22-01-2018	: AJOUT de GET_Touche
-
 Type _CONSOLE_Cpcdos_OSx__
 	private:
 

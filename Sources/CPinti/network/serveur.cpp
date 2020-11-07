@@ -1,34 +1,3 @@
-/*	
-	======================================
-	==       CPinti ---> SERVEUR TCP    ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant de creer un serveur TCP/UDP multi-client multithread multi I/O
-	
-	Creation
-		19/10/2016
-		
-	Reecriture
-		02/11/2016
-		18/11/2016
-		11/07/2019
-
-	Mise a jour
-		12-MAR-2020
-		
-		12-MAR-2020 : Readaptation et correction pour la beta 1.2
-		11-07-2019	: REFONTE COMPLETE
-		07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-		11-04-2017	: ADAPTATION pour creation de serveur d'ECHO.
-		21-02-2017	: DEBUG ajout info port
-		14-02-2017	: Revue des includes + Finitions
-		13-02-2017	: Ajout du controle d'envoie (#CLT# et #TOUT#) pour choisir en envoie general ou cible
-		07-02-2017	: Ajout des fonctionnalites de controle de buffer
-*/
-
 #include <ctime> // RAND()
 #include <stdio.h>
 #include <unistd.h> // usleep

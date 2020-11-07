@@ -1,10 +1,3 @@
-
-'            ===== ========================== =====
-'    ============= ************************** =============
-' ================ CPinti Core for Cpcdos OSx ================
-'    ============= ************************** =============
-'            ===== ========================== =====
-
 #define DWORD uinteger
 
 Extern "C++" lib "cpnti"
@@ -107,89 +100,6 @@ Extern "C++" lib "cpnti"
 			declare sub			Interruption_Timer		cdecl ()
 
 		end namespace ' gestionnaire taches
-
-		' Type __CpintiCore_CpcdosOSx__ extends object
-			' public:
-			' Declare sub cpinti_joindre( a as integer)
-			' Declare sub stopper_thread()
-
-			' Declare function cpinti_WRAPPER					(Function_ID as integer, _CLE_ as double, ARG_1 as integer, ARG_2 as uinteger, ARG_3 as CONST ZString PTR, ARG_4 as CONST ZString PTR, ARG_5 as CONST ZString PTR) as integer
-			' Declare function CPinti_Core_TESTE_INSTANCE		() as integer
-			' declare function pthmicrosleep					(temps as integer) as integer
-			' Declare function cpinti_ajout_thread			(TypeCpc as integer, priorite as integer, nom as ZString ptr) as integer
-			' Declare function get_ID_Thread					() as integer
-			' Declare function get_Nom_Thread					() as ZString ptr
-			' Declare function cpinti_boucle_thread			(a as integer) as integer
-			' declare function cpinti_initialisation			(a as integer, b as integer ) as integer
-			' declare function cpinti_version					() as integer
-			' declare function cpinti_test					() as integer
-			' declare function get_MEMOIRE					() as integer
-			' declare function cpinti_isr_initialisation		(a as integer, b as any ptr,  c as any ptr) as integer
-
-			' declare sub		 Quitter_CPintiCore				()
-
-			' declare function cpinti_ckecker					(ID_KERNEL as uinteger) as integer
-
-			' declare sub		 cpinti_fin_section_critique	()
-			' declare sub 	 cpinti_ENTRER_SectionCritique	(mode as uinteger)
-			' declare sub 	 cpinti_ENTRER_SectionCritique	(TID as uinteger, mode as uinteger, delai as uinteger)
-
-			' declare function cpinti_thread_args				(NoARG as integer) as ANY PTR
-			' declare function cpinti_ordonnancement_init		(_ID as uinteger, P0 as integer) as integer
-
-			' declare function cpinti_creer_processus			(ID_KERNEL as uinteger, NomProcessus as CONST ZString PTR) as uinteger
-			' declare function cpinti_sortir_processus		(ID_KERNEL as uinteger, PID as uinteger) as integer
-			' declare function cpinti_arreter_processus		(ID_KERNEL as uinteger, PID as uinteger) as integer
-			' declare function cpinti_etat_processus			(ID_KERNEL as uinteger, PID as uinteger) as uinteger
-			' declare function cpinti_gerer_processus			(ID_KERNEL as uinteger, PID as uinteger, ACTION as uinteger) as integer
-			' declare function cpinti_get_nom_processus		(ID_KERNEL as uinteger, PID as uinteger, NomThread as CONST ZString PTR) as integer
-
-			' declare function cpinti_creer_thread			(ID_KERNEL as uinteger, ID_OS as uinteger, ID_USER as uinteger, PID as uinteger, NomThread as CONST ZString PTR, Priorite as integer, byval Fonction as function(byval as any ptr) as any ptr, ARG_CP as any ptr, STR_TH as any ptr) as uinteger
-			' declare function cpinti_joindre_thread			(ID_KERNEL as uinteger, PID as uinteger, TID as uinteger, CYCLES as integer) as uinteger
-			' declare function cpinti_sortir_thread			(ID_KERNEL as uinteger, PID as uinteger, TID as uinteger) as integer
-			' declare function cpinti_arreter_thread			(ID_KERNEL as uinteger, PID as uinteger, TID as uinteger) as integer
-			' declare function cpinti_etat_thread				(ID_KERNEL as uinteger, PID as uinteger, TID as uinteger) as uinteger
-			' declare function cpinti_gerer_thread			(ID_KERNEL as uinteger, PID as uinteger, TID as uinteger, ACTION as uinteger) as integer
-			' declare function cpinti_get_nom_thread			(ID_KERNEL as uinteger, PID as uinteger, TID as uinteger, NomThread as CONST ZString PTR) as integer
-
-			' declare function cpinti_testOpenGL				() as integer
-			' declare function cpinti_testExeLoader			(Source as CONST ZSTRING PTR) as integer
-
-
-			' Declare function cpinti_serveur					(port as uinteger, NombreClients as integer, ID as uinteger, TypeServeur as integer) as integer
-			' declare function cpinti_client					(AdresseDistant as CONST ZString ptr, port as uinteger, PID as uinteger, TypeClient as integer) as integer
-
-			' declare function cpinti_get_net_info			(NoPort as uinteger, _inf as uinteger) as uinteger
-
-			' declare function cpinti_get_net_envoye			() as uinteger
-			' declare function cpinti_get_net_recu			() as uinteger
-			' Declare function cpinti_get_net_machines		() as uinteger
-			' declare function cpinti_get_net_activite		() as uinteger
-
-			' declare function cpinti_get_nombre_processus	() as uinteger
-			' declare function cpinti_get_nombre_threads		() as uinteger
-			' declare sub cpinti_update_cycle_cpu				()
-			' declare function cpinti_get_cycle_cpu			() as uinteger
-			' declare function cpinti_get_max_cycle_cpu		() as uinteger
-			' declare function cpinti_get_pourcent_cpu		() as integer
-			' Declare sub cpinti_evaluation_cycle_cpu			()
-
-			' declare function cpinti_ping_icmp				(AdresseDistant As CONST ZString Ptr, Message As CONST ZString Ptr) as integer
-			' declare function Verifier_Pilote_Reseau			() as integer
-
-			' declare function cpinti_GEST_BUFF_c				(_ID as uinteger, _Source as integer, _DONNEES as CONST ZString ptr) as integer
-			' declare function cpinti_GEST_BUFF_c				(_ID as uinteger, _Source as integer, _DONNEES as ZString ptr) as integer
-
-			' declare function Initialiser_MT_Timer			() as boolean
-			' declare function Stop_MT_Timer					() as boolean
-			' Declare Constructor()
-			' Declare Destructor()
-
-		' End type ' Class CPINTI
-
-
-
-
 	end namespace ' cpinti
 end extern
 

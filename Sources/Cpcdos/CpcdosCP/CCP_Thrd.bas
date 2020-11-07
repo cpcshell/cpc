@@ -1,9 +1,3 @@
-' Moteur/SHELL CpcdosC+ -
-
-' Par Sebastien FAVIER
-' Reecriture le 23/01/2017
-' Mise a jour le 07/03/2019
-
 #include "cpcdos.bi"
 
 

@@ -40,4 +40,5 @@ namespace cpinti_dbg
                       int AffDate, int RetourLigneHaut);
 
 } // namespace cpinti_dbg
+
 #endif /* !CPCDOS_DEBUG */

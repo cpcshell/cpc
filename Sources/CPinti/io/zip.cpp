@@ -1,20 +1,3 @@
-/*
-	======================================
-	==      CPinti ---> Input/Output    ==
-	==                         ZIP      ==
-	======================================
-
-	Developpe par Sebastien FAVIER
-
-	Description
-		Module compression/decompression ZIP CPinti Core(tm) pour Cpcdos OSx.
-
-	Creation
-		14/08/2020
-
-	Mise a jour
-		14/08/2020
-*/
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>

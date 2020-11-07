@@ -1,22 +1,3 @@
-/*	
-	======================================
-	==       CPinti ---> wrapper MEM   ==
-	======================================
-	
-	Developpe entierement par SPinti Software
-
-	Description
-		Module permettant l'acces aux fonctionnalites 
-		 d'ecriture, lecture des fichiers sur support
-	
-	Creation 
-		13/04/2020
-
-
-	Mise a jour
-		16/04/2020
-
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

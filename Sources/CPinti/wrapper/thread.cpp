@@ -1,29 +1,3 @@
-/*	
-	======================================
-	==     CPinti ---> wrapper threads  ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant d'utiliser les fonctionnalites de gestion
-		 des threads
-	
-	Creation 
-		19/10/2016
-
-
-	Mise a jour
-		16/10/2018
-		
-	16-10-2018	: Adaption 2.1 beta 1.1
-	07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-	23-08-2017	: Ajout de cpinti_get_nom_thread() pour recuperer les noms des threads
-	08-05-2017	: Ajout des arguments d'entre pour les threads crees
-
-	
-*/
-
 #include <stdio.h>
 #include <string.h>
 

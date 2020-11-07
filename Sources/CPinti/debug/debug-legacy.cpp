@@ -1,28 +1,6 @@
-/*	
-	======================================
-	==        CPinti ---> Debug         ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	
-	Description
-		Module de debogage/affichage console des informations
-	
-	Creation 
-		18/10/2015
-
-	Mise a jour
-		07/12/2017
-		
-		07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-	
-*/
-
 #include "CPC_WPR.h"
 #include "cpinti.h"
 #include "debug.h"
-// #include "func_cpi.h"
 
 namespace cpinti_dbg
 {

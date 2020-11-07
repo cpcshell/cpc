@@ -1,9 +1,3 @@
-// SPinti Software
-
-// For CPinti Core
-// Created : 20 Mars 2020
-// Updated : 15 Avril 2020
-
 #include <stdio.h>
 #include <stdlib.h>
 

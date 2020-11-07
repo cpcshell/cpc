@@ -1,26 +1,3 @@
-/*	
-	======================================
-	==       CPinti ---> wrapper I/O    ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant l'acces aux fonctionnalites 
-		 d'ecriture, lecture des fichiers sur support
-	
-	Creation 
-		19/10/2016
-
-
-	Mise a jour
-		19/04/2019
-	
-	19-04-2019	: Refonte beta 1.1
-	16-10-2018	: Adaption 2.1 beta 1.1
-	07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-	06-10-2017	: Ajout de Copier_Fichier.
-*/
 #include "io.h"
 #include "cpinti.h"
 #include "debug.h"

@@ -1,21 +1,3 @@
-' Contient des fonctions et variables concernant
-' Cpcdos en general
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 16/10/2018
-
-' 16-10-2018	: Adaptation 2.1 beta 1.1
-' 31-10-2017	: AJOUT des LTRIM et RTRIM sur les tabulations, espaces et CR & LF des noms de fichiers/path
-
-
-REM ====================================================
-REM Developpe par : SPinti Software - Sebastien FAVIER
-REM =====================================================
-REM Copyright(C)Spinti Software. SPinti Software(TM)
-REM Source protege par les droits d'auteur (Dossier No:J8781B5)
-REM =====================================================
-
 #define FBCALL
 
 #include once "cpcdos.bi"

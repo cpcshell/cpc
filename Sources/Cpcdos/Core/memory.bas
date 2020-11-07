@@ -1,23 +1,4 @@
-' Contient des fonctions et variables concernant
-' le systeme de Cpcdos
-
-' Par Sebastien FAVIER
-' Reecriture le 15/10/2018
-' Mise a jour le 10/09/2018
-
-' 15-10-2018	: Adaptation en beta 2.1
-' 19-01-2018	: AJOUT du garbage collector pour les bitmaps (GUI)
-' 17-11-2017 	: AJOUT du gestionnaire de bitmaps
-' 07-11-2020	: AJOUT de la suppression des bitmaps par 1 numero de handle
-' 10-09-2020	: CORRECTIONS des crashs provoque par des pointeurs NULL, et NON verifies !
-
-
-
 #include once "cpcdos.bi"	' Declaration/Fonctions communs
-' =====================================================================================
-'   							M E M O I R E   B I T M A P
-' =====================================================================================
-
 
 
 Function _memoire_bitmap.Bloc_Libre() as integer

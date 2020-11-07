@@ -1,37 +1,3 @@
-' Moteur/SHELL CpcdosC+ -
-
-' Par Sebastien FAVIER
-' Reecriture le 16/01/2017
-' Mise a jour le 16/10/2018
-
-' 16-10-2018	: Adaptation 2.1 Beta 1.1
-' 08-05-2017	: Ameliorations du systemes de niveaux.
-' 30-03-2017	: Ajout de CPC.SYS.NET.ACT, CPC.SYS.NET.SND/ENV, CPC.SYS.NET.REC, CPC.SYS.NET.CLT.
-' 23-02-2017	: Ajout de la gestion des tableaux
-' 22-02-2017	: Ajout de CONS x et Y
-'					+ Ajout des fonction
-'						- LEN()/TAILLE() 	: Obtenir la taille d'une chaine de caracteres.
-'						- MAJ()/MIN() 		: Convertir en MAJuscules / MINuscules.
-'						- SIGNE()/SIGN() 	: Obtenir le signe d'un nombre.
-'						- ENTIER()/INT()/INTEGER: Convertir en nombre entier (Sans virgule).
-'						- FRAC()			: FRACtionner un chiffre a virgule (Juste apres virgule)
-'						- VAL()				: Convertir un nombre Binaire/octal/hexa en decimale
-'						- CHR()/CAR()/CARACTERE(): Convertir une valeur en caractere ASCII.
-'						- ASC()/ASCII()		: Convertir un caractere ASCII en valeur.
-'						- HEX()/HEXA()/
-'							HEXADECIMAL()
-'							HEXADECIMALE()	: Convertir un valeur en hexadecimal.
-'						- ABS()				: Obtenir la valeur ABSolue d'une valeur.
-'						- LOG,() EXP(), RAC(), COS(), SIN(), TAN(), ACOS(), ASIN(), ATAN(), ATANR()
-'						- FICHIER_EXISTE()
-'							FILE_EXIST()	: Tester l'existence d'un fichier.
-'						- TAILLE_FICHIER()
-'							FILE_SIZE()		: Retourner la taille d'un fichier.
-'						- LIRE_FICHIER()
-'							READ_FILE()		: Lire le contenu d'un fichier.
-'						- NET.PING()		: Pinger une machine
-'
-
 #include "cpcdos.bi"
 
 #define _scope do

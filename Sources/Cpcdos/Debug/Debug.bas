@@ -1,19 +1,3 @@
-' Ce module permet la gestion des informations de debogage
-'  gere l'affichage sur la console mais aussi dans des fichiers logs
-'  et stream TCP pour le support TELNET par exemple.
-
-' Par Sebastien FAVIER
-' 	1 ere reecriture le 13/10/2016
-' 	2 eme reecriture le 22/09/2018
-' 	Mise a jour le 22/09/2018
-
-' 22-09-2018	: Refonte 2.1 beta 1.1
-' 13-04-2017	: Correction de \#PAUSE qu ine fonctionnait plus
-' 14-02-2016	: Adaptation creation du client & serveur + buffer
-
-
-
-
 #include once "cpcdos.bi"
 
 Constructor _DEBUG_Cpcdos_OSx__()

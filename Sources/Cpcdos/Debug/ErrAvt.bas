@@ -1,17 +1,7 @@
-' Moteur/SHELL CpcdosC+ - Interpreteur commandes
-
-' Par Sebastien FAVIER
-' Reecriture le 19/01/2017
-' Mise a jour le 16/10/2018
-
 #include "cpcdos.bi"
 
 #define _scope do
 #define _end_scope loop while 0
-
-
-
-
 
 Function ERRAVT(Erreur as string, P2 as integer) as string
 	REM Cette fonction retourne les No d'erreurs

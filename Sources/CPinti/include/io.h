@@ -1,23 +1,5 @@
-/*
-	************* ENTETE *************
-	
-	======================================
-	==     CPinti ---> InputOutput      ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-		Ex-Contributeurs 2015 : Johann GRAF et Leo VACHET.
-		
-		Module lecture et ecriture CPinti Core(tm) pour Cpcdos OSx
-		
-		Reecriture complete No.1 28/06/2015
-		                    No.2 12/02/2016
-							No.3 18/10/2016
-							No.4 19/04/2019
-							
-		Mise a jour le 19/04/2019
-		
-*/
+#ifndef INCLUDE_IO
+#define INCLUDE_IO
 
 namespace cpinti
 {
@@ -47,3 +29,5 @@ namespace cpinti
         bool Copier_Fichier(const char *Source, const char *Destination, int Priorite, const char *VAR_Progression, const char *VAR_Octets, const char *VAR_OctetsParSec);
     } // namespace gestionnaire_fichier
 } // namespace cpinti
+
+#endif /* INCLUDE_IO */

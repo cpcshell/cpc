@@ -1,13 +1,3 @@
-' Contient des fonctions et variables concernant
-' le systeme de Cpcdos
-
-' Par Sebastien FAVIER
-' Reecriture le 13/10/2016
-' Mise a jour le 15/10/2018
-
-' 08-10-2018	: Refonte 2.1 beta 1.1
-' 25-01-2018	: AJOUT de l'attribut Port_COM_Ecriture
-
 #ifndef NULL
 #define NULL cptr(any ptr,0)
 #endif
@@ -271,16 +261,6 @@ End Type
 
 ' Cette structure permet de gerer les port COM
 Type _COM_PORT__
-	' COM1 : &h3f8 -> IRQ4
-	' COM2 : &h2f8 -> IRQ3
-	' COM3 : &h3e8 -> IRQ2
-	' COM4 : &h2e8 -> IRQ1
-	' COM5 : < Non utilisee >
-	' COM6 : < Non utilisee >
-	' COM7 : < Non utilisee >
-	' COM8 : < Non utilisee >
-
-
 	Port_COM_Ecriture		as boolean
 	Port_COM_Connecte		as boolean
 	Port_COM_Present		as boolean 	' Non utilise pour le moment
@@ -296,10 +276,7 @@ Type _COM_PORT__
 	Port_COM_IRQ			as string
 	Port_COM_TAG			as string 	' Nom du port personalite
 
-
-
 	Port_COM_KeyID			as double	' Thread, Processus, Utilisateur, OS et Kernel utilisant le port (1 etant le debogeur)
-
 End Type
 
 Type _Attributs_io_
@@ -401,12 +378,6 @@ Type _SYSTEME_Cpcdos_OSx__
 		Declare function 	process_frame_header	(pointeur_JPEG as _tableau_JPEG_ ptr,scan as integer) 											as integer
 		Declare function 	decode_jpeg_header		(pointeur_JPEG as _tableau_JPEG_ ptr,scan as integer)											as integer
 		Declare function 	decode_jpeg_image		(pointeur_jpg as _tableau_JPEG_ ptr) 															as integer
-		' Declare function 	resample_row_1			(ou as ubyte ptr, in_near as ubyte ptr, in_far as ubyte ptr, Largeur as integer, hs as integer) as ubyte ptr
-		' Declare function 	resample_row_v_2		(ou as ubyte ptr, in_near as ubyte ptr, in_far as ubyte ptr, Largeur as integer, hs as integer) as ubyte ptr
-		' Declare function 	resample_row_h_2		(ou as ubyte ptr, in_near as ubyte ptr, in_far as ubyte ptr, Largeur as integer, hs as integer) as ubyte ptr
-		' Declare function 	resample_row_hv_2		(ou as ubyte ptr, in_near as ubyte ptr, in_far as ubyte ptr, Largeur as integer, hs as integer) as ubyte ptr
-		' Declare function 	resample_row_generic	(ou as ubyte ptr, in_near as ubyte ptr, in_far as ubyte ptr, Largeur as integer, hs as integer) as ubyte ptr
-
 
 		Declare sub 		YCbCr_to_RGB_row		(ou as ubyte ptr, y as ubyte ptr, pcb as ubyte ptr, pcr as ubyte ptr, count as integer, psize as integer)
 		Declare sub 		cleanup_jpeg			(pointeur_jpg as _tableau_JPEG_ ptr)

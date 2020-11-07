@@ -1,33 +1,3 @@
-/*
-	======================================
-	==   CPinti ---> Buffer manager     ==
-	======================================
-
-	Developpe entierement par Sebastien FAVIER
-
-
-	Description
-		Module de debogage/affichage console des informations
-
-	Creation
-		25 Janvier 2015
-
-	Refonte
-		18/10/2016
-		19/10/2018
-
-	Mise a jour
-		07/12/2017
-
-	07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-	17-04-2017	: Envoie de '#DECO' si le server a ferme la connexion TCP
-	14-02-2017	: Adaptation/finitions du buffer
-	10-02-2017	: Optimisation du buffer
-	09-02-2017 	: cpinti_GEST_BUFF Les vecteurs desormais indexe directement dans leur
-					propres instances leur recherche n'est plus base sur un index
-					externe "indirect"
-*/
-
 #include <malloc.h>
 #include <stdlib.h>
 
@@ -47,12 +17,10 @@ namespace cpinti
     {
         if (_CHEMIN < 6)
         {
-            // cpinti_dbg::CPINTI_DEBUG("_ID:" + _ID + ".", "", "", "", Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
-
             for (uinteger index_tab = 0; index_tab < cpinti::Stack_CPintiCore__KERNEL.size(); index_tab++)
+            {
                 if (cpinti::Stack_CPintiCore__KERNEL.at(index_tab)->tag_1 == _ID)
                 {
-
                     // Si non indexe, donc non instancie, on evite les crashs Ahaha!! ;-)
                     if (((_CHEMIN < 9) && (index_tab >= 512)) && (_ID == 0))
                         return "";
@@ -83,6 +51,8 @@ namespace cpinti
                         return cpinti::Stack_CPintiCore__SERVEUR.at(index_tab)->get_Stack(0); // Recuperer
                     }
                 }
+            }
+
             return (std::string) "#DECO";
         }
         else

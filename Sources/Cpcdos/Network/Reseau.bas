@@ -1,22 +1,4 @@
-' Reseau TCP / UDP Client / Serveur
-' Par Sebastien FAVIER
-
-' Creation 		25-01-2017
-' Mise a jour 	05-11-2017
-
-' 05-11-2017	: Modification du niveau de publicite des variables CPC_SYS.NET de 5 a 3
-' 11-05-2017	: Readaptation du client et serveur reseau pour le retour de NON CONNEXION
-' 11-04-2017	: Adaptation pour creation de serveur d'ECHO.
-' 07-04-2017	: Correction bug si la trame comportait le signe '=' le module essayait donc d'envoyer un #CLT
-' 08-03-2017	: Correction bugs de PID & Cle + Retour valeur @# DANS les fonctions
-' 04-02-2017	: Ajout de l'attente ou attente en millisecondes d'une reception requete
-' 24-02-2017	: Amelioration des erreurs serveur/ client/
-' 23-02-2017	: _PID --> _TID
-' 14-02-2017	: Connexion client + Envoyer + recevoir
-' 13-02-2017	: Possibilite d'envoyer a un socket precis deja connecte
-
 #include "cpcdos.bi"
-
 
 Function _RESEAU_Cpcdos_OSx__.Ping(AdresseDistant as String, _CLE_ as double) as integer
 	' Permet de pinger une machine distante

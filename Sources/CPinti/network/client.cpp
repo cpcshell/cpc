@@ -1,32 +1,3 @@
-/*	
-	======================================
-	==       CPinti ---> CLIENT TCP     ==
-	======================================
-	
-	Developpe entierement par Sebastien FAVIER
-
-	Description
-		Module permettant de creer un client TCP/UDP multithread multi I/O
-	
-	Creation
-		19/10/2016
-		
-	Reecriture
-		02/11/2016
-		29/11/2016
-		11/07/2019
-
-	Mise a jour
-		13-AOUT-2020
-		
-		13-AOU-2020 : CORRECTION telechargement fichiers binaire (mauvaise condition) ~530
-		21-MAR-2020 : Corrections pour les fichiers sans le header http "Content-Length:"
-		12-MAR-2020 : Readaptation et correction pour la beta 1.2
-		11-07-2019	: REFONTE COMPLETE
-		07-12-2017	: AMELIORATION du code en suivant une procedure sticte de GCC
-		14-02-2017	: Revue des includes et reception + envoie via le buffer cpcdos OK! ;)
-	
-*/
 #include <memory>
 #include <netdb.h>
 #include <stdio.h>
