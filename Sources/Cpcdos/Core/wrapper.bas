@@ -7,6 +7,7 @@ Declare Function 	cpc_Creer_Contexte 				cdecl Alias "cpc_Creer_Contexte" 				(T
 Declare Function 	cpc_Obtenir_Zone_Contexte 		cdecl Alias "cpc_Obtenir_Zone_Contexte" 		(ID as integer) as any ptr
 
 Declare Sub 		cpc_CCP_Exec_Commande 			cdecl alias "cpc_CCP_Exec_Commande"  			(Commande as CONST ZString PTR, niveau as integer)
+Declare Sub 		cpc_CPP_Ini_Command 			cdecl alias "cpc_CPP_Ini_Command"  			()
 Declare Function	cpc_CCP_Lire_Variable 			cdecl alias "cpc_CCP_Lire_Variable"  			(NomVariable as CONST ZString PTR, niveau as integer) as ZString ptr
 Declare function 	cpc_CCP_Exec_Thread_cpc 		cdecl Alias "cpc_CCP_Exec_Thread_cpc" 			(Chemin as CONST ZString PTR, Priorite as integer) as integer
 
@@ -171,6 +172,10 @@ End function
 Public sub cpc_CCP_Exec_Commande cdecl Alias "cpc_CCP_Exec_Commande" (Commande as CONST ZString PTR, niveau as integer)
 	Dim CMD_shell as String = *Commande
 	CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL(CMD_shell, CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_CLE, niveau, 0, "")
+End sub
+
+Public Sub cpc_CPP_Ini_Command 	cdecl alias "cpc_CPP_Ini_Command"  ()
+	CPCDOS_INSTANCE.SHELLCCP_INSTANCE._INIT_CpcdosCP_CMD()
 End sub
 
 Public Function	cpc_CCP_Lire_Variable cdecl alias "cpc_CCP_Lire_Variable" (NomVariable as CONST ZString PTR, niveau as integer) as ZString ptr
