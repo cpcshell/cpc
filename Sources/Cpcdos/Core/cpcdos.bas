@@ -235,7 +235,6 @@ public function EXEC_THREAD cdecl Alias "EXEC_THREAD"(byval arg as any ptr) as a
 	' Fonction "template" principal pour executer les threads
 
 
-	On local Error Goto Intercept_Error
 
 	' Bloquer toutes les interruptions
 	ENTRER_SectionCritique()

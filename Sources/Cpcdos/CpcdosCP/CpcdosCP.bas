@@ -236,7 +236,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 	'	Param_1		: ?
 	'	Param_2		: ?
 
-	On local Error Goto Intercept_Error
 
 	' Retourne des donnees
 	Dim testCMD					as integer

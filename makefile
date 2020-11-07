@@ -13,9 +13,21 @@ OBJ=$(SRCCXX:.cpp=.cpp.o) \
 	$(SRCBAS:.bas=.bas.o)
 
 CXX?=g++
-CXXFLAGS:=-MD -IIncludes/ -ICompat -ISources/CPinti/include -std=c++17 -Wall -Wextra -Werror
+CXXFLAGS:= \
+	-g3 \
+	-MD \
+	-IIncludes/ \
+	-ICompat \
+	-ISources/CPinti/include \
+	-std=c++17 \
+	-Wall \
+	-Wextra \
+	-Werror \
+	-fsanitize=undefined \
+	-fsanitize=address 
+
 BAS:=fbc
-BASFLAGS:=-i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64
+BASFLAGS:=-gen gcc -i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64 -Wc -fsanitize=undefined -Wc -fsanitize=address -g
 
 LD:=ld
 LDFLAGS:= \
@@ -31,7 +43,9 @@ LDFLAGS:= \
 	-lzip \
 	-lpng \
 	-lpthread \
-	-lstdc++
+	-lstdc++ \
+	-fsanitize=undefined \
+	-fsanitize=address
 
 all: $(TARGET)
 

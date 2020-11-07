@@ -30,7 +30,6 @@ End Function
 Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 	' Cette procedure a executer dans un nouveau thread permet d'interpreter les commandes via une console " > "
 
-	On local Error Goto Intercept_Error
 
 	' **** Recuperer les informations du thread / processus ****
 	Dim _PID as uinteger			= thread_struct.PROC_ID
@@ -807,7 +806,6 @@ End Function
 Function _CONSOLE_Cpcdos_OSx__.GET_Touche Alias "GET_Touche" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 	' Cette procedure a executer dans un nouveau thread permet d'interpreter la fonction Fix/ /Q et /ATOUCHE
 
-	On local Error Goto Intercept_Error
 
 	' **** Recuperer les informations du thread / processus ****
 	Dim _PID as uinteger			= thread_struct.PROC_ID

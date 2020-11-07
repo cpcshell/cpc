@@ -10,7 +10,7 @@
 #include "cpcdos.bi"
 
 
-Function Client_THREAD cdecl Alias "Client_THREAD" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer : On local Error Goto Intercept_Error
+Function Client_THREAD cdecl Alias "Client_THREAD" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
 
 	' ============= PUBLIC VARIABLES =============
 	Dim _PID as uinteger			= thread_struct.PROC_ID
@@ -106,7 +106,7 @@ Function Client_THREAD cdecl Alias "Client_THREAD" (ByVal thread_struct as _STRU
 		cpinti.signals.panic(Err, Erl, cptr(ZString ptr, Ermn), cptr(ZString ptr, Erfn))
 End Function
 
-Function Serveur_THREAD cdecl Alias "Serveur_THREAD" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer : On local Error Goto Intercept_Error
+Function Serveur_THREAD cdecl Alias "Serveur_THREAD" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
 
 	' ============= PUBLIC VARIABLES =============
 	Dim _PID as uinteger			= thread_struct.PROC_ID

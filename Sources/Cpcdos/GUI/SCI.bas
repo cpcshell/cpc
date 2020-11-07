@@ -383,7 +383,7 @@ Function _SCI_Cpcdos_OSx__.creer_Msgbox(Texte as String, Titre as String, Type_A
 End Function
 
 
-Function THREAD_Screen_Video Alias "THREAD_Screen_Video" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer : On local Error Goto Intercept_Error
+Function THREAD_Screen_Video Alias "THREAD_Screen_Video" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
 
 	Dim blittage as boolean = false
 	Dim As integer Pos_X, Pos_Y, Scroll_Weel, TypeClic, Clip, Presente
@@ -453,7 +453,7 @@ Sub _SCI_Cpcdos_OSx__.Blitter_Video(byval Pos_X as integer, Pos_Y as integer, So
 	End if
 End Sub
 
-Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer : On local Error Goto Intercept_Error
+Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
 
 	' ============= PUBLIC VARIABLES =============
 	Dim as integer Ancien_X, Ancien_Y, Ancien_Clic, Ancien_Scroll
@@ -1085,7 +1085,7 @@ Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_
 End Function
 
 
-Function THREAD_RefreshGUI_Elements Alias "THREAD_RefreshGUI_Elements" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer : On local Error Goto Intercept_Error
+Function THREAD_RefreshGUI_Elements Alias "THREAD_RefreshGUI_Elements" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
 
 	Dim Etat_Thread as uinteger
 	Dim EN_VIE as boolean = true
@@ -1208,7 +1208,7 @@ Function THREAD_RefreshGUI_Elements Alias "THREAD_RefreshGUI_Elements" (ByVal th
 End Function
 
 
-Function THREAD_IUG_PICTUREBOX  cdecl alias "THREAD_IUG_PICTUREBOX" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer : On local Error Goto Intercept_Error
+Function THREAD_IUG_PICTUREBOX  cdecl alias "THREAD_IUG_PICTUREBOX" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
 
 	' ============= PUBLIC VARIABLES =============
 	DIM CLE as double = CPCDOS_INSTANCE.Generer_cle(thread_struct.KERNEL_ID, thread_struct.OS_ID, thread_struct.USER_ID, thread_struct.PROC_ID, thread_struct.THREAD_ID)
