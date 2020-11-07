@@ -10,7 +10,6 @@ extern "C" int cpc_clean();
 
 namespace Wrapper_Cpcdos
 {
-
     int cpinti_WRAPPER(integer FunctionID, double _CLE_, const char *ARG_1, integer ARG_2, void *ARG_3, void *ARG_4, void *ARG_5)
     {
         // Cette fonction va permettre d'executer une FunctionID compile dans CONTRIB

@@ -20,7 +20,6 @@
 
 namespace cpinti
 {
-
     class cpinti_stack_inv
     {
     private:
@@ -83,8 +82,8 @@ namespace cpinti
         ~cpinti_stack_inv();
     };
 
-    static std::vector<std::shared_ptr<cpinti_stack_inv>> Stack_CPintiCore__KERNEL;
-    static std::vector<std::shared_ptr<cpinti_stack_inv>> Stack_CPintiCore__SERVEUR;
+    static std::vector<std::shared_ptr<cpinti_stack_inv>> stack_kernel;
+    static std::vector<std::shared_ptr<cpinti_stack_inv>> stack_server;
 
 } // namespace cpinti
 #endif /* CPCDOS_STACK */

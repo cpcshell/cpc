@@ -9,7 +9,6 @@
 
 #include "debug.h"
 #include "func_cpi.h"
-#include "meminfo.h"
 
 namespace cpinti
 {
@@ -17,38 +16,37 @@ namespace cpinti
     {
         if (_CHEMIN < 6)
         {
-            for (uinteger index_tab = 0; index_tab < cpinti::Stack_CPintiCore__KERNEL.size(); index_tab++)
+            for (uinteger index_tab = 0; index_tab < cpinti::stack_kernel.size(); index_tab++)
             {
-                if (cpinti::Stack_CPintiCore__KERNEL.at(index_tab)->tag_1 == _ID)
+                if (cpinti::stack_kernel.at(index_tab)->tag_1 == _ID)
                 {
                     // Si non indexe, donc non instancie, on evite les crashs Ahaha!! ;-)
                     if (((_CHEMIN < 9) && (index_tab >= 512)) && (_ID == 0))
+                    {
                         return "";
+                    }
 
                     /********** STOCKAGE DANS LA STACK **********/
                     if (_CHEMIN == _STACK_STOCKER_POUR_CPCDOS)
                     {
                         /** SERVEUR ----> STOCKAGE CPCDOS **/
-                        cpinti::Stack_CPintiCore__KERNEL.at(index_tab)->add_Stack(_DONNEES); // Stocker
+                        cpinti::stack_kernel.at(index_tab)->add_Stack(_DONNEES); // Stocker
                         return "";
                     }
 
                     else if (_CHEMIN == _STACK_STOCKER_POUR_SERVEUR)
                     {
                         /** CPCDOS ----> STOCKAGE SERVEUR **/
-                        cpinti::Stack_CPintiCore__SERVEUR.at(index_tab)->add_Stack(_DONNEES); // Stocker
+                        cpinti::stack_server.at(index_tab)->add_Stack(_DONNEES); // Stocker
                         return "";
                     }
-
-                    /********** EXTRACTION DEPUIS LA STACK **********/
                     else if (_CHEMIN == _STACK_EXTRACT_POUR_CPCDOS)
-                        /** STOCKAGE CPCDOS ----> CPCDOS **/
-                        return cpinti::Stack_CPintiCore__KERNEL.at(index_tab)->get_Stack(0); // Recuperer
-
+                    {
+                        return cpinti::stack_kernel.at(index_tab)->get_Stack(0); // Recuperer
+                    }
                     else if (_CHEMIN == _STACK_EXTRACT_POUR_SERVEUR)
                     {
-                        /** STOCKAGE SERVEUR ----> SERVEUR **/
-                        return cpinti::Stack_CPintiCore__SERVEUR.at(index_tab)->get_Stack(0); // Recuperer
+                        return cpinti::stack_server.at(index_tab)->get_Stack(0); // Recuperer
                     }
                 }
             }
@@ -85,16 +83,13 @@ namespace cpinti
                 /************** VERIFIER QUE CA PLANTE PAS ICI **************/
 
                 // Instancier une nouvelle instance de unique_ptr
-                // cpinti::Stack_CPintiCore__KERNEL.emplace_back(new cpinti::cpinti_stack_inv());
-
-                // cpinti::Stack_CPintiCore__KERNEL.emplace_back(std::unique_ptr<cpinti::cpinti_stack_inv>(new cpinti::cpinti_stack_inv()));
-                cpinti::Stack_CPintiCore__KERNEL.emplace_back(std::make_shared<cpinti::cpinti_stack_inv>());
+                cpinti::stack_kernel.emplace_back(std::make_shared<cpinti::cpinti_stack_inv>());
 
                 // Initialiser le gestionnaire de stack de CPinti Core
-                cpinti::Stack_CPintiCore__KERNEL.back()->stack__init(_MAX_Stack_block);
+                cpinti::stack_kernel.back()->stack__init(_MAX_Stack_block);
 
                 // Ajouter l'id
-                cpinti::Stack_CPintiCore__KERNEL.back()->tag_1 = _ID;
+                cpinti::stack_kernel.back()->tag_1 = _ID;
 
                 cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
                                          Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
@@ -104,15 +99,13 @@ namespace cpinti
                                          "STACK", "cpinti_GEST_BUFF", Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
 
                 // Instancier une nouvelle instance de unique_ptr
-                // cpinti::Stack_CPintiCore__SERVEUR.emplace_back(new cpinti::cpinti_stack_inv());
-                // cpinti::Stack_CPintiCore__SERVEUR.emplace_back(std::make_unique<cpinti::cpinti_stack_inv>(new cpinti::cpinti_stack_inv()));
-                cpinti::Stack_CPintiCore__SERVEUR.emplace_back(std::make_shared<cpinti::cpinti_stack_inv>());
+                cpinti::stack_server.emplace_back(std::make_shared<cpinti::cpinti_stack_inv>());
 
                 // Initialiser le gestionnaire de stack de CPinti Core
-                cpinti::Stack_CPintiCore__SERVEUR.back()->stack__init(_MAX_Stack_block);
+                cpinti::stack_server.back()->stack__init(_MAX_Stack_block);
 
                 // Ajouter l'id
-                cpinti::Stack_CPintiCore__KERNEL.back()->tag_1 = _ID;
+                cpinti::stack_kernel.back()->tag_1 = _ID;
 
                 /************** VERIFIER QUE CA PLANTE PAS ICI **************/
 
@@ -146,8 +139,8 @@ namespace cpinti
 
                 bool Suppression_ok = false;
                 // Recuperer l'ID DEPUIS le vector et non depuis Stack__PORT_ATTRIB
-                for (uinteger index_tab = 0; index_tab < cpinti::Stack_CPintiCore__KERNEL.size(); index_tab++)
-                    if (cpinti::Stack_CPintiCore__KERNEL.at(index_tab)->tag_1 == _ID)
+                for (uinteger index_tab = 0; index_tab < cpinti::stack_kernel.size(); index_tab++)
+                    if (cpinti::stack_kernel.at(index_tab)->tag_1 == _ID)
                     {
                         // Debug
                         std::string _MAX_Stack_block_STR = cpinti::Func_Cpinti::to_string(_MAX_Stack_block);
@@ -160,22 +153,22 @@ namespace cpinti
                         /************** VERIFIER QUE CA PLANTE PAS ICI **************/
 
                         // Verifier son existence
-                        if (cpinti::Stack_CPintiCore__KERNEL.empty() == false)
+                        if (cpinti::stack_kernel.empty() == false)
                         {
                             // Si il reste 1 element alors on clean TOUT
-                            if (cpinti::Stack_CPintiCore__KERNEL.size() < (uinteger)2)
-                                cpinti::Stack_CPintiCore__KERNEL.clear();
+                            if (cpinti::stack_kernel.size() < (uinteger)2)
+                                cpinti::stack_kernel.clear();
 
                             else
                             {
                                 // Supprimer le gestionnaire de stack de CPinti Core
-                                cpinti::Stack_CPintiCore__KERNEL.at(index_tab).reset();
+                                cpinti::stack_kernel.at(index_tab).reset();
 
-                                cpinti::Stack_CPintiCore__KERNEL.erase(cpinti::Stack_CPintiCore__KERNEL.begin() + index_tab);
+                                cpinti::stack_kernel.erase(cpinti::stack_kernel.begin() + index_tab);
                             }
 
                             // Reajuster le vecteur
-                            cpinti::Stack_CPintiCore__KERNEL.shrink_to_fit();
+                            cpinti::stack_kernel.shrink_to_fit();
                         }
 
                         cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
@@ -186,22 +179,22 @@ namespace cpinti
                                                  "STACK", "cpinti_GEST_BUFF", Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
 
                         // Verifier son existence
-                        if (cpinti::Stack_CPintiCore__SERVEUR.empty() == false)
+                        if (cpinti::stack_server.empty() == false)
                         {
                             // Si il reste 1 element alors on clean TOUT
-                            if (cpinti::Stack_CPintiCore__SERVEUR.size() < (uinteger)2)
-                                cpinti::Stack_CPintiCore__SERVEUR.clear();
+                            if (cpinti::stack_server.size() < (uinteger)2)
+                                cpinti::stack_server.clear();
 
                             else
                             {
                                 // Supprimer le gestionnaire de stack de CPinti Core
-                                cpinti::Stack_CPintiCore__SERVEUR.at(index_tab).reset();
+                                cpinti::stack_server.at(index_tab).reset();
 
-                                cpinti::Stack_CPintiCore__SERVEUR.erase(cpinti::Stack_CPintiCore__SERVEUR.begin() + index_tab);
+                                cpinti::stack_server.erase(cpinti::stack_server.begin() + index_tab);
                             }
 
                             // Reajuster le vecteur
-                            cpinti::Stack_CPintiCore__SERVEUR.shrink_to_fit();
+                            cpinti::stack_server.shrink_to_fit();
                         }
 
                         /************** VERIFIER QUE CA PLANTE PAS ICI **************/

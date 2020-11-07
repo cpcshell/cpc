@@ -26,7 +26,6 @@ extern "C" double cpc_cpinti_Obtenir_Temps_ms(double Temps_av);
 #ifndef DEFINITION_WRAPPER
 #    define DEFINITION_WRAPPER
 
-#    include <cstdarg>  // Pour les arguments de fdebug_log
 #    include <string.h> // Pour memset
 
 class CpcdosOSx_CPintiCore
@@ -45,12 +44,6 @@ public:
     char *Get_Path(int ARG); // Obtenir le chemin d'acces en cours
 
     // ******************* CPinti Core *******************
-    void fdebug_log(int alert, const char *format, ...); // Debug formatable
-    void debug_log(const char *text, int alert);         // Debug bref
-    void debug_log_plus(const char *texte, int Ecran, int Log,
-                        int Alerte, int RetourPLGN, int CR_LF,
-                        int DisplDate, int Parameters,
-                        const char *File); // Debug normal
 
     int File_exist(char *path);           // Renvoie 1 OK 0 FAUX
     int File_exist(const char *path);     // Renvoie 1 OK 0 FAUX
@@ -101,32 +94,6 @@ char *CpcdosOSx_CPintiCore::Get_Path(int ARG)
 }
 
 //////////////////// For CPinti Core ////////////////////
-
-void CpcdosOSx_CPintiCore::fdebug_log(int alert, const char *format, ...)
-{
-    // Cette fonction permet d'utiliser le simuler un sprintf()
-    va_list arg;
-    char BUFFER[1024] = {0};
-
-    va_start(arg, format);
-    vsprintf(BUFFER, format, arg);
-    va_end(arg);
-
-    cpc_cpinti_debug_cpinticore(BUFFER, alert);
-
-    // Remplir le buffer de ZEROS
-    memset(BUFFER, '\0', sizeof(char) * 1024);
-}
-
-void CpcdosOSx_CPintiCore::debug_log(const char *text, int alert)
-{
-    cpc_cpinti_debug_cpinticore(text, alert);
-}
-
-void CpcdosOSx_CPintiCore::debug_log_plus(const char *texte, int Ecran, int Log, int Alerte, int RetourPLGN, int CR_LF, int DisplDate, int Signature, const char *File)
-{
-    cpc_cpinti_debug_plus_cpinticore(texte, Ecran, Log, Alerte, RetourPLGN, CR_LF, DisplDate, Signature, File);
-}
 
 // ---
 int CpcdosOSx_CPintiCore::File_exist(char *path)
