@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include "CPC_WPR.h"
+
 #include "cpinti/signals.h"
 #include "cpinti/version.h"
 
@@ -25,11 +27,18 @@ void intro()
     printf("  - Version : " BUILD_VERSION "\n");
 }
 
-int main(void)
+int main(int argc, char const *argv[])
 {
     intro();
 
     cpinti::signals::init();
 
-    return __CPCDOS_INIT_1(0);
+    cpc_CPP_Ini_Command();
+
+    for (int i = 1; i < argc; i++)
+    {
+        cpc_CCP_Exec_Commande(argv[i], 5);
+    }
+
+    return 0;
 }
