@@ -930,7 +930,7 @@ Function _SYSTEME_Cpcdos_OSx__.check_NomAutorise(byval NomElement as String, Pat
 	End if
 	
 	' On renvoie la correction
-	Function = NomElement
+	Function = LCase(NomElement)
 End Function
 
 Function _SYSTEME_Cpcdos_OSx__.check_NomAutorise(byval NomElement as String, PathComplet as boolean) as boolean
