@@ -42,9 +42,10 @@ clean:
 	rm -f $(OBJ:.o=.d)
 
 run: $(TARGET)
+	xhost +
 	sudo bash ./jail.sh
-	sudo cp $(TARGET) jail/$(TARGET)
-	sudo chroot jail/ ./cpcldr
+	sudo cp $(TARGET) jail/bin/$(TARGET)
+	DISPLAY=$$DISPLAY sudo chroot jail/ 
 
 re: clean all
 
