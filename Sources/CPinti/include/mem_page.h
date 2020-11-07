@@ -1,7 +1,7 @@
 #ifndef CPCDOS_MEM_PAGE
 #define CPCDOS_MEM_PAGE
 // Entete
-bool MEM_DEBUG = true;		 // Afficher le debug
+bool MEM_DEBUG = true;       // Afficher le debug
 bool CHECK_OVERFLOW = false; // Detecter les memory overflow
 
 bool STAT_DEBUG = true;
@@ -14,13 +14,13 @@ bool memoire_initialise = false;
 static int CODE_ERREUR = 0;
 
 // Definit automatiquement
-static uinteger Page_MAX = 0;			// Pages maximum
+static uinteger Page_MAX = 0; // Pages maximum
 static uinteger Alloc_nb_MAX = 0;
-static uinteger Page_cree = 0;				   // Nombre de pages crees
+static uinteger Page_cree = 0;                 // Nombre de pages crees
 static unsigned long MEMOIRE_LIBRE_DEPART = 0; // Memoire RAM libre de depart
 static unsigned long MEMOIRE_LIBRE_ACTUEL = 0; // Memoire RAM libre de depart
-static uinteger Page_Size = 4000000;		   // 4 Mo par page
-static uinteger IndexZero = 10;				   // 10 octets
+static uinteger Page_Size = 4000000;           // 4 Mo par page
+static uinteger IndexZero = 10;                // 10 octets
 
 #define magic_flag_nombre_MAX 10 //24128
 const uinteger magic_flag_size = 6;
@@ -90,40 +90,40 @@ extern "C" void *__real_realloc(void *pointeur, size_t taille);
 /** Allocation memoire qui represente un malloc, calloc... **/
 struct _mem_alloc_t
 {
-	/* identification */
-	uinteger num_page_parent; // Numero de la page PARENT
-	int tag_ID;				  // Identifiant unique
-	bool libre;				  // Utilise ?
+    /* identification */
+    uinteger num_page_parent; // Numero de la page PARENT
+    int tag_ID;               // Identifiant unique
+    bool libre;               // Utilise ?
 
-	/* data */
-	size_t taille;			  // Taille de l'allocation
-	uinteger index_magicflag; // Index memoire flag
-	void *offset_debut;		  // Adresse memoire DEBUT
-	void *offset_fin;		  // Adresse memoire FIN
+    /* data */
+    size_t taille;            // Taille de l'allocation
+    uinteger index_magicflag; // Index memoire flag
+    void *offset_debut;       // Adresse memoire DEBUT
+    void *offset_fin;         // Adresse memoire FIN
 };
 _mem_alloc_t *mem_table_ptr;
 
 /** Page qui represente un bloc de memoire par  **/
 struct _page_t
 {
-	/* identification */
-	uinteger num_page; // Numero de page actuelle (ABOLUE)
-	uinteger PID;	   // Numero de Process associe
-	bool libre;		   // Page libre ou non
+    /* identification */
+    uinteger num_page; // Numero de page actuelle (ABOLUE)
+    uinteger PID;      // Numero de Process associe
+    bool libre;        // Page libre ou non
 
-	/* data */
-	size_t taille;		   // Taille en octets de la page
-	size_t mem_free_abs;   // Memoire page libre absolue
-	size_t mem_free;	   // Memoire page libre
-	size_t mem_used;	   // Memoire page utilisee
-	uinteger alloc_idx;	   // Index alloue le plus eleve
-	uinteger nombre_alloc; // Index alloue le plus eleve
+    /* data */
+    size_t taille;         // Taille en octets de la page
+    size_t mem_free_abs;   // Memoire page libre absolue
+    size_t mem_free;       // Memoire page libre
+    size_t mem_used;       // Memoire page utilisee
+    uinteger alloc_idx;    // Index alloue le plus eleve
+    uinteger nombre_alloc; // Index alloue le plus eleve
 
-	void *offset_debut; // Adresse memoire DEBUT
-	void *offset_fin;	// Adresse memoire FIN
+    void *offset_debut; // Adresse memoire DEBUT
+    void *offset_fin;   // Adresse memoire FIN
 
-	/* Tableau de bloc de memoire DANS la page */
-	_mem_alloc_t *mem_table;
+    /* Tableau de bloc de memoire DANS la page */
+    _mem_alloc_t *mem_table;
 };
 _page_t *page;
 

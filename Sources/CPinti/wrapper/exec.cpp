@@ -29,8 +29,8 @@
 */
 #include <memory>
 
-#include "debug.h"
 #include "cpinti.h" // inclut taches.h
+#include "debug.h"
 #include "func_cpi.h"
 
 // #include "leakchk.h"
@@ -75,6 +75,5 @@ namespace Wrapper_Cpcdos
         return (0);
 
     } /* WRAPPER_CPCDOS */
-
 
 } // namespace Wrapper_Cpcdos

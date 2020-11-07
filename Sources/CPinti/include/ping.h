@@ -19,33 +19,33 @@ namespace cpinti
 #define PING_NO_RES -11
 #define PING_ERR_TRANS -12
 
-#define REQUETE_ICMP 8	// ICMP echo
-#define CODE_ICMP 0		// Code ICMP
+#define REQUETE_ICMP 8  // ICMP echo
+#define CODE_ICMP 0     // Code ICMP
 #define CHECKSUM_ICMP 0 // Le checksum par defaut
 #define SEQUENCE_ICMP 0 // Numero de sequence
-#define ID_ICMP 2411	// Idetification de la trame par defaut
+#define ID_ICMP 2411    // Idetification de la trame par defaut
 
 #define ENOMSG 42 // Pas de message
 
 #define _DEFFERE_FERME 24 // Taille du tableau de sock pour la fermeture differes des sockets
 
-	//  0	: OK
-	// 	-1 	: La machine n'a pas repondu
-	//	-2	: Impossible de creer un socket (Driver manquant?)
-	//	-3	: Erreur de configuration du socket
-	//	-4	: Erreur de binding
-	//	-5	: Ecoute impossible
-	//	-6	: Erreur de descripteur de fichier (select())
-	//	-7	: Erreur de lecture de socket (ERRPIPE)
-	//  -8	: Impossible de resoudre le nom (DNS)
-	//	-9	: Memoire insuffisante
+    //  0	: OK
+    // 	-1 	: La machine n'a pas repondu
+    //	-2	: Impossible de creer un socket (Driver manquant?)
+    //	-3	: Erreur de configuration du socket
+    //	-4	: Erreur de binding
+    //	-5	: Ecoute impossible
+    //	-6	: Erreur de descripteur de fichier (select())
+    //	-7	: Erreur de lecture de socket (ERRPIPE)
+    //  -8	: Impossible de resoudre le nom (DNS)
+    //	-9	: Memoire insuffisante
 
-	namespace net_ping
-	{
-		void Fermer_socket(int SocketReseau);
+    namespace net_ping
+    {
+        void Fermer_socket(int SocketReseau);
 
-		const char *Resolution_DNS(const char *NomAdresse, struct hostent *Sock_hostent);
+        const char *Resolution_DNS(const char *NomAdresse, struct hostent *Sock_hostent);
 
-		int ping(const char *AdresseIP, const char *Message);
-	} // namespace net_ping
+        int ping(const char *AdresseIP, const char *Message);
+    } // namespace net_ping
 } // namespace cpinti

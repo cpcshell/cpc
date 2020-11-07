@@ -47,14 +47,14 @@
 namespace cpinti
 {
 
-	namespace net_client
-	{
-		std::string Resolution_DNS(std::string NomAdresse);
-		int Taille_Contenu(int socket);
-		void Fermer_socket(int SocketReseau);
-		int Demarrer_client(std::string AdresseIP, uinteger Port, uinteger NumeroID, int TYPE_CLIENT);
+    namespace net_client
+    {
+        std::string Resolution_DNS(std::string NomAdresse);
+        int Taille_Contenu(int socket);
+        void Fermer_socket(int SocketReseau);
+        int Demarrer_client(std::string AdresseIP, uinteger Port, uinteger NumeroID, int TYPE_CLIENT);
 
-	} // namespace net_client
+    } // namespace net_client
 
 } // namespace cpinti
 
