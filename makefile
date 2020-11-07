@@ -45,7 +45,8 @@ run: $(TARGET)
 	xhost +
 	sudo bash ./jail.sh
 	sudo cp $(TARGET) jail/bin/$(TARGET)
-	DISPLAY=$$DISPLAY sudo chroot jail/ 
+	DISPLAY=$$DISPLAY sudo chroot jail/ cpcldr
+	xhost -
 
 re: clean all
 
