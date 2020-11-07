@@ -22,12 +22,10 @@ CXXFLAGS:= \
 	-std=c++17 \
 	-Wall \
 	-Wextra \
-	-Werror \
-	-fsanitize=undefined \
-	-fsanitize=address 
+	-Werror 
 
 BAS:=fbc
-BASFLAGS:=-gen gcc -i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64 -Wc -fsanitize=undefined -Wc -fsanitize=address -g
+BASFLAGS:=-gen gcc -i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64  -g
 
 LD:=ld
 LDFLAGS:= \
@@ -44,10 +42,12 @@ LDFLAGS:= \
 	-lpng \
 	-lpthread \
 	-lstdc++ \
-	-fsanitize=undefined \
-	-fsanitize=address
 
 all: $(TARGET)
+
+debug: CXXFLAGS	+= -fsanitize=undefined -fsanitize=address
+debug: LDFLAGS	+= -fsanitize=undefined -fsanitize=address
+debug: BASFLAGS += -Wc -fsanitize=undefined -Wc -fsanitize=address
 
 clean:
 	rm -f $(TARGET)
@@ -60,6 +60,8 @@ run: $(TARGET)
 	sudo cp $(TARGET) jail/bin/$(TARGET)
 	DISPLAY=$$DISPLAY sudo chroot jail/ cpcldr
 	xhost -
+
+debug : $(TARGET)
 
 re: clean all
 
@@ -74,4 +76,4 @@ $(TARGET):$(OBJ)
 
 -include $(OBJ:.o=.d)
 
-.PHONY: all clean run re
+.PHONY: all clean run re debug
