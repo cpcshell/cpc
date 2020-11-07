@@ -117,7 +117,7 @@ End sub
 
 Function _SYSTEME_Cpcdos_OSx__.get_cpu_pourcent() as uinteger
 
-	CPCDOS_INSTANCE.SYSTEME_INSTANCE.cpu_pourcentage = abs(100-(cpinti.gestionnaire_tache.get_cycle_cpu() / cpinti.gestionnaire_tache.get_cycle_MAX_cpu()) * 100)
+	CPCDOS_INSTANCE.SYSTEME_INSTANCE.cpu_pourcentage = 0
 	
 	Function = CPCDOS_INSTANCE.SYSTEME_INSTANCE.cpu_pourcentage
 End function

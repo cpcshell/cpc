@@ -44,7 +44,6 @@ namespace gestionnaire_tache
 /* global var */
 bool EVALUATION_CPU = false;
 uinteger NombreCycles = 0;
-uinteger NombreCyles_MAX = 0;
 uinteger InLiveCompteur = 0;
 time_t Temps_Depart = (time_t)NULL;
 time_t Temps_Actuel = (time_t)NULL;
@@ -105,53 +104,6 @@ void IamInLive()
 
         end_SectionCritique();
     }
-}
-
-void eval_cycle_cpu()
-{
-    // Permet d'evaluer le CPU de maniere breve en 1 seconde
-
-    // Notifier pour ne pas fausser le resultat
-    EVALUATION_CPU = true;
-
-    time(&Temps_Actuel);
-    time(&Temps_Depart);
-
-    InLiveCompteur = 0;
-    while (Temps_total <= 1)
-    {
-        InLiveCompteur++;
-        if (InLiveCompteur > 27483600) // uinteger
-            break;                     // On reinitialise pour eviter les plantages
-
-        doevents(1);
-
-        time(&Temps_Actuel);
-
-        Temps_total = difftime(Temps_Actuel, Temps_Depart);
-    }
-
-    // Recuperer le nombre MAX de cycles
-    NombreCyles_MAX = (InLiveCompteur * 3) - (InLiveCompteur / 4); // 3 car il y a 3 ImInLive()
-
-    EVALUATION_CPU = false;
-}
-
-uinteger get_cycle_MAX_cpu()
-{
-    if (NombreCyles_MAX <= 0)
-        NombreCyles_MAX = 10;
-    return NombreCyles_MAX;
-}
-
-uinteger get_cycle_cpu()
-{
-    if (NombreCycles > NombreCyles_MAX)
-        return NombreCyles_MAX;
-    else if (NombreCycles <= 0)
-        return 0;
-    else
-        return NombreCycles;
 }
 
 volatile int SectionCritique_RECURSIF = 0;

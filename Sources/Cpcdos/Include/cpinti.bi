@@ -101,7 +101,6 @@ Extern "C++" lib "cpnti"
 
 			declare sub			IamInLive				cdecl ()
 			declare function	get_cycle_cpu			cdecl () as uinteger
-			declare function	eval_cycle_cpu			cdecl () as uinteger
 			declare function	get_cycle_MAX_cpu		cdecl () as uinteger
 
 			' === S H E D U L E R ===
