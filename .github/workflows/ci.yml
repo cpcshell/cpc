@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        cxx: [g++, clang++]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install build dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install build-essential
+        sudo apt-get install libzip-dev libxrandr-dev libxext-dev libxpm-dev libpng-dev
+        sudo apt-get install clang
+
+        wget 'https://sourceforge.net/projects/fbc/files/Binaries%20-%20Linux/ubuntu-18.04/FreeBASIC-1.07.1-ubuntu-18.04-x86_64.tar.xz/download' -O FreeBASIC-1.07.1-ubuntu-18.04-x86_64.tar.xz
+        tar -xf FreeBASIC-1.07.1-ubuntu-18.04-x86_64.tar.xz
+        cd FreeBASIC-1.07.1-ubuntu-18.04-x86_64
+        sudo ./install.sh -i /usr
+
+
+    - name: Build cpcldr with ${{ matrix.cxx }}
+      run: CXX=${{ matrix.cxx }} make re

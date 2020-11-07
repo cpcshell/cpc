@@ -12,7 +12,7 @@ SRCBAS=$(shell find $(SRCDIR) -name '*.bas')
 OBJ=$(SRCCXX:.cpp=.cpp.o) \
 	$(SRCBAS:.bas=.bas.o)
 
-CXX:=g++
+CXX?=g++
 CXXFLAGS:=-MD -IIncludes/ -ICompat -ISources/CPinti/include
 
 BAS:=fbc
