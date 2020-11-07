@@ -38,7 +38,7 @@ namespace cpinti::gestionnaire_fichier
 								 "cpinti::gestionnaire_fichier", "cpinti_decompress_file()",
 								 Ligne_reste, Alerte_validation, Date_avec, Ligne_r_normal);
 
-		int Resultats = Fichier_decompress(Source, Destination);
+		int Resultats = Fichier_decompress(Source);
 
 		if (Resultats > 0)
 			cpinti_dbg::CPINTI_DEBUG("Decompresse!",
@@ -54,6 +54,8 @@ namespace cpinti::gestionnaire_fichier
 
 	int cpinti_compress_file(const char *source, const char *destination)
 	{
+        (void)source;
+        (void)destination;
 		// Cette fonction va permettre de compression un fichier source en ZIP
 		//			-2 : Erreur dans la lib (voir debug)
 		//			-1 : Destination impossible
@@ -179,41 +181,6 @@ namespace cpinti::gestionnaire_fichier
 			cpinti_dbg::CPINTI_DEBUG("Problemes durant la lecture du fichier", "Problem during file reading", "", "", Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
 			return false;
 		}
-	} /* LIRE FICHIER COMPLET */
-
-	bool cpinti_Ecrire_Fichier_complet(const char *Source, const char *_DONNEES, int Mode)
-	{
-		// Cette fonction va permettre de d'ecrire de maniere COMPLET un fichier
-		// Source 	= Source d'acces au fichier
-		// _DONNEES = Contenu a ecrire
-		// Mode		= Mode le lecture
-		//
-
-		// Retourne -1 : Erreur memoire
-		// 			 0 ou 0> : OK
-
-		double Resultat_int;
-		std::string Resultats;
-
-		double TailleFichier = (double)strlen(_DONNEES);
-
-		cpinti_dbg::CPINTI_DEBUG("Debut d'ecriture du fichier '" + std::string(Source) + "' ... ",
-								 "Starting writing file '" + std::string(Source) + "' ... ",
-								 "cpinti::gestionnaire_fichier", "cpinti_Ecrire_Fichier_complet()",
-								 Ligne_reste, Alerte_validation, Date_avec, Ligne_r_normal);
-
-		// if(cpinti::gestionnaire_fichier::Ecrire_fichier(Source, _DONNEES, Mode) == true)
-		// {
-
-		std::string TailleFichier_STR = cpinti::Func_Cpinti::to_string(TailleFichier);
-		cpinti_dbg::CPINTI_DEBUG("[OK] " + TailleFichier_STR + " octet(s) ecrit(s)",
-								 "[OK] " + TailleFichier_STR + " byte(s) written",
-								 "", "", Ligne_saute, Alerte_surbrille, Date_sans, Ligne_r_normal);
-
-		Resultat_int = TailleFichier;
-
-
-		return Resultat_int;
 	} /* LIRE FICHIER COMPLET */
 
 	bool cpinti_Supprimer_Fichier(const char *Source, bool Securise, int NombrePasses)

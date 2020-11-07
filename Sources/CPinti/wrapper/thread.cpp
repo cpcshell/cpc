@@ -40,7 +40,7 @@ namespace cpinti::gestionnaire_tache
     uinteger cpinti_creer_thread(uinteger ID_KERNEL, uinteger ID_OS, uinteger ID_USER, uinteger PID, const char *NomThread,
                                  integer Priorite, void *(*Fonction)(void *arg), void *ARG_CP, uinteger ARG_TH)
     {
-
+        (void)ARG_CP;
         // Cette fonction va permettre de creer un nouveau processus vierge (Qui hebergera vos threads)
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
         //	NomProcessus	: Nom de processus
@@ -92,6 +92,8 @@ namespace cpinti::gestionnaire_tache
 
     int cpinti_fin_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID)
     {
+        (void)ID_KERNEL;
+        (void)PID;
         // Cette fonction permet de finaliser l'execution d'un thread, fermeture forcee
         return (int)gestionnaire_tache::supprimer_Thread(TID, true);
     }
@@ -104,6 +106,8 @@ namespace cpinti::gestionnaire_tache
 
     int cpinti_arreter_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID, bool force)
     {
+        (void)ID_KERNEL;
+        (void)PID;
         // Cette fonction permet d'arreter un thread correctement.
         //  A utiliser sur un autre thread
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
@@ -129,6 +133,10 @@ namespace cpinti::gestionnaire_tache
 
     uinteger cpinti_joindre_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID, int CYCLES)
     {
+        (void)ID_KERNEL;
+        (void)PID;
+        (void)TID;
+        (void)CYCLES;
         // Cette fonction permet d'executer directement un thread sans passer par l'ordonanceur
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
         //  PID				: Numero de processus
@@ -143,6 +151,9 @@ namespace cpinti::gestionnaire_tache
 
     int cpinti_sortir_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID)
     {
+        (void)ID_KERNEL;
+        (void)PID;
+        (void)TID;
         // Cette fonction permet de sortir du thread
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
         //  PID				: Numero de processus
@@ -155,6 +166,7 @@ namespace cpinti::gestionnaire_tache
 
     void *cpinti_thread_args(int NoARG)
     {
+        (void)NoARG;
         // Cette fonction permet de retourner un argument pour les threads venant d'etre crees
         //	NoARG	: Numero d'argument
 
@@ -189,6 +201,10 @@ namespace cpinti::gestionnaire_tache
 
     int cpinti_gerer_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID, uinteger ACTION)
     {
+        (void)ID_KERNEL;
+        (void)PID;
+        (void)TID;
+        (void)ACTION;
         // Cette fonction permet de modifier l'etat d'un thread
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
         //  PID				: Numero de processus
@@ -207,6 +223,8 @@ namespace cpinti::gestionnaire_tache
 
     uinteger cpinti_etat_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID)
     {
+        (void)ID_KERNEL;
+        (void)PID;
         // Cette fonction permet de connaitre l'etat d'un thread
         //	TID				: Numero du thread
 

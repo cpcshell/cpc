@@ -49,6 +49,12 @@ namespace Wrapper_Cpcdos
         // Retourne -1 : Erreur memoire
         // 			 0 : Fichier non disponible
         //			 1 : Fichier present
+        (void)_CLE_;
+        (void)ARG_1;
+        (void)ARG_2;
+        (void)ARG_3;
+        (void)ARG_4;
+        (void)ARG_5;
 
         if (FunctionID == 99)
         {
@@ -56,7 +62,6 @@ namespace Wrapper_Cpcdos
             return 0;
         }
 
-        int Resultats = 0;
         std::string FunctionID_STR = std::to_string(FunctionID);
 
         cpinti_dbg::CPINTI_DEBUG("Creation d'une instance du wrapper CPinti Core... ",
@@ -67,26 +72,9 @@ namespace Wrapper_Cpcdos
         cpinti_dbg::CPINTI_DEBUG("Lancement de l'instance...", "Instance execution...",
                                  "", "", Ligne_saute, Alerte_action, Date_sans, Ligne_r_normal);
 
-        Resultats = Wrapper_Cpcdos::Wrapper_Cpcdos_OSx_CPinti_Core(FunctionID, _CLE_, ARG_1, ARG_2, ARG_3, ARG_4, ARG_5);
-
-        // Afficher le resultat dans le debug
-
-        std::string Resultats_STR = std::to_string(Resultats);
-
-        cpinti_dbg::CPINTI_DEBUG("Code de retour '" + Resultats_STR + "'",
-                                 "Retourned code '" + Resultats_STR + "'",
-                                 "", "cpinti_WRAPPER()~FunctionID:" + FunctionID_STR,
-                                 Ligne_saute, Alerte_validation, Date_sans, Ligne_r_normal);
-
-        return Resultats;
+        return (0);
 
     } /* WRAPPER_CPCDOS */
 
-    int Wrapper_Cpcdos_OSx_CPinti_Core(integer FunctionID, double _CLE_, const char *ARG_1,
-                                       integer ARG_2, void *ARG_3, void *ARG_4, void *ARG_5)
-    {
-        /* FIXME: We are lazy :x */
-        return 0;
-    }
 
 } // namespace Wrapper_Cpcdos

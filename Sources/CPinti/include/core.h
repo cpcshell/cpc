@@ -9,7 +9,7 @@ extern "C" void cpc_CX_APM_MODE(uinteger mode);
 
 extern "C" void *Thread_Updater(void *);
 
-extern "C" void Interruption_Timer(int signal);
+extern "C" void Interruption_Timer();
 
 extern "C" void ptr_Update_TID(uinteger Adresse, uinteger TID);
 
@@ -129,17 +129,16 @@ namespace cpinti
 
 		/** Processus **/
 		uinteger ajouter_Processus(const char *NomProcessus);
-		bool supprimer_Processus(uinteger pid, bool force);
+		bool supprimer_Processus(uinteger pid);
 		uinteger get_EtatProcessus(uinteger TID);
 		void set_EtatProcessus(uinteger TID, uinteger Etat);
 		uinteger get_NombreProcessus();
 
 		/** Threads **/
 		uinteger ajouter_Thread(void *(*Fonction)(void *arg), const char *NomThread, uinteger pid, int Priorite, uintptr_t Arguments);
-		uinteger check_Thread_zombie(bool liberer, bool debug);
 		bool supprimer_Thread(uinteger tid, bool force);
 
-		void Interruption_Timer(int sig);
+		void Interruption_Timer();
 
 		uinteger get_ID_Thread();
 

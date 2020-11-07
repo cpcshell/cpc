@@ -43,123 +43,6 @@ namespace cpinti
 
     namespace net
     {
-        bool cpinti_add_net_info(uinteger NoPort)
-        {
-            // Permet de mettre a jour les informations des statistiques de la carte reseau
-            // Pour les variables CpcdosC+
-            // 	NoPort		: Numero du port actuel
-            // 	pkt_recu	: Nombre de paquets recu
-            // 	pkt_envoye	: Nombre de paquets envoyes
-            // 	activite	: Activite du thread en %
-            // 	clients		: Nombre de clients connectes (-1 si c'est une instance d'un client)
-
-            // Retourne TRUE:Ok FALSE:NoPort inexistant
-
-            bool Trouve = false;
-
-            // for(uinteger Index = 0; Index < _MAX_Stack_instance; Index++)
-
-            // // Numero de port trouve
-            // if(SATATISTIQUES_NET_port[Index] == 0)
-            // {
-            // // Incription des valeurs calcules
-            // SATATISTIQUES_NET_port		[Index] = NoPort;
-            // SATATISTIQUES_NET_recu		[Index] = 0;
-            // SATATISTIQUES_NET_envoye	[Index] = 0;
-            // SATATISTIQUES_NET_activite	[Index] = 0;
-            // SATATISTIQUES_NET_clients	[Index] = 0;
-
-            // Trouve = true;
-            // break;
-            // }
-            return Trouve;
-        }
-
-        bool cpinti_del_net_info(uinteger NoPort)
-        {
-            // Permet de mettre a jour les informations des statistiques de la carte reseau
-            // Pour les variables CpcdosC+
-            // 	NoPort		: Numero du port actuel
-            // 	pkt_recu	: Nombre de paquets recu
-            // 	pkt_envoye	: Nombre de paquets envoyes
-            // 	activite	: Activite du thread en %
-            // 	clients		: Nombre de clients connectes (-1 si c'est une instance d'un client)
-
-            // Retourne TRUE:Ok FALSE:NoPort inexistant
-
-            bool Trouve = false;
-
-            /* for(uinteger Index = 0; Index < _MAX_Stack_instance; Index++)
-				
-				// Numero de port trouve
-				if(SATATISTIQUES_NET_port[Index] == NoPort)
-				{
-					// Incription des valeurs calcules
-					SATATISTIQUES_NET_port		[Index] = 0;
-					SATATISTIQUES_NET_recu		[Index] = 0;
-					SATATISTIQUES_NET_envoye	[Index] = 0;
-					SATATISTIQUES_NET_activite	[Index] = 0;
-					SATATISTIQUES_NET_clients	[Index] = 0;
-					
-					Trouve = true;
-					break;
-				} */
-            return Trouve;
-        }
-
-        bool cpinti_set_net_info(uinteger NoPort, uinteger activite, uinteger pkt_recu, uinteger pkt_envoye, uinteger clients)
-        {
-            // Permet de mettre a jour les informations des statistiques de la carte reseau
-            // Pour les variables CpcdosC+
-            // 	NoPort		: Numero du port actuel
-            // 	activite	: Activite du thread en % (et non thread/CPU -> a corriger)
-            // 	pkt_recu	: Nombre de paquets recu
-            // 	pkt_envoye	: Nombre de paquets envoyes
-            // 	clients		: Nombre de clients connectes (-1 si c'est une instance d'un client)
-
-            // Retourne TRUE:Ok FALSE:NoPort inexistant
-
-            bool Trouve = false;
-
-            /* for(uinteger Index = 0; Index < _MAX_Stack_instance; Index++)
-				
-				// Numero de port trouve
-				if(SATATISTIQUES_NET_port[Index] == NoPort)
-				{
-					// Incription des valeurs calcules
-					SATATISTIQUES_NET_recu		[Index] = pkt_recu;
-					SATATISTIQUES_NET_envoye	[Index] = pkt_envoye;
-					SATATISTIQUES_NET_activite	[Index] = activite;
-					SATATISTIQUES_NET_clients	[Index] = clients;
-					
-					Trouve = true;
-					break;
-				} */
-            return Trouve;
-        }
-
-        uinteger cpinti_get_net_info(uinteger NoPort, uinteger _inf)
-        {
-            // Obtenir des informations de la carte reseau
-
-            // for(uinteger Index = 0; Index < _MAX_Stack_instance; Index++)
-
-            // // Numero de port trouve
-            // if(SATATISTIQUES_NET_port[Index] == NoPort)
-            // {
-            // if(_inf == 0x01) /* Nombre de paquets recus */
-            // return SATATISTIQUES_NET_recu [Index];
-            // if(_inf == 0x02) /* Nombre de paquets envoyes */
-            // return SATATISTIQUES_NET_envoye[Index];
-            // if(_inf == 0x03) /* Nombre de paquets activites */
-            // return SATATISTIQUES_NET_activite[Index];
-            // if(_inf == 0x04) /* Nombre de clients connectes */
-            // return SATATISTIQUES_NET_clients[Index];
-
-            // return 0xFF; // _inf introuvable
-            // }
-            return 0xFE; // Port introuvable
-        }
 
         uinteger cpinti_get_net_envoye()
         {
@@ -216,7 +99,7 @@ namespace cpinti
             return Resultat;
         }
 
-        int cpinti_ping_icmp(const char *IP_machine, const char *Message, integer timeout)
+        int cpinti_ping_icmp(const char *IP_machine, const char *Message)
         {
             // Cette fonction va permettre de savoir si une machine existe sur le reseau
             // Chemin 	= Chemin d'acces au fichier
@@ -228,7 +111,7 @@ namespace cpinti
             std::string IP_machine_STR = std::string(IP_machine);
             std::string Message_STR = std::string(Message);
 
-            return cpinti::net_ping::ping(IP_machine, Message, timeout);
+            return cpinti::net_ping::ping(IP_machine, Message);
 
         } /* PING */
 

@@ -35,8 +35,7 @@ namespace cpinti
 		bool cpinti_Copier_Fichier(const char *Source, const char *Destination, integer Priorite, const char *VAR_Progression, const char *VAR_Octets, const char *VAR_OctetsParSec);
 
 		// INTERNE
-		int Fichier_decompress(const char *Source, const char *Destination);
-		int Fichier_compress(const char *Source, const char *Destination);
+		int Fichier_decompress(const char *Source);
 		int inf(FILE *source, FILE *dest);
 
 		bool Fichier_Existe(const char *Source);

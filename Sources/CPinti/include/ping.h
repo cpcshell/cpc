@@ -46,6 +46,6 @@ namespace cpinti
 
 		const char *Resolution_DNS(const char *NomAdresse, struct hostent *Sock_hostent);
 
-		int ping(const char *AdresseIP, const char *Message, int Timeout);
+		int ping(const char *AdresseIP, const char *Message);
 	} // namespace net_ping
 } // namespace cpinti

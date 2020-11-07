@@ -42,7 +42,7 @@ Function _RESEAU_Cpcdos_OSx__.Ping(AdresseDistant as String, _CLE_ as double) as
 		IF CPCDOS_INSTANCE.AVEC_DosBox = FALSE Then
 
 			' Envoyer un ping depuis CPinti Core
-			dim resultats as integer = cpinti.net.cpinti_ping_icmp(StrPtr(AdresseDistant), StrPtr(CPCDOS_INSTANCE._PING_MESSAGE), 0)
+			dim resultats as integer = cpinti.net.cpinti_ping_icmp(StrPtr(AdresseDistant), StrPtr(CPCDOS_INSTANCE._PING_MESSAGE))
 
 			Function = resultats
 		Else

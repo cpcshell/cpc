@@ -27,7 +27,7 @@ Extern "C++" lib "cpnti"
 
 		' == NETWORK ==
 		namespace net
-			declare function cpinti_ping_icmp			(AdresseIP as CONST ZString ptr, Message as CONST ZString ptr, Timeout as integer) as integer
+			declare function cpinti_ping_icmp			(AdresseIP as CONST ZString ptr, Message as CONST ZString ptr) as integer
 			declare function cpinti_serveur				(port as uinteger, NombreClients as integer, ID as uinteger, TypeServeur as integer) as integer
 			declare function cpinti_client				(AdresseDistant as CONST ZString ptr, port as uinteger, PID as uinteger, TypeClient as integer) as integer
 		end namespace
@@ -43,7 +43,6 @@ Extern "C++" lib "cpnti"
 			declare function cpinti_Fichier_Existe			(Source as CONST ZString ptr) as boolean
 			Declare function cpinti_Taille_Fichier			(Source as CONST ZString ptr) as double
 			declare function cpinti_Lire_Fichier_complet	(Source as CONST ZString ptr, Mode as CONST ZString ptr, Retour_ptr as ZString ptr, TailleFichier as uinteger) as boolean
-			declare function cpinti_Ecrire_Fichier_complet	(Source as CONST ZString ptr, Donnees as CONST ZString ptr, FLAG as integer) as boolean
 			declare function cpinti_Supprimer_Fichier		(Source as CONST ZString ptr, Securise as boolean, NombrePasses as integer) as boolean
 			declare function cpinti_Copier_Fichier			(Source as CONST ZString ptr, Destination as CONST ZString ptr, Priorite as integer, VAR_Progression as CONST ZString ptr, VAR_Octets as CONST ZString ptr, VAR_OctetsParSecondes as CONST ZString ptr) as boolean
 		end namespace
@@ -99,7 +98,6 @@ Extern "C++" lib "cpnti"
 			declare function 	cpinti_get_nom_thread	cdecl (TID as uinteger) as CONST ZString ptr
 
 			declare function 	get_ThreadEnCours		cdecl () as uinteger
-			declare function	check_Thread_zombie		cdecl (liberer as boolean, debug as boolean) as uinteger
 
 			declare sub			IamInLive				cdecl ()
 			declare function	get_cycle_cpu			cdecl () as uinteger
@@ -107,7 +105,7 @@ Extern "C++" lib "cpnti"
 			declare function	get_cycle_MAX_cpu		cdecl () as uinteger
 
 			' === S H E D U L E R ===
-			declare sub			Interruption_Timer		cdecl (signal as integer)
+			declare sub			Interruption_Timer		cdecl ()
 
 		end namespace ' gestionnaire taches
 
@@ -177,7 +175,7 @@ Extern "C++" lib "cpnti"
 			' declare function cpinti_get_pourcent_cpu		() as integer
 			' Declare sub cpinti_evaluation_cycle_cpu			()
 
-			' declare function cpinti_ping_icmp				(AdresseDistant As CONST ZString Ptr, Message As CONST ZString Ptr, param as integer) as integer
+			' declare function cpinti_ping_icmp				(AdresseDistant As CONST ZString Ptr, Message As CONST ZString Ptr) as integer
 			' declare function Verifier_Pilote_Reseau			() as integer
 
 			' declare function cpinti_GEST_BUFF_c				(_ID as uinteger, _Source as integer, _DONNEES as CONST ZString ptr) as integer

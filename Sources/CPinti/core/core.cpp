@@ -248,7 +248,7 @@ namespace cpinti
 
 			Thread_en_cours = 0;
 
-			Interruption_Timer(0);
+			Interruption_Timer();
 
 			// Retourner l'ID
 			return true;
@@ -283,14 +283,6 @@ namespace cpinti
 
 			// Bloquer tout autres interruptions
 			ENTRER_SectionCritique();
-
-			uinteger Nombre_Zombie = check_Thread_zombie(true, true);
-
-			std::string Nombre_Zombie_STR = std::to_string((uinteger)Nombre_Zombie);
-			cpinti_dbg::CPINTI_DEBUG(Nombre_Zombie_STR + " thread(s) zombies ferme(s) sur " + nombre_threads_STR,
-									 Nombre_Zombie_STR + " zombies thread(s) closed on " + nombre_threads_STR,
-									 "", "",
-									 Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
 
 			puts("Bye from kernel\n");
 
@@ -389,7 +381,7 @@ namespace cpinti
 			return Nouveau_PID;
 		}
 
-		bool supprimer_Processus(uinteger pid, bool force)
+		bool supprimer_Processus(uinteger pid)
 		{
 			// Cette fonction permet de signaler l'arret d'un processus
 			//  et donc de tous ses threads
@@ -634,20 +626,10 @@ namespace cpinti
 
 			Thread_en_cours = Nouveau_TID;
 
-			Interruption_Timer(0);
+			Interruption_Timer();
 
 			// Retourner l'ID
 			return Nouveau_TID;
-		}
-		uinteger check_Thread_zombie(bool liberer, bool debug)
-		{
-			// Cette fonction permet de detecter tous les thread zombie
-			//  et selon la variable "liberer" il enclanche la liberation memoire du thread
-
-			uinteger compteur_zombie = 0;
-
-			// Retourner le nombre de threads zombie
-			return compteur_zombie;
 		}
 
 		bool supprimer_Thread(uinteger tid, bool force)
@@ -695,7 +677,7 @@ namespace cpinti
 
 		static bool Alterner = false;
 		static bool Executer = false;
-		void Interruption_Timer(int Priorite)
+		void Interruption_Timer()
 		{
 
 			if (state_SectionCritique() == false)
@@ -800,9 +782,9 @@ namespace cpinti
 	} // namespace gestionnaire_tache
 } // namespace cpinti
 
-void Interruption_Timer(int signal)
+void Interruption_Timer()
 {
 	// fprintf(stdout, " **CORE 3\n");
-	cpinti::gestionnaire_tache::Interruption_Timer(signal);
+	cpinti::gestionnaire_tache::Interruption_Timer();
 	// fprintf(stdout, " **CORE 3.1\n");
 }

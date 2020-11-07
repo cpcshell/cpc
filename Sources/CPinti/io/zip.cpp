@@ -33,7 +33,7 @@ namespace cpinti
 		// =============================== DECOMPRESSION =============================
 		// ===========================================================================
 
-		int Fichier_decompress(const char *Source, const char *Destination)
+		int Fichier_decompress(const char *Source)
 		{
 			// Lire tout le contenu d'un fichier uniquement
 			// Retourne :
@@ -96,11 +96,6 @@ namespace cpinti
 
 				return 0;
 			}
-		}
-
-		int Fichier_compress(const char *Source, const char *Destination)
-		{
-			return 1;
 		}
 
 	} // namespace gestionnaire_fichier

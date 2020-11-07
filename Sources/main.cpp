@@ -25,7 +25,7 @@ void intro()
     printf("  - Version : " BUILD_VERSION "\n");
 }
 
-int main(int argc, char const *argv[])
+int main(void)
 {
     intro();
 
