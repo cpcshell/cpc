@@ -54,8 +54,6 @@
 #include "serveur.h"
 #include "stack.h"
 
-extern "C" void __real_sleep(int secondes);
-
 namespace cpinti
 {
 	namespace net_server

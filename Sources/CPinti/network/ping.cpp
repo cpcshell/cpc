@@ -54,8 +54,6 @@
 #define _w32_intel cpinti::Func_Cpinti::_w32_intel
 #define _w32_intel16 cpinti::Func_Cpinti::_w32_intel16
 
-extern "C" void __real_sleep(int secondes);
-
 namespace cpinti
 {
 	namespace net_ping
@@ -141,8 +139,8 @@ namespace cpinti
 
 			// Configuration du socket
 			int SocketReseau;
-			struct hostent *Sock_hostent = {0};	  // Information IPv4 a propos de l'host
-			struct sockaddr_in Sock_sockaddr;	  // Structure du sock INTERNET
+			struct hostent *Sock_hostent = {0}; // Information IPv4 a propos de l'host
+			struct sockaddr_in Sock_sockaddr;	// Structure du sock INTERNET
 
 			/******************************************************************/
 			/********************** CREATION D'UN SOCKET **********************/
@@ -467,8 +465,6 @@ namespace cpinti
 
 			cpinti_dbg::CPINTI_DEBUG(" Temps:" + Temps_total_STR + " ms.", " Time:" + Temps_total_STR + " ms.",
 									 "", "", Ligne_saute, Alerte_validation, Date_sans, Ligne_r_normal);
-
-			// __real_sleep(1);
 
 			return (int)Temps_total;
 		}
