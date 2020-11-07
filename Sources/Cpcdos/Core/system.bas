@@ -188,33 +188,44 @@ End Function
 Sub _SYSTEME_Cpcdos_OSx__.get_RTC()
 	ENTRER_SectionCritique()
 	' Cette fonction permet de syncroniser l'heure de maniere treeeees precise!
-	' Remerciement a Richard (forum FreeBasic)
-    Do
+	' Remerciement a Richard (forum FreeBasic)	
+
+	' FIXME !!!!
+	this.sys_Secondes = 0
+	this.sys_Minutes = 0
+	this.sys_Heures = 0
+	this.sys_Semaine = 0
+	this.sys_Jour = 0
+	this.sys_Mois = 0
+	this.sys_Annee = 0
+	this.sys_Siecle = 0 
+
+    'Do 
 
 		' Recuperer les informations depuis le BIOS
 
-        Out &h70, &h80 ' Secondes
-        this.sys_Secondes = Convert_DCB_Binaire(Inp(&h71))
-        Out &h70, &h82 ' Minutes
-        this.sys_Minutes = Convert_DCB_Binaire(Inp(&h71))
-        Out &h70, &h84 ' Heures
-        this.sys_Heures = Convert_DCB_Binaire(Inp(&h71))
-        Out &h70, &h86 ' Numero semaine
-        this.sys_Semaine = Convert_DCB_Binaire(Inp(&h71))
-        Out &h70, &h87 ' Jour
-        this.sys_Jour = Convert_DCB_Binaire(Inp(&h71))
-        Out &h70, &h88 ' Mois
-        this.sys_Mois = Convert_DCB_Binaire(Inp(&h71))
-        Out &h70, &h89 ' Annee
-        this.sys_Annee = Convert_DCB_Binaire(Inp(&h71))
-		Out &h70, &hB2 ' Siecle
-		this.sys_Siecle = Convert_DCB_Binaire(Inp(&h71))
-        
-		Out &h70, &h80  ' Verifier si les secondes change au court de la lecture
-		' C'est pour eviter de lire en pleine modifications/calculs dans les registre
-		'  car on peut avoir 8:60 au lieu de 9:00
-		
-    Loop While this.sys_Secondes <> Convert_DCB_Binaire(Inp(&h71))
+    '    Out &h70, &h80 ' Secondes
+    '    this.sys_Secondes = Convert_DCB_Binaire(Inp(&h71))
+    '    Out &h70, &h82 ' Minutes
+    '    this.sys_Minutes = Convert_DCB_Binaire(Inp(&h71))
+    '    Out &h70, &h84 ' Heures
+    '    this.sys_Heures = Convert_DCB_Binaire(Inp(&h71))
+    '    Out &h70, &h86 ' Numero semaine
+    '    this.sys_Semaine = Convert_DCB_Binaire(Inp(&h71))
+    '    Out &h70, &h87 ' Jour
+    '    this.sys_Jour = Convert_DCB_Binaire(Inp(&h71))
+    '    Out &h70, &h88 ' Mois
+    '    this.sys_Mois = Convert_DCB_Binaire(Inp(&h71))
+    '    Out &h70, &h89 ' Annee
+    '    this.sys_Annee = Convert_DCB_Binaire(Inp(&h71))
+	'	Out &h70, &hB2 ' Siecle
+	'	this.sys_Siecle = Convert_DCB_Binaire(Inp(&h71))
+    '    
+	'	Out &h70, &h80  ' Verifier si les secondes change au court de la lecture
+	'	' C'est pour eviter de lire en pleine modifications/calculs dans les registre
+	'	'  car on peut avoir 8:60 au lieu de 9:00
+	'	
+    'Loop While this.sys_Secondes <> Convert_DCB_Binaire(Inp(&h71))
 	
 	SORTIR_SectionCritique()
 End Sub
