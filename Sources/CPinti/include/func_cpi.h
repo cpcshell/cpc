@@ -8,18 +8,11 @@
 
 #include "cpinti/types.h"
 
-#ifndef doevents
-#    define doevents(temps) cpinti::cpinti_doevents(temps)
-#endif
-
 extern "C" unsigned short _w32_intel(unsigned short val);
 extern "C" unsigned short _w32_intel16(unsigned short val);
 
 namespace cpinti
 {
-
-    void cpinti_doevents();
-    void cpinti_doevents(unsigned long Temps);
     void cpinti_Sleep(uinteger secondes);
     void cpinti_USleep(uinteger MicroSecondes);
 

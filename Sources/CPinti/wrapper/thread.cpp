@@ -3,7 +3,6 @@
 
 #include "core.h"
 #include "debug.h"
-#include "func_cpi.h" // doevents
 
 #include "cpinti/threads.h"
 
@@ -46,8 +45,6 @@ namespace cpinti::gestionnaire_tache
             // strncpy((char*) gestionnaire_tache::Liste_Threads[Resultat].Nom_Thread, NomThread, 30);
 
             SORTIR_SectionCritique();
-
-            doevents(10000);
         }
         else
         {
@@ -189,8 +186,6 @@ namespace cpinti::gestionnaire_tache
 
         // Gerer le thread
         // Resultat = this->CPintiCore_Gestionnaire_Taches->Gerer_Threads(ID_KERNEL, PID, TID, ACTION);
-
-        // doevents(_THREAD_ATTENTE_ORD);
 
         return Resultat;
     }

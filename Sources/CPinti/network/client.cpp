@@ -295,12 +295,6 @@ namespace cpinti
 
             while (EN_VIE)
             {
-
-                if (CompteurDoevents == 0)
-                    doevents(5000);
-
-                CompteurDoevents = 0;
-
                 // On recupere les donnees du buffer
                 STACK_MEMOIRE_STR = cpinti::cpinti_GEST_BUFF(_NumeroID, _STACK_EXTRACT_POUR_SERVEUR, "");
 
@@ -317,12 +311,6 @@ namespace cpinti
                                                  "", "", Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
 
                         EN_VIE = false;
-                    }
-
-                    // Liberer le CPU pendant 200 ms
-                    else if (BUFFER == "#DOEVENTS")
-                    {
-                        doevents(280395);
                     }
 
                     // Configurer le tampon memoire morte
@@ -453,7 +441,6 @@ namespace cpinti
 
                 Resultat = select(FD_MAX + 1, &FD_socket, NULL, NULL, &TempsMAX);
 
-                doevents(0);
 
                 if ((Resultat < 0) && (errno != EINTR))
                 {
@@ -529,7 +516,6 @@ namespace cpinti
                                                          "", "", Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
                                 // EXCEPTION !!
                                 cpinti::cpinti_GEST_BUFF(_NumeroID, _STACK_STOCKER_POUR_CPCDOS, "#TCP " + AdresseIP + ":" + NumPort_STR + " TCP#" + SocketReseau_STR + "=" + std::string(buffer_recu));
-                                doevents(20000);
                             }
                             else
                                 buffer_recu = (char *)calloc((size_t)TailleContenu + 64, sizeof(char));
@@ -596,7 +582,6 @@ namespace cpinti
                                     {
                                         CompteurDoevents = 0;
                                         SORTIR_SectionCritique();
-                                        doevents(0);
 
                                         STACK_MEMOIRE_STR = cpinti::cpinti_GEST_BUFF(_NumeroID, _STACK_EXTRACT_POUR_SERVEUR, "");
                                         if (STACK_MEMOIRE_STR == "#STOP")
@@ -711,8 +696,6 @@ namespace cpinti
                                         cpc_CCP_Exec_Commande(_Commande_CpcdosCP, 5);
                                     }
                                 }
-
-                                doevents(100000);
                             }
                         }
                     } // Simple_TrameHTTP

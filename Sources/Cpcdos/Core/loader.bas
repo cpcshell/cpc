@@ -17,10 +17,6 @@ public function Mon_Thread1 cdecl Alias "Mon_Thread1"(byref thread_struct as _ST
 
 
 	while(EN_VIE)
-		' Liberer le CPU
-		doevents(0)
-
-
 		' Verifier l'etat du thread declare dans CPinti Core
 		Etat_Thread = cpinti.gestionnaire_tache.cpinti_etat_thread(1, thread_struct.PROC_ID, thread_struct.THREAD_ID)
 		if Etat_Thread = CPCDOS_INSTANCE.__EN_ARRET Then EN_VIE = FALSE 	' Arreter le thread
@@ -64,10 +60,6 @@ public function Mon_Thread2 cdecl Alias "Mon_Thread2"(byref thread_struct as _ST
 
 
 	while(EN_VIE)
-		' Liberer le CPU
-		doevents(0)
-
-
 		' Verifier l'etat du thread declare dans CPinti Core
 		Etat_Thread = cpinti.gestionnaire_tache.cpinti_etat_thread(1, thread_struct.PROC_ID, thread_struct.THREAD_ID)
 		if Etat_Thread = CPCDOS_INSTANCE.__EN_ARRET Then EN_VIE = FALSE 	' Arreter le thread
@@ -111,10 +103,6 @@ public function Mon_Thread3 cdecl Alias "Mon_Thread3"(byref thread_struct as _ST
 
 
 	while(EN_VIE)
-		' Liberer le CPU
-		doevents(0)
-
-
 		' Verifier l'etat du thread declare dans CPinti Core
 		Etat_Thread = cpinti.gestionnaire_tache.cpinti_etat_thread(1, thread_struct.PROC_ID, thread_struct.THREAD_ID)
 		if Etat_Thread = CPCDOS_INSTANCE.__EN_ARRET Then EN_VIE = FALSE 	' Arreter le thread
@@ -162,7 +150,7 @@ public sub Test_MT()
 		' Structure du thread
 		Dim INSTANCE_STRUCT_THREAD as _STRUCT_THREAD_Cpcdos_OSx__
 
-		DEBUG(" * Creation du processus '" & CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS_NOM & "'...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")  : doevents(100000)
+		DEBUG(" * Creation du processus '" & CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS_NOM & "'...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 
 		' Remplir la structure
 		INSTANCE_STRUCT_PROCES.Nom 				= CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS_NOM		' Nom du processus
@@ -174,8 +162,6 @@ public sub Test_MT()
 
 		' Creer un nouveau thread
 		DEBUG(" * Creation du thread 1...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
-
-		doevents(10000)
 
 		' Remplir la structure
 		INSTANCE_STRUCT_THREAD.Nom 		= "Mon_Thread1"' Nom du thread
@@ -197,8 +183,6 @@ public sub Test_MT()
 		dim thread_id_1 as uinteger = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
 
 		print "thread_id_1 : " & thread_id_1 & "."
-
-		doevents(10000)
 
 		' Creer un nouveau thread
 		DEBUG(" * Creation du thread 2...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
@@ -225,10 +209,6 @@ public sub Test_MT()
 
 		print "thread_id_2 : " & thread_id_2 & "."
 
-		doevents(10000)
-
-
-
 		' Creer un nouveau thread
 		DEBUG(" * Creation du thread 3...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 
@@ -253,13 +233,6 @@ public sub Test_MT()
 		dim thread_id_3 as uinteger = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
 
 		print "thread_id_3 : " & thread_id_3 & "."
-
-
-		doevents(10000)
-
-		while(1)
-			doevents(0)
-		wend
 
 		return
 
@@ -431,7 +404,7 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 
 
 			' Creer un nouveau processus
-			DEBUG(" * Creation du processus systeme '" & CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS_NOM & "'...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")  : doevents(100000)
+			DEBUG(" * Creation du processus systeme '" & CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS_NOM & "'...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 
 			' Remplir la structure
 			INSTANCE_STRUCT_PROCES.Nom 				= CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS_NOM		' Nom du processus
@@ -445,48 +418,8 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 
 			DEBUG("  -> " & CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS & " [0x" & HEX(CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS, 4) & "]", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 
-			' =====================================================================================
-			' =====================================================================================
-			' =====================================================================================
-
-			' CPCDOS_INSTANCE.SYSTEME_INSTANCE.set_DBG_DEBUG(2)
-			' CPCDOS_INSTANCE.SYSTEME_INSTANCE.set_CPINTI_DEBUG(2)
-
-			' ScreenRes 1024, 768, 32
-			' Color RGB(255,255,255), RGB(0, 0, 0)
-			' cls
-
-			' Dim Fichier_PE as string = "APP_WORK.EXE"
-			' Creer une instance de _STRUCT_THREAD_Cpcdos_OSx__, remplir le donnees
-			' Dim INSTANCE_STRUCT_THREAD as _STRUCT_THREAD_Cpcdos_OSx__
-			' INSTANCE_STRUCT_THREAD.Nom 		= "_WIN32PE_ASYNC_"  & _CLE_ & "~" & CPCDOS_INSTANCE.get_id_PID(_CLE_) & "~" & LTRIM(Fichier_PE)
-			' INSTANCE_STRUCT_THREAD.Fonction = cast(any ptr, @Wrapper_THREAD)
-			' INSTANCE_STRUCT_THREAD.PROC_ID 	= CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_PROCESSUS
-			' INSTANCE_STRUCT_THREAD.OS_ID	= 0		' ID de l'OS
-			' INSTANCE_STRUCT_THREAD.USER_ID	= 0	' ID de l'user
-			' INSTANCE_STRUCT_THREAD.Priorite = _PRIORITE_THRD_MOYENNE
-			' INSTANCE_STRUCT_THREAD.ARG_CP 	= cast(any ptr, 13)
-
-			' INSTANCE_STRUCT_THREAD.ARG_1 	= NULL
-			' INSTANCE_STRUCT_THREAD.ARG_1 	= malloc(sizeof(Fichier_PE))
-			' memcpy(INSTANCE_STRUCT_THREAD.ARG_1, cast(any ptr, @Fichier_PE), sizeof(Fichier_PE))
-
-			' INSTANCE_STRUCT_THREAD.ARG_2 = NULL
-			' INSTANCE_STRUCT_THREAD.ARG_3 = NULL
-			' INSTANCE_STRUCT_THREAD.ARG_4 = NULL
-			' INSTANCE_STRUCT_THREAD.ARG_5 = NULL
-
-			' CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
-			' doevents(100000)
-
-			' =====================================================================================
-			' =====================================================================================
-			' =====================================================================================
-
-			doevents(10000)
-
 			' Creer un nouveau thread
-			DEBUG(" * Creation du thread systeme '" & CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_THREAD_NOM & "'...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")  : doevents(100000)
+			DEBUG(" * Creation du thread systeme '" & CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_THREAD_NOM & "'...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 
 			' Remplir la structure
 			INSTANCE_STRUCT_THREAD.Nom 		= CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_THREAD_NOM	' Nom du thread
@@ -507,13 +440,11 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 			' Creer le thread grace a la structure ci-dessus
 			CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_THREAD = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
 
-			doevents(10000)
-
 			DEBUG("  -> " & CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_THREAD & " [0x" & HEX(CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_THREAD, 4) & "]", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 
 
 			' Generer un cle d'authentification unique du thread et de son processus
-			DEBUG(" * Generation d'une cle numerique d'authentification du systeme ...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")   : doevents(100000)
+			DEBUG(" * Generation d'une cle numerique d'authentification du systeme ...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 			CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_CLE = CPCDOS_INSTANCE.Generer_cle(CPCDOS_INSTANCE.get_id_kernel(), _
 																						CPCDOS_INSTANCE.get_id_OS(), _
 																						CPCDOS_INSTANCE.get_id_Utilisateur(), _
@@ -532,7 +463,6 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 
 		End Scope
 
-		doevents(1000)
 
 		' =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 		' =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- D E B U T    D U    P R O G R A M M E -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -542,40 +472,6 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 		Scope
 			DIM _PID_Console as uinteger
 			Dim _TID_Console as uinteger
-
-			' ***************************************************************************
-			' ************* Creer un SERVEUR TELNET dans un autre processus *************
-			' ***************************************************************************
-
-			' if CPCDOS_INSTANCE.AVEC_ccp = FALSE AND CPCDOS_INSTANCE.SANS_Telnet = FALSE AND CPCDOS_INSTANCE.SANS_Reseau = FALSE AND CPCDOS_INSTANCE.AVEC_DosBox = FALSE Then
-
-				' DIM _PID_Telnet as uinteger = CPCDOS_INSTANCE.Creer_processus("Processus_TELNET")
-
-				' ' *** Generer une cle d'authentification avec ce processus
-				' Dim _CLE_Telnet as double = CPCDOS_INSTANCE.Generer_cle(CPCDOS_INSTANCE.get_id_kernel(), CPCDOS_INSTANCE.get_id_OS(), CPCDOS_INSTANCE.get_id_Utilisateur(), _PID_Telnet, 0)
-
-				' ' **** Puis l'executer depuis le SHELL CpcdosC+
-				' CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("Serveur/ /tcp:23 /mode:telnet", _CLE_Telnet, 5, 0, "")
-
-
-			' ' ***************************************************************************
-			' ' ************ Creer un SERVEUR CPCDOSC+ dans un autre processus ************
-			' ' ***************************************************************************
-
-			' ELSEif CPCDOS_INSTANCE.AVEC_ccp = FALSE AND CPCDOS_INSTANCE.SANS_Telnet = FALSE AND CPCDOS_INSTANCE.SANS_Reseau = FALSE AND CPCDOS_INSTANCE.AVEC_DosBox = FALSE Then
-
-
-
-				' DIM _PID_AdminCCP as uinteger = CPCDOS_INSTANCE.Creer_processus("Processus_AdminCCP")
-
-				' ' *** Generer une cle d'authentification avec ce processus
-				' Dim _CLE_AdminCCP as double = CPCDOS_INSTANCE.Generer_cle(CPCDOS_INSTANCE.get_id_kernel(), CPCDOS_INSTANCE.get_id_OS(), CPCDOS_INSTANCE.get_id_Utilisateur(), _PID_AdminCCP, 0)
-
-				' ' **** Puis l'executer depuis le SHELL CpcdosC+
-				' CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("Serveur/ /tcp:23 /mode:ccp", _CLE_AdminCCP, 5, 0, "")
-
-			' End if
-
 
 			' ***********************************************************
 			' ************* FIXER les principales variables *************
@@ -750,8 +646,6 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 
 		' Verifier s'il y a 1 ou plus de processus en cours, sinon on stoppe le systeme
 		while(cpinti.gestionnaire_tache.cpinti_get_nombre_processus() > 0)
-			doevents(10)
-
 			cpinti.gestionnaire_tache.IamInLive()
 		wend
 
@@ -765,8 +659,6 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 			DEBUG("[Cpcdos] No process in execution. Stopping kernel...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ERREUR, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
 		End if
 
-		doevents(500000)
-
 		' Faire une methode pour arreter le noyau proprement
 		IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 			DEBUG("[Cpcdos] Fermeture des descripteurs de fichiers...!", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
@@ -775,7 +667,6 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 		End if
 
 		Reset()
-		doevents(1000000)
 
 		ENTRER_SectionCritique()
 		IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
@@ -783,7 +674,6 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 		Else
 			DEBUG("[Cpcdos] OK, BYE!", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
 		End if
-		doevents(1000000)
 
 		return 0
 
@@ -806,27 +696,14 @@ Public function Thread_Updater cdecl Alias "Thread_Updater"(byval arguments as a
 		' ********* D E B U T  *********
 		while(EN_VIE)
 
-			doevents(10)
-
 			' Mettre a jour le cycle CPU
 			cpinti.gestionnaire_tache.IamInLive()
 
 			IF Switch = FALSE Then
 				Switch = TRUE
-
-				' doevents(_PAUSE_CRT) ' Pause CRT CPinticore
-
-
-				' doevents(100)
-
-				' Mettre a jour la memoire restante
-				' Checker le systeme d'eventuels corrections
-				''''''''''''CPCDOS_INSTANCE.CPintiCore_INSTANCE.cpinti_ckecker(CPCDOS_INSTANCE.get_id_kernel())
-
 			ElseIF Switch = TRUE Then
 				Switch = FALSE
 
-				' doevents(200)
 				CPCDOS_INSTANCE.SYSTEME_INSTANCE.Update_memoire()
 				compteur += 1
 				if compteur > 2 Then
@@ -869,10 +746,6 @@ public function Thread_SYSTEM cdecl Alias "Thread_SYSTEM"(byval thread_struct as
 
 
 	while(EN_VIE)
-		' Liberer le CPU
-		doevents(10)
-
-
 		' Verifier l'etat du thread declare dans CPinti Core
 		Etat_Thread = cpinti.gestionnaire_tache.cpinti_etat_thread(1, thread_struct.PROC_ID, thread_struct.THREAD_ID)
 		if Etat_Thread = CPCDOS_INSTANCE.__EN_ARRET Then EN_VIE = FALSE 	' Arreter le thread

@@ -392,8 +392,6 @@ SUB DEBUG(Evenement as string, Ecran as integer, DansLeLOG as integer, Prio as i
 					if CSRLIN >= TailleY-1 Then
 						Touche = ""
 						While(Touche = "")
-							doevents(1024)
-							' Recuperer la touche
 							Touche = Inkey
 						Wend
 					End if

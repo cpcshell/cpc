@@ -9,8 +9,6 @@ extern "C" void cpc_CX_APM_MODE(uinteger mode);
 
 extern "C" void *Thread_Updater(void *);
 
-extern "C" void Interruption_Timer();
-
 extern "C" void ptr_Update_TID(uinteger Adresse, uinteger TID);
 
 #define ENTRER_SectionCritique cpinti::gestionnaire_tache::begin_SectionCritique
@@ -136,8 +134,6 @@ namespace cpinti
         uinteger ajouter_Thread(void *(*Fonction)(void *arg), const char *NomThread, uinteger pid, int Priorite, uintptr_t Arguments);
         bool supprimer_Thread(uinteger tid, bool force);
 
-        void Interruption_Timer();
-
         uinteger get_ID_Thread();
 
         uinteger get_EtatThread(uinteger TID);
@@ -155,5 +151,4 @@ namespace cpinti
         bool fermer_core();
 
     } // namespace gestionnaire_tache
-
 } // namespace cpinti

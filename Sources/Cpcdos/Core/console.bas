@@ -1,10 +1,10 @@
 #include once "cpcdos.bi"
 
-Constructor _CONSOLE_Cpcdos_OSx__()
+Constructor cpcdos_console()
 	DEBUG(" * Instanciation du module console --> Allocation offset:0x" & hex(@this) & " Taille:" & SizeOf(this) & " octets", 1, 1, 2, 0, 0, 1, 0, "")
 End Constructor
 
-Destructor _CONSOLE_Cpcdos_OSx__()
+Destructor cpcdos_console()
 	DEBUG(" * De-instanciation du module console --> Desallocation offset:0x" & hex(@this), 1, 1, 6, 0, 0, 1, 0, "")
 End Destructor
 
@@ -12,9 +12,8 @@ Public Function THREAD__MAIN_Console cdecl Alias "THREAD__MAIN_Console"(byval th
 	THREAD__MAIN_Console = CPCDOS_INSTANCE.CONSOLE_INSTANCE.MAIN_Console(thread_struct)
 End Function
 
-Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
+Function cpcdos_console.MAIN_Console Alias "MAIN_Console"(byval thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 	' Cette procedure a executer dans un nouveau thread permet d'interpreter les commandes via une console " > "
-
 
 	' **** Recuperer les informations du thread / processus ****
 	Dim _PID as uinteger			= thread_struct.PROC_ID
@@ -24,15 +23,11 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 	Dim _KERNEL_ID as uinteger		= thread_struct.KERNEL_ID
 
 	' **** Recuperer les arguments d'entre ****
-
-
-
 	Dim _ARG_1 as integer 			= cast(integer, thread_struct.ARG_1) ' rien
 	Dim _ARG_2 as uinteger 			= cast(uinteger, thread_struct.ARG_2) ' ID buffer
 	Dim _ARG_3 as integer 			= cast(integer, thread_struct.ARG_3) ' Type d'entre (question, touche)
 	Dim _ARG_4 as integer 			= cast(integer, thread_struct.ARG_4) ' Type admin (ADMIN / TELNET)
 	Dim _ARG_5 as integer 			= cast(integer, thread_struct.ARG_5)
-
 
 	Dim EN_VIE 			as Boolean = TRUE
 	Dim Donnees_COM		as boolean = false
@@ -67,15 +62,11 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 
 		RetourCCP = "" ' Retour debug normal
 
-		doevents(500000)
-
 		' Generer une cle
 		_CLE_ = CPCDOS_INSTANCE.Generer_cle(CPCDOS_INSTANCE.get_id_kernel(), NumeroOS, CPCDOS_INSTANCE.get_id_Utilisateur(), _PID, _TID)
 
 		' IF NOT CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_ResolutionMode() = -1 Then
 		SCR_MODE = Val(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CCP_Lire_Variable("SCR_MODE", 4, _CLE_))
-
-		doevents(1000)
 
 		' Resolution en mode console
 		CPCDOS_INSTANCE.SYSTEME_INSTANCE.set_Resolution(SCR_MODE)
@@ -87,12 +78,6 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 	while(EN_VIE)
 
 		' Recuperer les touches en mode graphique
-
-		' Liberer le CPU
-		doevents(0) ' 10 ms
-
-
-
 
 		' Si un textebox est FOCUS, toute les entrees INKEY vont dedans
 		IF CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.GUI__FENETRE(CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.POSITION(1)).OBJET_FOCUS_TYPE = CPCDOS_INSTANCE.SCI_INSTANCE.GUI_TYPE.TextBox Then
@@ -264,8 +249,6 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 
 
 			if this.Modifie = TRUE AND this.HOOK_Console = false Then
-
-
 				' On applique la position courante de la console
 				Locate CSRLIN, 1
 
@@ -286,7 +269,6 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 
 					this.Backspace_suppr = FALSE
 				End if
-
 
 				IF this.Entrer_exec_cmd = FALSE Then
 					' Et on place le curseur clignotant a la fin de la ligne
@@ -351,12 +333,6 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 						if len(Affichage) > 0 Then
 							DEBUG(Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Avertissement, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourCCP)
 						End if
-
-						' if CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
-							' DEBUG("Cette version ne peut interpreter les fonctions. Pour le moment ;-)", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Avertissement, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourCCP)
-						' else
-							' DEBUG("This version can't interpret functions. For the moment ;-)", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourCCP)
-						' End if
 					End if
 
 					' L'interface graphique
@@ -414,11 +390,8 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 				End if
 			End if
 
-
-
 			IF Tab_commandes = TRUE AND this.HOOK_Console = false Then
 				' La touche TAB a ete pressee
-
 
 				Dim Saut_crlf 				as integer = -1
 				Dim Nombre_CMD 				as integer = 0
@@ -427,12 +400,8 @@ Function _CONSOLE_Cpcdos_OSx__.MAIN_Console Alias "MAIN_Console"(byval thread_st
 
 				Tab_commandes = FALSE
 
-
-
-
 				' Recuperer la liste des commandes commencant par ce que l'utilisateur a tape
 				For Boucle as integer = 1 to CPCDOS_INSTANCE.SHELLCCP_INSTANCE._MAX_CMD_CCP
-
 					if CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then ' Syntaxe francaise
 						if NOT CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle) = "" Then
 							' Si les premiers caracteres correspond a une commande, on l'ajoute dans la liste!
@@ -525,12 +494,9 @@ End Function
 
 
 
-Sub _CONSOLE_Cpcdos_OSx__.Entre_ligne(Touche as string, RetourCCP as String)
+Sub cpcdos_console.Entre_ligne(Touche as string, RetourCCP as String)
 	' Cette procedure recurentielle permet de stocker temporairement
 	'  les caracteres que l'utilisateur tape dans la console LC
-
-
-
 	IF asc(MID((Touche), 1, 1)) = 91 Then
 		' FLeche du haut COM
 		IF asc(MID(Touche, 2)) = 65 Then
@@ -673,7 +639,7 @@ Sub _CONSOLE_Cpcdos_OSx__.Entre_ligne(Touche as string, RetourCCP as String)
 
 End sub
 
-Sub _CONSOLE_Cpcdos_OSx__.Haut_Console()
+Sub cpcdos_console.Haut_Console()
 	' Cette fonction permet d'afficher le haut de la console :)
 
 	ENTRER_SectionCritique()
@@ -788,7 +754,7 @@ Public Function THREAD__GetTouche cdecl Alias "THREAD__GetTouche"(ByVal thread_s
 	THREAD__GetTouche = CPCDOS_INSTANCE.CONSOLE_INSTANCE.GET_Touche(thread_struct)
 End Function
 
-Function _CONSOLE_Cpcdos_OSx__.GET_Touche Alias "GET_Touche" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
+Function cpcdos_console.GET_Touche Alias "GET_Touche" (ByVal thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 	' Cette procedure a executer dans un nouveau thread permet d'interpreter la fonction Fix/ /Q et /ATOUCHE
 
 
@@ -837,8 +803,6 @@ Function _CONSOLE_Cpcdos_OSx__.GET_Touche Alias "GET_Touche" (ByVal thread_struc
 
 	while(EN_VIE)
 		' Liberer le CPU
-		doevents(0) ' 10 ms
-
 		this.HOOK_Console = true
 
 		' Mettre a jour le cycle CPU

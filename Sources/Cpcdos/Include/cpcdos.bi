@@ -59,8 +59,6 @@ CONST TOUCHE_SUPPR		as String = CHR(127)
 
 Common shared	ZERO_FILL as String
 
-CONST _PAUSE_CRT		as integer = 50
-
 Common shared LA_DATE as string
 Common shared L_HEURE as string
 
@@ -263,7 +261,7 @@ Type __Noyau_Cpcdos_OSx__
 
 		TYPES_INSTANCE		as _TYPES_Cpcdos_OSx__				' Types et autres constantes
 
-		CONSOLE_INSTANCE 	as _CONSOLE_Cpcdos_OSx__ 			' Console Cpcdos
+		CONSOLE_INSTANCE 	as cpcdos_console 			' Console Cpcdos
 
 		SCI_INSTANCE		as _SCI_Cpcdos_OSx__				' Graphique et evenements
 		SHELLCCP_INSTANCE	as _SHELL_Cpcdos_OSx__				' Shell moteur CpcdosC+

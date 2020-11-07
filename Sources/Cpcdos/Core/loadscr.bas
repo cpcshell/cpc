@@ -248,7 +248,6 @@ Public Function Animation cdecl Alias "Animation" (byval thread_struct as _STRUC
 
 	ScreenSet CPCDOS_INSTANCE._PAGE_VIDEO_WORK, CPCDOS_INSTANCE._PAGE_VIDEO_MAIN
 
-	' doevents(0)
 	while(EN_VIE)
 		if Etat_Thread = CPCDOS_INSTANCE.__ARRETE 		Then EN_VIE = FALSE : Exit While ' Arreter le thread
 		if Etat_Thread = CPCDOS_INSTANCE.__EN_ARRET 	Then EN_VIE = FALSE : Exit While' Arreter le thread
@@ -322,24 +321,13 @@ Public Function Animation cdecl Alias "Animation" (byval thread_struct as _STRUC
 			ENTRER_SectionCritique()
 			sleep 60
 			SORTIR_SectionCritique()
-		Else
-			doevents(Temps)
 		End if
-
-
-
-		' Incrementer
 		seqimage += 1
 
-		'  ********* F I N  *********
 		END SCOPE
 		end if
 
 		Etat_Thread = cpinti.gestionnaire_tache.cpinti_etat_thread(1, thread_struct.PROC_ID, thread_struct.THREAD_ID)
-
-
-
-		' doevents(0)
 	wend
 
 

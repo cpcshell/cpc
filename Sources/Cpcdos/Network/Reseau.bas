@@ -218,7 +218,6 @@ Function _RESEAU_Cpcdos_OSx__.Client_TCP(AdresseDistant as String, NoPort as uin
 
 				' Tant que PORT n'est pas = 0 c'est que le thread n'a pas finit d'etre cree
 				while(CPCDOS_INSTANCE.RESEAU_INSTANCE.Client_TCP_CPCDOS_PORT(0)>2)
-					doevents(500000)
 				wend
 
 
@@ -367,13 +366,12 @@ Function _RESEAU_Cpcdos_OSx__.RECEVOIR_Client(NoPort as uinteger, _TID as uinteg
 						IF NOT Donnees = "" Then EN_VIE = FALSE
 
 						IF TempsAttente <= 0 Then
-							doevents(100000)
+							Sleep 100
 						Else
 							' Attendre pendant x millisecondes
 							NombreMillisecondes = NombreMillisecondes + 116
 
-							' Pause de 1 ms
-							doevents(900)
+							Sleep 1
 
 							' Si le temps est depasse, alors on quitte!
 							IF NombreMillisecondes >= TempsAttente Then EN_VIE = FALSE
@@ -570,9 +568,7 @@ Function _RESEAU_Cpcdos_OSx__.Serveur_TCP(NoPort as uinteger, NombreClients as i
 						TID_ADMIN = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
 					End Scope
 
-					doevents(0)
-
-					 Scope
+					Scope
 						Dim INSTANCE_STRUCT_THREAD as _STRUCT_THREAD_Cpcdos_OSx__
 						INSTANCE_STRUCT_THREAD.Nom 		= "_CPCDOS_SERVER_TELNET" & NoPort & "_"
 						INSTANCE_STRUCT_THREAD.Fonction = cast(any ptr, @Serveur_THREAD) 		' PTR
@@ -580,13 +576,13 @@ Function _RESEAU_Cpcdos_OSx__.Serveur_TCP(NoPort as uinteger, NombreClients as i
 						INSTANCE_STRUCT_THREAD.OS_ID	= CPCDOS_INSTANCE.get_id_OS()			' ID de l'OS
 						INSTANCE_STRUCT_THREAD.USER_ID	= CPCDOS_INSTANCE.get_id_Utilisateur()	' ID de l'user
 						INSTANCE_STRUCT_THREAD.ARG_1 	= cast(any ptr, NombreClients)
-						 INSTANCE_STRUCT_THREAD.ARG_2 	= cast(any ptr, NoPort)
-						 INSTANCE_STRUCT_THREAD.ARG_3 	= cast(any ptr, Index_srv)
-						 INSTANCE_STRUCT_THREAD.ARG_4 	= cast(any ptr, CPCDOS_INSTANCE._SRV_TCP_TELNET)
-						 INSTANCE_STRUCT_THREAD.ARG_5 	= cast(any ptr, TID_ADMIN)
+						INSTANCE_STRUCT_THREAD.ARG_2 	= cast(any ptr, NoPort)
+						INSTANCE_STRUCT_THREAD.ARG_3 	= cast(any ptr, Index_srv)
+						INSTANCE_STRUCT_THREAD.ARG_4 	= cast(any ptr, CPCDOS_INSTANCE._SRV_TCP_TELNET)
+						INSTANCE_STRUCT_THREAD.ARG_5 	= cast(any ptr, TID_ADMIN)
 
-						 TID_Server = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
-					 End Scope
+						TID_Server = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
+					End Scope
 
 
 				elseif Mode_srv = CPCDOS_INSTANCE._SRV_TCP_TELNET Then ' ADMIN TELNET
@@ -614,8 +610,6 @@ Function _RESEAU_Cpcdos_OSx__.Serveur_TCP(NoPort as uinteger, NombreClients as i
 
 						TID_ADMIN = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
 					End Scope
-
-					' doevents(500)
 
 					Scope
 						Dim INSTANCE_STRUCT_THREAD as _STRUCT_THREAD_Cpcdos_OSx__
@@ -693,10 +687,8 @@ Function _RESEAU_Cpcdos_OSx__.Serveur_TCP(NoPort as uinteger, NombreClients as i
 
 				' Tant que PORT n'est pas = 0 c'est que le thread n'a pas finit d'etre cree
 				while(CPCDOS_INSTANCE.RESEAU_INSTANCE.Serveur_TCP_CPCDOS_PORT(0)>2)
-					doevents(500000)
+					Sleep (5000)
 				wend
-
-				doevents(500000)
 
 				if CPCDOS_INSTANCE.RESEAU_INSTANCE.Serveur_TCP_CPCDOS_PORT(0) = 0 Then
 					IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then
@@ -802,9 +794,6 @@ Function _RESEAU_Cpcdos_OSx__.Serveur_UDP(NoPort as uinteger, NombreClients as i
 					INSTANCE_STRUCT_THREAD.ARG_3 	= cast(any ptr, @Index_srv)
 					INSTANCE_STRUCT_THREAD.ARG_4 	= cast(any ptr, @"UDP")
 					INSTANCE_STRUCT_THREAD.ARG_5 	= NULL
-
-
-					'''''TID_Server = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
 				End Scope
 
 				IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then
@@ -814,11 +803,6 @@ Function _RESEAU_Cpcdos_OSx__.Serveur_UDP(NoPort as uinteger, NombreClients as i
 						DEBUG("[NETWORK] Waiting ending CPinti Core operation...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Normal, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR)
 					End if
 				END IF
-
-				' Tant que PORT n'est pas = 0 c'est que le thread n'a pas finit d'etre cree
-				' while(CPCDOS_INSTANCE.RESEAU_INSTANCE.Serveur_TCP_CPCDOS_PORT(0)>1)
-					' doevents(500000)
-				' wend
 
 				IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then
 					IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
@@ -914,14 +898,14 @@ Function _RESEAU_Cpcdos_OSx__.RECEVOIR_Serveur(NoPort as uinteger, _TID as uinte
 
 						IF NOT Donnees = "" Then EN_VIE = FALSE
 
-						IF TempsAttente <= 0 Then
-							doevents(100000)
-						Else
+							IF TempsAttente <= 0 Then
+								Sleep 100
+							Else
 							' Attendre pendant x millisecondes
 							NombreMillisecondes = NombreMillisecondes + 116
 
 							' Pause de 1 ms
-							doevents(900)
+							Sleep 1
 
 							' Si le temps est depasse, alors on quitte!
 							IF NombreMillisecondes >= TempsAttente Then EN_VIE = FALSE

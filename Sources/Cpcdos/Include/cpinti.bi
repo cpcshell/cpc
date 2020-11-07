@@ -50,7 +50,6 @@ Extern "C++" lib "cpnti"
 		' ****** G E S T I O N N A I R E   D E S   T A C H E S ******
 		' ***********************************************************
 
-		declare sub cpinti_doevents						(Temps as uinteger)
 		declare sub cpinti_Sleep						(Temps_MS as uinteger)
 		declare sub cpinti_USleep						(Temps_US as uinteger)
 
@@ -95,17 +94,12 @@ Extern "C++" lib "cpnti"
 			declare sub			IamInLive				cdecl ()
 			declare function	get_cycle_cpu			cdecl () as uinteger
 			declare function	get_cycle_MAX_cpu		cdecl () as uinteger
-
-			' === S H E D U L E R ===
-			declare sub			Interruption_Timer		cdecl ()
-
 		end namespace ' gestionnaire taches
 	end namespace ' cpinti
 end extern
 
 declare sub fb_Sleep alias "fb_Sleep" ( byval amount as long = -1 )
 
-#define doevents(temps) 				cpinti.cpinti_doevents(temps)
 #define ENTRER_SectionCritique() 		cpinti.gestionnaire_tache.begin_SectionCritique()
 #define SORTIR_SectionCritique() 		cpinti.gestionnaire_tache.end_SectionCritique()
 

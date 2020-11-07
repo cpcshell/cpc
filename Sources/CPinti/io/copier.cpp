@@ -81,9 +81,6 @@ namespace cpinti
                         if (CompteurDoevents >= 8192)
                         {
                             CompteurDoevents = 0;
-                            SORTIR_SectionCritique();
-                            doevents(0);
-                            ENTRER_SectionCritique();
 
                             /** PROGRESSION EN POURCENTAGE **/
                             if ((VAR_Progression != NULL) && (strlen(VAR_Progression) > 1))

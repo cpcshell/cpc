@@ -388,7 +388,6 @@ Function THREAD_Screen_Video Alias "THREAD_Screen_Video" (ByVal thread_struct as
 		END SCOPE
 		end if
 
-		doevents(0)
 	wend
 
 
@@ -456,11 +455,6 @@ Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_
 		if Etat_Thread = CPCDOS_INSTANCE.__EN_EXECUTION Then				' Executer le thread normalement
 
 		SCOPE
-			' ********* D E B U T  *********
-
-			' On recommence ici
-			doevents(0)
-
 			' Fermer le processus GUI (Ce qui va fermer automatiquement tous les threads associes)
 			IF CPCDOS_INSTANCE.SCI_INSTANCE.GUI_Mode = FALSE Then
 				CPCDOS_INSTANCE.Fermer_processus(thread_struct.PROC_ID)
@@ -1014,7 +1008,6 @@ Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_
 							CPCDOS_INSTANCE.SCI_INSTANCE.DeplacerFenetre_TO_POS(Pos_X - CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.RELATIF_X, Pos_Y - CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.RELATIF_Y)
 
 							ScreenUnlock
-							' doevents(0) ' 1 millisecondes
 							CPCDOS_INSTANCE.SCI_INSTANCE.Blitter_Video(Pos_X, Pos_Y, Presente)
 						End if
 					End if ' Autrement on fait rien
@@ -1032,8 +1025,6 @@ Function THREAD__SCI Alias "THREAD__SCI" (ByVal thread_struct as _STRUCT_THREAD_
 						CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.RELATIF_Y = 0
 
 						ScreenUnlock
-						' doevents(0) ' 1 millisecondes
-
 						' Si la fenetre est pas en deplacement mais les positions changes
 					ElseIF NOT CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.DEPLACEMENT > 0 Then
 
@@ -1170,8 +1161,6 @@ Function THREAD_RefreshGUI_Elements Alias "THREAD_RefreshGUI_Elements" (ByVal th
 
 		END SCOPE
 		end if
-
-		doevents(100000) ' 100 ms
 	wend
 
 
@@ -1196,14 +1185,10 @@ Function THREAD_IUG_PICTUREBOX  cdecl alias "THREAD_IUG_PICTUREBOX" (ByVal threa
 	Dim EN_VIE as boolean = true
 	Function = CPCDOS_INSTANCE.__THREAD_DEFAUT
 
-	doevents(1000)
-
 	ENTRER_SectionCritique()
 
 	' Si l'updater est demandee et que le thread n'a pas ete lance
 	For Boucle_Picturebox as integer = 1 to CPCDOS_INSTANCE._MAX_GUI_PICTUREBOX
-		' doevents(100)
-
 		IF CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.GUI__PICTUREBOX(Boucle_Picturebox).IUG_UPDATER > 0 Then
 			IF CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.GUI__PICTUREBOX(Boucle_Picturebox).THREAD_OK = 0 Then
 				' On sait que le thread n'a pas ete lance, donc on cherche le PID de la fenetre parent
@@ -1232,75 +1217,6 @@ Function THREAD_IUG_PICTUREBOX  cdecl alias "THREAD_IUG_PICTUREBOX" (ByVal threa
 	Next Boucle_Picturebox
 
 	SORTIR_SectionCritique()
-
-						' while(EN_VIE)
-							' EN_VIE = false
-
-
-							''Liberer le CPU
-							' doevents(0)
-							' Etat_Thread = cpinti.gestionnaire_tache.cpinti_etat_thread(1, thread_struct.PROC_ID, thread_struct.THREAD_ID)
-
-							' if Etat_Thread = CPCDOS_INSTANCE.__ARRETE 		Then EN_VIE = FALSE : Exit While ' Arreter le thread
-							' if Etat_Thread = CPCDOS_INSTANCE.__EN_ARRET 	Then EN_VIE = FALSE : Exit While ' Arreter le thread
-							' if Etat_Thread = CPCDOS_INSTANCE.__EN_PAUSE 	Then Continue While	' Mettre en pause/Sauter le code
-							' if Etat_Thread = CPCDOS_INSTANCE.__EN_ATTENTE 	Then Continue While	' Mettre en pause/Sauter le code
-							' if Etat_Thread = CPCDOS_INSTANCE.__EN_EXECUTION Then				' Executer le thread normalement
-
-							' SCOPE
-							''********* D E B U T  *********
-
-								' ENTRER_SectionCritique()
-
-								''Si le bitmap s'est actualise
-								' if CPCDOS_INSTANCE.SYSTEME_INSTANCE.MEMOIRE_MAP.Actualise(ID_Bitmap) = true Then
-
-									' IF CPCDOS_INSTANCE.SCI_INSTANCE.GUI_Mode = TRUE Then
-
-										''L'index de l'objet + index TID parent trouve, on execute!
-										' IF CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.GUI__PICTUREBOX(Boucle_Picturebox).Identification_Objet.Handle_PARENT > 0 Then
-											'' Tant que son TID est en vie, on continue d'actualiser!
-
-											' if CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_FPS(temps_precedent, ACU) > 0 Then
-												''Afficher le nombre de FPS
-												' CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.GUI__PICTUREBOX(Boucle_Picturebox).TEXTE = "OpenGL 3D engine - SOFTWARE RENDERING - VIDEO_PTR:0x" & CPCDOS_INSTANCE.SYSTEME_INSTANCE.MEMOIRE_MAP.Recuperer_BITMAP_PTR(CPCDOS_INSTANCE.SCI_INSTANCE.INST_INIT_GUI.GUI__PICTUREBOX(Boucle_Picturebox).IMG_ID) & " FPS:" & ACU & ".  "
-
-												' ACU = 0
-												' temps_precedent = timer
-											' else
-												' ACU = ACU + 1
-											' End if
-
-
-											' CPCDOS_INSTANCE.SCI_INSTANCE.IUG_Updater(CPCDOS_INSTANCE.SCI_INSTANCE.GUI_TYPE.PictureBox, Boucle_Picturebox , _INDEX_PID_ )
-											' CPCDOS_INSTANCE.SCI_INSTANCE.Blitter_Video()
-
-										' else
-											''Si son TID est null, on quitte!
-
-											' EN_VIE = FALSE
-										' End if
-									' End if ' GUI_Mode
-								' End if
-								' SORTIR_SectionCritique()
-
-
-
-							'' ********* F I N  *********
-
-							' END SCOPE
-							' end if
-						' Wend ' while(EN_VIE)
-
-					' End if
-
-					' if EN_VIE = FALSE Then Return CPCDOS_INSTANCE.__THREAD_OK
-				' Next _INDEX_PID_
-			' End if
-		' End if
-	' Next Boucle_Picturebox
-
-
 	return CPCDOS_INSTANCE.__THREAD_OK
 
 	' *** E R R O R   I N T E R C E P T I O N ***

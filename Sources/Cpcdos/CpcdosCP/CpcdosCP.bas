@@ -2581,7 +2581,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 						_TID_Console_QUESTION = CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
 						' On bloque le thread tant que FIXQuestion n'est pas null
 						while(CPCDOS_INSTANCE.CONSOLE_INSTANCE.FIXQuestion = VariableQuestion)
-							doevents(50000)
 						Wend
 
 						' On ferme le thread qui a permi taper sur la console
@@ -3131,8 +3130,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 
 					CPCDOS_INSTANCE.SCI_INSTANCE.set_NombreOSenCours(CPCDOS_INSTANCE.SCI_INSTANCE.get_NombreOSenCours() + 1)
 
-					doevents(_PAUSE_CRT + 200) ' Pause CRT CPinticore
-
 					' On genere une nouvelle cle mais avec NumeroOS ce  va permettre par la
 					'  suite de separer les espaces memoires par OS
 					_CLE_ = CPCDOS_INSTANCE.Generer_cle(Auth_Kernel, NumeroOS, Auth_Utilisateur, Auth_PID, Auth_TID)
@@ -3304,9 +3301,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 				Else
 					DEBUG("[CpcdosC+] Closing thread 'Thread_bootscreen' ...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_AVERTISSEMENT, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 				End if
-
-				' Attendre fermeture thread
-				doevents(500000)
 			End if
 
 			IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then
@@ -8714,27 +8708,25 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 			CpcdosCP_SHELL("SYS/ /DEBUG = 1", _CLE_, NIVEAU_CCP, Param_1, Param_2)
 			CpcdosCP_SHELL("SYS/ /DEBUG /CPINTICORE = 1", _CLE_, NIVEAU_CCP, Param_1, Param_2)
 			CpcdosCP_SHELL("SYS/ /ECRAN 0", _CLE_, NIVEAU_CCP, Param_1, Param_2)
-			doevents(1000)
 
 			IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 				DEBUG("[CpcdosC+] Arret d'urgence du Kernel Cpcdos...!", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Normal, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 			Else
 				DEBUG("[CpcdosC+] Stopping cpcdos kernel...", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Normal, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 			End if
-			doevents(500000)
+
 			IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 				DEBUG("[Cpcdos] Fermeture des descripteurs de fichiers...!", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 			Else
 				DEBUG("[Cpcdos] Closing file descriptor...", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 			End if
 			Reset()
-			doevents(2000000)
+
 			IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 				DEBUG("[Cpcdos] OK, BYE!", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_VALIDATION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 			Else
 				DEBUG("[Cpcdos] OK, BYE!", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_VALIDATION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 			End if
-			doevents(1000000)
 			end
 '-------------------------------------------------' CPCDOS_INSTANCE.CPintiCore_INSTANCE.Quitter_CPintiCore() -------------------------------------------------
 
@@ -9584,7 +9576,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 						DEBUG("[CpcdosC+] OK, opening of '" & Param & "' ...", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Normal, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR)
 					End If
 				End if
-				'doevents(_PAUSE_CRT) ' Pause CRT CPinticore
 
 				' Lire le contenu depuis CPinti core
 				Dim Buffer_CCP as String = CPCDOS_INSTANCE.Lire_fichier_complet(Param)
@@ -11027,7 +11018,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 					End If
 					exit _scope_CMD, _scope
 				End if
-				doevents(ValeurPause)
 				exit _scope_CMD, _scope
 			End if
 
@@ -11044,7 +11034,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 
 				' On bloque le thread tant que FIXQuestion n'est pas null
 				while(VariableContenuAP = VariableContenuAV)
-					doevents( 52803)
 					VariableContenuAP = Gest_variables_LIRE(VariableAttendre, NIVEAU_CCP, Auth_Kernel, Auth_OS, Auth_Utilisateur, Auth_PID, Auth_TID)
 					if UCASE(VariableContenuAP) = "#NULL" then VariableContenuAP = VariableContenuAV
 				Wend
@@ -11084,7 +11073,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 
 				' Simple test
 				'  Tester en liberant simplement le thread en cours pour executer tous les autres
-				doevents(1)
 				DEBUG("OK!" & privaciteDefinition, Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Normal, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 				exit _scope_CMD, _scope
 			End if
@@ -11272,8 +11260,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 			Dim ExecMultiTHREAD 		as Integer = 0
 
 			Dim PosETCommerciale 		as Integer = 0
-
-			'doevents(_PAUSE_CRT) ' Pause CRT CPinticore
 
 			IF INSTR(Ucase(Param), "/LLVM ") > 0 Then
 				IF INSTR(Ucase(Param), "/LLVM ") < 5 Then
@@ -11526,9 +11512,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 
 
 					CPCDOS_INSTANCE.Creer_thread(INSTANCE_STRUCT_THREAD)
-
-					doevents(100000)
-
 				End scope
 				exit _scope_CMD, _scope
 			End if
@@ -11747,7 +11730,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 							DEBUG("[CpcdosC+] OK, opening of '" & Param & "' ...", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Normal, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, RetourVAR)
 						End If
 					End if
-					'doevents(_PAUSE_CRT) ' Pause CRT CPinticore
 
 					if CPCDOS_INSTANCE.Fichier_Existe(Nom_Fichier) = true Then
 						' Lire le contenu depuis CPinti core
@@ -12106,8 +12088,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 						Dim si_EXE_FIXE_VARIABLES as integer = 0
 						Dim si_EXE_FONCTION_NIV_1 as integer = 0
 
-						'doevents(_PAUSE_CRT) ' Pause CRT CPinticore
-
 						DIM Pourcent_CPU 		as integer
 						Dim TailleRetourCHR 	as integer
 						Dim Deja_Affiche		as boolean = false
@@ -12346,29 +12326,7 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 
 									Passage = Passage + 1
 
-									' Si la section critique est active, on n'execute PAS le yielding
-									IF this.SECTION_CRITIQUE = FALSE THEN
-										' Si le CPU est en galere
-										' if Passage > 8 Then
-											' Pourcent_CPU = CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_cpu_pourcent()
-											' if Pourcent_CPU > 80 Then
-												' doevents(1000) ' On libere 1ms
-
-											' elseif Pourcent_CPU >= 100 Then ' On libere 100ms
-												' doevents(100000)
-											' End if
-										' End if
-
-										if this.Cpcdos_Optimisation = 2 then
-											IF Passage > 42 then doevents(0) : Passage = 0
-										else
-											IF Passage > 24 then doevents(0) : Passage = 0
-										End if
-
-									End if
-
 	_scope_SAUT_COMMANDE
-
 									' On verifie si on doit executer une fonction dans le fichier
 									IF Si_Non_EXE_FONCT = 1 Then
 										IF NOT CCP_Fonction_EXEC = "" Then
@@ -19091,7 +19049,6 @@ _FIN_EXE_CCP_EXE:
 					END IF
 					exit _scope_CMD, _scope
 				else
-					' Pas oublier le doevents!
 					Dim ARG_1 as String 	= CCP_Lire_Variable("SYS.WRP(" & FunctionID_INT & ").1", 3, _CLE_)
 					Dim ARG_2 as Integer 	= val(CCP_Lire_Variable("SYS.WRP(" & FunctionID_INT & ").2", 3, _CLE_))
 
@@ -19272,16 +19229,12 @@ _FIN_EXE_CCP_EXE:
 				' CpcdosCP_SHELL("SYS/ /DEBUG = 1", _CLE_, NIVEAU_CCP, Param_1, Param_2)
 				CpcdosCP_SHELL("SYS/ /DEBUG /CPINTICORE = 1", _CLE_, NIVEAU_CCP, Param_1, Param_2)
 				CpcdosCP_SHELL("SYS/ /ECRAN 0", _CLE_, NIVEAU_CCP, Param_1, Param_2)
-				doevents(10000)
-
 
 				IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 					DEBUG("[CPCDOSC+] Arret du noyau en cours ...", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_AVERTISSEMENT, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 				Else
 					DEBUG("[CPCDOSC+] Stopping kernel in progress...", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_AVERTISSEMENT, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 				End if
-
-				doevents(500000)
 
 				IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
 					DEBUG("[CPCDOSC+] Fermeture de tous les processus (" & NombreProcessus & ") et thread(s) (" & NombreThread & ")", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
@@ -19306,8 +19259,6 @@ _FIN_EXE_CCP_EXE:
 					DEBUG("[CPCDOSC+] All stopping signal has been sent to all process and thread !", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_VALIDATION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 					DEBUG("[CPCDOSC+] Waiting ending closing (2 seconds)", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ACTION, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 				End if
-
-				doevents(3000000) ' 3 Secondes d'attente
 			End if
 
 			IF Instr(UCASE(Param), "/VERSION") > 0 Then
@@ -19426,8 +19377,6 @@ _FIN_EXE_CCP_EXE:
 					' SUPPRIMER LE FICHIER
 					CPCDOS_INSTANCE.Supprimer_Fichier(TEMP_NET & "\" & Serveur_depot & "\update.php", false, 0)
 
-					doevents(10000)
-
 					dim pseudo_ID as String = CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CCP_Lire_Variable("CPC_SYS.NET.ID", 5, _CLE_)
 					dim Final_NetID as string = pseudo_ID & "_" & Mid(CPCDOS_INSTANCE.UNIQUE, 1, Len(CPCDOS_INSTANCE.UNIQUE) - 3)
 
@@ -19437,9 +19386,6 @@ _FIN_EXE_CCP_EXE:
 					Else
 						CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("download/ http://" & Serveur_depot & "/update.php?command=news&id=" & Final_NetID, _CLE_, 2, 0, RetourVAR)
 					End if
-
-					doevents(1000000)
-
 
 					' Recuperer l'URL du ZIP
 					Texte_ReleaseNote = CPCDOS_INSTANCE.Lire_fichier_complet(TEMP_NET & "\" & Serveur_depot & "\update.php")
@@ -19484,7 +19430,6 @@ _FIN_EXE_CCP_EXE:
 					' SUPPRIMER LE FICHIER
 					CPCDOS_INSTANCE.Supprimer_Fichier(TEMP_NET & "\" & Serveur_depot & "\update.php", false, 0)
 
-					doevents(10000)
 
 					dim pseudo_ID as String = CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CCP_Lire_Variable("CPC_SYS.NET.ID", 5, _CLE_)
 					dim Final_NetID as string = pseudo_ID & "_" & Mid(CPCDOS_INSTANCE.UNIQUE, 1, Len(CPCDOS_INSTANCE.UNIQUE) - 3)
@@ -19495,8 +19440,6 @@ _FIN_EXE_CCP_EXE:
 					Else
 						CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("download/ http://" & Serveur_depot & "/update.php?command=update&older=" & _VER_NET_BUILD & "&id=" & Final_NetID, _CLE_, 2, 0, RetourVAR)
 					End if
-
-					doevents(1000000)
 
 					' Recuperer l'URL du ZIP
 					URL_ZIP = CPCDOS_INSTANCE.Lire_fichier_complet(TEMP_NET & "\" & Serveur_depot & "\update.php")
@@ -19618,8 +19561,6 @@ _FIN_EXE_CCP_EXE:
 						DEBUG("[UPDATE] 'C' --> STOP", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Surbrille, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 
 						Dim Touche_inkey as String = ""
-						' Attendre 1 ms
-						' doevents(1000)
 
 						' Attendre jusqu'a 100%
 						while var_progression < 100
@@ -19636,8 +19577,6 @@ _FIN_EXE_CCP_EXE:
 									DEBUG("[UPDATE] Downloading stopped", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_AVERTISSEMENT, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 								End if
 
-								' Attendre 10 ms
-								doevents(100000)
 
 								exit _scope_CMD, _scope
 							End if
@@ -19673,8 +19612,6 @@ _FIN_EXE_CCP_EXE:
 
 							locate CsrLin, 1
 
-							' Attendre 1 sec
-							doevents(500000)
 						wend
 
 						DEBUG("", Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Surbrille, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
@@ -19819,9 +19756,6 @@ _FIN_EXE_CCP_EXE:
 
 							CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("colorf/ 7", _CLE_, 2, 0, RetourVAR)
 							CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("colorb/ 0", _CLE_, 2, 0, RetourVAR)
-
-							' Attendre 1 sec
-							doevents(1000000)
 
 							CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("decompress/ " & TEMP_NET & "\" & PathZIP & " .", _CLE_, 2, 0, RetourVAR)
 

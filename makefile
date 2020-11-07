@@ -22,10 +22,10 @@ CXXFLAGS:= \
 	-std=c++17 \
 	-Wall \
 	-Wextra \
-	-Werror 
+	-Werror
 
 BAS:=fbc
-BASFLAGS:=-gen gcc -i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64  -g
+BASFLAGS:=-gen gcc -i Includes/ -i Sources/Cpcdos/Include -target linux-x86_64 -g
 
 LD:=ld
 LDFLAGS:= \

@@ -46,8 +46,6 @@ Function Shell_THREAD cdecl Alias "Shell_THREAD" (ByVal thread_struct as _STRUCT
 
 		END SCOPE
 		end if
-
-		doevents(0)
 	wend
 
 
@@ -111,8 +109,6 @@ Function Wrapper_THREAD cdecl Alias "Wrapper_THREAD" (ByVal thread_struct as _ST
 
 		END SCOPE
 		end if
-
-		doevents(0)
 	wend
 
 

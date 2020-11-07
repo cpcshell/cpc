@@ -2,10 +2,6 @@
 
 #include <sys/time.h>
 
-#ifndef doevents
-#    define doevents(temps) cpinti::cpinti_doevents(temps)
-#endif
-
 #ifndef DEF_gestionnaire_tache
 #    define DEF_gestionnaire_tache 1
 namespace gestionnaire_tache
@@ -69,7 +65,6 @@ namespace gestionnaire_tache
             // std::vector<std::shared_ptr<thread_instance>> threads_liste;
         };
 
-        static bool switch_SIMPLE_doevents;
         static uinteger NB_Cycle_CPU;
         static uinteger NB_MAX_Cycle_CPU;
         static uinteger Cycle_CPU_res;

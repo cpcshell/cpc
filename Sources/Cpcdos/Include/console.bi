@@ -1,4 +1,4 @@
-Type _CONSOLE_Cpcdos_OSx__
+Type cpcdos_console
 	private:
 
 	public:

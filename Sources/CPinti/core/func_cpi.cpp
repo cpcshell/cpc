@@ -152,70 +152,14 @@ namespace cpinti
 
     //***********************//
 
-    void cpinti_doevents()
-    {
-        cpinti_doevents(1);
-    }
-
-    void cpinti_doevents(unsigned long Temps)
-    {
-
-        // PEACE FOR YOUR CPU
-        if (Temps < 1)
-        {
-            gestionnaire_tache::Interruption_Timer();
-        }
-        else
-        {
-            cpinti_USleep(Temps);
-        }
-    }
-
     void cpinti_Sleep(uinteger secondes)
     {
-
-        // S'il y a 0 secondes on force au switching
-        // if(secondes < 1)
-        // gestionnaire_tache::Interruption_Timer(0);
-        // else
         sleep(secondes * 1000 ^ 2); // Hook par Cpcdos
-
-        return;
-        // Permet de simuler un "sleep" mais SAFE !
-        // Declarer la structure
-        struct timeval tv;
-
-        // Remplir la structure
-        tv.tv_sec = (time_t)secondes;
-        tv.tv_usec = (long int)0;
-
-        // Attendre sur le descripteur ZERO
-        select(0, NULL, NULL, NULL, &tv);
     }
 
     void cpinti_USleep(uinteger MicroSecondes)
     {
-
-        // S'il y a 0 us on force au switching
-        // if(MicroSecondes < 1)
-        gestionnaire_tache::Interruption_Timer();
-
         usleep(MicroSecondes); // Hook par Cpcdos
-
-        return;
-        // Permet de simuler un "usleep" mais SAFE !
-
-        // Declarer la structure
-        struct timeval tv;
-
-        MicroSecondes = MicroSecondes / 1000;
-
-        // Remplir la structure
-        tv.tv_sec = (time_t)MicroSecondes / 1000;
-        tv.tv_usec = (long int)(MicroSecondes % 1000) * 1000;
-
-        // Attendre sur le descripteur ZERO
-        select(0, NULL, NULL, NULL, &tv);
     }
 
 } // namespace cpinti

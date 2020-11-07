@@ -79,8 +79,6 @@ Function Client_THREAD cdecl Alias "Client_THREAD" (ByVal thread_struct as _STRU
 
 		END SCOPE
 		end if
-
-		doevents(0)
 	wend
 
 
@@ -131,8 +129,6 @@ Function Serveur_THREAD cdecl Alias "Serveur_THREAD" (ByVal thread_struct as _ST
 			' On redonne la main aux prochaines creations
 			CPCDOS_INSTANCE.RESEAU_INSTANCE.Serveur_TCP_CPCDOS_PORT(0) = 0
 			CPCDOS_INSTANCE.RESEAU_INSTANCE.Serveur_TCP_CPCDOS_MODE(0) = 0
-
-			doevents(50000)
 
 			IF CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_DBG_DEBUG() > 0 Then
 				IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then
@@ -212,8 +208,6 @@ Function Serveur_THREAD cdecl Alias "Serveur_THREAD" (ByVal thread_struct as _ST
 
 		END SCOPE
 		end if
-
-		doevents(0)
 	wend
 
 

@@ -230,11 +230,9 @@ namespace cpinti
                 bool EN_VIE = true;
                 while (EN_VIE)
                 {
-                    doevents(0);
-
                     // Si aucun client est connecte
                     if (NbClientCO == 0)
-                        doevents(100000);
+                        cpinti_Sleep(100);
 
                     // Nettoyer le socket
                     FD_ZERO(&FD_socket);
@@ -307,13 +305,6 @@ namespace cpinti
 
                             Traite = true;
                             EN_VIE = false;
-                        }
-
-                        // Liberer le CPU pendant 200 ms
-                        else if (BUFFER == "#DOEVENTS")
-                        {
-                            Traite = true;
-                            doevents(280395);
                         }
 
                         /*** ----------------------------------------------------------- ***/
@@ -439,7 +430,9 @@ namespace cpinti
                     Resultat = select(FD_MAX + 1, &FD_socket, NULL, NULL, &TempsMAX);
 
                     if (NbClientCO == 0)
-                        doevents(100000);
+                    {
+                        cpinti_Sleep(100);
+                    }
 
                     if ((Resultat < 0) && (errno != EINTR))
                     {
@@ -477,7 +470,6 @@ namespace cpinti
                                                      "SRV:" + NumPort_STR, "", Ligne_saute, Alerte_avertissement, Date_avec, Ligne_r_normal);
                             send(New_Socket, MSG_Refus_Full.c_str(), MSG_Refus_Full.length(), 0);
 
-                            doevents(1000);
                             Fermer_socket(New_Socket);
                         }
                         else

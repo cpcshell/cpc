@@ -470,9 +470,6 @@ Function _SCI_Cpcdos_OSx__.CPC__GUI_Init_obj(Type_De_GUI as Integer, _Proprietes
 						DEBUG("[CpcdosC+] PictureBox thread creation, in creating!", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Normal, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, this.RetourVAR)
 					End if
 				END IF
-
-				' doevents(500000)
-
 			else
 				' Associer son handle a celui du processus parent
 				_Proprietes.TEMP_GUI__PICTUREBOX.Identification_Objet.handle = CPCDOS_INSTANCE.Generer_RND(100, 999)
@@ -1482,8 +1479,6 @@ Function _SCI_Cpcdos_OSx__.Interaction_SOURIS_FENETRE(Pos_X as integer, Pos_Y as
 						Dim As integer Pos_X, Pos_Y, Scroll_Weel, TypeClic, Clip, Presente
 
 						ENTRER_SectionCritique()
-						' doevents(0)
-
 						' Si l'utilisateur a encore le bouton presse = deplacement
 						Presente = GetMouse(Pos_X, Pos_Y, Scroll_Weel, TypeClic, Clip)
 
@@ -3331,11 +3326,7 @@ Function _SCI_Cpcdos_OSx__.Interaction_SOURIS_FENETRE(Pos_X as integer, Pos_Y as
 								End if
 							End if
 						End if ' If Evenement_Sur_Objet = FALSE Then
-
-						' doevents(0)
-
 					exit for ' une fois qu'on a clique dedans, ca sert a rien de chercher plus loin
-
 					End if ' Clique a l'interieur de la fenetre (Hors de la barre de titre)
 				Else
 					EV_HorsFenetre = TRUE
@@ -3812,14 +3803,6 @@ Function _SCI_Cpcdos_OSx__.Sizing_window_button(SizeUP as boolean, INDEX_FENETRE
 			end if
 		End if
 	End if
-
-
-	' Recharger les bitmap de la fenetre
-
-	' reset memory  /  reset ID   /  Objets
-	' CPC__GUI_SUPPRIMER_bitmaps_fenetre(INDEX_FENETRE, false, true, false)
-
-	' doevents(0)
 
 	Fenetre_FOCUS(INDEX_FENETRE)
 

@@ -216,7 +216,6 @@ function _SYSTEME_Cpcdos_OSx__.charger_PNG(byval Fichier as String, byval Bits  
 			PassageDoEvents += 1
 			if PassageDoEvents > (hauteur*largeur / 6) Then
 				PassageDoEvents = 0
-				doevents(0)
 			end if
 
 			png_read_row( png, src, NULL )
@@ -1733,7 +1732,6 @@ function _SYSTEME_Cpcdos_OSx__.ChargerJPG(byval Chemin as string, byref Hauteur 
 				PassageDoEvents += 1
 				if PassageDoEvents > (Hauteur*Largeur) / 4 Then
 					PassageDoEvents = 0
-					doevents(0)
 				end if
 
 			next

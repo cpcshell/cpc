@@ -26,7 +26,6 @@ Declare Function 	cpc_cpinti_Obtenir_Temps		cdecl Alias "cpc_cpinti_Obtenir_Temp
 
 Declare Function 	cpc_Thread_En_Cours				cdecl Alias "cpc_Thread_En_Cours" 				() as uinteger
 Declare Function 	cpc_supprimer_Thread 			cdecl Alias "cpc_supprimer_Thread" 				(TID as uinteger, force as boolean) as boolean
-Declare sub 		cpc_doevents					cdecl Alias "cpc_doevents" 						(temps as uinteger)
 Declare sub 		cpc_EntrerSectionCritique 		cdecl Alias "cpc_EntrerSectionCritique" 		()
 Declare sub 		cpc_SortirSectionCritique 		cdecl Alias "cpc_SortirSectionCritique" 		()
 
@@ -77,8 +76,6 @@ Public Function cpc_Blitter cdecl Alias "cpc_Blitter" (ID as integer) as integer
 	End if
 
 	CPCDOS_INSTANCE.SCI_INSTANCE.Blitter_Video()
-
-	doevents(0)
 
 	Function = 0
 End function
@@ -321,18 +318,15 @@ Public Function cpc_cpinti_Taille_Fichier cdecl Alias "cpc_cpinti_Taille_Fichier
 End function
 
 Public Sub cpc_cpinti_sleep_us cdecl Alias "cpc_cpinti_sleep_us" (Temps_us as uinteger)
-	doevents(Temps_us / 1000)
-
+	sleep 1
 End Sub
 
 Public Sub cpc_cpinti_sleep_ms cdecl Alias "cpc_cpinti_sleep_ms" (Temps_ms as uinteger)
-	doevents(Temps_ms)
-	' CPintiCore_instance.doevents(Temps_ms * 1000)
+	Sleep Temps_ms
 End Sub
 
 Public Sub cpc_cpinti_sleep_sec cdecl Alias "cpc_cpinti_sleep_sec" (Temps_sec as uinteger)
-	doevents(Temps_sec * 1000)
-	' CPintiCore_instance.doevents(Temps_sec * 1000000)
+	Sleep Temps_sec * 1000
 End Sub
 
 Public Function cpc_cpinti_Obtenir_Temps_ms cdecl Alias "cpc_cpinti_Obtenir_Temps_ms" (Temps_av as double) as double
@@ -351,10 +345,6 @@ End Function
 Public Function cpc_supprimer_Thread cdecl Alias "cpc_supprimer_Thread" (TID as uinteger, force as boolean) as boolean
 	return CPCDOS_INSTANCE.Fermer_thread(0, TID, force)
 End Function
-
-Public sub cpc_doevents cdecl Alias "cpc_doevents" (temps as uinteger)
-	doevents(temps)
-End sub
 
 Public sub cpc_EntrerSectionCritique cdecl Alias "cpc_EntrerSectionCritique" ()
 	ENTRER_SectionCritique()
