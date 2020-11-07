@@ -28,10 +28,6 @@ char magic_flag[magic_flag_size] = {0x7C, 0x45, 0x4E, 0x44, 0x21, 0x00}; // cPCd
 
 bool Magic_Flag_used[magic_flag_nombre_MAX];
 void *Magic_Flag_addr[magic_flag_nombre_MAX];
-void *Magic_Flag_stack_0[magic_flag_nombre_MAX];
-void *Magic_Flag_stack_1[magic_flag_nombre_MAX];
-void *Magic_Flag_stack_2[magic_flag_nombre_MAX];
-void *Magic_Flag_stack_3[magic_flag_nombre_MAX];
 uinteger Magic_Flag_Page[magic_flag_nombre_MAX];
 uinteger Magic_Flag_Table[magic_flag_nombre_MAX];
 bool EFFACEMENT = false;

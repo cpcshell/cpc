@@ -32,6 +32,8 @@
 
 #include "mem_page.h"
 
+#include <execinfo.h>
+
 const int MAX_ManagedAlloc_BLOCS = 4000000; // 4 Mo de table
 
 extern "C" void *cpc_malloc(size_t mem_size);
@@ -711,12 +713,6 @@ void *allocation_in_page(uinteger NumPAGE, size_t size_mem, bool magicflag)
 
                     page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].index_magicflag = bf;
 
-                    // Sauvegarder la tracde du stack
-                    Magic_Flag_stack_0[bf] = __builtin_return_address(0);
-                    Magic_Flag_stack_1[bf] = __builtin_return_address(1);
-                    Magic_Flag_stack_2[bf] = __builtin_return_address(2);
-                    Magic_Flag_stack_3[bf] = __builtin_return_address(3);
-
                     if (STAT_DEBUG)
                         nombre_malloc++;
 
@@ -917,10 +913,6 @@ bool freeing_allocation(uinteger NumPAGE, uinteger index_table)
             freeing_allocation(Magic_Flag_Page[index_mf], Magic_Flag_Table[index_mf] + 1);
 
             Magic_Flag_addr[index_mf] = NULL;
-            Magic_Flag_stack_0[index_mf] = NULL;
-            Magic_Flag_stack_1[index_mf] = NULL;
-            Magic_Flag_stack_2[index_mf] = NULL;
-            Magic_Flag_stack_3[index_mf] = NULL;
             Magic_Flag_Page[index_mf] = 0;
             Magic_Flag_Table[index_mf] = 0;
             Magic_Flag_used[index_mf] = false;
@@ -1287,62 +1279,12 @@ void cpc_deb(char *dst, const char *src, uinteger bytes)
 
 void print_backtrace()
 {
-    void *adresse_stack;
+    void *buffer[100];
+
     fprintf(stderr, "ACTUAL caller stack trace :\n");
-    for (uinteger boucle = 0; boucle < 6; boucle++)
-    {
-        if (boucle == 0)
-            adresse_stack = __builtin_return_address(0);
-        if (boucle == 1)
-            adresse_stack = __builtin_return_address(1);
-        if (boucle == 2)
-            adresse_stack = __builtin_return_address(2);
-        if (boucle == 3)
-            adresse_stack = __builtin_return_address(3);
-        if (boucle == 4)
-            adresse_stack = __builtin_return_address(4);
-        if (boucle == 5)
-            adresse_stack = __builtin_return_address(5);
-
-        fprintf(stderr, " %lu : [0x%08lx] ", boucle, (uintptr_t)adresse_stack);
-
-        if ((void *)adresse_stack == (void *)print_backtrace)
-            fprintf(stderr, "print_backtrace() --> This runtime for display this.");
-
-        if ((void *)adresse_stack == (void *)check_memory_overflow)
-            fprintf(stderr, "check_memory_overflow() --> Internal memory checker cpcdos runtime.");
-
-        if ((void *)adresse_stack == (void *)m_memset)
-            fprintf(stderr, "m_memset() --> Internal memory setting cpcdos runtime.");
-
-        if ((void *)adresse_stack == (void *)m_allocation)
-            fprintf(stderr, "m_allocation() --> Internal memory allocation cpcdos runtime.");
-
-        if ((void *)adresse_stack == (void *)c_allocation)
-            fprintf(stderr, "c_allocation() --> Internal memory allocation cpcdos runtime.");
-
-        if ((void *)adresse_stack == (void *)r_allocation)
-            fprintf(stderr, "r_allocation() --> Internal memory re-allocation cpcdos runtime.");
-
-        if ((void *)adresse_stack == (void *)creer_page)
-            fprintf(stderr, "creer_page() --> Internal memory pagging cpcdos runtime.");
-
-        // if((void*) adresse_stack == (void*) main)
-        // fprintf(stderr, "main() --> Entry point of program.");
-
-        // if ((void *)adresse_stack == (void *)__crt1_startup)
-        // {
-        //     fprintf(stderr, "crt1_startup() --> CRT Runtime.\n");
-        //     break;
-        // }
-        fprintf(stderr, "\n");
-    }
-
-    fprintf(stderr, "Previous allocation stack trace :\n");
-    fprintf(stderr, " 0 : [0x%08lx]\n", (uintptr_t)Magic_Flag_stack_0[0]);
-    fprintf(stderr, " 1 : [0x%08lx]\n", (uintptr_t)Magic_Flag_stack_1[1]);
-    fprintf(stderr, " 2 : [0x%08lx]\n", (uintptr_t)Magic_Flag_stack_2[2]);
-    fprintf(stderr, " 3 : [0x%08lx]\n", (uintptr_t)Magic_Flag_stack_3[3]);
+    int num = backtrace(buffer, 100);
+    
+    backtrace_symbols_fd(buffer, num, STDERR_FILENO);
 }
 
 uinteger check_memory_overflow(const char *fichier, const char *fonction, int ligne)
