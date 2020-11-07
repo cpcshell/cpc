@@ -115,7 +115,7 @@ namespace cpinti
 			char *ptr = buff + 4;
 
 			int octets_recu;
-			while (octets_recu = recv(socket, ptr, 1, 0))
+			while ((octets_recu = recv(socket, ptr, 1, 0)))
 			{
 
 				if (octets_recu == -1)
@@ -318,7 +318,6 @@ namespace cpinti
 			bool var_size = false;
 
 			char *VAR_SOCKET;
-			bool var_socket = false;
 
 			cpinti_dbg::CPINTI_DEBUG("Client TCP lance!", "TCP Client in execution!",
 									 "CLT:" + _NumeroID_STR, "", Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
@@ -431,7 +430,6 @@ namespace cpinti
 						cpc_CCP_Exec_Commande(_Commande_CpcdosCP, 5);
 
 						BUFFER = "";
-						var_socket = true;
 					}
 
 					/*** ----------------------------------------------------------- ***/
@@ -572,7 +570,7 @@ namespace cpinti
 													 "CLT:" + _NumeroID_STR, "", Ligne_saute, Alerte_action, Date_avec, Ligne_r_normal);
 							fflush(stdout);
 							ENTRER_SectionCritique();
-							while (octets_recu = recv(SocketReseau, buffer, 8192, 0))
+							while ((octets_recu = recv(SocketReseau, buffer, 8192, 0)))
 							{
 
 								// ENTRER_SectionCritique();

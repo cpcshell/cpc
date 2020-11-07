@@ -41,6 +41,39 @@ namespace cpinti
 	namespace gestionnaire_tache
 	{
 
+        /* global var */
+        bool EVALUATION_CPU = false;
+		uinteger NombreCycles = 0;
+		uinteger NombreCyles_MAX = 0;
+		uinteger InLiveCompteur = 0;
+		time_t Temps_Depart = (time_t)NULL;
+		time_t Temps_Actuel = (time_t)NULL;
+		double Temps_total = 0;
+		uinteger saut_comptage = 0;
+		int Compteur_Cycle_cpu = 0;
+
+		uinteger Nombre_Processus = 0;
+
+		struct itimerval instance_Timer[MAX_TIMERS] = {};
+		bool SECTION_CRITIQUE = false;
+		int compteur = 0;
+		uinteger Nombre_Tache = 0;
+		uinteger Nombre_Threads = 0;
+		uinteger Nombre_Timer = 0;
+		uinteger Thread_en_cours = 0;
+
+
+#ifndef Liste_Processus
+		list_processus Liste_Processus[MAX_PROCESSUS] = {};
+#endif
+
+#ifndef Liste_Threads
+		liste_threads Liste_Threads[MAX_THREAD] = {};
+#endif
+
+
+        /* end */
+
 		void IamInLive()
 		{
 			// Ne pas calculer si le CPU est en evaluation

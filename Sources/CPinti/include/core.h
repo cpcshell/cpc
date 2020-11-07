@@ -55,25 +55,25 @@ namespace cpinti
 
 		/**** Variables ****/
 
-		static bool EVALUATION_CPU = false;
-		static uinteger NombreCycles = 0;
-		static uinteger NombreCyles_MAX = 0;
-		static uinteger InLiveCompteur = 0;
-		static time_t Temps_Depart = (time_t)NULL;
-		static time_t Temps_Actuel = (time_t)NULL;
-		static double Temps_total = 0;
-		static uinteger saut_comptage = 0;
-		static int Compteur_Cycle_cpu = 0;
+		extern bool EVALUATION_CPU;
+		extern uinteger NombreCycles;
+		extern uinteger NombreCyles_MAX;
+		extern uinteger InLiveCompteur;
+		extern time_t Temps_Depart;
+		extern time_t Temps_Actuel;
+		extern double Temps_total;
+		extern uinteger saut_comptage;
+		extern int Compteur_Cycle_cpu;
 
-		static uinteger Nombre_Processus = 0;
+		extern uinteger Nombre_Processus;
 
-		static struct itimerval instance_Timer[MAX_TIMERS] = {};
-		static bool SECTION_CRITIQUE = false;
-		static int compteur = 0;
-		static uinteger Nombre_Tache = 0;
-		static uinteger Nombre_Threads = 0;
-		static uinteger Nombre_Timer = 0;
-		static uinteger Thread_en_cours = 0;
+		extern struct itimerval instance_Timer[MAX_TIMERS];
+		extern bool SECTION_CRITIQUE;
+		extern int compteur;
+		extern uinteger Nombre_Tache;
+		extern uinteger Nombre_Threads;
+		extern uinteger Nombre_Timer;
+		extern uinteger Thread_en_cours;
 
 		/**** Structure du thread ****/
 		struct liste_threads
@@ -113,11 +113,11 @@ namespace cpinti
 		};
 
 #ifndef Liste_Processus
-		static list_processus Liste_Processus[MAX_PROCESSUS] = {};
+		extern list_processus Liste_Processus[MAX_PROCESSUS];
 #endif
 
 #ifndef Liste_Threads
-		static liste_threads Liste_Threads[MAX_THREAD] = {};
+		extern liste_threads Liste_Threads[MAX_THREAD];
 #endif
 
 		/**** Methodes ****/

@@ -11,8 +11,6 @@
 namespace gestionnaire_tache
 {
 
-	static bool MT_Timer_en_Marche = true;
-
 #define _MAX_PROCESSUS 1024
 #define _MAX_THREADS 6500
 
