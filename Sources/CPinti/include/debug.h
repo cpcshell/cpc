@@ -29,7 +29,7 @@ namespace cpinti_dbg
 {
 
 	void debug_mode(integer valeur);
-	static int DEBUG_ENABLED = 0;
+	extern int DEBUG_ENABLED;
 								
 	extern void CPINTI_DEBUG_C(const char* TexteFrancais, const char* TexteAnglais, 
 							const char* Declencheur, const char* Fonction, 

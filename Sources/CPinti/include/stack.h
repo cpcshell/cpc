@@ -83,7 +83,6 @@ namespace cpinti
 		~cpinti_stack_inv();
 	};
 
-	static uinteger Stack__PORT_ATTRIB[_MAX_Stack_instance];
 	static std::vector<std::shared_ptr<cpinti_stack_inv>> Stack_CPintiCore__KERNEL;
 	static std::vector<std::shared_ptr<cpinti_stack_inv>> Stack_CPintiCore__SERVEUR;
 

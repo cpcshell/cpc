@@ -1,3 +1,5 @@
+#ifndef CPCDOS_MEM_PAGE
+#define CPCDOS_MEM_PAGE
 // Entete
 bool MEM_DEBUG = true;		 // Afficher le debug
 bool CHECK_OVERFLOW = false; // Detecter les memory overflow
@@ -13,7 +15,6 @@ static int CODE_ERREUR = 0;
 
 // Definit automatiquement
 static uinteger Page_MAX = 0;			// Pages maximum
-static uinteger Alloc_per_page_MAX = 0; // Nombre allocations par page
 static uinteger Alloc_nb_MAX = 0;
 static uinteger Page_cree = 0;				   // Nombre de pages crees
 static unsigned long MEMOIRE_LIBRE_DEPART = 0; // Memoire RAM libre de depart
@@ -71,8 +72,6 @@ static void *dernier_page_table_debut;
 static void *dernier_page_table_fin;
 static void *dernier_page_table;
 static uinteger dernier_page_table_index;
-
-static void *dernier_memset;
 
 // FREEBASIC RUNTIME
 
@@ -176,3 +175,5 @@ void print_backtrace();
 extern "C" void cpc_deb(char *dst, const char *src, uinteger bytes);
 void dump_memory(const char *descritpion, const void *adresse, const int taille);
 void dump_page(uinteger NumPAGE);
+
+#endif /* !CPCDOS_MEM_PAGE */
