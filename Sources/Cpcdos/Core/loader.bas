@@ -11,7 +11,6 @@ Dim shared CMD_Exec_ARG(0 to 17) 	as String
 
 public function Mon_Thread1 cdecl Alias "Mon_Thread1"(byref thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 
-	On local Error Goto Intercept_Error
 
 	Dim Etat_Thread 		as uinteger
 	Dim EN_VIE 				as Boolean = TRUE
@@ -59,7 +58,6 @@ end function
 
 public function Mon_Thread2 cdecl Alias "Mon_Thread2"(byref thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 
-	On local Error Goto Intercept_Error
 
 	Dim Etat_Thread 		as uinteger
 	Dim EN_VIE 				as Boolean = TRUE
@@ -107,7 +105,6 @@ end function
 
 public function Mon_Thread3 cdecl Alias "Mon_Thread3"(byref thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 
-	On local Error Goto Intercept_Error
 
 	Dim Etat_Thread 		as uinteger
 	Dim EN_VIE 				as Boolean = TRUE
@@ -270,7 +267,6 @@ END sub
 
 public function __CPCDOS_INIT_1 cdecl Alias "__CPCDOS_INIT_1"(a as integer) as integer
 
-		On local Error Goto Intercept_Error
 
 		DEBUG("[__CPCDOS_INIT_1] Starting cpcdos osx kernel ...", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Validation, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
 
@@ -386,7 +382,6 @@ End Function
 
 public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as integer
 
-	On local Error Goto Intercept_Error
 
 			' Structure du processus
 		Dim INSTANCE_STRUCT_PROCES as _STRUCT_PROCESSUS_Cpcdos_OSx__
@@ -801,7 +796,6 @@ End Function
 
 Public function Thread_Updater cdecl Alias "Thread_Updater"(byval arguments as any ptr) as any ptr
 
-	On local Error Goto Intercept_Error
 
 	dim compteur as uinteger = 0
 	dim EN_VIE as boolean = true
@@ -864,7 +858,6 @@ End function
 
 public function Thread_SYSTEM cdecl Alias "Thread_SYSTEM"(byval thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer
 
-	On local Error Goto Intercept_Error
 
 	Dim Etat_Thread 		as uinteger
 	Dim EN_VIE 				as Boolean = TRUE

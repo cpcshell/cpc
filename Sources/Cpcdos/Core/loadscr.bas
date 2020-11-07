@@ -27,7 +27,7 @@ Function __Noyau_Cpcdos_OSx__.Initialiser_BootScreen(Type_rsc as boolean, source
 
 
 	' Lire le fichier de configuration
-	CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("EXE/ " & source & "\config.cpc", CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_CLE, 5, 0, "")
+	CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CpcdosCP_SHELL("EXE/ " & source & "/config.cpc", CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_CLE, 5, 0, "")
 
 	' Lire les variables
 	bs_gui = RTRIM(RTRIM(RTRIM(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.CCP_Lire_Variable("cpc_sys.boot.bootscreen.gui" , 5, CPCDOS_INSTANCE.SYSTEME_INSTANCE._MAIN_CLE), chr(13)), chr(10)))
@@ -178,7 +178,7 @@ Function __Noyau_Cpcdos_OSx__.Load_Ressources(Type_rsc as boolean, source as Str
 End Function
 
 
-Public Function Animation cdecl Alias "Animation" (byval thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer : On local Error Goto Intercept_Error
+Public Function Animation cdecl Alias "Animation" (byval thread_struct as _STRUCT_THREAD_Cpcdos_OSx__) as integer 
 	' Cette procedure va animer l'ecran
 
 	' ============= PUBLIC VARIABLES =============

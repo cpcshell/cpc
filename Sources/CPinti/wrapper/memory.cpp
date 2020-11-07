@@ -38,7 +38,6 @@ const int MAX_ManagedAlloc_BLOCS = 4000000; // 4 Mo de table
 
 extern "C" void *cpc_malloc(size_t mem_size);
 extern "C" void *cpc_calloc(size_t mem_size, size_t NbElem);
-extern "C" void cpc_free(void *pointer);
 extern "C" void *cpc_realloc(void *pointeur, size_t taille);
 extern "C" void *cpc_memset(void *pointeur, int valeur, size_t taille);
 extern "C" char *cpc_strcpy(char *destination, const char *source);
@@ -97,17 +96,6 @@ void *cpc_calloc(size_t mem_size, size_t NbElem)
     }
 
     return internal_AllocManager.ManagedCalloc(mem_size, NbElem);
-}
-
-void cpc_free(void *pointer)
-{
-
-    // nombre_free++;
-
-    f_allocation(pointer);
-    return;
-
-    internal_AllocManager.ManagedFree(pointer);
 }
 
 void *cpc_realloc(void *pointeur, size_t taille)
@@ -1270,7 +1258,7 @@ void print_backtrace()
 
     fprintf(stderr, "ACTUAL caller stack trace :\n");
     int num = backtrace(buffer, 100);
-    
+
     backtrace_symbols_fd(buffer, num, STDERR_FILENO);
 }
 

@@ -441,7 +441,7 @@ Function _SYSTEME_Cpcdos_OSx__.set_Resolution(ModeSCR as integer) as boolean
 	
 	
 	' Mettre a jour les informations d'affichage
-	update_InformationEcran()
+	' update_InformationEcran() FIXME
 	
 End Function
 Function _SYSTEME_Cpcdos_OSx__.set_Resolution(Res_X as integer, Res_Y as integer, Bits as integer) as boolean

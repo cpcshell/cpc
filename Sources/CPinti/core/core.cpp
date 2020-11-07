@@ -678,7 +678,7 @@ void Interruption_Timer()
             Alterner = true;
             Executer = false;
 
-            // fprintf(stdout, " ****** SWITCH ! %u -->", Thread_en_cours);
+            fprintf(stdout, " ****** SWITCH ! %lu -->", Thread_en_cours);
             end_SectionCritique();
 
             if (Liste_Threads[Thread_en_cours].DM_arret == true)
