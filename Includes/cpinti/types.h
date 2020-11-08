@@ -1,7 +1,7 @@
-#ifndef CPCDOS_TYPES
-#define CPCDOS_TYPES
+#ifndef CPINTI_TYPES_H
+#define CPINTI_TYPES_H
 
 using uinteger = unsigned long;
 using integer = long;
 
-#endif /* CPCDOS_TYPES */
+#endif // CPINTI_TYPES_H

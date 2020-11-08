@@ -1,5 +1,5 @@
-#ifndef CPCDOS_PROCESS
-#define CPCDOS_PROCESS
+#ifndef CPINTI_PROCESS_H
+#define CPINTI_PROCESS_H
 
 #include <cpinti/types.h>
 
@@ -20,4 +20,4 @@ namespace cpinti::gestionnaire_tache
 
 } // namespace cpinti::gestionnaire_tache
 
-#endif /* CPCDOS_PROCESS */
+#endif // CPINTI_PROCESS_H

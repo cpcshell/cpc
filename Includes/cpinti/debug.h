@@ -1,5 +1,5 @@
-#ifndef CPCDOS_DEBUG
-#define CPCDOS_DEBUG
+#ifndef CPINTI_DEBUG_H
+#define CPINTI_DEBUG_H
 
 #include <cstdarg>
 #include <cstdlib>
@@ -71,4 +71,4 @@ namespace cpinti::debug
 
 } // namespace cpinti::debug
 
-#endif /* CPCDOS_DEBUG */
+#endif // CPINTI_DEBUG_H

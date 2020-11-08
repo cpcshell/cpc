@@ -1,9 +1,9 @@
-#ifndef CPCDOS_BUFFER
-#define CPCDOS_BUFFER
+#ifndef CPINTI_BUFFER_H
+#define CPINTI_BUFFER_H
 
 #include <string>
 
-#include "cpinti/types.h"
+#include <cpinti/types.h>
 
 namespace cpinti
 {
@@ -14,4 +14,4 @@ namespace cpinti
     int cpinti_GEST_BUFF_c(uinteger _ID, integer _CHEMIN, char *_DONNEES);
 } // namespace cpinti
 
-#endif /* CPCDOS_BUFFER */
+#endif // CPINTI_BUFFER_H

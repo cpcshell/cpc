@@ -1,5 +1,5 @@
-#ifndef CPCDOS_CLIENT
-#define CPCDOS_CLIENT
+#ifndef CPINTI_CLIENT_H
+#define CPINTI_CLIENT_H
 
 //  0	: OK
 #define CLIENT_OK 0
@@ -58,4 +58,4 @@ namespace cpinti
 
 } // namespace cpinti
 
-#endif /* CPCDOS_CLIENT */
+#endif // CPINTI_CLIENT_H

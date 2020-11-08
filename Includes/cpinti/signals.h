@@ -1,5 +1,5 @@
-#ifndef CPCDOS_SIGNALS
-#define CPCDOS_SIGNALS
+#ifndef CPINTI_SIGNALS_H
+#define CPINTI_SIGNALS_H
 
 namespace cpinti::signals
 {
@@ -8,4 +8,4 @@ namespace cpinti::signals
     void panic(int signalnum, int ligne, char *fichier, char *fonction);
 } // namespace cpinti::signals
 
-#endif /* CPCDOS_SIGNALS */
+#endif // CPINTI_SIGNALS_H

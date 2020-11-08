@@ -1,7 +1,7 @@
-#ifndef CPCDOS_THREADS
-#define CPCDOS_THREADS
+#ifndef CPINTI_THREADS_H
+#define CPINTI_THREADS_H
 
-#include "cpinti/types.h"
+#include <cpinti/types.h>
 
 namespace cpinti::gestionnaire_tache
 {
@@ -54,4 +54,4 @@ namespace cpinti::gestionnaire_tache
 
 } // namespace cpinti::gestionnaire_tache
 
-#endif /* CPCDOS_THREADS */
+#endif // CPINTI_THREADS_H

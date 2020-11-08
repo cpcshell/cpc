@@ -5,4 +5,4 @@ void enable(void);
 
 void disable(void);
 
-#endif
+#endif // COMPAT_DOS_H

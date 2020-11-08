@@ -1,5 +1,5 @@
-#ifndef CPCDOS_VERSION
-#define CPCDOS_VERSION
+#ifndef CPINTI_VERSION_H
+#define CPINTI_VERSION_H
 
 #ifndef BUILD_DATE
 #    define BUILD_DATE __DATE__
@@ -9,4 +9,4 @@
 #    define BUILD_VERSION "3.0"
 #endif
 
-#endif /* CPCDOS_VERSION */
+#endif // CPINTI_VERSION_H

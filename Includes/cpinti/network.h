@@ -1,7 +1,7 @@
-#ifndef CPCDOS_NETWORK
-#define CPCDOS_NETWORK
+#ifndef CPINTI_NETWORK_H
+#define CPINTI_NETWORK_H
 
-#include "cpinti/types.h"
+#include <cpinti/types.h>
 
 namespace cpinti::net
 {
@@ -20,4 +20,4 @@ namespace cpinti::net
     uinteger cpinti_get_net_activite();
 } // namespace cpinti::net
 
-#endif /* CPCDOS_NETWORK */
+#endif // CPINTI_NETWORK_H
