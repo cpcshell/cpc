@@ -107,7 +107,7 @@ namespace cpinti::gestionnaire_tache
         // Cette fonction permet de recuperer le nom du processus via son ID
         // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
         //  PID				: Numero de processus
-        //  NomProcessus	: Variable NULL ou sera stocke le nom de variable
+        //  NomProcessus	: Variable nullptr ou sera stocke le nom de variable
 
         return (const char *)gestionnaire_tache::Liste_Processus[PID].Nom_Processus;
     }

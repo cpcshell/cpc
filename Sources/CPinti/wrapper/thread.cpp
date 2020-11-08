@@ -167,7 +167,7 @@ namespace cpinti::gestionnaire_tache
         // return (void*) (long) NP_cpinti_gestionnaire_tache::thread_args::NomThread; /* Nom du thread */
 
         // Aucun argument correspond
-        return NULL;
+        return nullptr;
     }
 
     int cpinti_gerer_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID, uinteger ACTION)
@@ -203,7 +203,7 @@ namespace cpinti::gestionnaire_tache
     const char *cpinti_get_nom_thread(uinteger TID)
     {
         // Cette fonction permet de recuperer le nom du thread via son ID
-        //  NomThread		: Variable NULL ou sera stocke le nom de variable
+        //  NomThread		: Variable nullptr ou sera stocke le nom de variable
 
         /* NON UTILISE */
 

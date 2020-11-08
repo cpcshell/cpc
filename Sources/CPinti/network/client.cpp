@@ -59,7 +59,7 @@ namespace cpinti
             struct hostent *Host_DNS = gethostbyname(NomAdresse.c_str());
 
             // Tester si l'operation a fonctionnee
-            if (Host_DNS == NULL)
+            if (Host_DNS == nullptr)
             {
                 // Stocker l'erreur dans un attribut membre de la classe qu'on pourrai recuperer
                 Erreur_STR = std::string(strerror(errno));
@@ -439,8 +439,7 @@ namespace cpinti
                 FD_SET(SocketReseau, &FD_socket);
                 FD_MAX = SocketReseau;
 
-                Resultat = select(FD_MAX + 1, &FD_socket, NULL, NULL, &TempsMAX);
-
+                Resultat = select(FD_MAX + 1, &FD_socket, nullptr, nullptr, &TempsMAX);
 
                 if ((Resultat < 0) && (errno != EINTR))
                 {
@@ -454,7 +453,7 @@ namespace cpinti
                 if (FD_ISSET(SocketReseau, &FD_socket))
                 {
                     int TailleContenu = 0;
-                    char *buffer_recu = NULL;
+                    char *buffer_recu = nullptr;
 
                     // Si c'est une trame HTTP
                     if (Simple_TrameHTTP == true)

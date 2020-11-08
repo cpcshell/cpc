@@ -209,11 +209,11 @@ void initialiser_memoire()
         page[b].alloc_idx = 0;
 
         /** Page memoire **/
-        page[b].offset_debut = NULL; // Debut offset d'allocation
-        page[b].offset_fin = NULL;   // Fin offset d'allocation
+        page[b].offset_debut = nullptr; // Debut offset d'allocation
+        page[b].offset_fin = nullptr;   // Fin offset d'allocation
 
         /** Allocations **/
-        page[b].mem_table = NULL; // Pointeur sur la structure de la table de memoire
+        page[b].mem_table = nullptr; // Pointeur sur la structure de la table de memoire
     }
 
     if (MEM_DEBUG)
@@ -531,7 +531,7 @@ void *check_free_fragmentation(uinteger NumPAGE, size_t size_mem)
 
     if (MEM_DEBUG)
         fprintf(stdout, "check_free_fragmentation() - NOT FOUND.\n");
-    return NULL;
+    return nullptr;
 }
 
 void *allocation_in_page(uinteger NumPAGE, size_t size_mem)
@@ -634,7 +634,7 @@ void *allocation_in_page(uinteger NumPAGE, size_t size_mem, bool magicflag)
             m_memset(page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_debut, 0, page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].taille); // Initialiser TOUTE la memoire a zero
     }
 
-    if (page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_debut != NULL)
+    if (page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].offset_debut != nullptr)
     {
 
         if (MEM_DEBUG)
@@ -706,8 +706,8 @@ void *allocation_in_page(uinteger NumPAGE, size_t size_mem, bool magicflag)
         // Liberer la zone
         page[NumPAGE].mem_table[page[NumPAGE].alloc_idx].libre = true;
 
-        // Et retourner un NULL
-        return NULL;
+        // Et retourner un nullptr
+        return nullptr;
     }
 }
 
@@ -815,7 +815,7 @@ bool freeing_page(uinteger NumPAGE)
     Page_cree--;
 
     // Effacer le contenu entre le debut d'offset et la fin
-    if (m_memset(page[NumPAGE].offset_debut, 0, page[NumPAGE].taille + 1) != NULL)
+    if (m_memset(page[NumPAGE].offset_debut, 0, page[NumPAGE].taille + 1) != nullptr)
     {
 
         if (MEM_DEBUG)
@@ -840,7 +840,7 @@ bool freeing_allocation(uinteger NumPAGE, uinteger index_table)
 
     if (MEM_DEBUG)
         fprintf(stdout, "freeing_allocation() : page[%lu].mem_table[%lu].offset_debut : 0x%p\n", NumPAGE, index_table, page[NumPAGE].mem_table[index_table].offset_debut);
-    if (m_memset(page[NumPAGE].mem_table[index_table].offset_debut, 0, page[NumPAGE].mem_table[index_table].taille) != NULL)
+    if (m_memset(page[NumPAGE].mem_table[index_table].offset_debut, 0, page[NumPAGE].mem_table[index_table].taille) != nullptr)
     {
 
         // if(MEM_DEBUG) fprintf(stdout, "P3\n");
@@ -868,7 +868,7 @@ bool freeing_allocation(uinteger NumPAGE, uinteger index_table)
 
             freeing_allocation(Magic_Flag_Page[index_mf], Magic_Flag_Table[index_mf] + 1);
 
-            Magic_Flag_addr[index_mf] = NULL;
+            Magic_Flag_addr[index_mf] = nullptr;
             Magic_Flag_Page[index_mf] = 0;
             Magic_Flag_Table[index_mf] = 0;
             Magic_Flag_used[index_mf] = false;
@@ -911,7 +911,7 @@ void *m_allocation(size_t size_mem)
     // Cette fonction remplace le malloc()
 
     uinteger NumPAGE = 0;
-    void *Allocation_fragment = NULL;
+    void *Allocation_fragment = nullptr;
 
     // Retourner un numero de page
     NumPAGE = check_allocation_possibility(size_mem);
@@ -923,7 +923,7 @@ void *m_allocation(size_t size_mem)
         Allocation_fragment = check_free_fragmentation(NumPAGE, size_mem);
 
         // S'il y en a pas
-        if (Allocation_fragment == (void *)NULL)
+        if (Allocation_fragment == (void *)nullptr)
         {
             // Pas de fragment libre, on va donc creer une nouvelle allocation
             //  puis retourner l'adresse memoire
@@ -963,7 +963,7 @@ void *m_allocation(size_t size_mem)
         // Pas de page trouve..
         if (MEM_DEBUG)
             fprintf(stderr, "\n[ERROR] No memory page avaiable for allocation...\n");
-        return NULL;
+        return nullptr;
     }
 
     MEM_DEBUG = org_mem_debug;
@@ -978,7 +978,7 @@ void *c_allocation(size_t size_mem, size_t size_elm)
         nombre_calloc++;
     // Cette fonction remplace le calloc()
     uinteger NumPAGE = 0;
-    void *Allocation_fragment = NULL;
+    void *Allocation_fragment = nullptr;
 
     // Retourner un numero de page
     NumPAGE = check_allocation_possibility(size_mem * size_elm);
@@ -990,7 +990,7 @@ void *c_allocation(size_t size_mem, size_t size_elm)
         Allocation_fragment = check_free_fragmentation(NumPAGE, size_mem * size_elm);
 
         // S'il y en a pas
-        if (Allocation_fragment == (void *)NULL)
+        if (Allocation_fragment == (void *)nullptr)
         {
             // Pas de fragment libre, on va donc creer une nouvelle allocation
             //  puis retourner l'adresse memoire
@@ -1028,7 +1028,7 @@ void *c_allocation(size_t size_mem, size_t size_elm)
         if (MEM_DEBUG)
             fprintf(stderr, "\n[ERROR] No memory page avaiable for allocation...");
     }
-    return NULL;
+    return nullptr;
 }
 
 void f_allocation(void *pointer)
@@ -1104,7 +1104,7 @@ void *r_allocation(void *pointer, size_t size_elm)
         return (NouveauPointeur);
     }
 
-    return NULL;
+    return nullptr;
 }
 
 void *m_memset(void *pointeur, int valeur, size_t taille)
@@ -1114,7 +1114,7 @@ void *m_memset(void *pointeur, int valeur, size_t taille)
 
     // Cette fonction est un remplacement de 'memset()'
 
-    if ((pointeur != NULL) && (taille > 0))
+    if ((pointeur != nullptr) && (taille > 0))
     {
         uinteger index;
         unsigned char *memory = (unsigned char *)pointeur, value = valeur;
@@ -1131,15 +1131,15 @@ void *m_memset(void *pointeur, int valeur, size_t taille)
 
         return (memory);
     }
-    return NULL;
+    return nullptr;
 }
 
 // test
 char *m_strcpy(char *destination, const char *source)
 {
 
-    if (destination == NULL)
-        return NULL;
+    if (destination == nullptr)
+        return nullptr;
 
     char *ptr = destination;
 
@@ -1158,11 +1158,11 @@ char *m_strcpy(char *destination, const char *source)
 char *m_strncpy(char *destination, const char *source, size_t num)
 {
 
-    if (destination == NULL)
-        return NULL;
+    if (destination == nullptr)
+        return nullptr;
 
     if (num <= 0)
-        return NULL;
+        return nullptr;
 
     size_t i = 0;
     while (i++ != num && (*destination++ = *source++))
@@ -1311,7 +1311,7 @@ void dump_memory(const char *descritpion, const void *adresse, const int taille)
     printf("   ==  D U M P   M E M O R Y  == \n\n");
 
     // Descritpion
-    if (descritpion != NULL)
+    if (descritpion != nullptr)
         printf("%s:\n", descritpion);
 
     // Verifier taille

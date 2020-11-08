@@ -33,13 +33,13 @@ uinteger Magic_Flag_Page[magic_flag_nombre_MAX];
 uinteger Magic_Flag_Table[magic_flag_nombre_MAX];
 bool EFFACEMENT = false;
 
-static void *Addresse_before_alloc = NULL;
+static void *Addresse_before_alloc = nullptr;
 static uinteger LAST_Alloc_table_idx = 0;
 static uinteger LAST_Alloc_page_idx = 0;
 
 /******************* DEBUG *******************/
-static const char *_overflow_file = NULL;
-static const char *_overflow_function = NULL;
+static const char *_overflow_file = nullptr;
+static const char *_overflow_function = nullptr;
 static int _overflow_line = 0;
 static uinteger _overflow_page = 0;
 static uinteger _overflow_table = 0;

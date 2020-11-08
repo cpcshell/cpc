@@ -109,7 +109,7 @@ namespace cpinti::gestionnaire_fichier
             return -1;
         }
 
-        if (Mode == NULL)
+        if (Mode == nullptr)
         {
             cpinti_dbg::CPINTI_DEBUG("Erreur interne! Pointeur 'MODE' null !",
                                      "Internal error! 'MODE' pointer is null",
@@ -117,7 +117,7 @@ namespace cpinti::gestionnaire_fichier
             return -1;
         }
 
-        if (_DONNEES == NULL)
+        if (_DONNEES == nullptr)
         {
             cpinti_dbg::CPINTI_DEBUG("Erreur interne! Pointeur '_DONNEES' null !",
                                      "Internal error! '_DONNEES' pointer is null",

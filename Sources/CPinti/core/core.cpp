@@ -26,8 +26,8 @@ namespace cpinti::gestionnaire_tache
     bool EVALUATION_CPU = false;
     uinteger NombreCycles = 0;
     uinteger InLiveCompteur = 0;
-    time_t Temps_Depart = (time_t)NULL;
-    time_t Temps_Actuel = (time_t)NULL;
+    time_t Temps_Depart = 0;
+    time_t Temps_Actuel = 0;
     double Temps_total = 0;
     uinteger saut_comptage = 0;
     int Compteur_Cycle_cpu = 0;
@@ -172,7 +172,7 @@ namespace cpinti::gestionnaire_tache
         Liste_Threads[0].DM_arret = false;
 
         int toto = 0;
-        pthread_create(&Liste_Threads->thread, NULL, Thread_Updater, (void *)&toto);
+        pthread_create(&Liste_Threads->thread, nullptr, Thread_Updater, (void *)&toto);
 
         // std::string offset_fonction = std::to_string((uinteger) Thread_Updater);
         cpinti_dbg::CPINTI_DEBUG(" [OK] TID:0. Fonction offset 0x" + std::to_string((uintptr_t)Thread_Updater),
@@ -546,7 +546,7 @@ namespace cpinti::gestionnaire_tache
         ptr_Update_TID(Arguments, Nouveau_TID);
 
         // Creer le thread
-        pthread_create(&Liste_Threads[Nouveau_TID].thread, NULL, *Fonction, (void *)Arguments);
+        pthread_create(&Liste_Threads[Nouveau_TID].thread, nullptr, *Fonction, (void *)Arguments);
 
         // Liste_Threads[Nouveau_TID].PTID = (uinteger) &Liste_Threads[Nouveau_TID].thread;
 

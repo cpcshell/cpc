@@ -427,7 +427,7 @@ namespace cpinti
                     }
 
                     // Attendre un signal
-                    Resultat = select(FD_MAX + 1, &FD_socket, NULL, NULL, &TempsMAX);
+                    Resultat = select(FD_MAX + 1, &FD_socket, nullptr, nullptr, &TempsMAX);
 
                     if (NbClientCO == 0)
                     {

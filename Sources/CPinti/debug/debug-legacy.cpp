@@ -48,7 +48,7 @@ namespace cpinti_dbg
             int Cpcdos_Langue = 0; // TEMPORAIRE
 
             std::string Texte_final;
-            char const *File = NULL;
+            char const *File = nullptr;
             char const *Texte;
 
             // Compatibilite du deboggeur Cpcdos

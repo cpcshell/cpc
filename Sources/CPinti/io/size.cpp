@@ -20,7 +20,7 @@ namespace cpinti
             FILE *Instance_Fichier = fopen(Chemin, "r");
 
             // Tester si le fichier s'est ouvert sans problemes
-            if (Instance_Fichier != NULL)
+            if (Instance_Fichier != nullptr)
             {
                 // aller a la fin du fichier
                 fseek(Instance_Fichier, 0L, SEEK_END);

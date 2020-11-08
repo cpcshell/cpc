@@ -49,10 +49,10 @@ namespace cpinti
             Instance_Fichier_DESTINATION = fopen(Destination, "w");
 
             // Si c'est ok pour la source
-            if (Instance_Fichier_SOURCE != NULL)
+            if (Instance_Fichier_SOURCE != nullptr)
             {
                 // Si c'est ok pour la destination
-                if (Instance_Fichier_DESTINATION != NULL)
+                if (Instance_Fichier_DESTINATION != nullptr)
                 {
 
                     uinteger TailleFichier = Taille_Fichier(Source);
@@ -83,7 +83,7 @@ namespace cpinti
                             CompteurDoevents = 0;
 
                             /** PROGRESSION EN POURCENTAGE **/
-                            if ((VAR_Progression != NULL) && (strlen(VAR_Progression) > 1))
+                            if ((VAR_Progression != nullptr) && (strlen(VAR_Progression) > 1))
                             {
 
                                 valeur = ((double)NombreOctets / (double)TailleFichier) * 100;
@@ -92,7 +92,7 @@ namespace cpinti
                             }
 
                             /** NOMBRE D'OCTETS COPIES **/
-                            if ((VAR_Octets != NULL) && (strlen(VAR_Octets) > 1))
+                            if ((VAR_Octets != nullptr) && (strlen(VAR_Octets) > 1))
                             {
 
                                 valeur = (double)NombreOctets;
@@ -103,7 +103,7 @@ namespace cpinti
                             if (vitesse > 1)
                             {
                                 /** NOMBRE D'OCTETS PAR SECONDES **/
-                                if ((VAR_OctetsParSec != NULL) && (strlen(VAR_OctetsParSec) > 1))
+                                if ((VAR_OctetsParSec != nullptr) && (strlen(VAR_OctetsParSec) > 1))
                                 {
 
                                     sprintf(_Commande_CpcdosCP, "FIX/ %s = /F:CPC.INT(%f)", VAR_OctetsParSec, vitesse);
@@ -127,7 +127,7 @@ namespace cpinti
                         NombreOctetsParSec++;
                         NombreOctets++;
 
-                        if ((VAR_OctetsParSec != NULL) && (strlen(VAR_OctetsParSec) > 1))
+                        if ((VAR_OctetsParSec != nullptr) && (strlen(VAR_OctetsParSec) > 1))
                         {
                             TempsFin = clock();
 
@@ -165,9 +165,9 @@ namespace cpinti
             }
 
             // Fermer les instances
-            if (Instance_Fichier_DESTINATION != NULL)
+            if (Instance_Fichier_DESTINATION != nullptr)
                 fclose(Instance_Fichier_DESTINATION);
-            if (Instance_Fichier_SOURCE != NULL)
+            if (Instance_Fichier_SOURCE != nullptr)
                 fclose(Instance_Fichier_SOURCE);
 
             if (RETOUR == false)

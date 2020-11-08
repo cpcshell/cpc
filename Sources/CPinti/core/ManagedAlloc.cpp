@@ -31,7 +31,7 @@ int ManagedAlloc::ManagedAlloc_clean()
     // Vider la memoire
     for (int index = 0; index < this->managed_alloc_max; index++)
     {
-        if (this->Alloc_Array[index].address != NULL)
+        if (this->Alloc_Array[index].address != nullptr)
         {
             // Liberer la memoire
             f_allocation(this->Alloc_Array[index].address); // , __FILE__, __LINE__);
@@ -89,7 +89,7 @@ void *ManagedAlloc::ManagedMalloc(size_t size__)
         }
 
     // Plus de places
-    return NULL;
+    return nullptr;
 }
 
 void *ManagedAlloc::ManagedCalloc(size_t size__, size_t sizeElem__)
@@ -115,7 +115,7 @@ void *ManagedAlloc::ManagedCalloc(size_t size__, size_t sizeElem__)
         }
 
     // Plus de places
-    return NULL;
+    return nullptr;
 }
 
 void *ManagedAlloc::ManagedRealloc(void *ptr, size_t size__)
@@ -141,7 +141,7 @@ void *ManagedAlloc::ManagedRealloc(void *ptr, size_t size__)
         }
 
     // Plus de places
-    return NULL;
+    return nullptr;
 }
 
 void ManagedAlloc::dump_memory(void)

@@ -53,7 +53,7 @@ namespace cpinti
             Sock_hostent = gethostbyname(NomAdresse);
 
             // Tester si l'operation a fonctionnee
-            if (Sock_hostent == NULL)
+            if (Sock_hostent == nullptr)
             {
                 // Stocker l'erreur dans un attribut membre de la classe qu'on pourrai recuperer
                 Erreur_STR = std::string(strerror(errno));
@@ -260,7 +260,7 @@ namespace cpinti
             TRAME_ICMP->icmp_id = ID_ICMP;          /* 0x00 */
 
             // Nombre aleratoire base sur l'horloge du systeme
-            srand(time(NULL));
+            srand(time(nullptr));
 
             // Generer un nombre aleratoire pour un identifiant unique de la trame ICMP
             TRAME_ICMP->icmp_id = (rand() % 65500 + 1) & 0xFFFF; // 6 501 possibilites c'est deja pas mal hein!
@@ -382,8 +382,8 @@ namespace cpinti
             FD_SET(SocketReseau, &FD_Lecture);
 
             // Obtenir le temps
-            time_t current_time_init = time(NULL);
-            time_t current_time = time(NULL);
+            time_t current_time_init = time(nullptr);
+            time_t current_time = time(nullptr);
 
             cpinti_dbg::CPINTI_DEBUG("... ", "... ",
                                      "", "", Ligne_reste, Alerte_action, Date_sans, Ligne_r_normal);
@@ -392,12 +392,12 @@ namespace cpinti
             // for(int b = 0; b < 10 && selectTrouve < 1; b++)
             while (current_time <= (current_time_init + 1) + (time_t)Delai_ms)
             {
-                selectTrouve = select(SocketReseau + 1, &FD_Lecture, NULL /*&FD_Ecriture*/, NULL, &IntervalleTemps);
+                selectTrouve = select(SocketReseau + 1, &FD_Lecture, nullptr /*&FD_Ecriture*/, nullptr, &IntervalleTemps);
                 if (selectTrouve != 0)
                     break; // Si il y a tout de suite une reponse
 
                 // Recuperer le temps
-                current_time = time(NULL);
+                current_time = time(nullptr);
 
                 usleep(1000);
             }

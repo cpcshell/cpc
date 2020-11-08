@@ -17,7 +17,7 @@ namespace cpinti::signals
 
     void signal_handler(int signalnum)
     {
-        panic(signalnum, 0, NULL, NULL);
+        panic(signalnum, 0, nullptr, nullptr);
     }
 
     void init()
