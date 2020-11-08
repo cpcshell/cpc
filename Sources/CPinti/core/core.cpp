@@ -17,8 +17,6 @@
 
 #include "core.h"
 
-extern "C" int cpc_clean();
-
 namespace cpinti::gestionnaire_tache
 {
 
@@ -220,8 +218,6 @@ namespace cpinti::gestionnaire_tache
         ENTRER_SectionCritique();
 
         puts("Bye from kernel\n");
-
-        cpc_clean();
 
         // Activer les interruptions materiel
         enable();

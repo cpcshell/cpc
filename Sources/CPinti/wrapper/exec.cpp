@@ -6,8 +6,6 @@
 
 // #include "leakchk.h"
 
-extern "C" int cpc_clean();
-
 namespace Wrapper_Cpcdos
 {
     int cpinti_WRAPPER(integer FunctionID, double _CLE_, const char *ARG_1, integer ARG_2, void *ARG_3, void *ARG_4, void *ARG_5)
@@ -28,7 +26,6 @@ namespace Wrapper_Cpcdos
 
         if (FunctionID == 99)
         {
-            cpc_clean();
             return 0;
         }
 
@@ -45,5 +42,4 @@ namespace Wrapper_Cpcdos
         return (0);
 
     } /* WRAPPER_CPCDOS */
-
 } // namespace Wrapper_Cpcdos
