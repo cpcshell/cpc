@@ -402,50 +402,19 @@ Function cpcdos_console.MAIN_Console Alias "MAIN_Console"(byval thread_struct as
 
 				' Recuperer la liste des commandes commencant par ce que l'utilisateur a tape
 				For Boucle as integer = 1 to CPCDOS_INSTANCE.SHELLCCP_INSTANCE._MAX_CMD_CCP
-					if CPCDOS_INSTANCE.Utilisateur_Langage = 0 Then ' Syntaxe francaise
-						if NOT CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle) = "" Then
-							' Si les premiers caracteres correspond a une commande, on l'ajoute dans la liste!
-							if Ucase(MID(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle), 1, Taille_caracteres_user)) = Ucase(MID(this.Buffer_commande, 1, Taille_caracteres_user)) Then
-								Saut_crlf = Saut_crlf + 1
-								Nombre_CMD = Nombre_CMD + 1
+					if NOT CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD(Boucle) = "" Then
+						' Si les premiers caracteres correspond a une commande, on l'ajoute dans la liste!
+						if Ucase(MID(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD(Boucle), 1, Taille_caracteres_user)) = Ucase(MID(this.Buffer_commande, 1, Taille_caracteres_user)) Then
+							Saut_crlf = Saut_crlf + 1
+							Nombre_CMD = Nombre_CMD + 1
 
-								' Au bout de la 6eme commande, on revient a la ligne
-								if Saut_crlf >= 4 Then
-									Liste_CMD = Liste_CMD & CRLF
-									Saut_crlf = 0
-								End if
-
-								' Accumuler la liste des commandes
-								IF len(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle)) > 7 Then
-									Liste_CMD = Liste_CMD & CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle) & TOUCHE_TAB
-								else
-									Liste_CMD = Liste_CMD & CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle) & TOUCHE_TAB & TOUCHE_TAB
-								End if
+							' Au bout de la 6eme commande, on revient a la ligne
+							if Saut_crlf >= 4 Then
+								Liste_CMD = Liste_CMD & CRLF
+								Saut_crlf = 0
 							End if
-						end if
-					Else ' Syntaxe Anglaise
 
-						if NOT CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_EN(Boucle) = "" Then
-							' Si les premiers caracteres correspond a une commande, on l'ajoute dans la liste!
-							if Ucase(MID(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_EN(Boucle), 1, Taille_caracteres_user)) = Ucase(MID(this.Buffer_commande, 1, Taille_caracteres_user)) Then
-								Saut_crlf = Saut_crlf + 1
-								Nombre_CMD = Nombre_CMD + 1
-
-								' Au bout de la 6eme commande, on revient a la ligne
-								if Saut_crlf >= 4 Then
-									Liste_CMD = Liste_CMD & CRLF
-									Saut_crlf = 0
-								End if
-
-
-
-								' Accumuler la liste des commandes
-								IF len(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle)) > 7 Then
-									Liste_CMD = Liste_CMD & CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_EN(Boucle) & TOUCHE_TAB
-								else
-									Liste_CMD = Liste_CMD & CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_EN(Boucle) & TOUCHE_TAB & TOUCHE_TAB
-								End if
-							End if
+							Liste_CMD = Liste_CMD & CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD(Boucle) & TOUCHE_TAB & TOUCHE_TAB
 						End if
 					End if
 				Next Boucle

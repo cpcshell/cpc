@@ -11,7 +11,6 @@ Type _SHELL_Memoire_CCP__
 
 		INDEX_Max(0 to 5)					as integer
 
-
 		' Nom des variables
 		CpcdosCP_Variable_Niveau1_nom		(0 to CpcdosCP_Variable_MAXI) 	as string ' Procedure
 		CpcdosCP_Variable_Niveau2_nom		(0 to CpcdosCP_Variable_MAXI)	as string ' application
@@ -49,8 +48,7 @@ Type _SHELL_Cpcdos_OSx__
 		CONST _MAX_CMD_CCP 		as integer = 150
 
 				' Liste des commandes Francaises et anglaises
-		Liste_CMD_FR			(0 to _MAX_CMD_CCP) 		as String
-		Liste_CMD_EN			(0 to _MAX_CMD_CCP) 		as String
+		Liste_CMD			(0 to _MAX_CMD_CCP) 		as String
 
 
 		Cpcdos_Optimisation 	as integer

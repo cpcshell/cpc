@@ -16,125 +16,96 @@ Sub _SHELL_Cpcdos_OSx__._INIT_CpcdosCP_CMD()
 	else
 		DEBUG("[SHELL] Shell intialization...",  CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.NoCRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 	End if
-	this.Liste_CMD_FR(1) = "REM/"				: this.Liste_CMD_EN(1) = "REM/"
-	this.Liste_CMD_FR(2) = "AIDE/"				: this.Liste_CMD_EN(2) = "HELP/"
-	this.Liste_CMD_FR(3) = "CLS/"				: this.Liste_CMD_EN(3) = "CLS/"
-	this.Liste_CMD_FR(4) = "TXT/"				: this.Liste_CMD_EN(4) = "TXT/"
-	this.Liste_CMD_FR(5) = "FIX/"				: this.Liste_CMD_EN(5) = "SET/"
-	this.Liste_CMD_FR(6) = "ALLER/"				: this.Liste_CMD_EN(6) = "GOTO/"
-	this.Liste_CMD_FR(7) = "CCP/"				: this.Liste_CMD_EN(7) = "CCP/"
-	this.Liste_CMD_FR(8) = "EXE/"				: this.Liste_CMD_EN(8) = "EXE/"
-	this.Liste_CMD_FR(9) = "SYS/"				: this.Liste_CMD_EN(9) = "SYS/"
-	this.Liste_CMD_FR(10) = "FERMER/"			: this.Liste_CMD_EN(10) = "CLOSE/"
-	this.Liste_CMD_FR(11) = "COULEURC/"			: this.Liste_CMD_EN(11) = "COLORF/"
-	this.Liste_CMD_FR(12) = "STOPK/"			: this.Liste_CMD_EN(12) = "STOPK/"
-	this.Liste_CMD_FR(13) = "SERVEUR/"			: this.Liste_CMD_EN(13) = "SERVER/"
-	this.Liste_CMD_FR(14) = "PING/"				: this.Liste_CMD_EN(14) = "PING/"
-	this.Liste_CMD_FR(15) = "TELECHARGER/"		: this.Liste_CMD_EN(15) = "DOWNLOAD/"
-	this.Liste_CMD_FR(16) = "DOS/"				: this.Liste_CMD_EN(16) = "DOS/"
-	this.Liste_CMD_FR(17) = "CMD/"				: this.Liste_CMD_EN(17) = "CMD/"
-	this.Liste_CMD_FR(18) = "LOGIN/"			: this.Liste_CMD_EN(18) = "LOGIN/"
-	this.Liste_CMD_FR(19) = "OUVRIR/"			: this.Liste_CMD_EN(19) = "OPEN/"
-	this.Liste_CMD_FR(20) = "TEXTEBLOC/"		: this.Liste_CMD_EN(20) = "TEXTBLOCK/" ' correction 14/07/2017 avec le 'LOC/'
-	this.Liste_CMD_FR(21) = "SI/"				: this.Liste_CMD_EN(21) = "IF/"
-	this.Liste_CMD_FR(22) = "FIN/"				: this.Liste_CMD_EN(22) = "END/"
-	this.Liste_CMD_FR(23) = "FONCTION/"			: this.Liste_CMD_EN(23) = "FUNCTION/"
-	this.Liste_CMD_FR(24) = "ECRIRE/"			: this.Liste_CMD_EN(24) = "WRITE/"
-	this.Liste_CMD_FR(25) = "DECLARER/"			: this.Liste_CMD_EN(25) = "DECLARE/"
-	this.Liste_CMD_FR(26) = "IUG/"				: this.Liste_CMD_EN(26) = "GUI/"
-	this.Liste_CMD_FR(27) = "STOP/"				: this.Liste_CMD_EN(27) = "STOP/"
-	this.Liste_CMD_FR(28) = "RETOUR/"			: this.Liste_CMD_EN(28) = "RETURN/"
-	this.Liste_CMD_FR(29) = "FENETRE/"			: this.Liste_CMD_EN(29) = "WINDOW/"
-	this.Liste_CMD_FR(30) = "CREER/"			: this.Liste_CMD_EN(30) = "CREATE/"
-	this.Liste_CMD_FR(31) = "IMAGEBOX/"			: this.Liste_CMD_EN(31) = "PICTUREBOX/"
-	this.Liste_CMD_FR(32) = "CLIENT/"			: this.Liste_CMD_EN(32) = "CLIENT/"
-	this.Liste_CMD_FR(33) = "COULEURF/"			: this.Liste_CMD_EN(33) = "COLORB/"
-	this.Liste_CMD_FR(34) = "BOUTON/"			: this.Liste_CMD_EN(34) = "BUTTON/"
-	this.Liste_CMD_FR(35) = "POS/"				: this.Liste_CMD_EN(35) = "LOC/"
-	this.Liste_CMD_FR(36) = "DEMARRER/"			: this.Liste_CMD_EN(36) = "START/"
-	this.Liste_CMD_FR(37) = "SUPPRIMER/"		: this.Liste_CMD_EN(37) = "DELETE/"
-	this.Liste_CMD_FR(38) = "COPIER/"			: this.Liste_CMD_EN(38) = "COPY/"
-	this.Liste_CMD_FR(39) = "DEPLACER/"			: this.Liste_CMD_EN(39) = "MOVE/"
-	this.Liste_CMD_FR(40) = "RENOMMER/"			: this.Liste_CMD_EN(40) = "RENAME/"
-	this.Liste_CMD_FR(41) = "TEXTEBOX/"			: this.Liste_CMD_EN(41) = "TEXTBOX/"
-	this.Liste_CMD_FR(42) = "DOSSIER/"			: this.Liste_CMD_EN(42) = "FOLDER/"
-	this.Liste_CMD_FR(43) = "REP/"				: this.Liste_CMD_EN(43) = "DIR/"
-	this.Liste_CMD_FR(44) = "BARREPROGRESSION/"	: this.Liste_CMD_EN(44) = "PROGRESSBAR/"
-	this.Liste_CMD_FR(45) = "MESSAGE/"			: this.Liste_CMD_EN(45) = "MSGBOX/"
-	this.Liste_CMD_FR(46) = "CHECKBOX/"			: this.Liste_CMD_EN(46) = "CHECKBOX/"
-	this.Liste_CMD_FR(47) = "ACTUALISER/"		: this.Liste_CMD_EN(47) = "REFRESH/"
-	this.Liste_CMD_FR(48) = "DECOMPRESSER/"		: this.Liste_CMD_EN(48) = "DECOMPRESS/"
-	this.Liste_CMD_FR(49) = "COMPRESSER/"		: this.Liste_CMD_EN(49) = "COMPRESS/"
-	' this.Liste_CMD_FR(50) = "fix/"			: this.Liste_CMD_EN(50) = "set/"
-	' this.Liste_CMD_FR(51) = "fix/"			: this.Liste_CMD_EN(51) = "set/"
-	' this.Liste_CMD_FR(52) = "fix/"			: this.Liste_CMD_EN(52) = "set/"
-	' this.Liste_CMD_FR(53) = "fix/"			: this.Liste_CMD_EN(53) = "set/"
+	this.Liste_CMD(1) = "REM/"
+	this.Liste_CMD(2) = "HELP/"
+	this.Liste_CMD(3) = "CLS/"
+	this.Liste_CMD(4) = "TXT/"
+	this.Liste_CMD(5) = "SET/"
+	this.Liste_CMD(6) = "GOTO/"
+	this.Liste_CMD(7) = "CCP/"
+	this.Liste_CMD(8) = "EXE/"
+	this.Liste_CMD(9) = "SYS/"
+	this.Liste_CMD(10) = "CLOSE/"
+	this.Liste_CMD(11) = "COLORF/"
+	this.Liste_CMD(12) = "STOPK/"
+	this.Liste_CMD(13) = "SERVER/"
+	this.Liste_CMD(14) = "PING/"
+	this.Liste_CMD(15) = "DOWNLOAD/"
+	this.Liste_CMD(16) = "DOS/"
+	this.Liste_CMD(17) = "CMD/"
+	this.Liste_CMD(18) = "LOGIN/"
+	this.Liste_CMD(19) = "OPEN/"
+	this.Liste_CMD(20) = "TEXTBLOCK/"
+	this.Liste_CMD(21) = "IF/"
+	this.Liste_CMD(22) = "END/"
+	this.Liste_CMD(23) = "FUNCTION/"
+	this.Liste_CMD(24) = "WRITE/"
+	this.Liste_CMD(25) = "DECLARE/"
+	this.Liste_CMD(26) = "GUI/"
+	this.Liste_CMD(27) = "STOP/"
+	this.Liste_CMD(28) = "RETURN/"
+	this.Liste_CMD(29) = "WINDOW/"
+	this.Liste_CMD(30) = "CREATE/"
+	this.Liste_CMD(31) = "PICTUREBOX/"
+	this.Liste_CMD(32) = "CLIENT/"
+	this.Liste_CMD(33) = "COLORB/"
+	this.Liste_CMD(34) = "BUTTON/"
+	this.Liste_CMD(35) = "LOC/"
+	this.Liste_CMD(36) = "START/"
+	this.Liste_CMD(37) = "DELETE/"
+	this.Liste_CMD(38) = "COPY/"
+	this.Liste_CMD(39) = "MOVE/"
+	this.Liste_CMD(40) = "RENAME/"
+	this.Liste_CMD(41) = "TEXTBOX/"
+	this.Liste_CMD(42) = "FOLDER/"
+	this.Liste_CMD(43) = "DIR/"
+	this.Liste_CMD(44) = "PROGRESSBAR/"
+	this.Liste_CMD(45) = "MSGBOX/"
+	this.Liste_CMD(46) = "CHECKBOX/"
+	this.Liste_CMD(47) = "REFRESH/"
+	this.Liste_CMD(48) = "DECOMPRESS/"
+	this.Liste_CMD(49) = "COMPRESS/"
+	this.Liste_CMD(50) = "set/"
+	this.Liste_CMD(51) = "set/"
+	this.Liste_CMD(52) = "set/"
+	this.Liste_CMD(53) = "set/"
 
 	' Proprietes de la GUI toujours a partir de 128. Ce qui laisse 127 Commande cpcdosc+
-	this.Liste_CMD_FR(128) = ".COULEURTITRE"	: this.Liste_CMD_EN(128) = ".TITLECOLOR"
-	this.Liste_CMD_FR(129) = ".NOM"				: this.Liste_CMD_EN(129) = ".NAME"
-	this.Liste_CMD_FR(130) = ".PID"				: this.Liste_CMD_EN(130) = ".PID"
-	this.Liste_CMD_FR(131) = ".PARAMETRES"		: this.Liste_CMD_EN(131) = ".PARAMETERS"
-	this.Liste_CMD_FR(132) = ".PX"				: this.Liste_CMD_EN(132) = ".PX"
-	this.Liste_CMD_FR(133) = ".PY"				: this.Liste_CMD_EN(133) = ".PY"
-	this.Liste_CMD_FR(134) = ".TX"				: this.Liste_CMD_EN(134) = ".SX"
-	this.Liste_CMD_FR(135) = ".TY"				: this.Liste_CMD_EN(135) = ".SY"
-	this.Liste_CMD_FR(136) = ".COULEURFENETRE"	: this.Liste_CMD_EN(136) = ".WINDOWCOLOR"
-	this.Liste_CMD_FR(137) = ".TITRE"			: this.Liste_CMD_EN(137) = ".TITLE"
-	this.Liste_CMD_FR(138) = ".COULEURFOND"		: this.Liste_CMD_EN(138) = ".BACKCOLOR"
-	this.Liste_CMD_FR(139) = ".ICONE"			: this.Liste_CMD_EN(139) = ".ICON"
-	this.Liste_CMD_FR(140) = ".IMGTITRE"		: this.Liste_CMD_EN(140) = ".TITLEIMG"
-	this.Liste_CMD_FR(141) = ".IMAGE"			: this.Liste_CMD_EN(141) = ".IMAGE"
-	this.Liste_CMD_FR(142) = ".OPACITE"			: this.Liste_CMD_EN(142) = ".OPACITY"
-	this.Liste_CMD_FR(143) = ".COULEURTEXTE"	: this.Liste_CMD_EN(143) = ".TEXTCOLOR"
-	this.Liste_CMD_FR(144) = ".EVENEMENT"		: this.Liste_CMD_EN(144) = ".EVENT"
-	this.Liste_CMD_FR(145) = ".TEXTE"			: this.Liste_CMD_EN(145) = ".TEXT"
-	this.Liste_CMD_FR(146) = ".HANDLE"			: this.Liste_CMD_EN(146) = ".HANDLE"
-	this.Liste_CMD_FR(147) = ".VALEUR"			: this.Liste_CMD_EN(147) = ".VALUE"
-	' this.Liste_CMD_FR(148) = ".COULEURFOND"	: this.Liste_CMD_EN(148) = ".BACKCOLOR"
-	' this.Liste_CMD_FR(149) = ".COULEURFOND"	: this.Liste_CMD_EN(149) = ".BACKCOLOR"
-	' this.Liste_CMD_FR(150) = ".COULEURFOND"	: this.Liste_CMD_EN(150) = ".BACKCOLOR"
-
-
-	' For index as uinteger = 0 to this.MEMOIRE_CCP.CpcdosCP_Variable_MAXI
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau1_nom(index)	= String(64, 0) ' Procedure
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau2_nom(index)	= String(64, 0) ' application
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau3_nom(index)	= String(64, 0) ' Utilisateur
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau4_nom(index)	= String(64, 0) ' OS
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau5_nom(index)	= String(64, 0) ' Kernel
-	' Next index
-
-	' For index as uinteger = 0 to this.MEMOIRE_CCP.CpcdosCP_Variable_MAXI
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau1_Donnees(index)	= String(256, 0) ' Procedure
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau2_Donnees(index)	= String(256, 0) ' application
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau3_Donnees(index)	= String(256, 0) ' Utilisateur
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau4_Donnees(index)	= String(256, 0) ' OS
-		' this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau5_Donnees(index)	= String(256, 0) ' Kernel
-	' Next index
-
-	' For index as uinteger = 0 to this.MEMOIRE_CCP._MAX_FONCTION_PUBLIC
-		' this.MEMOIRE_CCP.TAB_FONCTION_CCP_ARG(index) = 280395
-		' this.MEMOIRE_CCP.TAB_FONCTION_CCP_NIV(index) = 280395
-		' this.MEMOIRE_CCP.TAB_FONCTION_CCP_NOM(index) = String(256, 0)
-		' this.MEMOIRE_CCP.TAB_FONCTION_CCP_SRC(index) = String(256, 0)
-	' Next index
-
-	' RAZ
+	this.Liste_CMD(128) = ".TITLECOLOR"
+	this.Liste_CMD(129) = ".NAME"
+	this.Liste_CMD(130) = ".PID"
+	this.Liste_CMD(131) = ".PARAMETERS"
+	this.Liste_CMD(132) = ".PX"
+	this.Liste_CMD(133) = ".PY"
+	this.Liste_CMD(134) = ".SX"
+	this.Liste_CMD(135) = ".SY"
+	this.Liste_CMD(136) = ".WINDOWCOLOR"
+	this.Liste_CMD(137) = ".TITLE"
+	this.Liste_CMD(138) = ".BACKCOLOR"
+	this.Liste_CMD(139) = ".ICON"
+	this.Liste_CMD(140) = ".TITLEIMG"
+	this.Liste_CMD(141) = ".IMAGE"
+	this.Liste_CMD(142) = ".OPACITY"
+	this.Liste_CMD(143) = ".TEXTCOLOR"
+	this.Liste_CMD(144) = ".EVENT"
+	this.Liste_CMD(145) = ".TEXT"
+	this.Liste_CMD(146) = ".HANDLE"
+	this.Liste_CMD(147) = ".VALUE"
 
 	For index as uinteger = 0 to this.MEMOIRE_CCP.CpcdosCP_Variable_MAXI
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau1_nom(index)	= "" ' Procedure
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau2_nom(index)	= ""  ' application
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau3_nom(index)	= ""  ' Utilisateur
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau4_nom(index)	= ""  ' OS
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau5_nom(index)	= ""  ' Kernel
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau1_nom(index) = "" ' Procedure
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau2_nom(index) = "" ' application
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau3_nom(index) = "" ' Utilisateur
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau4_nom(index) = "" ' OS
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau5_nom(index) = "" ' Kernel
 	Next index
 
 	For index as uinteger = 0 to this.MEMOIRE_CCP.CpcdosCP_Variable_MAXI
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau1_Donnees(index)	= ""  ' Procedure
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau2_Donnees(index)	= ""  ' application
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau3_Donnees(index)	= ""  ' Utilisateur
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau4_Donnees(index)	= ""  ' OS
-		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau5_Donnees(index)	= ""  ' Kernel
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau1_Donnees(index) = "" ' Procedure
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau2_Donnees(index) = "" ' application
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau3_Donnees(index) = "" ' Utilisateur
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau4_Donnees(index) = "" ' OS
+		this.MEMOIRE_CCP.CpcdosCP_Variable_Niveau5_Donnees(index) = "" ' Kernel
 	Next index
 
 	For index as uinteger = 0 to this.MEMOIRE_CCP._MAX_FONCTION_PUBLIC
@@ -416,24 +387,15 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 
 			' DEV temporaire: Si commande vide alors on saute
 			'  directement aux commandes graphiques
-			IF this.Liste_CMD_FR(boucle) = "" AND boucle < 128 Then boucle = 128
-
-			' Chercher la syntaxe Francophone
-			IF Instr(tst_Cap, this.Liste_CMD_FR(Boucle)) > 0 Then
-				TailleComm = LEN(this.Liste_CMD_FR(Boucle))
-				CommPosition = Position_CMD
-				OnCherche = Lcase(this.Liste_CMD_FR(Boucle))
-				Exit for
-			End if
+			IF this.Liste_CMD(boucle) = "" AND boucle < 128 Then boucle = 128
 
 			' Chercher la syntaxe Anglophone
-			IF Instr(tst_Cap, this.Liste_CMD_EN(Boucle)) > 0 Then
-				TailleComm = LEN(this.Liste_CMD_EN(Boucle))
+			IF Instr(tst_Cap, this.Liste_CMD(Boucle)) > 0 Then
+				TailleComm = LEN(this.Liste_CMD(Boucle))
 				CommPosition = Position_CMD
-				OnCherche = Lcase(this.Liste_CMD_EN(Boucle))
+				OnCherche = Lcase(this.Liste_CMD(Boucle))
 				Exit for
 			End if
-
 		Next Boucle
 
 		' Rien n'a ete trouve, commande invalide!
@@ -977,8 +939,6 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 			Dim Var_Progression 	as String
 			Dim Var_Octets 			as String
 			Dim Var_OctetsParSec 	as String
-
-
 
 			Dim PosProgress as integer = Instr(Ucase(Param), " /PROGRESSION:")
 
@@ -12415,19 +12375,15 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 ' Saut_Fincp:
 
 											' On verifie si on tombe bien sur la ligne de la syntaxe ou se situe la fonction
-											Dim POSCommFONCTION_FR as integer = Instr(Ucase(Buffer_lecture), this.Liste_CMD_FR(23) & " ") ' FONCTION/
-											Dim POSCommFONCTION_EN as integer = Instr(Ucase(Buffer_lecture), this.Liste_CMD_EN(23) & " ") ' FUNCTION/
+											Dim POSCommFONCTION_EN as integer = Instr(Ucase(Buffer_lecture), this.Liste_CMD(23) & " ") ' FUNCTION/
 
-											IF POSCommFONCTION_FR > 0 OR POSCommFONCTION_EN > 0 Then
+											IF POSCommFONCTION_EN > 0 Then
 												IF Instr(Ucase(Buffer_lecture), CCP_Fonction_EXEC) > 0 Then
 													Dim NomFonctExec as String
 													Dim testCMD	as integer
-													IF POSCommFONCTION_FR > 0 Then
-														testCMD = CCP_Verifier_Syntaxe(Buffer_lecture, POSCommFONCTION_FR - 1)
-														NomFonctExec = UCASE(MID(Buffer_lecture, POSCommFONCTION_FR + LEN(this.Liste_CMD_FR(23)) + 1)) ' MODIF 22-02-2017 : Suppr POSCommFONCTION_FR + 4))
-													ElseIF POSCommFONCTION_EN > 0 Then
+													IF POSCommFONCTION_EN > 0 Then
 														testCMD = CCP_Verifier_Syntaxe(Buffer_lecture, POSCommFONCTION_EN - 1)
-														NomFonctExec = UCASE(MID(Buffer_lecture, POSCommFONCTION_EN + LEN(this.Liste_CMD_EN(23)) - 1)) ' MODIF 22-02-2017 : Suppr POSCommFONCTION_EN + 4))
+														NomFonctExec = UCASE(MID(Buffer_lecture, POSCommFONCTION_EN + LEN(this.Liste_CMD(23)) - 1)) ' MODIF 22-02-2017 : Suppr POSCommFONCTION_EN + 4))
 													End if
 
 
@@ -12499,7 +12455,7 @@ Function _SHELL_Cpcdos_OSx__.CpcdosCP_SHELL(ByVal _COMMANDE_ as String, byval _C
 														End if
 													End if ' testCMD < 10
 												End if ' Instr(Ucase(Buffer_lecture), CCP_Fonction_EXEC) > 0
-											End if ' POSCommFONCTION_FR > 0 OR POSCommFONCTION_EN > 0
+											End if ' POSCommFONCTION_EN > 0
 										End IF
 									End IF
 
@@ -18025,356 +17981,168 @@ _FIN_EXE_CCP_EXE:
 		IF CommTrouve > 0 Then
 		IF AfficherAide = 2 then
 				Mess_Aide = ""
-				IF CPCDOS_INSTANCE.Utilisateur_Langage = 0 THEN
-					Mess_Aide = Mess_Aide & CRLF & "  'SYSteme'"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Fonctionnalit�e :"
-					Mess_Aide = Mess_Aide & CRLF & "   Cette commande permet de configurer des Parametres, ou bien afficher"
-					Mess_Aide = Mess_Aide & CRLF & "   des informations du systeme."
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Afficher la memoire libre restante / Utilis�e en octets, Ko, Mo, Go"
-					Mess_Aide = Mess_Aide & CRLF & "     Afficher la memoire restante en octets"
-					Mess_Aide = Mess_Aide & CRLF & "      sys/ /mem"
-					Mess_Aide = Mess_Aide & CRLF & "     Afficher la memoire Utilis�e en octets"
-					Mess_Aide = Mess_Aide & CRLF & "      sys/ /memu"
-					Mess_Aide = Mess_Aide & CRLF & "     Afficher la memoire restante en Mo"
-					Mess_Aide = Mess_Aide & CRLF & "      sys/ /mem mo"
-					Mess_Aide = Mess_Aide & CRLF & "     Afficher la memoire Utilis�e en Mo"
-					Mess_Aide = Mess_Aide & CRLF & "      sys/ /memu mo"
-					Mess_Aide = Mess_Aide & CRLF & "     ... aussi avec Go pour Giga Octets, To pour Tera Octets"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "    Deboguer le noyau. (Affiche toutes les activites du noyau)"
-					Mess_Aide = Mess_Aide & CRLF & "      SYS/ /DEBUG {COMn} {/CPINTICORE} {/SERVEUR:TCP} = { 0, 1, 2, 3 }"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "      Exemples :"
-					Mess_Aide = Mess_Aide & CRLF & "       Affiche les activit�es detaill�es du noyau"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 1"
-					Mess_Aide = Mess_Aide & CRLF & "       Enregistre les activit�es detaill�es du noyau dans un fichier DEBUG.LOG"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 2"
-					Mess_Aide = Mess_Aide & CRLF & "       Affiche et enregistre les activit�es detaill�es du noyau dans un fichier DEBUG.LOG"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 3"
-					Mess_Aide = Mess_Aide & CRLF & "       Stoppe l'affichage des informatons detaill�es"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 0"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "       Affiche les activit�es detaill�es de CPinti core"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /CPintiCore = 1"
-					Mess_Aide = Mess_Aide & CRLF & "       Stoppe l'affichage des activit�es detaill�es de CPinti core"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /CPintiCore = 0"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "	   Affiche le menu d'informations systeme CPinti Core"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /menu = 1"
-					Mess_Aide = Mess_Aide & CRLF & "	   Desactive l'affichage du menu d'informations systeme CPinti Core"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /menu = 0"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "       Active le debogage par le port COM1 avec par defaut (9600,N,8,1)"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1 = 1"
-					Mess_Aide = Mess_Aide & CRLF & "       IDEM mais de maniere plus precise 9600 baud, pas de parite, 8 bits de data, 1 bit de stop"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1:9600,N,8,1"
-					Mess_Aide = Mess_Aide & CRLF & "       Desactive le debogage par le port COM1"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1 = 0"
-					Mess_Aide = Mess_Aide & CRLF & "     --> Vous pouvez utiliser le COM1, COM2, COM3, COM4"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "       Affiche les informations concernant le Serveur TCP"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /Serveur:TCP = 1"
-					Mess_Aide = Mess_Aide & CRLF & "       Stoppe l'affichage des informations concernant le Serveur TCP"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /Serveur:TCP = 0"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Afficher la resolution CONSOLE ou GRAPHIQUE actuelle"
-					Mess_Aide = Mess_Aide & CRLF & "    SYS/ /ECRAN"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Changer la resolution d'ecran"
-					Mess_Aide = Mess_Aide & CRLF & "    Vous pouvez changer la resolution CONSOLE ou GRAPHIQUE"
-					Mess_Aide = Mess_Aide & CRLF & "    CONSOLE: SYS/ /ECRAN NumeroDuMode"
-					Mess_Aide = Mess_Aide & CRLF & "     NumeroDuMode:"
-					Mess_Aide = Mess_Aide & CRLF & "      - 1  : 320x200 (CGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 2  : 640x200 (CGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 7  : 320x200 (EGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 8  : 640x200 (EGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 9  : 640x350 (EGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 11 : 640x480 (VGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 12 : 640x480 (VGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 13 : 320x200 (MCGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 14 : 320x240 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 15 : 400x300 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 16 : 512x384 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 17 : 640x400 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 18 : 640x480 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 19 : 800x600 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 20 : 1024x768 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 21 : 1280x1024 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "    GRAPHIC:"
-					Mess_Aide = Mess_Aide & CRLF & "      Exemple: SYS/ /ECRAN 800x600"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Afficher la liste des resolutions d'ecran compatible"
-					Mess_Aide = Mess_Aide & CRLF & "    Cette commande doit etre utilisee en precisant une resolution de couleurs 16, 24, 32 bits"
-					Mess_Aide = Mess_Aide & CRLF & "     Exemples :"
-					Mess_Aide = Mess_Aide & CRLF & "      Affiche la liste des resolutions disponibles pour 16 bits de couleurs"
-					Mess_Aide = Mess_Aide & CRLF & "       SYS/ /ECRAN /LISTE 16"
-					Mess_Aide = Mess_Aide & CRLF & "      Pour 24 bits"
-					Mess_Aide = Mess_Aide & CRLF & "       SYS/ /ECRAN /LISTE 24"
-					Mess_Aide = Mess_Aide & CRLF & "      Et pour 32 bits"
-					Mess_Aide = Mess_Aide & CRLF & "       SYS/ /ECRAN /LISTE 32"
-					Mess_Aide = Mess_Aide & CRLF & "   Obtenir le pointeur de l'affichage video"
-					Mess_Aide = Mess_Aide & CRLF & "     Sys/ /ecran /ptr"
-					Mess_Aide = Mess_Aide & CRLF & "    ou en hexadecimale"
-					Mess_Aide = Mess_Aide & CRLF & "     Sys/ /ecran /hexaptr"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Utiliser une fonction wrapper (Experimentale)"
-					Mess_Aide = Mess_Aide & CRLF & "    Ceci est reserve aux developpeurs du SDK Cpcdos"
-					Mess_Aide = Mess_Aide & CRLF & "    Vous devez donc vous munir de votre FunctionID!"
-					Mess_Aide = Mess_Aide & CRLF & "    Exemples :"
-					Mess_Aide = Mess_Aide & CRLF & "	  pour la FunctionID 1234 :"
-					Mess_Aide = Mess_Aide & CRLF & "      SYS/ /WRP 1234"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Recuperer le pointeur d'un tableau ARGB d'un bitmap depuis son handle"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /Bitmap /obtenir /ptrbyhandle"
-					Mess_Aide = Mess_Aide & CRLF & "   Recuperer le bitmap ID depuis son numero de handle"
-					Mess_Aide = Mess_Aide & CRLF & "    sys/ /Bitmap /obtenir /idbyhandle"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Mettre a jour la liste des OS presents via OS.LST"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /update"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Afficher la liste des OS presents via OS.LST"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /liste"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Afficher le nombre d'OS present"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /nb"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Switcher l'instant du shell courant sur un autre OS (OS id)"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /os NomDeVotreOS"
-					Mess_Aide = Mess_Aide & CRLF & "    Ce qui va permettre d'utiliser l'OS id d'un autre OS pour que les"
-					Mess_Aide = Mess_Aide & CRLF & "     interactions/variables/ev de niveau 3 soient traite par l'OS choisis"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Lister les variables en memoire depuis son numero de visibilite"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /listvar 5"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Creer un nouveau processus"
-					Mess_Aide = Mess_Aide & CRLF & "   Ceci va vous permettre d'executer vos threads et votre code"
-					Mess_Aide = Mess_Aide & CRLF & "   dans un autre processus que vous venez de creer."
-					Mess_Aide = Mess_Aide & CRLF & "    sys/ /Processus NomDuProcessus"
-					Mess_Aide = Mess_Aide & CRLF & "     --> Cette commande renvoi le numero de PID du nouveau processus"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Verifier une nouvelle mise a jour du noyau :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Telecharger une nouvelle version"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Installer la version precedemment telechargee"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-install"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Installer ET telecharger la derniere version"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get-install"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Telecharger le release notes :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update-news"
-					Mess_Aide = Mess_Aide & CRLF & "  Defiler ligne par ligne avec la touche ESPACE et ECHAP"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update-news \#pause"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Pour utiliser la branche 'Hot-release' ajouter 'HR' a la fin de la commande"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update hr"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get hr"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get-install hr"
-					Mess_Aide = Mess_Aide & CRLF & "  !! Attention ces version sont en phase de developpement donc pas terminees."
-					Mess_Aide = Mess_Aide & CRLF & "  !! vous etes reponsable de votre machine."
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Changer votre Cpcdos network ID (Vous pouvez mettre 'anonymous'):"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /netid = MonPseudo"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Arreter le noyau :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /STOPK"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Arreter le systeme :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /ARRETER"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Redemarrer le systeme :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /REDEMARRER"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Mettre en veille :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /VEILLE"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Voir aussi : fix/ , ccp/"
-					Mess_Aide = Mess_Aide & CRLF
-				ELSEIF CPCDOS_INSTANCE.Utilisateur_Langage = 1 THEN
-					Mess_Aide = Mess_Aide & CRLF & "  'SYStem'"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Fonctionnality :"
-					Mess_Aide = Mess_Aide & CRLF & "   This command allow to setup system, or display system informations."
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Display free memory / used (bytes, Kb, Mb, Gb)"
-					Mess_Aide = Mess_Aide & CRLF & "     Display free memory in bytes"
-					Mess_Aide = Mess_Aide & CRLF & "      sys/ /mem"
-					Mess_Aide = Mess_Aide & CRLF & "     Display used memory in bytes"
-					Mess_Aide = Mess_Aide & CRLF & "      sys/ /memu"
-					Mess_Aide = Mess_Aide & CRLF & "     Display free memory in Mb"
-					Mess_Aide = Mess_Aide & CRLF & "      sys/ /mem mb"
-					Mess_Aide = Mess_Aide & CRLF & "     Display used memory in Mb"
-					Mess_Aide = Mess_Aide & CRLF & "      sys/ /memu mb"
-					Mess_Aide = Mess_Aide & CRLF & "     ... also with Gb Giga Bytes, To for Tera Bytes."
-					' Mess_Aide = Mess_Aide & CRLF
-					' Mess_Aide = Mess_Aide & CRLF & "   Change font"
-					' Mess_Aide = Mess_Aide & CRLF & "     Sys/ /font Arial"
-					' Mess_Aide = Mess_Aide & CRLF & "     sys/ /Font Comic Sans MS"
-					' Mess_Aide = Mess_Aide & CRLF & "     sys/ /font Segoe Script"
-					' Mess_Aide = Mess_Aide & CRLF & "    Enable/disable font manager"
-					' Mess_Aide = Mess_Aide & CRLF & "     Sys/ /font /Enable"
-					' Mess_Aide = Mess_Aide & CRLF & "     Sys/ /font /Disable"
-					Mess_Aide = Mess_Aide & CRLF & "    "
-					Mess_Aide = Mess_Aide & CRLF & "    Debug kernel. (Display all kernel activities)"
-					Mess_Aide = Mess_Aide & CRLF & "      SYS/ /DEBUG {/CPINTICORE} {/SERVER:NoPort} = { 0, 1, 2, 3 }"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "      Exemples :"
-					Mess_Aide = Mess_Aide & CRLF & "       Display all detailled kernel activities"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 1"
-					Mess_Aide = Mess_Aide & CRLF & "       Write all detailled kernel activities on DEBUG.LOG file"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 2"
-					Mess_Aide = Mess_Aide & CRLF & "       Display and Write all detailled kernel activities on DEBUG.LOG file"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 3"
-					Mess_Aide = Mess_Aide & CRLF & "       Stop this"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 0"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "       Display CPinti Core activities"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /CPintiCore = 1"
-					Mess_Aide = Mess_Aide & CRLF & "       Stop this"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /CPintiCore = 0"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "       Enable COM1 debogger with by default (9600,N,8,1)"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1 = 1"
-					Mess_Aide = Mess_Aide & CRLF & "       IDEM but more precise infos 9600 bauds, No parity, 8 data bits, 1 stop bit"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1:9600,N,8,1"
-					Mess_Aide = Mess_Aide & CRLF & "       Disable debugger by COM1"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1 = 0"
-					Mess_Aide = Mess_Aide & CRLF & "    --> You can use COM1, COM2, COM3, COM4"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "       Display server informations (eg:23)"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /Server:23 = 1"
-					Mess_Aide = Mess_Aide & CRLF & "       Stop this"
-					Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /Server:23 = 0"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Display actually screen resolution CONSOLE or GRAPHIC"
-					Mess_Aide = Mess_Aide & CRLF & "    SYS/ /SCREEN"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Change screen resolution"
-					Mess_Aide = Mess_Aide & CRLF & "    You can change in console OR graphic resolution"
-					Mess_Aide = Mess_Aide & CRLF & "    CONSOLE: SYS/ /SCREEN Number"
-					Mess_Aide = Mess_Aide & CRLF & "     Number:"
-					Mess_Aide = Mess_Aide & CRLF & "      - 1  : 320x200 (CGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 2  : 640x200 (CGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 7  : 320x200 (EGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 8  : 640x200 (EGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 9  : 640x350 (EGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 11 : 640x480 (VGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 12 : 640x480 (VGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 13 : 320x200 (MCGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 14 : 320x240 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 15 : 400x300 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 16 : 512x384 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 17 : 640x400 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 18 : 640x480 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 19 : 800x600 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 20 : 1024x768 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "      - 21 : 1280x1024 (SVGA)"
-					Mess_Aide = Mess_Aide & CRLF & "    GRAPHIC:"
-					Mess_Aide = Mess_Aide & CRLF & "      Example: SYS/ /SCREEN 800x600"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Display compatible list screen resolution"
-					Mess_Aide = Mess_Aide & CRLF & "    This command must contain bit resolution number. 16, 24, 32 bits"
-					Mess_Aide = Mess_Aide & CRLF & "     Examples :"
-					Mess_Aide = Mess_Aide & CRLF & "      Display list screen resolution for 16 bits of colors"
-					Mess_Aide = Mess_Aide & CRLF & "       SYS/ /SCREEN /LIST 16"
-					Mess_Aide = Mess_Aide & CRLF & "      For 24 bits"
-					Mess_Aide = Mess_Aide & CRLF & "       SYS/ /SCREEN /LIST 24"
-					Mess_Aide = Mess_Aide & CRLF & "      And for 32 bits"
-					Mess_Aide = Mess_Aide & CRLF & "       SYS/ /SCREEN /LIST 32"
-					Mess_Aide = Mess_Aide & CRLF & "   Getting video screen pointer"
-					Mess_Aide = Mess_Aide & CRLF & "    Sys/ /screen /ptr"
-					Mess_Aide = Mess_Aide & CRLF & "   or in hexadecimal"
-					Mess_Aide = Mess_Aide & CRLF & "    Sys/ /screen /hexaptr"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Using wrapper function (Experimental)"
-					Mess_Aide = Mess_Aide & CRLF & "    This is reserved to Cpcdos SDK devlopper"
-					Mess_Aide = Mess_Aide & CRLF & "    You must have your FunctionID!"
-					Mess_Aide = Mess_Aide & CRLF & "    Examples :"
-					Mess_Aide = Mess_Aide & CRLF & "	  For FunctionID '1234' :"
-					Mess_Aide = Mess_Aide & CRLF & "      SYS/ /WRP 1234"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Get bitmap ARGB array ptr from handle number"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /bitmap /get /ptrbyhandle 123"
-					Mess_Aide = Mess_Aide & CRLF & "   Getting bitmap ID from handle number"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /bitmap /get /idbyhandle 123"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Update OS list from OS.LST"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /update"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Display OS list avaiable"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /list"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   Display number of OS"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /nb"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "   List variables in memory with visibility level"
-					Mess_Aide = Mess_Aide & CRLF & "     sys/ /listvar 4"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Create a new process"
-					Mess_Aide = Mess_Aide & CRLF & "   This will able to host your threads, code in another"
-					Mess_Aide = Mess_Aide & CRLF & "   process that you have created"
-					Mess_Aide = Mess_Aide & CRLF & "    sys/ /process NameOfYourProcess"
-					Mess_Aide = Mess_Aide & CRLF & "     --> This command return the new PID number"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Check new kernel update:"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Download new last version"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Install downloaded version"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-install"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Download AND install the la avaiable version"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get-install"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Download releases notes :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update-news"
-					Mess_Aide = Mess_Aide & CRLF & "  Display line per line ESPACE et ECHAP"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update-news \#pause"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " For use 'Hot-release' version, add 'HR' at the end line."
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update hr"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get hr"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get-install hr"
-					Mess_Aide = Mess_Aide & CRLF & "  !! Warning, version in test & developpment,"
-					Mess_Aide = Mess_Aide & CRLF & "  !! Vous are responsible of your machine."
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & " Change your cpcdos network ID (You can put 'anonymous'):"
-					Mess_Aide = Mess_Aide & CRLF & "   sys/ /netid = MyName"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Stopping kernel :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /STOPK"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Shutdown system :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /SHUTDOWN"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Restart system :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /RESTART    or   SYS/ /REBOOT"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  Put in stand-by mode :"
-					Mess_Aide = Mess_Aide & CRLF & "   SYS/ /STANDBY"
-					Mess_Aide = Mess_Aide & CRLF
-					Mess_Aide = Mess_Aide & CRLF & "  See also : fix/ , ccp/"
-					Mess_Aide = Mess_Aide & CRLF
-				END IF
+				Mess_Aide = Mess_Aide & CRLF & "  'SYStem'"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "  Fonctionnality :"
+				Mess_Aide = Mess_Aide & CRLF & "   This command allow to setup system, or display system informations."
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Display free memory / used (bytes, Kb, Mb, Gb)"
+				Mess_Aide = Mess_Aide & CRLF & "     Display free memory in bytes"
+				Mess_Aide = Mess_Aide & CRLF & "      sys/ /mem"
+				Mess_Aide = Mess_Aide & CRLF & "     Display used memory in bytes"
+				Mess_Aide = Mess_Aide & CRLF & "      sys/ /memu"
+				Mess_Aide = Mess_Aide & CRLF & "     Display free memory in Mb"
+				Mess_Aide = Mess_Aide & CRLF & "      sys/ /mem mb"
+				Mess_Aide = Mess_Aide & CRLF & "     Display used memory in Mb"
+				Mess_Aide = Mess_Aide & CRLF & "      sys/ /memu mb"
+				Mess_Aide = Mess_Aide & CRLF & "     ... also with Gb Giga Bytes, To for Tera Bytes."
+				Mess_Aide = Mess_Aide & CRLF & "    "
+				Mess_Aide = Mess_Aide & CRLF & "    Debug kernel. (Display all kernel activities)"
+				Mess_Aide = Mess_Aide & CRLF & "      SYS/ /DEBUG {/CPINTICORE} {/SERVER:NoPort} = { 0, 1, 2, 3 }"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "      Exemples :"
+				Mess_Aide = Mess_Aide & CRLF & "       Display all detailled kernel activities"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 1"
+				Mess_Aide = Mess_Aide & CRLF & "       Write all detailled kernel activities on DEBUG.LOG file"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 2"
+				Mess_Aide = Mess_Aide & CRLF & "       Display and Write all detailled kernel activities on DEBUG.LOG file"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 3"
+				Mess_Aide = Mess_Aide & CRLF & "       Stop this"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug = 0"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "       Display CPinti Core activities"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /CPintiCore = 1"
+				Mess_Aide = Mess_Aide & CRLF & "       Stop this"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /CPintiCore = 0"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "       Enable COM1 debogger with by default (9600,N,8,1)"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1 = 1"
+				Mess_Aide = Mess_Aide & CRLF & "       IDEM but more precise infos 9600 bauds, No parity, 8 data bits, 1 stop bit"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1:9600,N,8,1"
+				Mess_Aide = Mess_Aide & CRLF & "       Disable debugger by COM1"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /COM1 = 0"
+				Mess_Aide = Mess_Aide & CRLF & "    --> You can use COM1, COM2, COM3, COM4"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "       Display server informations (eg:23)"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /Server:23 = 1"
+				Mess_Aide = Mess_Aide & CRLF & "       Stop this"
+				Mess_Aide = Mess_Aide & CRLF & "        sys/ /debug /Server:23 = 0"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Display actually screen resolution CONSOLE or GRAPHIC"
+				Mess_Aide = Mess_Aide & CRLF & "    SYS/ /SCREEN"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Change screen resolution"
+				Mess_Aide = Mess_Aide & CRLF & "    You can change in console OR graphic resolution"
+				Mess_Aide = Mess_Aide & CRLF & "    CONSOLE: SYS/ /SCREEN Number"
+				Mess_Aide = Mess_Aide & CRLF & "     Number:"
+				Mess_Aide = Mess_Aide & CRLF & "      - 1  : 320x200 (CGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 2  : 640x200 (CGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 7  : 320x200 (EGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 8  : 640x200 (EGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 9  : 640x350 (EGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 11 : 640x480 (VGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 12 : 640x480 (VGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 13 : 320x200 (MCGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 14 : 320x240 (SVGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 15 : 400x300 (SVGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 16 : 512x384 (SVGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 17 : 640x400 (SVGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 18 : 640x480 (SVGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 19 : 800x600 (SVGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 20 : 1024x768 (SVGA)"
+				Mess_Aide = Mess_Aide & CRLF & "      - 21 : 1280x1024 (SVGA)"
+				Mess_Aide = Mess_Aide & CRLF & "    GRAPHIC:"
+				Mess_Aide = Mess_Aide & CRLF & "      Example: SYS/ /SCREEN 800x600"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Display compatible list screen resolution"
+				Mess_Aide = Mess_Aide & CRLF & "    This command must contain bit resolution number. 16, 24, 32 bits"
+				Mess_Aide = Mess_Aide & CRLF & "     Examples :"
+				Mess_Aide = Mess_Aide & CRLF & "      Display list screen resolution for 16 bits of colors"
+				Mess_Aide = Mess_Aide & CRLF & "       SYS/ /SCREEN /LIST 16"
+				Mess_Aide = Mess_Aide & CRLF & "      For 24 bits"
+				Mess_Aide = Mess_Aide & CRLF & "       SYS/ /SCREEN /LIST 24"
+				Mess_Aide = Mess_Aide & CRLF & "      And for 32 bits"
+				Mess_Aide = Mess_Aide & CRLF & "       SYS/ /SCREEN /LIST 32"
+				Mess_Aide = Mess_Aide & CRLF & "   Getting video screen pointer"
+				Mess_Aide = Mess_Aide & CRLF & "    Sys/ /screen /ptr"
+				Mess_Aide = Mess_Aide & CRLF & "   or in hexadecimal"
+				Mess_Aide = Mess_Aide & CRLF & "    Sys/ /screen /hexaptr"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Using wrapper function (Experimental)"
+				Mess_Aide = Mess_Aide & CRLF & "    This is reserved to Cpcdos SDK devlopper"
+				Mess_Aide = Mess_Aide & CRLF & "    You must have your FunctionID!"
+				Mess_Aide = Mess_Aide & CRLF & "    Examples :"
+				Mess_Aide = Mess_Aide & CRLF & "	  For FunctionID '1234' :"
+				Mess_Aide = Mess_Aide & CRLF & "      SYS/ /WRP 1234"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Get bitmap ARGB array ptr from handle number"
+				Mess_Aide = Mess_Aide & CRLF & "     sys/ /bitmap /get /ptrbyhandle 123"
+				Mess_Aide = Mess_Aide & CRLF & "   Getting bitmap ID from handle number"
+				Mess_Aide = Mess_Aide & CRLF & "     sys/ /bitmap /get /idbyhandle 123"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Update OS list from OS.LST"
+				Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /update"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Display OS list avaiable"
+				Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /list"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   Display number of OS"
+				Mess_Aide = Mess_Aide & CRLF & "     sys/ /os /nb"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "   List variables in memory with visibility level"
+				Mess_Aide = Mess_Aide & CRLF & "     sys/ /listvar 4"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "  Create a new process"
+				Mess_Aide = Mess_Aide & CRLF & "   This will able to host your threads, code in another"
+				Mess_Aide = Mess_Aide & CRLF & "   process that you have created"
+				Mess_Aide = Mess_Aide & CRLF & "    sys/ /process NameOfYourProcess"
+				Mess_Aide = Mess_Aide & CRLF & "     --> This command return the new PID number"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & " Check new kernel update:"
+				Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & " Download new last version"
+				Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & " Install downloaded version"
+				Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-install"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & " Download AND install the la avaiable version"
+				Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get-install"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & " Download releases notes :"
+				Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update-news"
+				Mess_Aide = Mess_Aide & CRLF & "  Display line per line ESPACE et ECHAP"
+				Mess_Aide = Mess_Aide & CRLF & "   SYS/ /update-news \#pause"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & " For use 'Hot-release' version, add 'HR' at the end line."
+				Mess_Aide = Mess_Aide & CRLF & "   sys/ /update hr"
+				Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get hr"
+				Mess_Aide = Mess_Aide & CRLF & "   sys/ /update-get-install hr"
+				Mess_Aide = Mess_Aide & CRLF & "  !! Warning, version in test & developpment,"
+				Mess_Aide = Mess_Aide & CRLF & "  !! Vous are responsible of your machine."
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & " Change your cpcdos network ID (You can put 'anonymous'):"
+				Mess_Aide = Mess_Aide & CRLF & "   sys/ /netid = MyName"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "  Stopping kernel :"
+				Mess_Aide = Mess_Aide & CRLF & "   SYS/ /STOPK"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "  Shutdown system :"
+				Mess_Aide = Mess_Aide & CRLF & "   SYS/ /SHUTDOWN"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "  Restart system :"
+				Mess_Aide = Mess_Aide & CRLF & "   SYS/ /RESTART    or   SYS/ /REBOOT"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "  Put in stand-by mode :"
+				Mess_Aide = Mess_Aide & CRLF & "   SYS/ /STANDBY"
+				Mess_Aide = Mess_Aide & CRLF
+				Mess_Aide = Mess_Aide & CRLF & "  See also : fix/ , ccp/"
+				Mess_Aide = Mess_Aide & CRLF
+
 				DEBUG(Mess_Aide, Affichage, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_SURBRILLE, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 				testCMD = 0
 				AfficherAide = 0
@@ -20556,10 +20324,6 @@ _FIN_EXE_CCP_EXE:
 				IF Numero_de_Ligne > 0 Then Message_erreur = "(lgn:" & Numero_de_Ligne & ") " & Message_erreur
 				DEBUG("[CpcdosC+] " & Message_erreur & " " & CHR(34) & Commande & CHR(34) & ".", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ERREUR, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
 
-				' IF CPCDOS_INSTANCE.SCI_INSTANCE.GUI_Exec = TRUE AND CPCDOS_INSTANCE.SCI_INSTANCE.GUI_Mode = TRUE then
-					' CpcdosCP_SHELL("Msgbox/ " & Message_erreur & " " & CHR(34) & Commande & CHR(34) & ". /TITLE:ERR_009 : " & Nom_Fichier_DBG & ":" & Numero_de_Ligne & " - CpcdosC+ Shell /ERROR:3", _CLE_, NIVEAU_CCP, Param_1, Param_2)
-				' End if
-
 				CpcdosCP_SHELL = "ERR_009"
 			End if
 		End if
@@ -20568,10 +20332,6 @@ _FIN_EXE_CCP_EXE:
 		Message_erreur = ERRAVT("ERR_010", 0)
 		IF Numero_de_Ligne > 0 Then Message_erreur = "(" & Nom_Fichier_DBG & ":" & Numero_de_Ligne & ") " & Message_erreur
 		DEBUG("[SHELL CC+] > " & Message_erreur & " " & CHR(34) & _COMMANDE_ & CHR(34) & " -> '" & CHR(testCMD - 10) & "'.", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_Erreur, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, RetourVAR)
-
-		' IF CPCDOS_INSTANCE.SCI_INSTANCE.GUI_Exec = TRUE AND CPCDOS_INSTANCE.SCI_INSTANCE.GUI_Mode = TRUE then
-			' CpcdosCP_SHELL("Msgbox/ " & Message_erreur & " " & CHR(34) & _COMMANDE_ & CHR(34) & " -> '" & CHR(testCMD - 10) & " /TITLE:ERR_010:" & Nom_Fichier_DBG & ":" & Numero_de_Ligne & " - CpcdosC+ Shell /ERROR:3", _CLE_, NIVEAU_CCP, Param_1, Param_2)
-		' End if
 
 		CpcdosCP_SHELL = "ERR_010"
 	End if
