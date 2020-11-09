@@ -42,8 +42,6 @@ namespace cpinti::gestionnaire_tache
 
     void *cpinti_thread_args(int NoARG);
 
-    int cpinti_gerer_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID, uinteger ACTION);
-
     uinteger cpinti_etat_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID);
 
     const char *cpinti_get_nom_thread(uinteger TID); // non utilise

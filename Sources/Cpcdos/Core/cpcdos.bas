@@ -360,24 +360,6 @@ Function __Noyau_Cpcdos_OSx__.get_NombreThreads() as uinteger
 	function = cpinti.gestionnaire_tache.cpinti_get_nombre_threads()
 End Function
 
-
-Function __Noyau_Cpcdos_OSx__.Gerer_thread(PID as uinteger, TID as uinteger, Action as integer) as integer
-	' Cette fonction permet de gerer les threads
-	'	PID		: Numero PID du processus
-	'	TID		: Numero TID du thread
-	'	Action	:
-	' 		__EN_EXECUTION 	= 83 	' 0x53
-	' 		__EN_PAUSE 		= 101 	' 0x65
-	' 		__EN_ATTENTE 	= 98 	' 0x62
-	' 		__EN_ARRET 		= 70	' 0x46
-
-	' Envoyer la requete a CPinti Core et recuperer le resultat
-	' Gerer_thread = CPCDOS_INSTANCE.CPintiCore_INSTANCE.cpinti_gerer_thread(get_id_kernel(), PID, TID, Action)
-
-	return 0
-End Function
-
-
 Function __Noyau_Cpcdos_OSx__.get_Nom_Thread(TID as uinteger) as String
 	' Cette fonction permet d'obtenir le nom d'un thread
 	'	TID		: Numero TID du thread
@@ -765,31 +747,6 @@ Function __Noyau_Cpcdos_OSx__.Ecrire_fichier_complet(ByVal Source as String, ByV
 	function = len(Donnees)
 
 	exit function
-
-	' ' Transformer en CHAR*
-	' Dim Source_CHAR as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString(Source)
-
-	' ' Transformer en CHAR*
-	' DIM Donnees_CHAR as CONST ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString(Donnees)
-
-	' ' Lire le fichier depuis CPinti Core
-	' Dim Resultat as double = CPCDOS_INSTANCE.CPintiCore_INSTANCE.cpinti_Ecrire_Fichier_complet(Source_CHAR, Donnees_CHAR, FLAG)
-
-	' IF Resultat < 0 then
-		' ' Erreur d'ecriture
-		' Dim Message_erreur as String = ERRAVT("ERR_015", 0)
-		' DEBUG("[CpcdosC+] (CPinti core) : Erreur d'acces interne. " & Message_erreur, CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ERREUR, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.AvecDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "")
-
-		' Ecrire_fichier_complet = -1
-	' else
-
-		' ' Renvoyer le nobre d'octets ecrits
-		' Ecrire_fichier_complet = Resultat
-	' End if
-
-	' ' Liberer la memoire
-	' CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(Donnees_CHAR)
-	' CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(Source_CHAR)
 End Function
 
 Function __Noyau_Cpcdos_OSx__.Supprimer_Fichier(ByVal Source as String, ByVal securise as boolean, ByVal NombrePasses as integer) as boolean
@@ -824,17 +781,6 @@ Function __Noyau_Cpcdos_OSx__.Supprimer_Fichier(ByVal Source as String, ByVal se
 		DEBUG("[ERROR]", CPCDOS_INSTANCE.DEBUG_INSTANCE.ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_ERREUR, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_CPCDOS, "")
 		return false
 	end if
-
-	' Transformer en CHAR*
-	' Dim Source_CHAR as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString(Source)
-
-
-	' Supprimer le fichier depuis CPinti Core
-	' Supprimer_Fichier = CPCDOS_INSTANCE.CPintiCore_INSTANCE.cpinti_Supprimer_Fichier(Source_CHAR, securise, NombrePasses)
-
-	' Liberer la memoire
-	' CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(Source_CHAR)
-	' function = false
 End Function
 
 Function __Noyau_Cpcdos_OSx__.Copier_Fichier(ByVal Source as String, ByVal Destination as String, ByVal Priorite as integer, ByVal Var_Progression as String, ByVal Var_Octets as String, ByVal Var_OctetsParSec as String) as boolean
@@ -866,13 +812,7 @@ Function __Noyau_Cpcdos_OSx__.Copier_Fichier(ByVal Source as String, ByVal Desti
 
 	Dim Source_CHAR 			as ZString PTR = strptr(Source)
 	Dim Destination_CHAR 		as ZString PTR = strptr(Destination)
-	' Dim VAR_Progression_CHAR 	as ZString PTR = strptr(VAR_Progression)
-	' Dim VAR_Octets_CHAR 		as ZString PTR = strptr(VAR_Octets)
-	' Dim VAR_OctetsParSec_CHAR 	as ZString PTR = strptr(VAR_OctetsParSec)
 
-	' Transformer en CHAR*
-	' Dim Source_CHAR 			as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString(Source)
-	' Dim Destination_CHAR 		as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString(Destination)
 	Dim VAR_Progression_CHAR 	as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString(VAR_Progression)
 	Dim VAR_Octets_CHAR 		as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString(VAR_Octets)
 	Dim VAR_OctetsParSec_CHAR 	as ZString PTR = CPCDOS_INSTANCE.SYSTEME_INSTANCE.AllouerString(VAR_OctetsParSec)
@@ -885,10 +825,6 @@ Function __Noyau_Cpcdos_OSx__.Copier_Fichier(ByVal Source as String, ByVal Desti
 	CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(VAR_OctetsParSec_CHAR)
 	CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(VAR_Octets_CHAR)
 	CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(VAR_Progression_CHAR)
-
-	' CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(Destination_CHAR)
-	' CPCDOS_INSTANCE.SYSTEME_INSTANCE.DesAllouerString(Source_CHAR)
-
 End Function
 
 Function __Noyau_Cpcdos_OSx__.Renommer_Fichier(ByVal Source as String, ByVal Destination as String) as boolean
@@ -1499,39 +1435,3 @@ Function __Noyau_Cpcdos_OSx__.Charger_Image(ByVal ImageSource as String, byref H
 	End if
 
 End Function
-
-
-public sub __Noyau_Cpcdos_OSx__.tester_erreur_memoire()
-	SCOPE
-		Dim testerreur as boolean = false
-		for Boucle as integer = 1 to CPCDOS_INSTANCE.SHELLCCP_INSTANCE._MAX_CMD_CCP
-			if boucle > CPCDOS_INSTANCE.SHELLCCP_INSTANCE._MAX_CMD_CCP then exit for
-
-			' DEV temporaire: Si commande vide alors on saute
-			'  directement aux commandes graphiques
-			IF CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(boucle) = "" AND boucle < 128 Then boucle = 128
-
-			' Chercher la syntaxe Francophone
-			IF Instr(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle), "/") > 0 OR Instr(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle), ".") = 1 Then
-			Else
-				testerreur = true
-				Print "FR ERREUR(" & boucle & "):" & CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_FR(Boucle) & "."
-			End if
-
-			' Chercher la syntaxe Anglophone
-			IF Instr(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_EN(Boucle), "/") > 0 OR Instr(CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_EN(Boucle), ".") = 1 Then
-			Else
-				testerreur = true
-				Print "EN ERREUR(" & boucle & "):" & CPCDOS_INSTANCE.SHELLCCP_INSTANCE.Liste_CMD_EN(Boucle) & "."
-			End if
-
-		Next Boucle
-
-
-		if testerreur = true Then
-			Print "Des erreurs detectes"
-			Print "Appuyer sur une touche"
-			sleep
-		End if
-	END SCOPE
-end SUB

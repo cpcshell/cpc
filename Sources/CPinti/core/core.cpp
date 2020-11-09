@@ -20,8 +20,6 @@
 namespace cpinti::gestionnaire_tache
 {
 
-    /* global var */
-    bool EVALUATION_CPU = false;
     uinteger NombreCycles = 0;
     uinteger InLiveCompteur = 0;
     time_t Temps_Depart = 0;
@@ -47,43 +45,6 @@ namespace cpinti::gestionnaire_tache
 #ifndef Liste_Threads
     liste_threads Liste_Threads[MAX_THREAD] = {};
 #endif
-
-    /* end */
-
-    void IamInLive()
-    {
-        // Ne pas calculer si le CPU est en evaluation
-        if (EVALUATION_CPU == false)
-        {
-            begin_SectionCritique();
-
-            // Cette fonction met a jour les cycles CPU
-            //  ce qui permet d'estimer avec une precision de 60%
-            //  de la charge du CPU
-            InLiveCompteur++;
-            if (InLiveCompteur > 27483600) // uinteger
-                InLiveCompteur = 0;        // On reinitialise pour eviter les plantages
-
-            // Ceci permet d'economiser du temps CPU
-            saut_comptage++;
-            if (saut_comptage > 24)
-            {
-                saut_comptage = 0;
-                time(&Temps_Actuel);
-
-                Temps_total = difftime(Temps_Actuel, Temps_Depart);
-
-                if (Temps_total >= 1) // Si 1 seconde
-                {
-                    NombreCycles = InLiveCompteur;
-                    InLiveCompteur = 0; // On reset le compteur
-                    time(&Temps_Depart);
-                }
-            }
-
-            end_SectionCritique();
-        }
-    }
 
     volatile int SectionCritique_RECURSIF = 0;
     void begin_SectionCritique()
@@ -144,8 +105,6 @@ namespace cpinti::gestionnaire_tache
             Liste_Threads[index_id].OID = 0;
             Liste_Threads[index_id].UID = 0;
             Liste_Threads[index_id].PID = 0;
-
-            // strncpy((char*) Liste_Threads[index_id].Nom_Thread, (const char*) '\0', 32);
         }
 
         /*** Creer un thread principal "Thread_Updater" ***/

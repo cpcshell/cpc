@@ -238,19 +238,6 @@ Function _SCI_Cpcdos_OSx__.Creer_Fenetre(_Proprietes as CPCDOS_GUI_INIT__, _inde
 				Couleur_Alpha_TITRE 		= Couleur_ALPHA
 			End if
 
-
-
-			' Si l'image precedente ne correspond pas a l'image actuel, c'est que l'image a change
-			' C'est aussi probable que si on change d'adresse, cela ne fait rien
-			' IF NOT Image_Ancien = "" Then
-				' IF NOT Image_Ancien = Image Then
-
-
-				' End if
-			' End if
-
-
-
 			' Sauvegarder de cote le BPP
 			this.INST_INIT_GUI.GUI__FENETRE(_index_).BIT_ORG = CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_BitsparPixels()
 

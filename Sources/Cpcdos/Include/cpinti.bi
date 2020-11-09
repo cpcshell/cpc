@@ -91,9 +91,6 @@ Extern "C++" lib "cpnti"
 
 			declare function 	get_ThreadEnCours		cdecl () as uinteger
 
-			declare sub			IamInLive				cdecl ()
-			declare function	get_cycle_cpu			cdecl () as uinteger
-			declare function	get_cycle_MAX_cpu		cdecl () as uinteger
 		end namespace ' gestionnaire taches
 	end namespace ' cpinti
 end extern

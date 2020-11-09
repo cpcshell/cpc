@@ -6,20 +6,12 @@
 
 #include "cpinti/threads.h"
 
-// #include "leakchk.h"
-
 namespace cpinti::gestionnaire_tache
 {
     uinteger cpinti_creer_thread(uinteger ID_KERNEL, uinteger ID_OS, uinteger ID_USER, uinteger PID, const char *NomThread,
                                  integer Priorite, void *(*Fonction)(void *arg), void *ARG_CP, uinteger ARG_TH)
     {
         (void)ARG_CP;
-        // Cette fonction va permettre de creer un nouveau processus vierge (Qui hebergera vos threads)
-        // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
-        //	NomProcessus	: Nom de processus
-
-        // Retourne	<=0 : Erreur
-        //			> 0 : Numero de PID
 
         ENTRER_SectionCritique();
 
@@ -170,43 +162,16 @@ namespace cpinti::gestionnaire_tache
         return nullptr;
     }
 
-    int cpinti_gerer_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID, uinteger ACTION)
-    {
-        (void)ID_KERNEL;
-        (void)PID;
-        (void)TID;
-        (void)ACTION;
-        // Cette fonction permet de modifier l'etat d'un thread
-        // 	ID_KERNEL		: Identificateur unique de l'instance du noyau
-        //  PID				: Numero de processus
-        //	TID				: Numero du thread
-        //	ACTION			: Action a appliquer sur le thread
-
-        int Resultat = 0;
-
-        // Gerer le thread
-        // Resultat = this->CPintiCore_Gestionnaire_Taches->Gerer_Threads(ID_KERNEL, PID, TID, ACTION);
-
-        return Resultat;
-    }
-
     uinteger cpinti_etat_thread(uinteger ID_KERNEL, uinteger PID, uinteger TID)
     {
         (void)ID_KERNEL;
         (void)PID;
-        // Cette fonction permet de connaitre l'etat d'un thread
-        //	TID				: Numero du thread
 
         return get_EtatThread(TID);
     }
 
     const char *cpinti_get_nom_thread(uinteger TID)
     {
-        // Cette fonction permet de recuperer le nom du thread via son ID
-        //  NomThread		: Variable nullptr ou sera stocke le nom de variable
-
-        /* NON UTILISE */
-
         return gestionnaire_tache::get_NomThread(TID);
     }
 

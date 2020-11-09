@@ -320,7 +320,6 @@ Type __Noyau_Cpcdos_OSx__
 
 		Declare Function 	Fermer_thread		(PID as uinteger, TID as uinteger, force as boolean) 	as integer
 		Declare Function 	Fin_thread			(PID as uinteger, TID as uinteger) as integer
-		Declare Function 	Gerer_thread		(PID as uinteger, TID as uinteger, Action as integer) 	as integer
 		Declare Function 	get_Nom_Thread		(TID as uinteger) 										as String
 		Declare Function 	get_ThreadEnCours	() 														as uinteger
 		Declare Function 	get_NombreThreads	() 														as uinteger
@@ -364,14 +363,9 @@ Type __Noyau_Cpcdos_OSx__
 		Declare Function Charger_Image			(ByVal ImageSource as String) as Any PTR
 		Declare Function Charger_Image			(ByVal ImageSource as String, byref Hauteur as integer, byref Largeur as integer) as Any PTR
 
-
-
-		Declare sub tester_erreur_memoire()
-
 		' *** Constructeur/Desctructeur ***
 		Declare Constructor()
 		Declare Destructor()
-
 End Type
 
 ' Cette classe sera visible de partout!

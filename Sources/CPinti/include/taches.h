@@ -100,10 +100,7 @@ namespace gestionnaire_tache
         uinteger Joindre_Thread(uinteger ID_KERNEL, uinteger PID, uinteger TID, int CYCLES);
         uinteger Etat_Thread(uinteger ID_KERNEL, uinteger PID, uinteger TID);
         std::string get_Nom_Thread(uinteger ID_KERNEL, uinteger PID, uinteger TID);
-        int Gerer_Threads(uinteger ID_KERNEL, uinteger PID, uinteger TID, uinteger ACTION);
         int Arreter_Thread(uinteger ID_KERNEL, uinteger PID, uinteger TID);
-        void Arreter_Thread_SANS_ID(uinteger INDEX_PROCESSUS, uinteger INDEX_THREAD);
-        uinteger Thread_est_arrete(uinteger ID_KERNEL, bool Fermer);
 
         // Obtenir le nombre de processus total
         static uinteger get_Nombre_processus();

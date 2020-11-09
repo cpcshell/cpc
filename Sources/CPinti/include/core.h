@@ -106,7 +106,6 @@ namespace cpinti
             char Nom_Processus[32]; /** Nom Processus **/
 
             bool Threads_Enfant[MAX_THREAD];
-            // static liste_threads 	Liste_Threads[MAX_THREAD] = {};
         };
 
 #ifndef Liste_Processus
@@ -119,9 +118,6 @@ namespace cpinti
 
         /**** Methodes ****/
         bool initialiser_Multitache();
-        void IamInLive();
-        uinteger get_cycle_cpu();
-        uinteger get_cycle_MAX_cpu();
 
         /** Processus **/
         uinteger ajouter_Processus(const char *NomProcessus);

@@ -644,10 +644,6 @@ public function __CPCDOS_INIT_2 cdecl Alias "__CPCDOS_INIT_2"(a as integer) as i
 		CPCDOS_INSTANCE.PAS_DE_LIGNES_BOOT = false
 
 
-		' Verifier s'il y a 1 ou plus de processus en cours, sinon on stoppe le systeme
-		while(cpinti.gestionnaire_tache.cpinti_get_nombre_processus() > 0)
-			cpinti.gestionnaire_tache.IamInLive()
-		wend
 
 		DEBUG("", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_AVERTISSEMENT, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "") ' Mes 10 ans
 		DEBUG(" - - - - - - - - - - - - - - ", CPCDOS_INSTANCE.DEBUG_INSTANCE.Ecran, CPCDOS_INSTANCE.DEBUG_INSTANCE.NonLog, CPCDOS_INSTANCE.DEBUG_INSTANCE.Couleur_AVERTISSEMENT, 0, CPCDOS_INSTANCE.DEBUG_INSTANCE.CRLF, CPCDOS_INSTANCE.DEBUG_INSTANCE.SansDate, CPCDOS_INSTANCE.DEBUG_INSTANCE.SIGN_AFF, "") ' Mes 10 ans
@@ -695,10 +691,6 @@ Public function Thread_Updater cdecl Alias "Thread_Updater"(byval arguments as a
 	SCOPE
 		' ********* D E B U T  *********
 		while(EN_VIE)
-
-			' Mettre a jour le cycle CPU
-			cpinti.gestionnaire_tache.IamInLive()
-
 			IF Switch = FALSE Then
 				Switch = TRUE
 			ElseIF Switch = TRUE Then
@@ -755,28 +747,26 @@ public function Thread_SYSTEM cdecl Alias "Thread_SYSTEM"(byval thread_struct as
 		SCOPE
 		' ********* DEBUT CODE DU THREAD EN COURS D'EXECUTION *********
 
-			cpinti.gestionnaire_tache.IamInLive()
-
-			TEMPS_ACTUEL_MIL += 90
-			TEMPS_ACTUEL_SEC = CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_Secondes()
+		TEMPS_ACTUEL_MIL += 90
+		TEMPS_ACTUEL_SEC = CPCDOS_INSTANCE.SYSTEME_INSTANCE.get_Secondes()
 
 
-			' 1 Seconde
-			IF TEMPS_ACTUEL_SEC - TEMPS_PRECEDENT_SEC >= 1 Then
-				TEMPS_PRECEDENT_SEC = TEMPS_ACTUEL_SEC
-				if CPCDOS_INSTANCE.TIMING_1SEC = TRUE Then CPCDOS_INSTANCE.TIMING_1SEC = FALSE Else CPCDOS_INSTANCE.TIMING_1SEC = TRUE
+		' 1 Seconde
+		IF TEMPS_ACTUEL_SEC - TEMPS_PRECEDENT_SEC >= 1 Then
+			TEMPS_PRECEDENT_SEC = TEMPS_ACTUEL_SEC
+			if CPCDOS_INSTANCE.TIMING_1SEC = TRUE Then CPCDOS_INSTANCE.TIMING_1SEC = FALSE Else CPCDOS_INSTANCE.TIMING_1SEC = TRUE
+		End if
+
+		' 500 millisecondes
+		IF TEMPS_ACTUEL_MIL - TEMPS_PRECEDENT_MIL >= 500 Then
+			TEMPS_PRECEDENT_MIL = TEMPS_ACTUEL_MIL
+			if CPCDOS_INSTANCE.TIMING_500MS = TRUE Then
+				CPCDOS_INSTANCE.TIMING_500MS = FALSE
+			Else
+				CPCDOS_INSTANCE.TIMING_500MS = TRUE
+
 			End if
-
-			' 500 millisecondes
-			IF TEMPS_ACTUEL_MIL - TEMPS_PRECEDENT_MIL >= 500 Then
-				TEMPS_PRECEDENT_MIL = TEMPS_ACTUEL_MIL
-				if CPCDOS_INSTANCE.TIMING_500MS = TRUE Then
-					CPCDOS_INSTANCE.TIMING_500MS = FALSE
-				Else
-					CPCDOS_INSTANCE.TIMING_500MS = TRUE
-
-				End if
-			End if
+		End if
 
 
 		' ********* DEBUT CODE DU THREAD EN COURS D'EXECUTION *********

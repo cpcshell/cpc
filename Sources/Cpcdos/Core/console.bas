@@ -710,11 +710,9 @@ Sub cpcdos_console.Haut_Console()
 
 	' Locate 2, 1 : Print String(TailleX, " ")
 	Locate 2, 1 : Print " Cpu(1):";
-	' Color Resu, Fond : Print CPU_Pourcent_1 & "% " & CPCDOS_INSTANCE.CPintiCore_INSTANCE.cpinti_get_cycle_cpu() & "/" & CPCDOS_INSTANCE.CPintiCore_INSTANCE.cpinti_get_max_cycle_cpu();
 	Color Resu, Fond : Print CPU_Pourcent_1 & "% " ;
 	Color Norm, Fond : Print " Cpu(2):";
 	Color Erro, Fond : Print CPU_Pourcent_2 & "%";
-	' Color Erro, Fond : Print cpinti.gestionnaire_tache.get_cycle_cpu() & "/" & cpinti.gestionnaire_tache.get_cycle_MAX_cpu();
 	Color Norm, Fond : Print " | Ram:";
 	Color Resu, Fond : Print MEM_Utilise & "";
 	Color Norm, Fond : Print "/";
