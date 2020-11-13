@@ -11,7 +11,6 @@
 #include <unistd.h>
 
 #include "compat/dos.h"
-#include "compat/dpmi.h"
 #include "debug.h"
 #include "func_cpi.h"
 
