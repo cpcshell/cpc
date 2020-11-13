@@ -1,9 +1,3 @@
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "core.h"
-#include "debug.h"
 #include "io.h"
 
 namespace cpinti

@@ -1,8 +1,4 @@
-#include <memory>
-
-#include "cpinti.h" // inclut taches.h
 #include "debug.h"
-#include "func_cpi.h"
 
 // #include "leakchk.h"
 

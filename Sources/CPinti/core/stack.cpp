@@ -1,5 +1,4 @@
 #include "stack.h"
-#include "cpinti.h"
 
 namespace cpinti
 {

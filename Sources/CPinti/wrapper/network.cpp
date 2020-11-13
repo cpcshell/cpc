@@ -1,21 +1,11 @@
-#include <memory>
-#include <string>
+#include <cpinti/buffer.h>
+#include <cpinti/client.h>
+#include <cpinti/network.h>
 
-#include "cpinti.h"
 #include "debug.h"
-#include "func_cpi.h"
 #include "stack.h"
-
-#include "cpinti/buffer.h"
-#include "cpinti/client.h"
-#include "cpinti/network.h"
-#include "cpinti/process.h" // temporaire pour les defines
-
 #include "ping.h"
 #include "serveur.h"
-#include "socket.h"
-
-// #include "leakchk.h"
 
 namespace cpinti
 {

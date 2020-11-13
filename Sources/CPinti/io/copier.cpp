@@ -1,11 +1,7 @@
-#include <errno.h>
-#include <math.h>
-#include <stdio.h>
-#include <string.h>
+#include <cstring>
 
 #include "core.h"
 #include "debug.h"
-#include "func_cpi.h"
 #include "io.h"
 
 extern "C" void cpc_CCP_Exec_Commande(const char *COMMANDE, int ID);

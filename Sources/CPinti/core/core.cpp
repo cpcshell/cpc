@@ -1,19 +1,11 @@
 #include <cstdio>
-#include <cstdlib>
-#include <iostream>
-#include <math.h>
-#include <signal.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
+#include <cstring>
 #include <unistd.h>
 
-#include "compat/dos.h"
-#include "debug.h"
-#include "func_cpi.h"
+#include <iostream>
 
+#include <compat/dos.h>
+#include "debug.h"
 #include "core.h"
 
 namespace cpinti::gestionnaire_tache

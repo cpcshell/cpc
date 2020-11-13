@@ -1,15 +1,8 @@
-#include <malloc.h>
-#include <stdlib.h>
-
-#include <iostream>
 #include <string>
 
-#include "cpinti.h"
 #include "cpinti/buffer.h"
 #include "stack.h"
-
 #include "debug.h"
-#include "func_cpi.h"
 
 namespace cpinti
 {

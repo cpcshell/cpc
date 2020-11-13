@@ -1,24 +1,11 @@
-#include <ctime> // RAND()
-#include <stdio.h>
-#include <unistd.h> // usleep
+#include <cstring>
+#include <unistd.h>
 
 #include <arpa/inet.h>
 #include <netdb.h>
-#include <netinet/in.h> // Deja inclu?
-#include <netinet/ip.h>
-#include <sys/select.h>
-#include <sys/socket.h>
+#include <netinet/ip_icmp.h>
 
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-
-#include <pthread.h>
-
-#include "cpinti.h"
-#include "func_cpi.h"
-
-#include "cpinti/buffer.h"
+#include <cpinti/buffer.h>
 #include "debug.h"
 #include "serveur.h"
 #include "stack.h"
@@ -232,7 +219,7 @@ namespace cpinti
                 {
                     // Si aucun client est connecte
                     if (NbClientCO == 0)
-                        cpinti_Sleep(100);
+                        sleep(100);
 
                     // Nettoyer le socket
                     FD_ZERO(&FD_socket);
@@ -431,7 +418,7 @@ namespace cpinti
 
                     if (NbClientCO == 0)
                     {
-                        cpinti_Sleep(100);
+                        sleep(100);
                     }
 
                     if ((Resultat < 0) && (errno != EINTR))

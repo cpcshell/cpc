@@ -1,21 +1,9 @@
-#include <ctime> // RAND()
-#include <stdio.h>
-#include <unistd.h> // usleep
+#include <cstring>
+#include <unistd.h>
 
 #include <arpa/inet.h>
 #include <netdb.h>
-#include <netinet/in.h> // Deja inclu?
-#include <netinet/ip.h>
-#include <sys/select.h>
-#include <sys/socket.h>
-
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-
 #include <netinet/ip_icmp.h>
-
-#include <pthread.h>
 
 #include "debug.h"
 #include "func_cpi.h"

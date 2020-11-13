@@ -1,10 +1,7 @@
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
 
-#include "core.h"
-#include "cpinti/debug.h"
-#include "func_cpi.h" // doevent
+#include <cpinti/debug.h>
+
 #include "io.h"
 
 namespace cpinti::gestionnaire_fichier

@@ -1,7 +1,7 @@
 #ifndef CPCDOS_CPC_WPR
 #define CPCDOS_CPC_WPR
 
-#include "cpinti.h"
+#include <cpinti/types.h>
 
 extern "C" int cpc_Creer_Contexte(int TAILLEX, int TAILLEYn);
 extern "C" void *cpc_Obtenir_Zone_Contexte(int ID);
@@ -23,11 +23,6 @@ extern "C" void cpc_cpinti_sleep_ms(uinteger temp_ms);
 extern "C" void cpc_cpinti_sleep_sec(uinteger temp_sec);
 
 extern "C" double cpc_cpinti_Obtenir_Temps_ms(double Temps_av);
-
-#ifndef DEFINITION_WRAPPER
-#    define DEFINITION_WRAPPER
-
-#    include <string.h> // Pour memset
 
 class CpcdosOSx_CPintiCore
 {
@@ -61,5 +56,4 @@ public:
     double get_time_ms(double Temps_av); // Obtenir le temps actuel en millisecondes
 };
 
-#endif
 #endif /* CPCDOS_CPC_WPR */

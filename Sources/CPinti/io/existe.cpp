@@ -1,9 +1,9 @@
-#include "cpinti.h" // Doevents
-#include "debug.h"
-#include "io.h"
-#include <iostream>
-#include <memory>
 #include <sys/stat.h>
+
+#include <memory>
+#include <iostream>
+
+#include "io.h"
 
 namespace cpinti
 {

@@ -1,6 +1,6 @@
 #include <cstdio>
 
-#include "cpinti/debug.h"
+#include <cpinti/debug.h>
 
 namespace cpinti::debug
 {

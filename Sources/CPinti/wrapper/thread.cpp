@@ -1,10 +1,7 @@
-#include <stdio.h>
-#include <string.h>
+#include <cpinti/threads.h>
 
 #include "core.h"
 #include "debug.h"
-
-#include "cpinti/threads.h"
 
 namespace cpinti::gestionnaire_tache
 {

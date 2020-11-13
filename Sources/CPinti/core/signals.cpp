@@ -1,14 +1,12 @@
-#include <cstdlib>
+#include <cstdio>
 #include <signal.h>
-#include <stdio.h>
 #include <unistd.h>
 
-#include "cpcdos/cpcdos.h"
-#include "cpinti/debug.h"
-#include "cpinti/signals.h"
+#include <cpcdos/cpcdos.h>
+#include <cpinti/debug.h>
+#include <cpinti/signals.h>
 
 #include "core.h"
-#include "debug.h"
 
 namespace cpinti::signals
 {

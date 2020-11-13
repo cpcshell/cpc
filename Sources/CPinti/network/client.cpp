@@ -1,20 +1,8 @@
-#include <memory>
 #include <netdb.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <sys/select.h>
-
 #include <arpa/inet.h>
-#include <netinet/in.h>
-#include <sys/types.h>
-
 #include <unistd.h>
 
-#include "cpinti.h"
 #include "debug.h"
-#include "func_cpi.h"
 
 // #include "core.h" // SectionCritique
 // Exception de declaration due a une structure differente
@@ -35,7 +23,6 @@ namespace cpinti
 #include "cpinti/client.h"
 
 #include "stack.h"
-#include "taches.h"
 
 extern "C" void cpc_CCP_Exec_Commande(const char *COMMANDE, int ID);
 

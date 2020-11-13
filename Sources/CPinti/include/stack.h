@@ -8,15 +8,16 @@
 #include <memory>
 #include <vector>
 
+#include <cpinti/types.h>
+
+#include "cpinti.h"
+
 #define _STACK_STOCKER_POUR_CPCDOS 1  /* Serveur --> STACK Cpcdos  */
 #define _STACK_STOCKER_POUR_SERVEUR 2 /* Cpcdos  --> STACK Serveur */
 #define _STACK_EXTRACT_POUR_CPCDOS 3  /* STACK Cpcdos  --> Cpcdos  */
 #define _STACK_EXTRACT_POUR_SERVEUR 4 /* STACK Serveur --> Serveur */
 #define _STACK_INITIALISER 9          /* Creer une nouvelle instance d'un stack */
 #define _STACK_SUPPRIMER 10           /* Supprimer l'instance du stack */
-
-#include "cpinti.h"
-#include "cpinti/types.h"
 
 namespace cpinti
 {

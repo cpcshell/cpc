@@ -1,9 +1,9 @@
-#include <stdio.h>
+#include <cstdio>
 
 #include "CPC_WPR.h"
 
-#include "cpinti/signals.h"
-#include "cpinti/version.h"
+#include <cpinti/signals.h>
+#include <cpinti/version.h>
 
 extern "C" long __CPCDOS_INIT_1(long);
 

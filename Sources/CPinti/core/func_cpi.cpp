@@ -1,9 +1,6 @@
 #include <iostream>
-#include <stdio.h>
-#include <sys/select.h>
 #include <unistd.h>
 
-#include "core.h"
 #include "func_cpi.h"
 
 namespace cpinti

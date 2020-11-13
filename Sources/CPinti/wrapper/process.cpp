@@ -1,9 +1,7 @@
-#include <string.h>
+#include <cpinti/process.h>
 
 #include "core.h"
 #include "debug.h"
-
-#include "cpinti/process.h"
 
 namespace cpinti::gestionnaire_tache
 {

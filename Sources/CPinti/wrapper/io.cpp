@@ -1,10 +1,6 @@
 #include "io.h"
-#include "cpinti.h"
 #include "debug.h"
-#include "func_cpi.h"
-#include <string.h>
 
-// #include "leakchk.h"
 
 namespace cpinti::gestionnaire_fichier
 {
