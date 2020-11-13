@@ -7,11 +7,6 @@
 
 namespace cpinti::gestionnaire_fichier
 {
-
-    // EXTERNE
-    int cpinti_decompress_file(const char *Source, const char *Destination);
-    int cpinti_compress_file(const char *Source, const char *Destination);
-
     bool cpinti_Fichier_Existe(const char *Source);
     uinteger cpinti_Taille_Fichier(const char *Source);
 
@@ -20,9 +15,6 @@ namespace cpinti::gestionnaire_fichier
 
     bool cpinti_Supprimer_Fichier(const char *Source, bool Securise, int NombrePasses);
     bool cpinti_Copier_Fichier(const char *Source, const char *Destination, integer Priorite, const char *VAR_Progression, const char *VAR_Octets, const char *VAR_OctetsParSec);
-
-    // INTERNE
-    int Fichier_decompress(const char *Source);
 
     int inf(FILE *source, FILE *dest);
 
