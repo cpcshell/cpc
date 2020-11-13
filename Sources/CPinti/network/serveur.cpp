@@ -375,7 +375,7 @@ namespace cpinti
                             std::string Client_SOCK_STR = BUFFER.substr(posFINPORT + 4, posFINSOCK - (posFINPORT + 4));
 
                             // Convertir en int pour la methode
-                            Client_SOCK = cpinti::Func_Cpinti::to_int(Client_SOCK_STR);
+                            Client_SOCK = std::stoi(Client_SOCK_STR);
 
                             BUFFER += "\0";
                             BUFFER = BUFFER.substr(posFINSOCK + 1);

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include <iostream>
+#include <string>
 
 #include "cpinti.h"
 #include "cpinti/buffer.h"
@@ -63,15 +64,15 @@ namespace cpinti
                 bool Stack_init_ok = false;
 
                 // Debug
-                std::string _ID_STR = cpinti::Func_Cpinti::to_string(_ID);
+                std::string _ID_STR = std::to_string(_ID);
 
                 cpinti_dbg::CPINTI_DEBUG("(ID:" + _ID_STR + ") Recherche d'un emplacement libre... ",
                                          "(ID:" + _ID_STR + ") Research free block... ",
                                          "STACK", "cpinti_GEST_BUFF", Ligne_saute, Alerte_action, Date_avec, Ligne_r_normal);
 
                 // Debug
-                std::string _MAX_Stack_block_STR = cpinti::Func_Cpinti::to_string(_MAX_Stack_block);
-                std::string index_STR = cpinti::Func_Cpinti::to_string(0);
+                std::string _MAX_Stack_block_STR = std::to_string(_MAX_Stack_block);
+                std::string index_STR = std::to_string(0);
 
                 cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
                                          Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
@@ -128,7 +129,7 @@ namespace cpinti
                 // Creer une nouvelle instance d'un stack
 
                 // Debug
-                std::string _ID_STR = cpinti::Func_Cpinti::to_string(_ID);
+                std::string _ID_STR = std::to_string(_ID);
 
                 cpinti_dbg::CPINTI_DEBUG("(ID:" + _ID_STR + ") Recherche de l'instance a desallouer... ",
                                          "(ID:" + _ID_STR + ") Research instance to dealloc... ",
@@ -143,8 +144,8 @@ namespace cpinti
                     if (cpinti::stack_kernel.at(index_tab)->tag_1 == _ID)
                     {
                         // Debug
-                        std::string _MAX_Stack_block_STR = cpinti::Func_Cpinti::to_string(_MAX_Stack_block);
-                        std::string index_STR = cpinti::Func_Cpinti::to_string(index_tab);
+                        std::string _MAX_Stack_block_STR = std::to_string(_MAX_Stack_block);
+                        std::string index_STR = std::to_string(index_tab);
 
                         cpinti_dbg::CPINTI_DEBUG("[vector<shared_ptr<cpinti::cpinti_stack_inv>>] Suppression d'un stack 'KERNEL' de " + _MAX_Stack_block_STR + " block(s) de memoire a l'index " + index_STR + " ... ",
                                                  "[vector<shared_ptr<cpinti::cpinti_stack_inv>>] Deleting 'KERNEL' stack with " + _MAX_Stack_block_STR + " memory block(s) at " + index_STR + " ... ",

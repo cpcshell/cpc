@@ -6,18 +6,6 @@
 #include "core.h"
 #include "func_cpi.h"
 
-extern "C" int fseeko(FILE *_stream, off_t _offset, int _mode)
-{
-    return fseek(_stream, _offset, _mode);
-}
-
-extern "C" long ftello(FILE *stream)
-{
-    long pos;
-    pos = ftell(stream);
-    return (long)pos;
-}
-
 namespace cpinti
 {
     namespace Func_Cpinti
@@ -36,93 +24,6 @@ namespace cpinti
         {
             // Cette methode permet de convertir en BIGENDIAN 16 bits
             return ((val & 0x00FF) << 8) | ((val & 0xFF00) >> 8);
-        }
-
-        std::string to_string(int nombre)
-        {
-            // Cette methode permet de convertir du int --> string
-
-            std::stringstream convertir;
-            convertir << nombre;
-            return convertir.str();
-        }
-
-        std::string to_string(long nombre)
-        {
-            // Cette methode permet de convertir du long --> string
-
-            std::stringstream convertir;
-            convertir << nombre;
-            return convertir.str();
-        }
-
-        std::string to_string(double nombre)
-        {
-            // Cette methode permet de convertir du double --> string
-
-            std::stringstream convertir;
-            convertir << nombre;
-            return convertir.str();
-        }
-
-        std::string to_string(uinteger nombre)
-        {
-            // Cette methode permet de convertir du double --> string
-
-            std::stringstream convertir;
-            convertir << nombre;
-            return convertir.str();
-        }
-
-        std::string to_string(unsigned short nombre)
-        {
-            // Cette methode permet de convertir du double --> string
-
-            std::stringstream convertir;
-            convertir << nombre;
-            return convertir.str();
-        }
-
-        int to_int(std::string nombre)
-        {
-            // Cette methode permet de convertir du String --> int
-            int Resultat;
-            std::istringstream(nombre) >> Resultat;
-            return Resultat;
-        }
-
-        uinteger to_uint(std::string nombre)
-        {
-            // Cette methode permet de convertir du String --> uinteger
-            uinteger Resultat;
-            std::istringstream(nombre) >> Resultat;
-            return Resultat;
-        }
-
-        long to_long(std::string nombre)
-        {
-            // Cette methode permet de convertir du String --> long
-            long Resultat;
-            std::istringstream(nombre) >> Resultat;
-            return Resultat;
-        }
-
-        std::string to_str_hex(int nombre)
-        {
-            // Cette methode permet de convertir du string --> hexa
-
-            std::stringstream sstream;
-            sstream << std::hex << nombre;
-            return sstream.str();
-        }
-
-        std::string to_str_hex(uinteger nombre)
-        {
-            // Cette methode permet de convertir du string --> hexa
-
-            std::stringstream sstream;
-            sstream << std::hex << nombre;
-            return sstream.str();
         }
 
         unsigned short Generer_CheckSum(void *TRAME, size_t Taille)

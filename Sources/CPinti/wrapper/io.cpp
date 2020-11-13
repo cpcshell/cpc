@@ -113,7 +113,7 @@ namespace cpinti::gestionnaire_fichier
 
         if (Lire_Fichier_complet(Source, Mode, (char *)_DONNEES, TailleFichier) == true)
         {
-            TailleFichier_STR = cpinti::Func_Cpinti::to_string(TailleFichier);
+            TailleFichier_STR = std::to_string(TailleFichier);
             cpinti_dbg::CPINTI_DEBUG("[OK] " + TailleFichier_STR + " octet(s) lu(s)",
                                      "[OK] " + TailleFichier_STR + " byte(s) readed",
                                      "", "", Ligne_saute, Alerte_surbrille, Date_sans, Ligne_r_normal);
@@ -138,7 +138,7 @@ namespace cpinti::gestionnaire_fichier
 
         int Resultat_int;
 
-        std::string NombrePasses_STR = cpinti::Func_Cpinti::to_string(NombrePasses);
+        std::string NombrePasses_STR = std::to_string(NombrePasses);
 
         if (Securise == false)
             cpinti_dbg::CPINTI_DEBUG("Suppression du fichier '" + std::string(Source) + "' ... ",
