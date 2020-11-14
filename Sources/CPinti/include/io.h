@@ -18,19 +18,9 @@ namespace cpinti::gestionnaire_fichier
 
     int inf(FILE *source, FILE *dest);
 
-    bool Fichier_Existe(const char *Source);
-
-    bool Repertoire_Existe(const char *Source);
-
-    uinteger Taille_Fichier(const char *Source);
-
-    bool Lire_Fichier_complet(const char *Source, const char *MODE, char *_DONNEES, uinteger Taille_Fichier);
-
     bool Ecrire_fichier(const char *Source, const char *Donnees, int FLAG);
 
     bool Supprimer_Ficher(const char *Source, bool securise, int NombrePasses);
-
-    bool Copier_Fichier(const char *Source, const char *Destination, int Priorite, const char *VAR_Progression, const char *VAR_Octets, const char *VAR_OctetsParSec);
 } // namespace cpinti::gestionnaire_fichier
 
 #endif /* INCLUDE_IO */

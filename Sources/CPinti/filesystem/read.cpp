@@ -1,12 +1,11 @@
 #include <cstdio>
 
+#include <cpinti/filesystem.h>
 #include <cpinti/debug.h>
 
-#include "io.h"
-
-namespace cpinti::gestionnaire_fichier
+namespace cpinti::filesystem
 {
-    bool Lire_Fichier_complet(const char *path, const char *mode, char *output, uinteger output_size)
+    bool file_read_all(const char *path, const char *mode, char *output, uinteger output_size)
     {
         debug::trace("Opening file '%s'", path);
 
@@ -29,4 +28,4 @@ namespace cpinti::gestionnaire_fichier
 
         return true;
     }
-} // namespace cpinti::gestionnaire_fichier
+} // namespace cpinti::filesystem

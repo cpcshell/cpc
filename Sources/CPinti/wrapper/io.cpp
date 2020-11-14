@@ -1,39 +1,11 @@
+#include <cpinti/filesystem.h>
+
 #include "io.h"
 #include "debug.h"
 
 
 namespace cpinti::gestionnaire_fichier
 {
-    bool cpinti_Fichier_Existe(const char *Source)
-    {
-        // Cette fonction va permettre de savoir si un fichier existeS
-        // Source 	= Source d'acces au fichier
-
-        // Retourne -1 : Erreur memoire
-        // 			 0 : Fichier non disponible
-        //			 1 : Fichier present
-
-        bool Resultats = false;
-
-        cpinti_dbg::CPINTI_DEBUG("Test existance fichier '" + std::string(Source) + "' ... ",
-                                 "File existance test '" + std::string(Source) + "' ... ",
-                                 "cpinti::gestionnaire_fichier", "cpinti_Fichier_Existe()",
-                                 Ligne_reste, Alerte_validation, Date_avec, Ligne_r_normal);
-
-        Resultats = Fichier_Existe(Source);
-
-        if (Resultats == true)
-            cpinti_dbg::CPINTI_DEBUG("Fichier disponible.",
-                                     "File present.", "", "",
-                                     Ligne_saute, Alerte_surbrille, Date_sans, Ligne_r_normal);
-        else
-            cpinti_dbg::CPINTI_DEBUG("Fichier non present.",
-                                     "File not avaiable.", "", "",
-                                     Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
-
-        return Resultats;
-    } /* FICHIER EXISTE */
-
     uinteger cpinti_Taille_Fichier(const char *Source)
     {
         // Cette fonction va permettre de recuperer la taille d'un fichier
@@ -88,7 +60,7 @@ namespace cpinti::gestionnaire_fichier
         }
 
         // Tester la presence du fichier (Evite les crashs)
-        if (cpinti_Fichier_Existe(Source) == false)
+        if (cpinti::filesystem::file_exist(Source) == false)
         {
             std::string Source_STR = std::string(Source);
             cpinti_dbg::CPINTI_DEBUG("Le fichier '" + Source_STR + "' n'existe pas",
@@ -107,7 +79,7 @@ namespace cpinti::gestionnaire_fichier
                                  "cpinti::gestionnaire_fichier", "cpinti_Lire_Fichier_complet()",
                                  Ligne_reste, Alerte_validation, Date_avec, Ligne_r_normal);
 
-        if (Lire_Fichier_complet(Source, Mode, (char *)_DONNEES, TailleFichier) == true)
+        if (filesystem::file_read_all(Source, Mode, (char *)_DONNEES, TailleFichier) == true)
         {
             TailleFichier_STR = std::to_string(TailleFichier);
             cpinti_dbg::CPINTI_DEBUG("[OK] " + TailleFichier_STR + " octet(s) lu(s)",
@@ -191,7 +163,7 @@ namespace cpinti::gestionnaire_fichier
                                  "cpinti::gestionnaire_fichier", "cpinti_Copier_Fichier()",
                                  Ligne_reste, Alerte_validation, Date_avec, Ligne_r_normal);
 
-        if (cpinti::gestionnaire_fichier::Copier_Fichier(Source, Destination, Priorite, VAR_Progression, VAR_Octets, VAR_OctetsParSec) == true)
+        if (cpinti::filesystem::file_copy(Source, Destination, Priorite, VAR_Progression, VAR_Octets, VAR_OctetsParSec) == true)
         {
             cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "", Ligne_saute, Alerte_surbrille, Date_sans, Ligne_r_normal);
             return true;
