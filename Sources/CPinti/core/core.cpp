@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include <compat/dos.h>
-#include "debug.h"
+#include <cpinti/debug.h>
 #include "core.h"
 
 namespace cpinti::gestionnaire_tache
@@ -76,11 +76,7 @@ namespace cpinti::gestionnaire_tache
 
     bool initialiser_Multitache()
     {
-        // Initialiser le multitasking
-        cpinti_dbg::CPINTI_DEBUG("Preparation du multitache en cours.",
-                                 "Preparating multitask in progress. ",
-                                 "core::gestionnaire_tache", "initialiser_Multitache()",
-                                 Ligne_saute, Alerte_surbrille, Date_avec, Ligne_r_normal);
+        cpinti::debug::trace("Preparating multitask in progress.");
 
         time(&Temps_Depart);
 
@@ -99,11 +95,7 @@ namespace cpinti::gestionnaire_tache
         }
 
         /*** Creer un thread principal "Thread_Updater" ***/
-
-        cpinti_dbg::CPINTI_DEBUG("Creation du thread principal 'Thread_Updater'...",
-                                 "Creating main thread 'Thread_Updater'...",
-                                 "core::gestionnaire_tache", "initialiser_Multitache()",
-                                 Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
+        cpinti::debug::trace("Creating main thread 'Thread_Updater'...");
 
         // Incremente le nombre de threads
         Nombre_Threads++;
@@ -122,11 +114,7 @@ namespace cpinti::gestionnaire_tache
         int toto = 0;
         pthread_create(&Liste_Threads->thread, nullptr, Thread_Updater, (void *)&toto);
 
-        // std::string offset_fonction = std::to_string((uinteger) Thread_Updater);
-        cpinti_dbg::CPINTI_DEBUG(" [OK] TID:0. Fonction offset 0x" + std::to_string((uintptr_t)Thread_Updater),
-                                 " [OK] TID:0. Offset function 0x" + std::to_string((uintptr_t)Thread_Updater),
-                                 "", "",
-                                 Ligne_saute, Alerte_validation, Date_sans, Ligne_r_normal);
+        cpinti::debug::trace(" [OK] TID:0. Offset function 0x%p", Thread_Updater);
 
         // Reexecuter le scheduler normalement
         end_SectionCritique();
@@ -152,11 +140,8 @@ namespace cpinti::gestionnaire_tache
                 }
         }
 
-        std::string nombre_threads_STR = std::to_string((uinteger)nombre_threads);
-        cpinti_dbg::CPINTI_DEBUG("Signal de fermeture envoye aux " + nombre_threads_STR + " thread(s). Attente",
-                                 "Closing signal sent to " + nombre_threads_STR + " threads(s). Waiting",
-                                 "", "",
-                                 Ligne_saute, Alerte_avertissement, Date_sans, Ligne_r_normal);
+        cpinti::debug::trace("Closing signal sent to %lu thread(s). Waiting", nombre_threads);
+
         fflush(stdout);
 
         // On attend un peut
@@ -199,25 +184,15 @@ namespace cpinti::gestionnaire_tache
 
     uinteger ajouter_Processus(const char *NomProcessus)
     {
-        // Cette fonction permet de creer un processus pour heberger des threads
-
-        std::string NomProcessus_STR = NomProcessus;
 
         // Si on atteint le nombre maximum de processus
         if (Nombre_Processus >= MAX_PROCESSUS)
         {
-            std::string nombre_processus_STR = std::to_string((uinteger)MAX_PROCESSUS);
-            cpinti_dbg::CPINTI_DEBUG("[ERREUR] Impossible d'attribuer un nouveau PID. Le nombre est fixe a " + nombre_processus_STR + " processus maximum.",
-                                     "[ERROR] Unable to attrib new PID. The maximal process number value is " + nombre_processus_STR,
-                                     "", "",
-                                     Ligne_saute, Alerte_erreur, Date_avec, Ligne_r_normal);
+            cpinti::debug::error("Unable to attrib new PID. The maximal process number value is %lu", MAX_PROCESSUS);
             return 0;
         }
 
-        cpinti_dbg::CPINTI_DEBUG("Creation du processus '" + NomProcessus_STR + "'...",
-                                 "Creating process '" + NomProcessus_STR + "'...",
-                                 "core::gestionnaire_tache", "ajouter_Processus()",
-                                 Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
+        cpinti::debug::trace("Creating process '%s'...", NomProcessus);
 
         uinteger Nouveau_PID = 0;
 
@@ -232,11 +207,7 @@ namespace cpinti::gestionnaire_tache
         }
         if (Nouveau_PID == 0)
         {
-            std::string nombre_threads_STR = std::to_string((uinteger)MAX_THREAD);
-            cpinti_dbg::CPINTI_DEBUG(" [ERREUR] Impossible d'attribuer un nouveau PID. Aucune zone memoire libere",
-                                     " [ERROR] Unable to attrib new PID. No free memory",
-                                     "", "",
-                                     Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
+            cpinti::debug::error("Unable to attrib new PID. No free memory");
             return 0;
         }
 
@@ -252,11 +223,7 @@ namespace cpinti::gestionnaire_tache
         // Etat en execution
         Liste_Processus[Nouveau_PID].Etat_Processus = _EN_EXECUTION;
 
-        std::string Nouveau_PID_STR = std::to_string((uinteger)Nouveau_PID);
-        cpinti_dbg::CPINTI_DEBUG(" [OK] PID " + Nouveau_PID_STR + ".",
-                                 " [OK] PID " + Nouveau_PID_STR + ".",
-                                 "", "",
-                                 Ligne_saute, Alerte_validation, Date_sans, Ligne_r_normal);
+        cpinti::debug::trace("[OK] PID %lu.", Nouveau_PID);
 
         // Retourner l'ID
         return Nouveau_PID;
@@ -276,24 +243,15 @@ namespace cpinti::gestionnaire_tache
 
         if (Liste_Processus[pid].Etat_Processus == _ARRETE)
         {
-            cpinti_dbg::CPINTI_DEBUG("Le processus " + std::to_string((uinteger)pid) + " est deja arrete",
-                                     "Process " + std::to_string((uinteger)pid) + " is already stopped",
-                                     "", "",
-                                     Ligne_saute, Alerte_avertissement, Date_sans, Ligne_r_normal);
+            cpinti::debug::trace("Process %lu is already stopped", pid);
         }
         else if (Liste_Processus[pid].Etat_Processus == _EN_ARRET)
         {
-            cpinti_dbg::CPINTI_DEBUG("Arret du processus " + std::to_string((uinteger)pid) + " deja signale",
-                                     "Process stopping " + std::to_string((uinteger)pid) + " is already signaled",
-                                     "", "",
-                                     Ligne_saute, Alerte_avertissement, Date_sans, Ligne_r_normal);
+            cpinti::debug::trace("Process stopping %lu is already signaled");
         }
         else
         {
-            cpinti_dbg::CPINTI_DEBUG("Arret du processus PID " + std::to_string((uinteger)pid) + " en cours...",
-                                     "Stopping process PID " + std::to_string((uinteger)pid) + " in progress",
-                                     "core::gestionnaire_tache", "supprimer_Processus()",
-                                     Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
+            cpinti::debug::trace("Stopping process PID %lu in progress...", pid);
 
             // Mettre le processus en etat STOP = 0
             Liste_Processus[pid].Etat_Processus = _EN_ARRET;
@@ -323,45 +281,25 @@ namespace cpinti::gestionnaire_tache
 
             if (compteur_thread > 0)
             {
-                // std::string compteur_thread_STR = std::to_string(compteur_thread);
-
-                // Declarer le processus mort (On conserve certaines infos pour le debug)
-                cpinti_dbg::CPINTI_DEBUG("Un signal d'arret a ete envoye a " + std::to_string(compteur_thread) + " thread(s)",
-                                         "Stopping signal has been sent to " + std::to_string(compteur_thread) + " thread(s)",
-                                         "core::gestionnaire_tache", "supprimer_Processus()",
-                                         Ligne_saute, Alerte_ok, Date_avec, Ligne_r_normal);
+                cpinti::debug::trace("Stopping signal has been sent to %d thread(s)", compteur_thread);
             }
             else
             {
-                cpinti_dbg::CPINTI_DEBUG("Aucun threads heberge dans le processus. Hm.. parfait!",
-                                         "Nothing hosted threads in the process. Hm.. perfect!",
-                                         "core::gestionnaire_tache", "supprimer_Processus()",
-                                         Ligne_saute, Alerte_ok, Date_avec, Ligne_r_normal);
+                cpinti::debug::trace("Nothing hosted threads in the process. Hm.. perfect!");
             }
             // Declarer le processus mort (On conserve certaines infos pour le debug)
-            cpinti_dbg::CPINTI_DEBUG("Envoi d'un signal d'arret au processus (Attente de la fermeture des threads) ...",
-                                     "Sending stopping signal to process (Waiting threads closing) ...",
-                                     "core::gestionnaire_tache", "supprimer_Processus()",
-                                     Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
+            cpinti::debug::trace("Sending stopping signal to process (Waiting threads closing) ...");
 
             memset(Liste_Processus[pid].Nom_Processus, 0, 32);
             // free(Liste_Processus[pid].Nom_Processus);
 
             Liste_Processus[pid].Etat_Processus = _ARRETE;
             Liste_Processus[pid].PID = 0;
-
-            cpinti_dbg::CPINTI_DEBUG(" [OK]",
-                                     " [OK]",
-                                     "", "",
-                                     Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
         }
 
         Nombre_Processus--;
 
-        cpinti_dbg::CPINTI_DEBUG("Processus " + std::to_string((uinteger)pid) + " supprime!",
-                                 "Process " + std::to_string((uinteger)pid) + " deleted!",
-                                 "core::gestionnaire_tache", "supprimer_Processus()",
-                                 Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
+        cpinti::debug::trace("Process %lu deleted!", pid);
 
         return true;
     }
@@ -405,28 +343,16 @@ namespace cpinti::gestionnaire_tache
         // Si on atteint le nombre maximum de threads
         if (Nombre_Threads >= MAX_THREAD)
         {
-            // std::string nombre_threads_STR = std::to_string((uinteger) MAX_THREAD);
-            cpinti_dbg::CPINTI_DEBUG("[ERREUR] Impossible d'attribuer un nouveau TID. Le nombre est fixe a " + std::to_string(MAX_THREAD) + " thread(s) maximum.",
-                                     "[ERROR] Unable to attrib new TID. The maximal thread(s) number value is " + std::to_string(MAX_THREAD),
-                                     "", "ajouter_Thread()",
-                                     Ligne_saute, Alerte_erreur, Date_avec, Ligne_r_normal);
+            cpinti::debug::error("Unable to attrib new TID. The maximal thread(s) number value is %d", MAX_THREAD);
             return 0;
         }
 
-        std::string pid_STR = std::to_string((uinteger)pid);
-
-        cpinti_dbg::CPINTI_DEBUG("Creation du thread '" + std::string(NomThread) + "' dans le processus " + pid_STR + "...",
-                                 "Creating thread '" + std::string(NomThread) + "' in the process " + pid_STR + "...",
-                                 "core::gestionnaire_tache", "ajouter_Thread()",
-                                 Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
+        cpinti::debug::trace("Creating thread '%s' in process %lu...", NomThread, pid);
 
         // Si le processus n'existe pas
         if (Liste_Processus[pid].PID != pid)
         {
-            cpinti_dbg::CPINTI_DEBUG(" [ERREUR] Le PID " + pid_STR + " n'existe pas. Impossible d'heberger un nouveau thread.",
-                                     " [ERROR] PID " + pid_STR + " not exist. Unable to host the new thread.",
-                                     "", "ajouter_Thread()",
-                                     Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
+            cpinti::debug::error("PID %lu not exist. Unable to host the new thread.", pid);
             return 0;
         }
 
@@ -443,11 +369,7 @@ namespace cpinti::gestionnaire_tache
 
         if (Nouveau_TID == 0)
         {
-
-            cpinti_dbg::CPINTI_DEBUG(" [ERREUR] Impossible d'attribuer un nouveau TID. Aucune zone memoire libere",
-                                     " [ERROR] Unable to attrib new TID. No free memory",
-                                     "core::gestionnaire_tache", "ajouter_Thread()",
-                                     Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
+            cpinti::debug::error("Unable to attrib new TID. No free memory");
 
             SORTIR_SectionCritique();
 
@@ -496,12 +418,7 @@ namespace cpinti::gestionnaire_tache
 
         // Liste_Threads[Nouveau_TID].PTID = (uinteger) &Liste_Threads[Nouveau_TID].thread;
 
-        // std::string offset_fonction_STR = std::to_string((uinteger) Fonction);
-        // std::string tid_STR = std::to_string((uinteger) Nouveau_TID);
-        cpinti_dbg::CPINTI_DEBUG(" [OK] TID:" + std::to_string((uinteger)Nouveau_TID) + ". Fonction offset 0x" + std::to_string((uintptr_t)Fonction),
-                                 " [OK] TID:" + std::to_string((uinteger)Nouveau_TID) + ". Offset function 0x" + std::to_string((uintptr_t)Fonction),
-                                 "", "",
-                                 Ligne_saute, Alerte_validation, Date_sans, Ligne_r_normal);
+        cpinti::debug::trace(" [OK] TID: %lu. Function offset 0x%p", Nouveau_TID, Fonction);
 
         SORTIR_SectionCritique();
 
@@ -520,11 +437,7 @@ namespace cpinti::gestionnaire_tache
         {
 
             Nombre_Threads--;
-
-            cpinti_dbg::CPINTI_DEBUG("Suppression du thread '" + std::string(Liste_Threads[tid].Nom_Thread) + "' TID:" + std::to_string((uinteger)tid) + " PID:" + std::to_string((uinteger)Liste_Threads[tid].PID) + ". " + std::to_string((uinteger)Nombre_Threads) + " thread(s) restant(s)",
-                                     "Deleting thread '" + std::string(Liste_Threads[tid].Nom_Thread) + "' TID:" + std::to_string((uinteger)tid) + " PID:" + std::to_string((uinteger)Liste_Threads[tid].PID) + ". " + std::to_string((uinteger)Nombre_Threads) + "remaining thread(s)",
-                                     "core::gestionnaire_tache", "supprimer_Thread()",
-                                     Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
+            cpinti::debug::trace("Deleting thread '%s' TID: %lu PID: %lu. %lu thread(s) restant(s)", Liste_Threads[tid].Nom_Thread, tid, Liste_Threads[tid].PID, Nombre_Threads);
 
             Liste_Processus[Liste_Threads[tid].PID].Threads_Enfant[tid] = false;
 
@@ -539,10 +452,7 @@ namespace cpinti::gestionnaire_tache
         }
         else
         {
-            cpinti_dbg::CPINTI_DEBUG("Envoi d'un signal d'arret au thread '" + std::to_string((uinteger)tid) + "' PID:" + std::to_string((uinteger)Liste_Threads[tid].PID),
-                                     "Sending stopping signal to thread '" + std::to_string((uinteger)tid) + "' PID:" + std::to_string((uinteger)Liste_Threads[tid].PID),
-                                     "core::gestionnaire_tache", "supprimer_Thread()",
-                                     Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
+            cpinti::debug::trace("Sending stopping signal to thread '%lu' PID: %lu", tid, Liste_Threads[tid].PID);
 
             // Ce changement d'etat va provoquer un arret "automatique" du thread
             // Au bout de quelques secondes le thread va passer en mode "zombie"

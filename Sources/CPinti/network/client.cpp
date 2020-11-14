@@ -1,8 +1,13 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <sys/socket.h>
 
-#include "debug.h"
+#include <cpinti/buffer.h>
+#include <cpinti/client.h>
+#include <cpinti/debug.h>
+
+#include "stack.h"
 
 // #include "core.h" // SectionCritique
 // Exception de declaration due a une structure differente
@@ -17,12 +22,6 @@ namespace cpinti
 #define ENTRER_SectionCritique cpinti::gestionnaire_tache::begin_SectionCritique
 #define SORTIR_SectionCritique cpinti::gestionnaire_tache::end_SectionCritique
 
-#include <sys/socket.h>
-
-#include "cpinti/buffer.h"
-#include "cpinti/client.h"
-
-#include "stack.h"
 
 extern "C" void cpc_CCP_Exec_Commande(const char *COMMANDE, int ID);
 
@@ -145,25 +144,14 @@ namespace cpinti
             /********************** CREATION D'UN SOCKET **********************/
             /******************************************************************/
 
-            cpinti_dbg::CPINTI_DEBUG("Configuration du socket ",
-                                     "Socket configuration ",
-                                     "CLT:" + _NumeroID_STR, "Demarrer_client()", Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
+            cpinti::debug::trace("[CLT: %lu] Socket configuration");
 
             // socket create and varification
             if ((SocketReseau = socket(AF_INET, SOCK_STREAM, 0)) == 0)
             {
-                Erreur_STR = std::string(strerror(errno));
-                cpinti_dbg::CPINTI_DEBUG("[ERREUR] Impossible de creer le socket. Raison:'" + Erreur_STR + "'",
-                                         "[ERROR] Unable to create socket. Reason:'" + Erreur_STR + "'",
-                                         "", "", Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
+                cpinti::debug::error("Unable to create socket. Reason: %s", strerror(errno));
                 return CLIENT_ERR_INIT_SOCK;
             }
-
-            cpinti_dbg::CPINTI_DEBUG(".", ".",
-                                     "", "", Ligne_reste, Alerte_action, Date_sans, Ligne_r_normal);
-
-            cpinti_dbg::CPINTI_DEBUG(".", ".",
-                                     "", "", Ligne_reste, Alerte_action, Date_sans, Ligne_r_normal);
 
             TempsMAX.tv_sec = 0;
             TempsMAX.tv_usec = 5;
@@ -172,18 +160,9 @@ namespace cpinti
             if (setsockopt(SocketReseau, SOL_SOCKET, SO_RCVTIMEO, (char *)&TempsMAX, sizeof(TempsMAX)) == -1)
             {
                 //Stocker l'erreur dans un attribut membre de la classe qu'on pourrai recuperer
-                Erreur_STR = std::string(strerror(errno));
-                cpinti_dbg::CPINTI_DEBUG("[ERREUR] Impossible de configurer 'SO_RCVTIMEO' sur le socket. Raison:'" + Erreur_STR + "'",
-                                         "[ERROR] Unable to configure 'SO_RCVTIMEO' on the socket. Reason:'" + Erreur_STR + "'",
-                                         "", "", Ligne_saute, Alerte_erreur, Date_sans, Ligne_r_normal);
+                cpinti::debug::error("Unable to configure 'SO_RCVTIMEO' on the socket. Reason: %s", strerror(errno));
                 return CLIENT_ERR_INIT_SOCK;
             }
-
-            cpinti_dbg::CPINTI_DEBUG(".", ".",
-                                     "", "", Ligne_reste, Alerte_action, Date_sans, Ligne_r_normal);
-
-            cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]",
-                                     "", "", Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
 
             /******************************************************************/
             /************************ RESOLUTION DNS **************************/
@@ -654,9 +633,7 @@ namespace cpinti
 
                             if (Fichier_TEMP_STR != "")
                             {
-                                cpinti_dbg::CPINTI_DEBUG("Fermeture fichier",
-                                                         "Fermeture fichier",
-                                                         "CLT:" + _NumeroID_STR, "", Ligne_saute, Alerte_action, Date_avec, Ligne_r_normal);
+                                cpinti::debug::trace("[CLT: %lu] Close file", _NumeroID);
 
                                 Fichier_TEMP_FERME = true;
                                 fclose(FD_fichiertemp);
@@ -688,9 +665,7 @@ namespace cpinti
 
                     if ((TailleContenu == 0) && (TailleLue = read(SocketReseau, buffer, TailleBuffer) == 0))
                     {
-                        cpinti_dbg::CPINTI_DEBUG("Le serveur a ferme la connexion.",
-                                                 "Server has close connection.",
-                                                 "CLT:" + _NumeroID_STR, "", Ligne_saute, Alerte_avertissement, Date_sans, Ligne_r_normal);
+                        cpinti::debug::warn("[CLT: %lu] Server has closed connection", _NumeroID);
                         EN_VIE = false;
                     }
                     else

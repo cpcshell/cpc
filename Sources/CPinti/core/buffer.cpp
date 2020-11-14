@@ -1,8 +1,9 @@
 #include <string>
 
-#include "cpinti/buffer.h"
+#include <cpinti/buffer.h>
+#include <cpinti/debug.h>
+
 #include "stack.h"
-#include "debug.h"
 
 namespace cpinti
 {
@@ -56,25 +57,9 @@ namespace cpinti
                 // Pour verifier si tout est ok
                 bool Stack_init_ok = false;
 
-                // Debug
-                std::string _ID_STR = std::to_string(_ID);
+                cpinti::debug::trace("(ID: %lu) Research free block....", _ID);
 
-                cpinti_dbg::CPINTI_DEBUG("(ID:" + _ID_STR + ") Recherche d'un emplacement libre... ",
-                                         "(ID:" + _ID_STR + ") Research free block... ",
-                                         "STACK", "cpinti_GEST_BUFF", Ligne_saute, Alerte_action, Date_avec, Ligne_r_normal);
-
-                // Debug
-                std::string _MAX_Stack_block_STR = std::to_string(_MAX_Stack_block);
-                std::string index_STR = std::to_string(0);
-
-                cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
-                                         Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
-
-                cpinti_dbg::CPINTI_DEBUG("[vector<unique_ptr<cpinti::cpinti_stack_inv>>] Creation d'un stack 'KERNEL' de " + _MAX_Stack_block_STR + " block(s) de memoire a l'index " + index_STR + " ... ",
-                                         "[vector<unique_ptr<cpinti::cpinti_stack_inv>>] Creating 'KERNEL' stack with " + _MAX_Stack_block_STR + " memory block(s) at " + index_STR + " ... ",
-                                         "STACK", "cpinti_GEST_BUFF", Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
-
-                /************** VERIFIER QUE CA PLANTE PAS ICI **************/
+                cpinti::debug::trace("[vector<unique_ptr<cpinti::cpinti_stack_inv>>] Creating 'KERNEL' stack with %lu memory block(s)", _MAX_Stack_block);
 
                 // Instancier une nouvelle instance de unique_ptr
                 cpinti::stack_kernel.emplace_back(std::make_shared<cpinti::cpinti_stack_inv>());
@@ -85,12 +70,7 @@ namespace cpinti
                 // Ajouter l'id
                 cpinti::stack_kernel.back()->tag_1 = _ID;
 
-                cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
-                                         Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
-
-                cpinti_dbg::CPINTI_DEBUG("[vector<unique_ptr<cpinti::cpinti_stack_inv>>] Creation d'un stack 'SERVEUR' de " + _MAX_Stack_block_STR + " block(s) de memoire a l'index " + index_STR + " ... ",
-                                         "[vector<unique_ptr<cpinti::cpinti_stack_inv>>] Creating 'SERVER' stack with " + _MAX_Stack_block_STR + " memory block(s) at " + index_STR + " ... ",
-                                         "STACK", "cpinti_GEST_BUFF", Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
+                cpinti::debug::trace("[vector<unique_ptr<cpinti::cpinti_stack_inv>>] Creating 'SERVER' stack with %lu memory block(s)", _MAX_Stack_block);
 
                 // Instancier une nouvelle instance de unique_ptr
                 cpinti::stack_server.emplace_back(std::make_shared<cpinti::cpinti_stack_inv>());
@@ -101,50 +81,30 @@ namespace cpinti
                 // Ajouter l'id
                 cpinti::stack_kernel.back()->tag_1 = _ID;
 
-                /************** VERIFIER QUE CA PLANTE PAS ICI **************/
-
-                cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
-                                         Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
-
                 Stack_init_ok = true;
 
                 if (Stack_init_ok == true)
-                    cpinti_dbg::CPINTI_DEBUG("Allocation memoire dynamique d'un stack communiquant 'KERNEL' <--> 'SERVEUR' termine!",
-                                             "Dynamic communicating memory allocation 'KERNEL' <--> 'SERVER' terminated!",
-                                             "STACK", "cpinti_GEST_BUFF", Ligne_saute, Alerte_validation, Date_avec, Ligne_r_normal);
+                {
+                    cpinti::debug::trace("Dynamic communicating memory allocation 'KERNEL' <--> 'SERVER' terminated!");
+                }
                 else
-                    cpinti_dbg::CPINTI_DEBUG("Impossible d'allouer de la memoire dynamique d'un stack communiquant 'KERNEL' <--> 'SERVEUR'!",
-                                             "Unable to allocate Dynamic communicating memory 'KERNEL' <--> 'SERVER'",
-                                             "STACK", "cpinti_GEST_BUFF", Ligne_saute, Alerte_erreur, Date_avec, Ligne_r_normal);
+                {
+                    cpinti::debug::error("Unable to allocate Dynamic communicating memory 'KERNEL' <--> 'SERVER'");
+                }
             }
             else if (_CHEMIN == _STACK_SUPPRIMER)
             {
                 // Creer une nouvelle instance d'un stack
 
                 // Debug
-                std::string _ID_STR = std::to_string(_ID);
-
-                cpinti_dbg::CPINTI_DEBUG("(ID:" + _ID_STR + ") Recherche de l'instance a desallouer... ",
-                                         "(ID:" + _ID_STR + ") Research instance to dealloc... ",
-                                         "STACK", "cpinti_GEST_BUFF", Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
-
-                cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
-                                         Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
+                cpinti::debug::trace("(ID: %lu) Research instance to dealloc...", _ID);
 
                 bool Suppression_ok = false;
                 // Recuperer l'ID DEPUIS le vector et non depuis Stack__PORT_ATTRIB
                 for (uinteger index_tab = 0; index_tab < cpinti::stack_kernel.size(); index_tab++)
                     if (cpinti::stack_kernel.at(index_tab)->tag_1 == _ID)
                     {
-                        // Debug
-                        std::string _MAX_Stack_block_STR = std::to_string(_MAX_Stack_block);
-                        std::string index_STR = std::to_string(index_tab);
-
-                        cpinti_dbg::CPINTI_DEBUG("[vector<shared_ptr<cpinti::cpinti_stack_inv>>] Suppression d'un stack 'KERNEL' de " + _MAX_Stack_block_STR + " block(s) de memoire a l'index " + index_STR + " ... ",
-                                                 "[vector<shared_ptr<cpinti::cpinti_stack_inv>>] Deleting 'KERNEL' stack with " + _MAX_Stack_block_STR + " memory block(s) at " + index_STR + " ... ",
-                                                 "STACK", "cpinti_GEST_BUFF", Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
-
-                        /************** VERIFIER QUE CA PLANTE PAS ICI **************/
+                        cpinti::debug::trace("[vector<shared_ptr<cpinti::cpinti_stack_inv>>] Deleting 'KERNEL' stack with %lu memory block(s)", _MAX_Stack_block);
 
                         // Verifier son existence
                         if (cpinti::stack_kernel.empty() == false)
@@ -165,12 +125,7 @@ namespace cpinti
                             cpinti::stack_kernel.shrink_to_fit();
                         }
 
-                        cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
-                                                 Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
-
-                        cpinti_dbg::CPINTI_DEBUG("[vector<shared_ptr<cpinti::cpinti_stack_inv>>] Suppression d'un stack 'SERVEUR' de " + _MAX_Stack_block_STR + " block(s) de memoire a l'index " + index_STR + " ... ",
-                                                 "[vector<shared_ptr<cpinti::cpinti_stack_inv>>] Deleting 'SERVER' stack with " + _MAX_Stack_block_STR + " memory block(s) at " + index_STR + " ... ",
-                                                 "STACK", "cpinti_GEST_BUFF", Ligne_reste, Alerte_action, Date_avec, Ligne_r_normal);
+                        cpinti::debug::trace("[vector<shared_ptr<cpinti::cpinti_stack_inv>>] Deleting 'SERVER' stack with %lu memory block(s)", _MAX_Stack_block);
 
                         // Verifier son existence
                         if (cpinti::stack_server.empty() == false)
@@ -191,19 +146,14 @@ namespace cpinti
                             cpinti::stack_server.shrink_to_fit();
                         }
 
-                        /************** VERIFIER QUE CA PLANTE PAS ICI **************/
-
-                        cpinti_dbg::CPINTI_DEBUG("[OK]", "[OK]", "", "",
-                                                 Ligne_saute, Alerte_ok, Date_sans, Ligne_r_normal);
-
                         Suppression_ok = true;
                         break;
                     }
 
                 if (Suppression_ok == false)
-                    cpinti_dbg::CPINTI_DEBUG("Impossible de trouver l'instance",
-                                             "Unable to find instance",
-                                             "STACK", "cpinti_GEST_BUFF", Ligne_reste, Alerte_erreur, Date_avec, Ligne_r_normal);
+                {
+                    cpinti::debug::error("Unable to find instance");
+                }
             }
         }
         return _DONNEES;
