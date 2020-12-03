@@ -13,6 +13,9 @@
 
 err
 cpcldr
+!cpcldr/
+cpcsh
+!cpcsh/
 
 # chroot directory 
 jail/
