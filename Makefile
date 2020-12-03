@@ -27,10 +27,11 @@ cpcsh: $(CPCSH_OBJS)
 %.o: %.cpp
 	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
-run: cpcldr
+run: cpcldr cpcsh
 	xhost +
 	sudo bash ./jail.sh
-	sudo cp $(TARGET) jail/bin/$(TARGET)
+	sudo cp cpcldr jail/bin/
+	sudo cp cpcsh jail/bin/
 	DISPLAY=$$DISPLAY sudo chroot jail/ cpcldr
 	xhost -
 
