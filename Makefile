@@ -1,31 +1,30 @@
 .SUFFIXES:
 
-CXX			?= g++
-CXXFLAGS	+= -std=c++17 -Wall -Wextra -Werror
+CC			?= gcc
+CFLAGS		+= -std=c99 -Wall -Wextra -Werror
+LDFLAGS		+= 
 
-CPCLDR_SRCS	= main.cpp
-CPCSH_SRCS	= main.cpp
+
+CPCLDR_SRCS	= main.c
+CPCSH_SRCS	= main.c
 
 CPCLDR_OBJS	= $(addprefix src/cpcldr/, $(CPCLDR_SRCS:.c=.o))
 CPCSH_OBJS	= $(addprefix src/cpcsh/, $(CPCSH_SRCS:.c=.o))
 
-LD			?= ld
-LDFLAGS		+= 
-
 all: cpcldr cpcsh
 
-debug: CXXFLAGS	+= -g -ggdb -fsanitize=undefined -fsanitize=address
+debug: CFLAGS	+= -g -ggdb -fsanitize=undefined -fsanitize=address
 debug: LDFLAGS	+= -g -ggdb -fsanitize=undefined -fsanitize=address
 debug: cpcldr cpcsh
 
 cpcldr: $(CPCLDR_OBJS)
-	$(CXX) -o $@ $^ $(LDFLAGS)
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 cpcsh: $(CPCSH_OBJS)
-	$(CXX) -o $@ $^ $(LDFLAGS)
+	$(CC) -o $@ $^ $(LDFLAGS)
 
-%.o: %.cpp
-	$(CXX) -c -o $@ $< $(CXXFLAGS)
+%.o: %.c
+	$(CC) -c -o $@ $< $(CFLAGS)
 
 run: cpcldr cpcsh
 	xhost +
@@ -39,7 +38,7 @@ clean:
 	rm -f $(CPCSH_OBJS)
 	rm -f $(CPCSH_OBJS)
 
-fclean:
+fclean: clean
 	rm -f cpcldr cpcsh
 
 re: fclean all
