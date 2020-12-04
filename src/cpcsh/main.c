@@ -1,4 +1,11 @@
-int main()
+#include <cpcdos/logger.h>
+
+int main(int argc, char const *argv[])
 {
-    return 0;
+    (void)argc;
+
+    LOG_INIT(argv[0]);
+	LOG(LOG_DEBUG, "Hello world");
+    LOG_DEINIT();
+	return (0);
 }

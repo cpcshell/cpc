@@ -1,15 +1,16 @@
 .SUFFIXES:
 
 CC			?= gcc
-CFLAGS		+= -std=c99 -Wall -Wextra -Werror
+CFLAGS		+= -std=c99 -Wall -Wextra -Werror -Iinclude
 LDFLAGS		+= 
 
-
+COMMON_SRCS	= logger.c
 CPCLDR_SRCS	= main.c
 CPCSH_SRCS	= main.c
 
-CPCLDR_OBJS	= $(addprefix src/cpcldr/, $(CPCLDR_SRCS:.c=.o))
-CPCSH_OBJS	= $(addprefix src/cpcsh/, $(CPCSH_SRCS:.c=.o))
+COMMON_OBJS	= $(addprefix src/common/, $(COMMON_SRCS:.c=.o))
+CPCLDR_OBJS	= $(addprefix src/cpcldr/, $(CPCLDR_SRCS:.c=.o)) $(COMMON_OBJS)
+CPCSH_OBJS	= $(addprefix src/cpcsh/, $(CPCSH_SRCS:.c=.o)) $(COMMON_OBJS)
 
 all: cpcldr cpcsh
 
