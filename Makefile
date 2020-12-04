@@ -5,7 +5,7 @@ CFLAGS		+= -std=c99 -Wall -Wextra -Werror -Iinclude
 LDFLAGS		+= 
 
 COMMON_SRCS	= logger.c
-CPCLDR_SRCS	= main.c
+CPCLDR_SRCS	= main.c daemonize.c
 CPCSH_SRCS	= main.c
 
 COMMON_OBJS	= $(addprefix src/common/, $(COMMON_SRCS:.c=.o))
