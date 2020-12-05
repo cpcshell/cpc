@@ -8,13 +8,8 @@ Port of [Cpcdos](http://cpcdos.net) on GNU+Linux
 
 ## Dependencies
 
-- Freebasic
-- g++
-- libzip-dev
-- libxrandr-dev
-- libxext-dev
-- libxpm-dev
-- libpng-dev
+- gcc/clang or any other c99 compiler
+- libx11-dev
 
 ## Usage
 

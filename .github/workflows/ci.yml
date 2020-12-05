@@ -13,7 +13,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install build-essential
+        sudo apt-get install build-essential libx11-dev
         sudo apt-get install clang
 
 

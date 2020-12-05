@@ -1,15 +1,19 @@
 .SUFFIXES:
 
 CC			?= gcc
-CFLAGS		+= -std=c99 -Wall -Wextra -Werror -Iinclude
-LDFLAGS		+= 
+CFLAGS		+= -std=c99 -Wall -Wextra -Werror -Iinclude \
+				`pkg-config --cflags x11`
+LDFLAGS		+= `pkg-config --libs x11`
 
 COMMON_SRCS	= logger.c
+WM_SRCS		= wm.c
 CPCLDR_SRCS	= main.c daemonize.c
 CPCSH_SRCS	= main.c
 
 COMMON_OBJS	= $(addprefix src/common/, $(COMMON_SRCS:.c=.o))
-CPCLDR_OBJS	= $(addprefix src/cpcldr/, $(CPCLDR_SRCS:.c=.o)) $(COMMON_OBJS)
+WM_OBJS		= $(addprefix window_manager/, $(WM_SRCS:.c=.o))
+CPCLDR_OBJS	= $(addprefix src/cpcldr/, $(CPCLDR_SRCS:.c=.o) $(WM_OBJS)) \
+				$(COMMON_OBJS)
 CPCSH_OBJS	= $(addprefix src/cpcsh/, $(CPCSH_SRCS:.c=.o)) $(COMMON_OBJS)
 
 all: cpcldr cpcsh

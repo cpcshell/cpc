@@ -3,11 +3,13 @@
 #include <unistd.h>
 #include <cpcdos/cpcldr.h>
 #include <cpcdos/logger.h>
+#include <cpcdos/cpcldr/window_manager/wm.h>
 #include "daemonize.h"
 
 void
 on_exit(void)
 {
+	wm_stop();
 	remove(PID_FILE);
 
 	LOG_DEINIT();
@@ -27,5 +29,6 @@ main(int argc, char const *argv[])
 	daemonize("/", PID_FILE);
 	LOG_INIT(argv[0]);
 	LOG(LOG_DEBUG, "Hello world");
+	wm_run();
 	return (EXIT_SUCCESS);
 }
