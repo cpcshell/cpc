@@ -3,7 +3,7 @@
 CC			?= gcc
 CFLAGS		+= -std=c99 -Wall -Wextra -Werror -Iinclude \
 				`pkg-config --cflags x11`
-LDFLAGS		+= `pkg-config --libs x11`
+LDFLAGS		+= `pkg-config --libs x11` -lzmq -lczmq
 
 COMMON_SRCS	= logger.c
 WM_SRCS		= wm.c
@@ -40,7 +40,7 @@ run: cpcldr cpcsh
 	xhost -
 
 clean:
-	rm -f $(CPCSH_OBJS)
+	rm -f $(CPCLDR_OBJS)
 	rm -f $(CPCSH_OBJS)
 
 fclean: clean

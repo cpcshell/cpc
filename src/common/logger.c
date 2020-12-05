@@ -4,7 +4,7 @@
 #include <syslog.h>
 
 void
-__log(int lvl, const char *file, const char *func, int line,
+cpcdos_log(int lvl, const char *file, const char *func, int line,
 											const char *msg, ...)
 {
 	int n;

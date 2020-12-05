@@ -10,6 +10,7 @@ Port of [Cpcdos](http://cpcdos.net) on GNU+Linux
 
 - gcc/clang or any other c99 compiler
 - libx11-dev
+- libczmq-dev
 
 ## Usage
 
