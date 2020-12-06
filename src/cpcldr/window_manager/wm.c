@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <X11/Xlib.h>
+#include <cpcdos/cpcdos.h>
 #include <cpcdos/logger.h>
 
 static Display *_display = NULL;
@@ -13,7 +14,7 @@ wm_init(void)
 	_display = XOpenDisplay(NULL);
 	if (_display == NULL)
 	{
-		LOG(LOG_ERR, "Failed to open X dispaly '%s'", XDisplayName(NULL));
+		LOG(LOG_ERR, _("Failed to open X dispaly '%s'"), XDisplayName(NULL));
 		return (-1);
 	}
 
@@ -38,7 +39,7 @@ wm_on_error(Display *display, XErrorEvent *e)
 	char buffer[1024];
 
 	XGetErrorText(display, e->error_code, buffer, 1024);
-	LOG(LOG_ERR, "X error: %s", buffer);
+	LOG(LOG_ERR, _("X error: %s"), buffer);
 
 	return (0);
 }
@@ -57,7 +58,7 @@ wm_run(void)
 	XSync(_display, false);
 	if (_a_wm_already_exist)
 	{
-		LOG(LOG_ERR, "Another window manager is already running on display '%s'",
+		LOG(LOG_ERR, _("Another window manager is already running on display '%s'"),
 			XDisplayString(_display));
 		return (-1);
 	}

@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-06 09:40+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/cpcldr/main.c:32
+#, c-format
+msgid "%s is already running"
+msgstr "%sはすでに実行されています"
+
+#: src/cpcldr/window_manager/wm.c:61
+#, c-format
+msgid "Another window manager is already running on display '%s'"
+msgstr "別のウィンドウマネージャーがすでにディスプレイ「%s」で実行されています"
+
+#: src/cpcldr/main.c:43
+msgid "Failed to initialize ipc"
+msgstr ""
+
+#: src/cpcldr/window_manager/wm.c:17
+#, c-format
+msgid "Failed to open X dispaly '%s'"
+msgstr ""
+
+#: src/cpcldr/main.c:38 src/cpcsh/main.c:13
+msgid "Hello world"
+msgstr "こんにちは世界"
+
+#: src/cpcldr/window_manager/wm.c:42
+#, c-format
+msgid "X error: %s"
+msgstr ""

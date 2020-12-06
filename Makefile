@@ -48,4 +48,7 @@ fclean: clean
 
 re: fclean all
 
+make-pot:
+	xgettext --keyword=_ --language=C --add-comments --sort-output -o po/cpcdos.pot $(CPCLDR_OBJS:.o=.c) $(CPCSH_OBJS:.o)
+
 .PHONY: all debug run clean fclean re
